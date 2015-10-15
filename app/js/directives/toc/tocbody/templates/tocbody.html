@@ -1,0 +1,46 @@
+<form class="col s12 form_mostrar_container" style="margin-bottom:0px;padding-right:20px;" ng-controller="TocBodyController">
+    <div class="row">
+        <div class="row">
+            <p class="col s2 noPadding bigger-font-size" style="margin-bottom:0px;">Lista de resultados</p>
+            <p style="float:right;position:relative;left:10px;">
+                <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked">
+                <label for="filled-in-box">Ocultar expediente en revisión</label>
+            </p>
+        </div>
+        <div class="row" style="background-color:;position:relative;bottom:20px;">
+            <div class="col s4 noPadding resultados_encontrados">Se han encontrado <div class="resultado_numero">{{tocbodyContent.expedientes.length}}</div>
+                resultados
+            </div>
+            <button type="button" class="blue-color button-medium no-background" style="float:right;">IMPRIMIR</button>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom:0px;position:relative;bottom:40px;">
+        <table class="bordered highlight lowSize resultadosTabla text-center" style="margin-bottom:10px;">
+            <thead>
+                <tr>
+                    <th title="Impactado" data-field="impactado" style="width:10%;"></th>
+                    <th title="Número de cuenta" data-field="n_cuenta" style="width:15%;">{{tocbodyInfo.numCuenta}}<i class="material-icons"></i></th>
+                    <th title="Canal" data-field="canal" style="width:10%;">{{tocbodyInfo.canal}}<i class="material-icons"></i></th>
+                    <th title="Intervinientes" data-field="intervinientes" style="width:10%;">{{tocbodyInfo.interv}}<i class="material-icons"></i></th>
+                    <th title="Gestor" data-field="gestor" style="width:15%;">{{tocbodyInfo.gestor}}<i class="material-icons"></i></th>
+                    <th title="FechaCre" data-field="fechaCre" style="width:20%;">{{tocbodyInfo.creationDate}}<i class="material-icons"></i></th>
+                    <th title="FechaMod" data-field="FechaMod" class="" style="width:20%;">{{tocbodyInfo.modDate}}<i class="material-icons"></i></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="expediente in tocbodyContent.expedientes">
+                    <td>
+                        <i class="material-icons">{{expediente.locked}}</i>
+                    </td>
+                    <td>{{expediente.numCuenta}}</td>
+                    <td>{{expediente.canal}}</td>
+                    <td>{{expediente.interv}}</td>
+                    <td>{{expediente.gestor}}</td>
+                    <td>{{expediente.creationDate}}</td>
+                    <td>{{expediente.modDate}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <toc-footer></toc-footer>
+    </div>
+</form>

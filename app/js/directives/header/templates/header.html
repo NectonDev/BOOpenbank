@@ -1,0 +1,35 @@
+<nav class="cabecera" ng-controller="HeaderController">
+    <div class="contenido_nav">
+        <div class="cont_sup">
+            <div class="cabecera_center">
+                <div class="tit_cliente">
+                    <p>{{headerInfo.headerValue}}</p>
+                </div>
+                <div class="img_open col s3">
+                    <img class="img_logo" src="{{headerInfo.logoOpenBank}}" alt="OpenBank">
+                </div>
+            </div>
+        </div>
+        <div class="cont_inf">
+            <div class="cabecera_center">
+                <ul id="menu_nav" class="menu_nav menu_cabecera">
+                    <li><a href="#/backoffice">{{headerInfo.buttonBackOffice}}</a></li>
+                    <li><a href="#/contactcenter">{{headerInfo.buttonContactCenter}}</a></li>
+                </ul>
+                <div class="lateral_derecha">
+                    <div class="nom_usuario">
+                        <a href="#" style="margin-right:7px;">Carla Fernández González</a> |
+                    </div>
+                    <div class="iconos_cab">
+                        <a href="#/buscador" style="margin-right:5px;margin-left:7px;";>
+                            <i class="material-icons">search</i>
+                        </a>
+                        <a href="#">
+                            <i class="material-icons">exit_to_app</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
