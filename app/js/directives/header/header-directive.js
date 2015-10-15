@@ -12,9 +12,6 @@ angular.module('headerDirective', [])
     .directive('mainHeader', function() {
         return {
             restrict: 'E',
-            scope: {
-                headerInfo: '=info'
-            },
             templateUrl: './js/directives/header/templates/header.html'
         };
     });
