@@ -4,12 +4,14 @@
 angular.module('BOOpenbank', [
   'ngRoute',
   'ngMaterial',
+  'APIConfig',
   'headerDirective',
   'tocHeaderDirective',
   'tocBodyDirective',
   'tocFooterDirective',
   'searchDirective',
-  'tocDirective'
+  'tocDirective',
+  'ExpedientesService'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider
