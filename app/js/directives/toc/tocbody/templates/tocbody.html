@@ -1,4 +1,4 @@
-<form class="col s12 form_mostrar_container" style="margin-bottom:0px;padding-right:20px;" ng-controller="TocBodyController">
+<form class="col s12 form_mostrar_container" style="margin-bottom:0px;padding-right:20px;">
     <div class="row">
         <div class="row">
             <p class="col s2 noPadding bigger-font-size" style="margin-bottom:0px;">Lista de resultados</p>
@@ -7,8 +7,8 @@
                 <label for="filled-in-box">Ocultar expediente en revisión</label>
             </p>
         </div>
-        <div class="row" style="background-color:;position:relative;bottom:20px;">
-            <div class="col s4 noPadding resultados_encontrados">Se han encontrado <div class="resultado_numero">{{tocbodyContent.expedientes.length}}</div>
+        <div class="row" style="position:relative;bottom:20px;">
+            <div class="col s4 noPadding resultados_encontrados">Se han encontrado <div class="resultado_numero">{{tableResults.expedientes.length}}</div>
                 resultados
             </div>
             <button type="button" class="blue-color button-medium no-background" style="float:right;">IMPRIMIR</button>
@@ -19,28 +19,30 @@
             <thead>
                 <tr>
                     <th title="Impactado" data-field="impactado" style="width:10%;"></th>
-                    <th title="Número de cuenta" data-field="n_cuenta" style="width:15%;">{{tocbodyInfo.numCuenta}}<i class="material-icons"></i></th>
-                    <th title="Canal" data-field="canal" style="width:10%;">{{tocbodyInfo.canal}}<i class="material-icons"></i></th>
-                    <th title="Intervinientes" data-field="intervinientes" style="width:10%;">{{tocbodyInfo.interv}}<i class="material-icons"></i></th>
-                    <th title="Gestor" data-field="gestor" style="width:15%;">{{tocbodyInfo.gestor}}<i class="material-icons"></i></th>
-                    <th title="FechaCre" data-field="fechaCre" style="width:20%;">{{tocbodyInfo.creationDate}}<i class="material-icons"></i></th>
-                    <th title="FechaMod" data-field="FechaMod" class="" style="width:20%;">{{tocbodyInfo.modDate}}<i class="material-icons"></i></th>
+                    <th title="Número de cuenta" data-field="n_cuenta" style="width:15%;">{{tableInfo.numCuenta}}<i class="material-icons"></i></th>
+                    <th title="Canal" data-field="canal" style="width:10%;">{{tableInfo.canal}}<i class="material-icons"></i></th>
+                    <th title="Intervinientes" data-field="intervinientes" style="width:10%;">{{tableInfo.interv}}<i class="material-icons"></i></th>
+                    <th title="Gestor" data-field="gestor" style="width:15%;">{{tableInfo.gestor}}<i class="material-icons"></i></th>
+                    <th title="FechaCre" data-field="fechaCre" style="width:20%;">{{tableInfo.creationDate}}<i class="material-icons"></i></th>
+                    <th title="FechaMod" data-field="FechaMod" class="" style="width:20%;">{{tableInfo.modDate}}<i class="material-icons"></i></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="expediente in tocbodyContent.expedientes">
+                <tr ng-click="" ng-repeat="expediente in tableResults.expedientes">
                     <td>
-                        <i class="material-icons">{{expediente.locked}}</i>
+                        <i class="material-icons" ng-if="expediente.expediente.usuario_bloqueo != ''">lock</i>
                     </td>
-                    <td>{{expediente.numCuenta}}</td>
-                    <td>{{expediente.canal}}</td>
-                    <td>{{expediente.interv}}</td>
-                    <td>{{expediente.gestor}}</td>
-                    <td>{{expediente.creationDate}}</td>
-                    <td>{{expediente.modDate}}</td>
+                    <td>{{expediente.expediente.codigo_cuenta_creada}}</td>
+                    <td>{{expediente.expediente.plataforma}}</td>
+                    <td>{{expediente.usuarios.length}}</td>
+                    <td>{{expediente.expediente.usuario_bloqueo}}</td>
+                    <td>{{expediente.expediente.r_creation_date | date : 'dd/MM/yyyy HH:mm'}}</td>
+                    <td>{{expediente.expediente.r_modify_date | date : 'dd/MM/yyyy HH:mm'}}</td>
                 </tr>
             </tbody>
         </table>
-        <toc-footer></toc-footer>
+        <div ng-controller="TocFooterController">
+            <toc-footer></toc-footer>
+        </div>
     </div>
 </form>

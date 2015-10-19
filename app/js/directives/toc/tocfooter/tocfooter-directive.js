@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tocFooterDirective', [])
-    .controller('TocFooterController', ['$scope', function($scope) {
+    .controller('TocFooterController', ['$scope', 'ExpedientesModel', function($scope) {
         $scope.tocfooterInfo = {
             numResultsPerPageOptions: [5,10,15,20]
         };
@@ -10,6 +10,7 @@ angular.module('tocFooterDirective', [])
     .directive('tocFooter', function() {
         return {
             restrict: 'E',
-            templateUrl: './js/directives/toc/tocfooter/templates/tocfooter.html'
+            templateUrl: './js/directives/toc/tocfooter/templates/tocfooter.html',
+            replace: true
         };
     });

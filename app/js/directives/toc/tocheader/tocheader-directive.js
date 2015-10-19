@@ -8,10 +8,17 @@ angular.module('tocHeaderDirective', [])
             pteFIOC: 'PTE. FIOC',
             activados: 'ACTIVADOS'
         };
+        $scope.$watch('tocbodyContent', function(tocbodyContent){
+            console.log(tocbodyContent);
+        });
     }])
     .directive('tocHeader', function() {
         return {
             restrict: 'E',
-            templateUrl: './js/directives/toc/tocheader/templates/tocheader.html'
+            templateUrl: './js/directives/toc/tocheader/templates/tocheader.html',
+            replace: true,
+            scope: {
+                headerInfo: "="
+            }
         };
     });

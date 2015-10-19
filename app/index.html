@@ -17,8 +17,8 @@
 </head>
 <body>
   <div class="contenedor">
-    <div class="row">
-      <main-header info="MainheaderInfo"></main-header>
+    <div class="row" ng-controller="HeaderController">
+      <main-header main-info="headerInfo"></main-header>
     </div>
     <div class="row central">
       <div class="central-col" ng-view></div>

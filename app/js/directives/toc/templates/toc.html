@@ -1,2 +1,8 @@
-<toc-header></toc-header>
-<toc-body></toc-body>
+<div>
+    <div ng-controller="TocHeaderController">
+        <toc-header header-info="tocheaderInfo"></toc-header>
+    </div>
+    <div ng-controller="TocBodyController">
+        <toc-body table-info="tocbodyInfo" table-results="tocbodyContent"></toc-body>
+    </div>
+</div>

@@ -25,6 +25,7 @@ angular.module('searchDirective', [])
     .directive('search', function() {
         return {
             restrict: 'E',
-            templateUrl: './js/directives/search/templates/search.html'
+            templateUrl: './js/directives/search/templates/search.html',
+            replace: true
         };
     });

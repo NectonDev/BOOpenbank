@@ -12,6 +12,10 @@ angular.module('headerDirective', [])
     .directive('mainHeader', function() {
         return {
             restrict: 'E',
-            templateUrl: './js/directives/header/templates/header.html'
+            templateUrl: './js/directives/header/templates/header.html',
+            replace: true,
+            scope: {
+                mainInfo: "="
+            }
         };
     });
