@@ -26,6 +26,12 @@ angular.module('searchDirective', [])
         return {
             restrict: 'E',
             templateUrl: './js/directives/search/templates/search.html',
-            replace: true
+            replace: true,
+            scope:{
+                searchInfo: "=",
+                typeOptions: "=",
+                statesOptions: "=",
+                canalesOptions: "="
+            }
         };
     });

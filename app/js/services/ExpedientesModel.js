@@ -8,7 +8,7 @@ angular.module('ExpedientesService',[])
                 {
                     "expediente": {
                         "page" : "1",
-                        "results" : "12" ,
+                        "results" : "5" ,
                         "filtro" : filtro
                     }
                 },

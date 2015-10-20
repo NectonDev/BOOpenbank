@@ -3,35 +3,17 @@
         Mostrar:
         <div style="width:35px;display:inline-block;height:20px;margin-left:5px;margin-right:5px;" class="noBorder">
             <md-input-container style="width:90px;right:0px;font-size: 14px;">
-                <md-select ng-model="numResultados">
-                    <md-option ng-selected="defaultResultsPerPage === resultsPerPage" ng-value="resultsPerPage" ng-repeat="resultsPerPage in tocfooterInfo.numResultsPerPageOptions">{{resultsPerPage}}</md-option>
+                <md-select ng-model="actualSizePerPage">
+                    <md-option ng-selected="defaultResultsPerPage === resultsPerPage" ng-value="resultsPerPage" ng-repeat="resultsPerPage in resultsPerPageOptions">{{resultsPerPage}}</md-option>
                 </md-select>
             </md-input-container>
         </div>
         registros por p&aacute;gina
     </div>
     <div>
-        <ul ng-model="numPages" class="pagination col s4 offset-s4 pagination-padding text-right-bottom noPadding" style="padding-right: 1.2% !important;">
-            <li class="disabled">
-                <a href="#!"><i class="material-icons">chevron_left</i></a>
-            </li>
+        <ul ng-repeat="page in numTotalPages" class="pagination col s4 offset-s4 pagination-padding text-right-bottom noPadding" style="padding-right: 1.2% !important;">
             <li class="active">
-                <a href="#!">1</a>
-            </li>
-            <li class="waves-effect">
-                <a href="#!">2</a>
-            </li>
-            <li class="waves-effect">
-                <a href="#!">3</a>
-            </li>
-            <li class="waves-effect">
-                <a href="#!">4</a>
-            </li>
-            <li class="waves-effect">
-                <a href="#!">5</a>
-            </li>
-            <li class="waves-effect">
-                <a href="#!"><i class="material-icons">chevron_right</i></a>
+                <a href="#!">{{page}}</a>
             </li>
         </ul>
     </div>

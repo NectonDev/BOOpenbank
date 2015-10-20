@@ -10,10 +10,17 @@ angular.module('tocBodyDirective', [])
             creationDate: 'Fecha Creaci\u00F3n',
             modDate: 'Fecha Modificaci\u00F3n'
         };
-        var callToallExps = ExpedientesModel.getAllExpedientesConFiltro("");
-        callToallExps.then(function(data){
-            $scope.tocbodyContent = data.data;
-        });
+
+        $scope.$watch('hideLocked',function(data){
+            if (data==true){
+                $scope.tableResults = ""
+            }else{
+                var callToallExpsWithFiler = ExpedientesModel.getAllExpedientesConFiltro("");
+                callToallExpsWithFiler.then(function(data){
+                    $scope.tableResults = data.data;
+                });
+            }
+        })
     }])
     .directive('tocBody', function() {
     return {
@@ -21,9 +28,10 @@ angular.module('tocBodyDirective', [])
         templateUrl: './js/directives/toc/tocbody/templates/tocbody.html',
         transclude: true,
         replace: true,
-        scope:{
+        scope: {
             tableInfo: "=",
-            tableResults: "="
+            tableResults: "=",
+            hideLocked: "="
         }
     };
 });

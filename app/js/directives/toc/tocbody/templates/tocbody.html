@@ -3,12 +3,12 @@
         <div class="row">
             <p class="col s2 noPadding bigger-font-size" style="margin-bottom:0px;">Lista de resultados</p>
             <p style="float:right;position:relative;left:10px;">
-                <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked">
-                <label for="filled-in-box">Ocultar expediente en revisión</label>
+                <input ng-model="hideLocked" type="checkbox" class="filled-in" id="filled-in-box" checked="checked">
+                <label for="filled-in-box">Ocultar expediente en revisi&oacute;n</label>
             </p>
         </div>
         <div class="row" style="position:relative;bottom:20px;">
-            <div class="col s4 noPadding resultados_encontrados">Se han encontrado <div class="resultado_numero">{{tableResults.expedientes.length}}</div>
+            <div class="col s4 noPadding resultados_encontrados">Se han encontrado <div class="resultado_numero">{{tableResults.numResults}}</div>
                 resultados
             </div>
             <button type="button" class="blue-color button-medium no-background" style="float:right;">IMPRIMIR</button>
@@ -42,7 +42,7 @@
             </tbody>
         </table>
         <div ng-controller="TocFooterController">
-            <toc-footer></toc-footer>
+            <toc-footer num-total-expedientes="numTotalExpedientes" actual-size-per-page="numActualResultsPerPage" results-per-page-options="numResultsPerPageOptions" default-results-per-page="numResultsPerPageDefault"></toc-footer>
         </div>
     </div>
 </form>

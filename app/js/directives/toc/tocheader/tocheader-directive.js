@@ -8,9 +8,6 @@ angular.module('tocHeaderDirective', [])
             pteFIOC: 'PTE. FIOC',
             activados: 'ACTIVADOS'
         };
-        $scope.$watch('tocbodyContent', function(tocbodyContent){
-            console.log(tocbodyContent);
-        });
     }])
     .directive('tocHeader', function() {
         return {
