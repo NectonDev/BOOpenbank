@@ -2,13 +2,32 @@ angular.module('ExpedientesService',[])
     .factory('ExpedientesModel', ['$http','APIConfigService', function ($http, APIConfigService) {
         var service = this;
 
-        service.getAllExpedientesConFiltro = function(filtro){
+        service.setPageParam = function(page){
+            page = (typeof page === 'undefined') ? '1' : page;
+        };
+        service.setPageParam = function(page){
+            page = (typeof page === 'undefined') ? '1' : page;
+        };
+        service.setPageParam = function(page){
+            page = (typeof page === 'undefined') ? '1' : page;
+        };
+        service.getPageParam = function(page){
+            page = (typeof page === 'undefined') ? '1' : page;
+        };
+        service.getSizeParam = function(page){
+            s = (typeof page === 'undefined') ? '1' : page;
+        };
+        service.getFilterParam = function(page){
+            page = (typeof page === 'undefined') ? '1' : page;
+        };
+
+        service.getAllExpedientesConFiltro = function(page, results, filtro){
             var allExpedientes  = $http.post(
                 APIConfigService.getUrlLeerExpedientesFiltros(),
                 {
                     "expediente": {
-                        "page" : "1",
-                        "results" : "5" ,
+                        "page" : page,
+                        "results" : results ,
                         "filtro" : filtro
                     }
                 },
@@ -21,6 +40,8 @@ angular.module('ExpedientesService',[])
             );
             allExpedientes.then(function(data){
                 return data;
+            }, function(data){
+                //console.log(data);
             });
             return allExpedientes;
         };

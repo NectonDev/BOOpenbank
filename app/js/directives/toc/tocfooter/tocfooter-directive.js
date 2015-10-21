@@ -7,18 +7,29 @@ angular.module('tocFooterDirective', [])
         $scope.numResultsPerPageDefault = $scope.numResultsPerPageOptions[0];
 
         $scope.$watch('numActualResultsPerPage',function(data){
-            var arrayOfPages = [];
-            var numTotalPages = parseInt($scope.numTotalExpedientes/data);
-            for (var i=0;i<numTotalPages;i++){
-                arrayOfPages.push(i+1);
+            if (data) {
+                $scope.numPageResults = data;
+                $scope.$watch('tableResults', function(tableResults){
+                    if (tableResults){
+                        var arrayOfPages = [];
+                        var numExpedientes = tableResults.numResults;
+                        var arrayNumPages = (numExpedientes / $scope.numPageResults).toString().split(".");
+                        if (arrayNumPages[0]==0){
+                            arrayOfPages.push(1);
+                        }else{
+                            for (var i = 0; i < arrayNumPages[0]; i++) {
+                                arrayOfPages.push(i + 1);
+                            }
+                            if (arrayNumPages[1] > 0){
+                                arrayOfPages.push(arrayOfPages.length+1);
+                            }
+                        }
+                        $scope.numTotalPages = arrayOfPages;
+                    }
+                })
+
             }
-            $scope.numTotalPages = arrayOfPages;
-        })
-
-        $scope.$watch('tableResults',function(data){
-
-        })
-
+        });
     }])
     .directive('tocFooter', function() {
         return {
@@ -29,7 +40,7 @@ angular.module('tocFooterDirective', [])
                 resultsPerPageOptions : "=",
                 defaultResultsPerPage : "=",
                 actualSizePerPage : "=",
-                numTotalExpedientes : "="
+                numTotalPages : "="
             }
         };
     });

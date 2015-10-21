@@ -13,14 +13,19 @@ angular.module('tocBodyDirective', [])
 
         $scope.$watch('hideLocked',function(data){
             if (data==true){
-                $scope.tableResults = ""
+                $scope.tableResults = {};
+                $scope.tableResults.numResults = 0;
             }else{
-                var callToallExpsWithFiler = ExpedientesModel.getAllExpedientesConFiltro("");
+                var callToallExpsWithFiler = ExpedientesModel.getAllExpedientesConFiltro("1","20","");
                 callToallExpsWithFiler.then(function(data){
                     $scope.tableResults = data.data;
                 });
             }
-        })
+        });
+
+        $scope.$on('filterActive', function(event, args){
+            console.log(args);
+        });
     }])
     .directive('tocBody', function() {
     return {

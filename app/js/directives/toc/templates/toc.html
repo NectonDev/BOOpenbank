@@ -1,8 +1,8 @@
 <div>
     <div ng-controller="TocHeaderController">
-        <toc-header header-info="tocheaderInfo"></toc-header>
+        <toc-header header-info="buttons" change-filter="changeFilter" filter-active="filterActive"></toc-header>
     </div>
     <div ng-controller="TocBodyController">
-        <toc-body table-info="tocbodyInfo" table-results="tableResults" hide-locked="hideLocked" rows-per-page="numResultsPerPage"></toc-body>
+        <toc-body table-info="tocbodyInfo" table-results="tableResults" hide-locked="hideLocked"></toc-body>
     </div>
 </div>

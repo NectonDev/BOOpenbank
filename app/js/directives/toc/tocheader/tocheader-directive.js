@@ -1,12 +1,20 @@
 'use strict';
 
 angular.module('tocHeaderDirective', [])
-    .controller('TocHeaderController', ['$scope', function($scope) {
-        $scope.tocheaderInfo = {
-            pteValidar: 'PTE. VALIDAR',
-            pteCancelar: 'PTE. CANCELAR',
-            pteFIOC: 'PTE. FIOC',
-            activados: 'ACTIVADOS'
+    .controller('TocHeaderController', ['$rootScope','$scope', function($rootScope, $scope) {
+        $scope.buttons = [
+            ['PTE. VALIDAR','pendienteActivacion'],
+            ['PTE. DOCUMENTACI\u00F3N','pendienteDocumentacion'],
+            ['REVISI\u00F3N FIOC','fioc'],
+            ['PTE. ACTIVACI\u00F3N','pendienteActivacion'],
+            ['PTE. CANCELACI\u00F3N','pendienteCancelacion']
+        ];
+        $scope.changeFilter = function(filter){
+            if (filter) {
+                $scope.filterActive = filter;
+                $scope.tableResults = "";
+                $rootScope.$broadcast('filterActive',filter);
+            }
         };
     }])
     .directive('tocHeader', function() {
@@ -15,7 +23,9 @@ angular.module('tocHeaderDirective', [])
             templateUrl: './js/directives/toc/tocheader/templates/tocheader.html',
             replace: true,
             scope: {
-                headerInfo: "="
+                headerInfo: "=",
+                changeFilter: "=",
+                filterActive: "="
             }
         };
     });

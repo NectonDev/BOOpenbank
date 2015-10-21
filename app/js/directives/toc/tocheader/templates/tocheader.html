@@ -1,18 +1,9 @@
 <div id="menuListado">
     <div class="col s12 noPadding expediente_nav_container">
         <nav>
-            <ul id="expediente_nav" class="menu_nav expediente_nav">
+            <ul id="expediente_nav" class="menu_nav expediente_nav" ng-repeat="button in headerInfo">
                 <li>
-                    <a href="#/">{{headerInfo.pteValidar}}</a>
-                </li>
-                <li>
-                    <a href="#/">{{headerInfo.pteCancelar}}</a>
-                </li>
-                <li style="padding-left:20px;">
-                    <a href="#/">{{headerInfo.pteFIOC}}</a>
-                </li>
-                <li>
-                    <a href="#/">{{headerInfo.activados}}</a>
+                    <a ng-click="changeFilter(button[1])">{{button[0]}}</a>
                 </li>
             </ul>
         </nav>
