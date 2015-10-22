@@ -22,7 +22,7 @@ angular.module('ExpedientesService',[])
             allExpedientes.then(function(data){
                 return data;
             }, function(data){
-                //console.log(data);
+                console.log(data);
             });
             return allExpedientes;
         };

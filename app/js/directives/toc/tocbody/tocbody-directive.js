@@ -6,7 +6,7 @@ angular.module('tocBodyDirective', [])
 
         config_object.page = "1";
         config_object.pageSize = "5";
-        config_object.filter = "pendienteActivacion"
+        config_object.filter = "pendienteActivacion";
 
         $scope.tocbodyInfo = {
             numCuenta: 'N\u00FAmero cuenta',

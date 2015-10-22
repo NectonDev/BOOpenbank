@@ -5,7 +5,6 @@ angular.module('BOOpenbank', [
   'ngRoute',
   'ngMaterial',
   'APIConfig',
-  'scDateTime',
   'headerDirective',
   'tocHeaderDirective',
   'tocBodyDirective',
@@ -14,8 +13,8 @@ angular.module('BOOpenbank', [
   'tocDirective',
   'expDetailDirective',
   'ExpedientesService'
-]).
-config(['$routeProvider', function($routeProvider) {
+])
+.config(['$routeProvider', function($routeProvider ) {
   $routeProvider
     .when('/backoffice', {
       templateUrl : 'templates/backoffice.html',
