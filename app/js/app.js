@@ -5,18 +5,23 @@ angular.module('BOOpenbank', [
   'ngRoute',
   'ngMaterial',
   'APIConfig',
+  'scDateTime',
   'headerDirective',
   'tocHeaderDirective',
   'tocBodyDirective',
   'tocFooterDirective',
   'searchDirective',
   'tocDirective',
+  'expDetailDirective',
   'ExpedientesService'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/backoffice', {
       templateUrl : 'templates/backoffice.html',
+    })
+    .when('/backoffice/:expId', {
+      templateUrl : 'templates/expDetail.html',
     })
     .when('/contactcenter', {
       templateUrl : 'templates/contactcenter.html',

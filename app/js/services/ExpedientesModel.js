@@ -2,33 +2,14 @@ angular.module('ExpedientesService',[])
     .factory('ExpedientesModel', ['$http','APIConfigService', function ($http, APIConfigService) {
         var service = this;
 
-        service.setPageParam = function(page){
-            page = (typeof page === 'undefined') ? '1' : page;
-        };
-        service.setPageParam = function(page){
-            page = (typeof page === 'undefined') ? '1' : page;
-        };
-        service.setPageParam = function(page){
-            page = (typeof page === 'undefined') ? '1' : page;
-        };
-        service.getPageParam = function(page){
-            page = (typeof page === 'undefined') ? '1' : page;
-        };
-        service.getSizeParam = function(page){
-            s = (typeof page === 'undefined') ? '1' : page;
-        };
-        service.getFilterParam = function(page){
-            page = (typeof page === 'undefined') ? '1' : page;
-        };
-
-        service.getAllExpedientesConFiltro = function(page, results, filtro){
+        service.getAllExpedientesConFiltro = function(config_object){
             var allExpedientes  = $http.post(
                 APIConfigService.getUrlLeerExpedientesFiltros(),
                 {
                     "expediente": {
-                        "page" : page,
-                        "results" : results ,
-                        "filtro" : filtro
+                        "page" : config_object.page,
+                        "results" : config_object.pageSize,
+                        "filtro" : config_object.filter
                     }
                 },
                 {

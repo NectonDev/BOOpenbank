@@ -1,8 +1,8 @@
 <div id="menuListado">
     <div class="col s12 noPadding expediente_nav_container">
         <nav>
-            <ul id="expediente_nav" class="menu_nav expediente_nav" ng-repeat="button in headerInfo">
-                <li>
+            <ul id="expediente_nav" class="menu_nav expediente_nav">
+                <li ng-repeat="button in headerInfo">
                     <a ng-click="changeFilter(button[1])">{{button[0]}}</a>
                 </li>
             </ul>

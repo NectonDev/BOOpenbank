@@ -1,6 +1,6 @@
 {
   "name": "BOOpenbank",
-  "description": "Backoffice para la gestión de cuentas de Openbank",
+  "description": "Backoffice para la gestiï¿½n de cuentas de Openbank",
   "version": "0.0.0",
   "homepage": "https://github.com/angular/angular-seed",
   "license": "MIT",
@@ -11,6 +11,7 @@
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
     "angular-material": "0.11.4",
-    "jquery": "2.1.4"
+    "jquery": "2.1.4",
+    "sc-date-time": "~1.1.3"
   }
 }

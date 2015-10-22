@@ -28,7 +28,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-click="" ng-repeat="expediente in tableResults.expedientes">
+                <tr ng-click="goToDetail(expediente.r_object_id)" ng-repeat="expediente in tableResults.expedientes">
                     <td>
                         <i class="material-icons" ng-if="expediente.expediente.usuario_bloqueo != ''">lock</i>
                     </td>
@@ -42,7 +42,7 @@
             </tbody>
         </table>
         <div ng-controller="TocFooterController">
-            <toc-footer results-per-page-options="numResultsPerPageOptions" default-results-per-page="numResultsPerPageDefault" actual-size-per-page="numActualResultsPerPage" num-total-pages="numTotalPages"></toc-footer>
+            <toc-footer results-per-page-options="numResultsPerPageOptions" default-results-per-page="numResultsPerPageDefault" actual-size-per-page="numActualResultsPerPage" num-total-pages="numTotalPages" go-to-page="goToPage"></toc-footer>
         </div>
     </div>
 </form>

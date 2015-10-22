@@ -11,9 +11,15 @@
         registros por p&aacute;gina
     </div>
     <div>
-        <ul ng-repeat="page in numTotalPages" class="pagination col s4 offset-s4 pagination-padding text-right-bottom noPadding" style="padding-right: 1.2% !important;">
-            <li class="active">
-                <a href="#!">{{page}}</a>
+        <ul class="pagination col s4 offset-s4 pagination-padding text-right-bottom noPadding" style="padding-right: 1.2% !important;">
+            <li class="disabled">
+                <a><i class="material-icons">chevron_left</i></a>
+            </li>
+            <li class="active" ng-repeat="page in numTotalPages">
+                <a ng-click="goToPage(page)">{{page}}</a>
+            </li>
+            <li class="disabled">
+                <a><i class="material-icons">chevron_right</i></a>
             </li>
         </ul>
     </div>

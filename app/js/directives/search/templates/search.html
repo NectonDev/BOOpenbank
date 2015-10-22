@@ -17,26 +17,27 @@
             </div>
             <div class="infoDatos">
                 <div class="margInf">{{searchInfo.DCText}}</div>
-                <div class="contNum">{{searchInfo.DCNumber}}</div>
+                <div class="contNum" ng-moodel="dc"></div>
             </div>
             <md-input-container class="campoForm masPad offset-s1" style="width:90px;">
                 <label style="left:0px;color:#76777a;font-size: 14px;">Cuenta</label>
                 <input class="validate" type="text" ng-model="cuenta">
             </md-input-container>
-            <md-input-container class="campoForm masPad offset-s1" style="width:160px;">
+            <!-- <md-input-container class="campoForm masPad offset-s1" style="width:160px;">
                 <label style="left:0px;color:#76777a;font-size: 14px;">Expediente</label>
                 <input class="validate" type="text" ng-model="expediente">
-            </md-input-container>
-            <md-input-container style="width:90px;right:0px;font-size:14px;">
+            </md-input-container> -->
+            <time-date-picker ng-model="dateValue"></time-date-picker>
+            <!-- <md-input-container style="width:90px;right:0px;font-size:14px;">
                 <label style="left:0px;color:#76777a;">Tipo</label>
                 <md-select ng-model="tipos">
                     <md-option ng-value="type" ng-repeat="type in typeOptions.choices">{{type}}</md-option>
                 </md-select>
             </md-input-container>
             <md-input-container class="campoForm masPad offset-s1" style="width:200px;left:100px;bottom:100px;">
-                <label style="left:0px;color:#76777a;font-size: 14px;">C&oacute;digo del documento</label>
-                <input class="validate" type="text" ng-model="cod_doc" required>
-            </md-input-container>
+                <label style="left:0px;color:#76777a;font-size: 14px;">N&uacute;mero del documento</label>
+                <input class="validate" type="text" ng-model="cod_doc">
+            </md-input-container> -->
         </div>
         <div class="col s12">
             <md-input-container>
@@ -51,7 +52,6 @@
                     <md-option ng-value="canalOption" ng-repeat="canalOption in canalesOptions.choices">{{canalOption}}</md-option>
                 </md-select>
             </md-input-container>
-            <!-- <md-datepicker class="col s2" style="width:150px;margin-left:0px;left:60px;" ng-model="fDesde">F. Creación desde</md-datepicker> -->
             <!-- <div class="input-field col s1" style="margin-left:0px;left:58px;">
                 <div class="select-wrapper"><span class="caret">?</span><input type="text" class="select-dropdown" readonly="true" data-activates="select-options-1a72a3ab-1cc0-0787-2deb-ff0cebc98c88" value="00:00"><ul id="select-options-1a72a3ab-1cc0-0787-2deb-ff0cebc98c88" class="dropdown-content select-dropdown"><li class=""><span>00:00</span></li><li class=""><span>01:00</span></li><li class=""><span>02:00</span></li></ul><select class="initialized">
                     <option value="1" selected="">00:00</option>

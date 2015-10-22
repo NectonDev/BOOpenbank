@@ -4,16 +4,14 @@ angular.module('tocHeaderDirective', [])
     .controller('TocHeaderController', ['$rootScope','$scope', function($rootScope, $scope) {
         $scope.buttons = [
             ['PTE. VALIDAR','pendienteActivacion'],
-            ['PTE. DOCUMENTACI\u00F3N','pendienteDocumentacion'],
-            ['REVISI\u00F3N FIOC','fioc'],
-            ['PTE. ACTIVACI\u00F3N','pendienteActivacion'],
-            ['PTE. CANCELACI\u00F3N','pendienteCancelacion']
+            ['PTE. DOCUMENTACI\u00D3N','pendienteDocumentacion'],
+            ['REVISI\u00D3N FIOC','fioc'],
+            ['PTE. ACTIVACI\u00D3N','pendienteActivacion'],
+            ['PTE. CANCELACI\u00D3N','pendienteCancelacion']
         ];
         $scope.changeFilter = function(filter){
             if (filter) {
-                $scope.filterActive = filter;
-                $scope.tableResults = "";
-                $rootScope.$broadcast('filterActive',filter);
+                $rootScope.$broadcast('filterChange',filter);
             }
         };
     }])
