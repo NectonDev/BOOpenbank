@@ -3,7 +3,7 @@
 angular.module('tocHeaderDirective', [])
     .controller('TocHeaderController', ['$rootScope','$scope', function($rootScope, $scope) {
         $scope.buttons = [
-            ['PTE. VALIDAR','pendienteActivacion'],
+            ['PTE. VALIDAR','pendienteValidacion'],
             ['PTE. DOCUMENTACI\u00D3N','pendienteDocumentacion'],
             ['REVISI\u00D3N FIOC','fioc'],
             ['PTE. ACTIVACI\u00D3N','pendienteActivacion'],
