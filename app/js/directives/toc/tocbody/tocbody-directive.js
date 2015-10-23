@@ -8,16 +8,28 @@ angular.module('tocBodyDirective', [])
         config_object.pageSize = "5";
         config_object.filter = "pendienteActivacion";
 
+        $scope.isFioc = function(){
+            return  config_object.filter === "fioc";
+        };
+
+        $scope.tableResults = {};
+
         $scope.tocbodyInfo = {
             numCuenta: 'N\u00FAmero cuenta',
             canal: 'Canal',
             interv: 'Interv.',
             gestor: 'Gestor',
             creationDate: 'Fecha Creaci\u00F3n',
-            modDate: 'Fecha Modificaci\u00F3n'
+            modDate: 'Fecha Modificaci\u00F3n',
+            nombre: 'Nombre',
+            apellidos: 'Apellidos',
+            empresa: 'Empresa',
+            actividad: 'Actividad'
         };
-
         function getExpedientes() {
+            if ($scope.isFioc()){
+                config_object.pageSize = "15";
+            }
             var callToallExpsWithFiler = ExpedientesModel.getAllExpedientesConFiltro(config_object);
             callToallExpsWithFiler.then(function (data) {
                 $scope.tableResults = data.data;
@@ -29,7 +41,7 @@ angular.module('tocBodyDirective', [])
                 $scope.tableResults = {};
                 $scope.tableResults.numResults = 0;
             }else{
-                //getExpedientes();
+                getExpedientes();
             }
         });
 
@@ -61,7 +73,8 @@ angular.module('tocBodyDirective', [])
             tableInfo: "=",
             tableResults: "=",
             hideLocked: "=",
-            goToDetail: "="
+            goToDetail: "=",
+            isFioc: "="
         }
     };
 });

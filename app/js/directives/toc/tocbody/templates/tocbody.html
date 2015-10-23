@@ -2,7 +2,7 @@
     <div class="row">
         <div class="row">
             <p class="col s2 noPadding bigger-font-size" style="margin-bottom:0px;">Lista de resultados</p>
-            <p style="float:right;position:relative;left:10px;">
+            <p ng-if="!isFioc()" style="float:right;position:relative;left:10px;">
                 <input ng-model="hideLocked" type="checkbox" class="filled-in" id="filled-in-box" checked="checked">
                 <label for="filled-in-box">Ocultar expediente en revisi&oacute;n</label>
             </p>
@@ -17,7 +17,7 @@
     <div class="row" style="margin-bottom:0px;position:relative;bottom:40px;">
         <table class="bordered highlight lowSize resultadosTabla text-center" style="margin-bottom:10px;">
             <thead>
-                <tr>
+                <tr ng-if="!isFioc()">
                     <th title="Impactado" data-field="impactado" style="width:10%;"></th>
                     <th title="Número de cuenta" data-field="n_cuenta" style="width:15%;">{{tableInfo.numCuenta}}<i class="material-icons"></i></th>
                     <th title="Canal" data-field="canal" style="width:10%;">{{tableInfo.canal}}<i class="material-icons"></i></th>
@@ -26,9 +26,17 @@
                     <th title="FechaCre" data-field="fechaCre" style="width:20%;">{{tableInfo.creationDate}}<i class="material-icons"></i></th>
                     <th title="FechaMod" data-field="FechaMod" class="" style="width:20%;">{{tableInfo.modDate}}<i class="material-icons"></i></th>
                 </tr>
+                <tr ng-if="isFioc()">
+                    <th title="N&uacute;mero de cuenta" data-field="n_cuenta">{{tableInfo.numCuenta}}<i class="material-icons"></i></th>
+                    <th title="Fecha Creaci&oacute;n" data-field="FechaMod" class="" style="width:20%;">{{tableInfo.creationDate}}<i class="material-icons"></i></th>
+                    <th title="Nomnbre" data-field="nombre" style="width:10%;">{{tableInfo.nombre}}<i class="material-icons"></i></th>
+                    <th title="Apellidos" data-field="apellidos" style="width:10%;">{{tableInfo.apellidos}}<i class="material-icons"></i></th>
+                    <th title="Empresa" data-field="empresa" style="width:15%;">{{tableInfo.empresa}}<i class="material-icons"></i></th>
+                    <th title="Actividad" data-field="actividad" style="width:20%;">{{tableInfo.actividad}}<i class="material-icons"></i></th>
+                </tr>
             </thead>
             <tbody>
-                <tr ng-click="goToDetail(expediente.r_object_id)" ng-repeat="expediente in tableResults.expedientes">
+                <tr ng-if="!isFioc()" ng-click="goToDetail(expediente.expediente.r_object_id)" ng-repeat="expediente in tableResults.expedientes">
                     <td>
                         <i class="material-icons" ng-if="expediente.expediente.usuario_bloqueo != ''">lock</i>
                     </td>
@@ -39,9 +47,18 @@
                     <td>{{expediente.expediente.r_creation_date | date : 'dd/MM/yyyy HH:mm'}}</td>
                     <td>{{expediente.expediente.r_modify_date | date : 'dd/MM/yyyy HH:mm'}}</td>
                 </tr>
+                <tr ng-if="isFioc()" ng-repeat="expediente in tableResults.expedientes">
+                    <td>{{expediente.expediente.codigo_cuenta_creada}}</td>
+                    <td>{{expediente.expediente.r_creation_date | date : 'dd/MM/yyyy HH:mm'}}</td>
+                    <td ng-repeat="usuario in expediente.usuarios">{{usuario.usuario.docident_nom_val}}</td>
+                    <td ng-repeat="usuario in expediente.usuarios">{{usuario.usuario.docident_ape1_val}} {{usuario.usuario.docident_ape2_val}}</td>
+                    <td ng-repeat="usuario in expediente.usuarios">{{usuario.usuario.kyc_empresa}}</td>
+                    <td ng-repeat="usuario in expediente.usuarios">{{usuario.usuario.kyc_actividad_empresa}}</td>
+                    <td><md-checkbox ng-repeat="usuario in expediente.usuarios" ng-init="usersToProcess=true" role="checkbox" ng-model="usersToProcess" aria-label="Procesar Usuario"></md-checkbox></td>
+                </tr>
             </tbody>
         </table>
-        <div ng-controller="TocFooterController">
+        <div ng-if="!isFioc()" ng-controller="TocFooterController">
             <toc-footer results-per-page-options="numResultsPerPageOptions" default-results-per-page="numResultsPerPageDefault" actual-size-per-page="numActualResultsPerPage" num-total-pages="numTotalPages" go-to-page="goToPage"></toc-footer>
         </div>
     </div>
