@@ -3,7 +3,7 @@
         <div class="row">
             <p class="col s2 noPadding bigger-font-size" style="margin-bottom:0px;">Lista de resultados</p>
             <p ng-if="!isFioc()" style="float:right;position:relative;left:10px;">
-                <input ng-model="hideLocked" type="checkbox" class="filled-in" id="filled-in-box" checked="checked">
+                <input ng-model="$parent.hideLocked" type="checkbox" class="filled-in" id="filled-in-box" checked="checked">
                 <label for="filled-in-box">Ocultar expediente en revisi&oacute;n</label>
             </p>
         </div>
