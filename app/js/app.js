@@ -4,6 +4,8 @@
 angular.module('BOOpenbank', [
   'ngRoute',
   'ngMaterial',
+  'ngStorage',
+  'ngAnimate',
   'APIConfig',
   'headerDirective',
   'tocHeaderDirective',
@@ -12,7 +14,10 @@ angular.module('BOOpenbank', [
   'searchDirective',
   'tocDirective',
   'expDetailDirective',
-  'ExpedientesService'
+  'ExpedientesService',
+  'TipoDocsService',
+  'EstadosService',
+  'RequisitosService'
 ])
 .config(['$routeProvider', function($routeProvider ) {
   $routeProvider
@@ -29,4 +34,32 @@ angular.module('BOOpenbank', [
       templateUrl : 'templates/search.html',
     })
     .otherwise({redirectTo: '/backoffice'});
-}]);
+}])
+    .run(['$http', '$localStorage', 'APIConfigService' ,function($http, $localStorage, APIConfigService){
+      (function($http){
+        var headers_object = {
+          headers:{
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json'
+          }
+        };
+        var allEstados  = $http.get(
+            APIConfigService.getUrlListaEstados(),
+            headers_object
+        );
+        var allDocs  = $http.get(
+            APIConfigService.getUrlListaDocs(),
+            headers_object
+        );
+        allEstados.then(function(data){
+          $localStorage.tiposEstados = data.data;
+        }, function(data){
+          console.log(data);
+        });
+        allDocs.then(function(data){
+          $localStorage.tiposDocs = data.data;
+        }, function(data){
+          console.log(data);
+        });
+      })($http);
+    }]);

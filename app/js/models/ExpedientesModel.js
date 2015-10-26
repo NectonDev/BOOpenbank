@@ -27,12 +27,28 @@ angular.module('ExpedientesService',[])
             return allExpedientes;
         };
 
-        /*service.getExpedienteById = function(expediente_id){
-            return $http.post(APIConfigService.getUrlLeerExpediente())
-            .then(function(result){
-                console.log(result);
+        service.getExpedienteById = function(expId){
+            var expediente  = $http.post(
+                APIConfigService.getUrlLeerExpediente(),
+                {
+                    "expediente": {
+                        "r_object_id": expId
+                    }
+                },
+                {
+                    headers:{
+                        'Access-Control-Allow-Origin': '*',
+                        'Content-Type': 'application/json'
+                    }
+                }
+            );
+            expediente.then(function(data){
+                return data;
+            }, function(data){
+                console.log(data);
             });
-        };*/
+            return expediente;
+        };
 
         return service;
     }]);
