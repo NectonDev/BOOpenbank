@@ -1,0 +1,41 @@
+<div>
+    <div class="col s12 noPadding form_detalle_expediente_container top">
+        <p class="bigger-font-size">Detalle del expediente</p>
+    </div>
+    <button class="btn waves-effect waves-light button-medium bttRequer">CANCELAR EXPEDIENTE</button>
+    <button class="btn waves-effect waves-light button-medium">OBSERVACIONES</button>
+    <div class="col s12 datosDetalle">
+        <div class="infoDatos">
+            <div>{{infoHeader.IBANText}}</div>
+            <div class="contNum">{{infoHeader.IBANNumber}}</div>
+        </div>
+        <div class="infoDatos">
+            <div>{{infoHeader.EntidadText}}</div>
+            <div class="contNum">{{infoHeader.EntidadNumber}}</div>
+        </div>
+        <div class="infoDatos">
+            <div>{{infoHeader.OficinaText}}</div>
+            <div class="contNum">{{infoHeader.OficinaNumber}}</div>
+        </div>
+        <div class="infoDatos">
+            <div>{{infoHeader.DCText}}</div>
+            <div class="contNum"></div>
+        </div>
+        <div class="infoDatos masPad">
+            <div>Cuenta</div>
+            <div class="contNum">{{infoExpediente.num_cuenta}}</div>
+        </div>
+        <div class="infoDatos masPad">
+            <div>Estado</div>
+            <div class="contNum">{{infoExpediente.estado}}</div>
+        </div>
+        <div class="infoDatos masPad">
+            <div>Fecha alta</div>
+            <div class="contNum">{{infoExpediente.fecha_alta}}</div>
+        </div>
+        <div class="infoDatos masPad">
+            <div>Fecha modificaci&oacute;n</div>
+            <div class="contNum">{{infoExpediente.fecha_mod}}</div>
+        </div>
+    </div>
+</div>

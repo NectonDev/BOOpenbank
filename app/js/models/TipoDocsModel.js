@@ -1,5 +1,5 @@
 angular.module('TipoDocsService',[])
-    .factory('TipoDocsModel', ['$localStorage', function ($localStorage) {
+    .factory('TipoDocsModel', ['$http', '$localStorage', function ($localStorage, $http) {
         var service = this;
 
         service.getTipoDocById = function(docId){

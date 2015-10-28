@@ -1,5 +1,5 @@
 angular.module('EstadosService',[])
-    .factory('EstadosModel', ['$localStorage', function ($localStorage) {
+    .factory('EstadosModel', ['$http', '$localStorage', function ($localStorage, $http) {
         var service = this;
 
         service.getEstadoById = function(estadoId){

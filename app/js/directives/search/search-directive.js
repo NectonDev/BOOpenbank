@@ -9,7 +9,7 @@ angular.module('searchDirective', [])
             EntidadNumber: '2229',
             OficinaText: 'Oficina',
             OficinaNumber: '9598',
-            DCText: 'DC',
+            DCText: 'DC'
         };
         $scope.typeOptions = {
             choices: ['Tipo 1', 'Tipo 2', 'Tipo 3']

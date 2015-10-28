@@ -1,5 +1,5 @@
 angular.module('ExpedientesService',[])
-    .factory('ExpedientesModel', ['$http','APIConfigService', function ($http, APIConfigService) {
+    .factory('ExpedientesModel', ['$http','APIConfigService', 'EstadosModel', function ($http, APIConfigService, EstadosModel) {
         var service = this;
 
         service.getAllExpedientesConFiltro = function(config_object){
@@ -48,6 +48,16 @@ angular.module('ExpedientesService',[])
                 console.log(data);
             });
             return expediente;
+        };
+
+        service.createInfoExpediente = function(dataExpediente){
+            var infoExpediente = new Object();
+            infoExpediente.id = dataExpediente.r_object_id;
+            infoExpediente.num_cuenta = dataExpediente.codigo_cuenta_creada;
+            infoExpediente.estado = EstadosModel.getEstadoById(dataExpediente.estado);
+            infoExpediente.fecha_alta = dataExpediente.r_creation_date.split("T")[0];
+            infoExpediente.fecha_mod = dataExpediente.r_modify_date.split("T")[0];
+            return infoExpediente;
         };
 
         return service;

@@ -14,10 +14,14 @@ angular.module('BOOpenbank', [
   'searchDirective',
   'tocDirective',
   'expDetailDirective',
+  'expDetailHeaderDirective',
+  'expDetailBodyDirective',
+  'userDetailDirective',
   'ExpedientesService',
   'TipoDocsService',
   'EstadosService',
-  'RequisitosService'
+  'RequisitosService',
+  'UsersService'
 ])
 .config(['$routeProvider', function($routeProvider ) {
   $routeProvider
@@ -26,6 +30,9 @@ angular.module('BOOpenbank', [
     })
     .when('/backoffice/:expId', {
       templateUrl : 'templates/expDetail.html',
+    })
+    .when('/backoffice/:expId/:userId', {
+      templateUrl : 'templates/userDetail.html',
     })
     .when('/contactcenter', {
       templateUrl : 'templates/contactcenter.html',
@@ -37,12 +44,7 @@ angular.module('BOOpenbank', [
 }])
     .run(['$http', '$localStorage', 'APIConfigService' ,function($http, $localStorage, APIConfigService){
       (function($http){
-        var headers_object = {
-          headers:{
-            'Access-Control-Allow-Origin': '*',
-            'Content-Type': 'application/json'
-          }
-        };
+        var headers_object = APIConfigService.getHeaders();
         var allEstados  = $http.get(
             APIConfigService.getUrlListaEstados(),
             headers_object
@@ -54,12 +56,12 @@ angular.module('BOOpenbank', [
         allEstados.then(function(data){
           $localStorage.tiposEstados = data.data;
         }, function(data){
-          console.log(data);
+          console.log("Error recuperando los estados: "+data);
         });
         allDocs.then(function(data){
           $localStorage.tiposDocs = data.data;
         }, function(data){
-          console.log(data);
+          console.log("Error recuperando los tipos de documento: "+data);
         });
       })($http);
     }]);
