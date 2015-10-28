@@ -9,13 +9,8 @@ angular.module('tocHeaderDirective', [])
             ['PTE. ACTIVACI\u00D3N','pendienteActivacion'],
             ['PTE. CANCELACI\u00D3N','pendienteCancelacion']
         ];
-        $scope.changeFilter = function(filter){
-            if (filter) {
-                $rootScope.$broadcast('filterChange',filter);
-            }
-        };
     }])
-    .directive('tocHeader', function() {
+    .directive('tocHeader', ['$rootScope', function($rootScope) {
         return {
             restrict: 'E',
             templateUrl: './js/directives/toc/tocheader/templates/tocheader.html',
@@ -24,6 +19,13 @@ angular.module('tocHeaderDirective', [])
                 headerInfo: "=",
                 changeFilter: "=",
                 filterActive: "="
+            },
+            link: function($scope){
+                $scope.changeFilter = function(filter){
+                    if (filter) {
+                        $rootScope.$broadcast('filterChange',filter);
+                    }
+                };
             }
         };
-    });
+    }]);

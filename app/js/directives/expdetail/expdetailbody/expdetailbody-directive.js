@@ -18,8 +18,8 @@ angular.module('expDetailBodyDirective', [])
         $scope.$on('usersReqInfo', function(event, args){
             $scope.infoReqUser = args;
         });
-        $scope.getUserDetail = function(user){
-            var urlToUserDetail = "/backoffice/"+$routeParams.expId+"/"+user.id
+        $scope.getUserDetail = function(userId){
+            var urlToUserDetail = "/backoffice/"+$routeParams.expId+"/"+userId
             $location.path(urlToUserDetail);
         }
     }])

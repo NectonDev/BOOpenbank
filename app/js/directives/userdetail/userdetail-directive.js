@@ -5,12 +5,9 @@ angular.module('userDetailDirective', [])
         var expId = $routeParams.expId;
         var userId = $routeParams.userId;
         var userInfo = UsersModel.getInfoUserById(expId,userId);
+
         userInfo.then(function (data) {
-            for (var i=0;i<data.data.usuarios.length;i++){
-                if (data.data.usuarios[i].usuario.r_object_id === userId){
-                    $scope.userInfo = UsersModel(data.data.usuarios[i].usuario);
-                }
-            }
+            $scope.userInfo = UsersModel.createInfoUsers(data.data.usuarios);
         });
 
 
@@ -23,6 +20,12 @@ angular.module('userDetailDirective', [])
         replace: true,
         scope: {
             userInfo: "="
+        },
+        link: function($scope, element, attr){
+            element.on('click', function() {
+                window.history.back();
+            });
         }
+
     };
 });

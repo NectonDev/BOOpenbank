@@ -70,9 +70,9 @@ angular.module('UsersService',[])
                 APIConfigService.getUrlLeerExpediente(),
                 {
                     "usuarios": [
-                        {   "usuario":{
+                        {   "usuario": {
                                 "r_object_id": userId
-                        }
+                            }
                         }
                     ],
                     "expediente": {

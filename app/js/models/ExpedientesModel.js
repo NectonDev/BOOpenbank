@@ -1,16 +1,49 @@
 angular.module('ExpedientesService',[])
     .factory('ExpedientesModel', ['$http','APIConfigService', 'EstadosModel', function ($http, APIConfigService, EstadosModel) {
         var service = this;
+        var config_object = new Object();
 
-        service.getAllExpedientesConFiltro = function(config_object){
+        service.getConfigObject = function(){
+            return config_object;
+        };
+
+        service.setPage = function(page){
+            config_object.page=page;
+        };
+        service.setPageSize = function(pageSize){
+            config_object.pageSize=pageSize;
+        };
+        service.setFilter = function(filter){
+            config_object.filtro=filter;
+        };
+
+        service.getPage = function(){
+            return config_object.page;
+        };
+
+        service.getPageSize = function(){
+            return config_object.pageSize;
+        };
+
+        service.getFilter = function(){
+            return config_object.filtro;
+        };
+
+        service.setDefaultParameters = function(){
+            config_object.page = APIConfigService.getDefaultPageExpediente();
+            config_object.pageSize = APIConfigService.getDefaultPageSizeExpediente();
+            config_object.filtro = APIConfigService.getDefaultFilterExpediente();
+        };
+
+        service.isFioc = function(){
+            return config_object.filtro === "fioc";
+        };
+
+        service.getAllExpedientesConFiltro = function(){
             var allExpedientes  = $http.post(
                 APIConfigService.getUrlLeerExpedientesFiltros(),
                 {
-                    "expediente": {
-                        "page" : config_object.page,
-                        "results" : config_object.pageSize,
-                        "filtro" : config_object.filter
-                    }
+                    "expediente": config_object
                 },
                 {
                     headers:{
@@ -19,11 +52,6 @@ angular.module('ExpedientesService',[])
                     }
                 }
             );
-            allExpedientes.then(function(data){
-                return data;
-            }, function(data){
-                console.log(data);
-            });
             return allExpedientes;
         };
 

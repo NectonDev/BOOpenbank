@@ -15,7 +15,13 @@ angular.module('APIConfig',[])
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json'
             }
+        },
+        default_parameters_expediente = {
+            page: '1',
+            pageSize: '5',
+            filter: 'pendienteValidacion'
         };
+
         service.getHeaders = function(){
             return headers_object;
         };
@@ -37,4 +43,13 @@ angular.module('APIConfig',[])
         service.getUrlListaEstados = function(){
             return endpointmap.apiUrl+endpointmap.listaEstados;
         };
+        service.getDefaultPageExpediente = function(){
+            return default_parameters_expediente.page;
+        };
+        service.getDefaultPageSizeExpediente = function(){
+            return default_parameters_expediente.pageSize;
+        };
+        service.getDefaultFilterExpediente = function(){
+            return default_parameters_expediente.filter;;
+        }
     })
