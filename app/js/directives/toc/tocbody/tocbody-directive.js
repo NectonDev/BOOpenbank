@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tocBodyDirective', [])
-    .controller('TocBodyController', ['$scope', 'ExpedientesModel', function($scope, ExpedientesModel) {
+    .controller('TocBodyController', ['$scope', '$location', 'ExpedientesModel', function($scope, $location, ExpedientesModel) {
         ExpedientesModel.setDefaultParameters();
 
         $scope.tocbodyInfo = {
@@ -19,20 +19,13 @@ angular.module('tocBodyDirective', [])
 
         $scope.tableResults = {};
 
-        $scope.$watch('hideLocked',function(data){
-            if (data){
-                $scope.tableResults = {};
-                $scope.tableResults.numResults = 0;
-            }
-        });
-
         $scope.goToDetail = function(expId){
             var urlToDetail = "/backoffice/"+expId;
             $location.path(urlToDetail);
         };
 
         $scope.isFioc = function(){
-            return  ExpedientesModel.isFioc();
+            return ExpedientesModel.isFioc();
         };
     }])
     .directive('tocBody', ['$location', '$timeout', 'ExpedientesModel', function($location, $timeout, ExpedientesModel) {
@@ -47,26 +40,36 @@ angular.module('tocBodyDirective', [])
             goToDetail: "=",
             isFioc: "="
         },
-        link: function($scope, elem){
+        link: function($scope){
 
-            function getExpedientes() {
-                if ($scope.isFioc()){
-                    ExpedientesModel.setPageSize("15");
-                }
-                var callToallExpsWithFiler = ExpedientesModel.getAllExpedientesConFiltro(ExpedientesModel.getConfigObject());
-                callToallExpsWithFiler.then(function (data) {
+            function getExpedientes(){
+                $("#contentTable").hide();
+                ExpedientesModel.getAllExpedientesConFiltro().then(function (data){
                     $scope.tableResults = data.data;
+                    $timeout(function(){$("#contentTable").fadeIn('slow')},1000);
                 });
             }
+
+            $scope.$watch('hideLocked',function(data){
+                if (data){
+                    $scope.tableResults = {};
+                    $scope.tableResults.numResults = 0;
+                }
+            });
+
             $scope.$on('filterChange', function(event, args){
                 var filterActive = ExpedientesModel.getFilter();
                 var filter = args.toString();
+                var pageSizeCombo = $("#comboPageSize").text();
                 if (filterActive != filter){
-                    $("#contentTable").hide();
-                    ExpedientesModel.setPage("1");
                     ExpedientesModel.setFilter(filter);
+                    if (ExpedientesModel.isFioc()){
+                        ExpedientesModel.setPageSize("15");
+                    }else{
+                        ExpedientesModel.setPageSize(pageSizeCombo);
+                    }
+                    ExpedientesModel.setPage("1");
                     getExpedientes();
-                    $timeout(function(){$("#contentTable").fadeIn('slow')},2000);
 
                 }
             });
@@ -85,12 +88,11 @@ angular.module('tocBodyDirective', [])
                 var pageActive = ExpedientesModel.getPage();
                 var page = args.toString();
                 if (pageActive != page){
-                    elem.slideUp();
                     ExpedientesModel.setPage(args.toString());
                     getExpedientes();
-                    elem.slideDown();
                 }
             });
+
             getExpedientes();
         }
     };

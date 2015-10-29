@@ -35,8 +35,8 @@
                     <th title="Actividad" data-field="actividad" style="width:20%;">{{tableInfo.actividad}}<i class="material-icons"></i></th>
                 </tr>
             </thead>
-            <tbody>
-                <tr id="contentTable" ng-show="!isFioc()" ng-click="goToDetail(expediente.expediente.r_object_id)" ng-repeat="expediente in tableResults.expedientes">
+            <tbody id="contentTable">
+                <tr ng-show="!isFioc()" ng-click="goToDetail(expediente.expediente.r_object_id)" ng-repeat="expediente in tableResults.expedientes">
                     <td>
                         <i class="material-icons" ng-if="expediente.expediente.usuario_bloqueo != ''">lock</i>
                     </td>

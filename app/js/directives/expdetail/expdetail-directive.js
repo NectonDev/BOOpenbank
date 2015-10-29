@@ -4,8 +4,8 @@ angular.module('expDetailDirective', ['ngAnimate'])
     .controller('ExpDetailController', ['$scope', '$routeParams', 'ExpedientesModel', 'UsersModel',  function($scope, $routeParams, ExpedientesModel, UsersModel) {
         var callToExpById = ExpedientesModel.getExpedienteById($routeParams.expId);
         callToExpById.then(function (data) {
-            $scope.$broadcast('expInfo', ExpedientesModel.createInfoExpediente(data.data.expediente));
-            $scope.$broadcast('usersReqInfo', UsersModel.createInfoUsers(data.data.usuarios));
+            $scope.$broadcast('expInfo', ExpedientesModel.transformInfoExpediente(data.data.expediente));
+            $scope.$broadcast('usersReqInfo', UsersModel.transformInfoUsers(data.data.usuarios));
         });
     }])
     .directive('expDetail', function() {

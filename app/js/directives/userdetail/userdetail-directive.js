@@ -7,7 +7,7 @@ angular.module('userDetailDirective', [])
         var userInfo = UsersModel.getInfoUserById(expId,userId);
 
         userInfo.then(function (data) {
-            $scope.userInfo = UsersModel.createInfoUsers(data.data.usuarios);
+            $scope.userInfo = UsersModel.transformInfoUsers(data.data.usuarios);
         });
 
 

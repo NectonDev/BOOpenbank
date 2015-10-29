@@ -1,13 +1,15 @@
 'use strict';
 
 angular.module('tocHeaderDirective', [])
-    .controller('TocHeaderController', ['$rootScope','$scope', function($rootScope, $scope) {
+    .controller('TocHeaderController', ['$rootScope','$scope', '$localStorage', function($rootScope, $scope, $localStorage) {
+        var tiposPreFiltros = $localStorage.tiposPreFiltros;
+
         $scope.buttons = [
-            ['PTE. VALIDAR','pendienteValidacion'],
-            ['PTE. DOCUMENTACI\u00D3N','pendienteDocumentacion'],
-            ['REVISI\u00D3N FIOC','fioc'],
-            ['PTE. ACTIVACI\u00D3N','pendienteActivacion'],
-            ['PTE. CANCELACI\u00D3N','pendienteCancelacion']
+            ['PTE. VALIDAR',tiposPreFiltros.pteValidacion],
+            ['PTE. DOCUMENTACI\u00D3N',tiposPreFiltros.pteDocumentacion],
+            ['REVISI\u00D3N FIOC',tiposPreFiltros.fioc],
+            ['PTE. ACTIVACI\u00D3N',tiposPreFiltros.pteActivacion],
+            ['PTE. CANCELACI\u00D3N',tiposPreFiltros.pteCancelacion]
         ];
     }])
     .directive('tocHeader', ['$rootScope', function($rootScope) {

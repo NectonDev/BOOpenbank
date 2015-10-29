@@ -54,7 +54,7 @@ angular.module('UsersService',[])
             return reqUser;
         };
 
-        service.createInfoUsers = function(dataOfUser){
+        service.transformInfoUsers = function(dataOfUser){
             var expUsers = {};
             for (var i=0;i<dataOfUser.length;i++){
                 var user = dataOfUser[i].usuario;

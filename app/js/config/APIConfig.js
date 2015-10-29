@@ -18,7 +18,7 @@ angular.module('APIConfig',[])
         },
         default_parameters_expediente = {
             page: '1',
-            pageSize: '5',
+            results: '5',
             filter: 'pendienteValidacion'
         };
 
@@ -47,7 +47,7 @@ angular.module('APIConfig',[])
             return default_parameters_expediente.page;
         };
         service.getDefaultPageSizeExpediente = function(){
-            return default_parameters_expediente.pageSize;
+            return default_parameters_expediente.results;
         };
         service.getDefaultFilterExpediente = function(){
             return default_parameters_expediente.filter;
