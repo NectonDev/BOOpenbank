@@ -21,11 +21,10 @@ angular.module('userDetailDirective', [])
         scope: {
             userInfo: "="
         },
-        link: function($scope, element, attr){
-            element.on('click', function() {
+        link: function(){
+            $("#backButton").on('click', function() {
                 window.history.back();
             });
         }
-
     };
 });

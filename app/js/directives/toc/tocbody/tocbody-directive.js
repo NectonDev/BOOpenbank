@@ -38,7 +38,8 @@ angular.module('tocBodyDirective', [])
             tableResults: "=",
             hideLocked: "=",
             goToDetail: "=",
-            isFioc: "="
+            isFioc: "=",
+            printPage: "="
         },
         link: function($scope){
 
@@ -50,10 +51,16 @@ angular.module('tocBodyDirective', [])
                 });
             }
 
+            $scope.printPage = function(){
+                $("#comboPageSize").hide();
+                window.print();
+                $("#comboPageSize").show();
+            };
+
             $scope.$watch('hideLocked',function(data){
-                if (data){
-                    $scope.tableResults = {};
-                    $scope.tableResults.numResults = 0;
+                if (typeof(data) != "undefined") {
+                    //ExpedientesModel.setBloqueo(data);
+                    getExpedientes();
                 }
             });
 

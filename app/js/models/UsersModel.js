@@ -66,7 +66,7 @@ angular.module('UsersService',[])
         };
 
         service.getInfoUserById = function(expId, userId){
-            var user = $http.post(
+            return $http.post(
                 APIConfigService.getUrlLeerExpediente(),
                 {
                     "usuarios": [
@@ -86,12 +86,6 @@ angular.module('UsersService',[])
                     }
                 }
             );
-            user.then(function(data){
-                return data;
-            }, function(data){
-                console.log(data);
-            });
-            return user;
         };
 
         return service;

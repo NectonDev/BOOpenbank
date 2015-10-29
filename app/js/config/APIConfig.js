@@ -19,7 +19,8 @@ angular.module('APIConfig',[])
         default_parameters_expediente = {
             page: '1',
             results: '5',
-            filter: 'pendienteValidacion'
+            filter: 'pendienteValidacion',
+            bloqueo: false
         };
 
         service.getHeaders = function(){
@@ -51,5 +52,8 @@ angular.module('APIConfig',[])
         };
         service.getDefaultFilterExpediente = function(){
             return default_parameters_expediente.filter;
-        }
+        };
+        service.getDefaultBloqueoExpediente = function(){
+            return default_parameters_expediente.bloqueo;
+        };
     });

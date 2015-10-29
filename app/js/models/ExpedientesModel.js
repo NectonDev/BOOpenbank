@@ -20,11 +20,17 @@ angular.module('ExpedientesService',[])
         service.setPage = function(page){
             config_object.page=page;
         };
+
         service.setPageSize = function(pageSize){
             config_object.results=pageSize;
         };
+
         service.setFilter = function(filter){
             config_object.filtro=filter;
+        };
+
+        service.setBloqueo = function(bloqueo){
+            config_object.bloqueo=bloqueo;
         };
 
         service.getPage = function(){
@@ -39,10 +45,15 @@ angular.module('ExpedientesService',[])
             return config_object.filtro;
         };
 
+        service.getBloqueo = function(){
+            return config_object.bloqueo;
+        };
+
         service.setDefaultParameters = function(){
             config_object.page = APIConfigService.getDefaultPageExpediente();
             config_object.results = APIConfigService.getDefaultPageSizeExpediente();
             config_object.filtro = APIConfigService.getDefaultFilterExpediente();
+            //config_object.bloqueo = APIConfigService.getDefaultBloqueoExpediente();
         };
 
         service.isFioc = function(){

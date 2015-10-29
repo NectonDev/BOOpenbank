@@ -11,11 +11,11 @@
             <div class="col s4 noPadding resultados_encontrados">Se han encontrado <div class="resultado_numero">{{tableResults.numResults}}</div>
                 resultados
             </div>
-            <button type="button" class="blue-color button-medium no-background" style="float:right;">IMPRIMIR</button>
+            <button ng-click="printPage()" type="button" class="blue-color button-medium no-background" style="float:right;">IMPRIMIR</button>
         </div>
     </div>
     <div class="row" style="margin-bottom:0px;position:relative;bottom:40px;">
-        <table class="bordered highlight lowSize resultadosTabla text-center" style="margin-bottom:10px;">
+        <table class="bordered highlight lowSize resultadosTabla text-center myDivToPrint" style="margin-bottom:10px;">
             <thead>
                 <tr ng-show="!isFioc()">
                     <th title="Impactado" data-field="impactado" style="width:10%;"></th>

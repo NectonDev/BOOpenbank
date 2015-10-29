@@ -21,7 +21,7 @@ angular.module('expDetailBodyDirective', [])
         $scope.getUserDetail = function(userId){
             var urlToUserDetail = "/backoffice/"+$routeParams.expId+"/"+userId;
             $location.path(urlToUserDetail);
-        }
+        };
     }])
     .directive('expDetailBody', function() {
     return {
@@ -32,7 +32,13 @@ angular.module('expDetailBodyDirective', [])
         scope: {
             infoHeader: "=",
             infoReqUser: "=",
-            getUserDetail: "="
+            getUserDetail: "=",
+            showDetail: "="
+        },
+        link: function($scope){
+            $scope.showDetail = function(data){
+                console.log(data);
+            }
         }
     };
 });
