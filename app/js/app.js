@@ -5,6 +5,7 @@ angular.module('BOOpenbank', [
   'ngMaterial',
   'ngStorage',
   'ngAnimate',
+  'ngDialog',
   'APIConfig',
   'ez.datetime',
   'ez.modal',

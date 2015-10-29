@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('expDetailHeaderDirective', [])
-    .controller('ExpDetailHeaderController', ['$scope', function($scope) {
+angular.module('expDetailHeaderDirective', ['ngDialog'])
+    .controller('ExpDetailHeaderController', ['$scope', 'ngDialog', function($scope, ngDialog) {
         $scope.infoHeader = {
             IBANText: 'IBAN',
             IBANNumber: 'ES89',
@@ -14,6 +14,12 @@ angular.module('expDetailHeaderDirective', [])
         $scope.$on('expInfo', function(event, args){
             $scope.infoExpediente = args;
         });
+        $scope.openDialog = function(){
+            ngDialog.open({
+                template: 'firstDialog',
+                className: 'ngdialog-theme-default ngdialog-theme-custom'
+            });
+        };
     }])
     .directive('expDetailHeader', function() {
     return {
@@ -23,7 +29,8 @@ angular.module('expDetailHeaderDirective', [])
         replace: true,
         scope: {
             infoHeader: "=",
-            infoExpediente: "="
+            infoExpediente: "=",
+            openDialog: "="
         }
     };
 });

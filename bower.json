@@ -18,6 +18,7 @@
     "moment": "~2.10.6",
     "ez-modal": "~0.0.5",
     "ez-dropdown": "~0.3.1",
-    "ez-transition": "~0.0.2"
+    "ez-transition": "~0.0.2",
+    "ng-dialog": "~0.5.5"
   }
 }

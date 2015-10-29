@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('expDetailBodyDirective', [])
-    .controller('ExpDetailBodyController', ['$scope', '$location', '$routeParams', function($scope, $location, $routeParams) {
+    .controller('ExpDetailBodyController', ['$scope', '$location', '$routeParams',  function($scope, $location, $routeParams) {
         $scope.infoHeader = {
             DOC: "DOC",
             Selfie: "SELFIE",
