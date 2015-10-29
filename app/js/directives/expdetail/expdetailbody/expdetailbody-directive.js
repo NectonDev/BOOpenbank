@@ -19,7 +19,7 @@ angular.module('expDetailBodyDirective', [])
             $scope.infoReqUser = args;
         });
         $scope.getUserDetail = function(userId){
-            var urlToUserDetail = "/backoffice/"+$routeParams.expId+"/"+userId
+            var urlToUserDetail = "/backoffice/"+$routeParams.expId+"/"+userId;
             $location.path(urlToUserDetail);
         }
     }])

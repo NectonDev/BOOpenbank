@@ -50,6 +50,6 @@ angular.module('APIConfig',[])
             return default_parameters_expediente.pageSize;
         };
         service.getDefaultFilterExpediente = function(){
-            return default_parameters_expediente.filter;;
+            return default_parameters_expediente.filter;
         }
-    })
+    });

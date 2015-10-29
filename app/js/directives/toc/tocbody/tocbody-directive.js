@@ -27,7 +27,7 @@ angular.module('tocBodyDirective', [])
         });
 
         $scope.goToDetail = function(expId){
-            var urlToDetail = "/backoffice/"+expId
+            var urlToDetail = "/backoffice/"+expId;
             $location.path(urlToDetail);
         };
 
@@ -57,8 +57,7 @@ angular.module('tocBodyDirective', [])
                 callToallExpsWithFiler.then(function (data) {
                     $scope.tableResults = data.data;
                 });
-            };
-
+            }
             $scope.$on('filterChange', function(event, args){
                 var filterActive = ExpedientesModel.getFilter();
                 var filter = args.toString();

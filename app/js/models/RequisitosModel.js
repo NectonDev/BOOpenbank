@@ -20,12 +20,12 @@ angular.module('RequisitosService',[])
         };
 
         service.getInfoSelfie = function(user){
-            var infoSelfie = new Object();
+            var infoSelfie = {};
             infoSelfie.fotoOk = user.concordancia_foto?listaRequisitos["RV"]:listaRequisitos["RE"];
             infoSelfie.porcAcierto = user.concordancia_pctje;
             infoSelfie.fecha = user.fecha_selfie;
             return infoSelfie;
-        }
+        };
 
         return service;
     }]);

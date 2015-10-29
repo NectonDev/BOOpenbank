@@ -1,7 +1,7 @@
 angular.module('ExpedientesService',[])
     .factory('ExpedientesModel', ['$http','APIConfigService', 'EstadosModel', function ($http, APIConfigService, EstadosModel) {
         var service = this;
-        var config_object = new Object();
+        var config_object = {};
 
         service.getConfigObject = function(){
             return config_object;
@@ -40,7 +40,7 @@ angular.module('ExpedientesService',[])
         };
 
         service.getAllExpedientesConFiltro = function(){
-            var allExpedientes  = $http.post(
+            return $http.post(
                 APIConfigService.getUrlLeerExpedientesFiltros(),
                 {
                     "expediente": config_object
@@ -52,7 +52,6 @@ angular.module('ExpedientesService',[])
                     }
                 }
             );
-            return allExpedientes;
         };
 
         service.getExpedienteById = function(expId){
@@ -79,7 +78,7 @@ angular.module('ExpedientesService',[])
         };
 
         service.createInfoExpediente = function(dataExpediente){
-            var infoExpediente = new Object();
+            var infoExpediente = {};
             infoExpediente.id = dataExpediente.r_object_id;
             infoExpediente.num_cuenta = dataExpediente.codigo_cuenta_creada;
             infoExpediente.estado = EstadosModel.getEstadoById(dataExpediente.estado);

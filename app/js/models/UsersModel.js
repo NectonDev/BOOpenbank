@@ -15,7 +15,7 @@ angular.module('UsersService',[])
         };
 
         createDataUser = function (user){
-            var dataUser = new Object();
+            var dataUser = {};
             dataUser.id = user.r_object_id;
             dataUser.nombre = user.docident_nom_val;
             dataUser.ape1 = user.docident_ape1_val;
@@ -30,7 +30,7 @@ angular.module('UsersService',[])
             dataUser.pais = user.pais_domicilio;
             dataUser.provincia = user.provincia_domicilio;
             dataUser.nombreVia = user.nom_via_val;
-            dataUser.numero = user.num_via_val
+            dataUser.numero = user.num_via_val;
             dataUser.codigoPostal = user.codigo_postal_val;
             dataUser.telefonoMovil = user.telefono_ini;
             dataUser.telefonoFijo = user.telefono_fijo;
@@ -39,23 +39,23 @@ angular.module('UsersService',[])
         };
 
         createInfoReqUser = function (user){
-            var reqUser = new Object();
+            var reqUser = {};
             reqUser.doc = RequisitosModel.getRequisitoById(user.req_doc_estado);
             reqUser.selfie = RequisitosModel.getInfoSelfie(user).fotoOk;
             reqUser.dsc = RequisitosModel.getRequisitoById(user.req_dsc_estado);
             reqUser.daal = RequisitosModel.getRequisitoById(user.req_daal_estado);
             reqUser.recibo = RequisitosModel.getRequisitoById(user.req_recibo_estado);
-            reqUser.ic = RequisitosModel.getRequisitoById(user.req_ic_estado)
+            reqUser.ic = RequisitosModel.getRequisitoById(user.req_ic_estado);
             reqUser.certif = RequisitosModel.getRequisitoById(user.req_certif_estado);
             reqUser.fondos = RequisitosModel.getRequisitoById(user.req_fondos_estado);
             reqUser.rd54 = RequisitosModel.getRequisitoById(user.req_rd54_estado);
             reqUser.thirdDir = RequisitosModel.getRequisitoById(user.req_3adir_estado);
             reqUser.mdpc = RequisitosModel.getRequisitoById(user.req_mdpc_estado);
             return reqUser;
-        }
+        };
 
         service.createInfoUsers = function(dataOfUser){
-            var expUsers = new Object();
+            var expUsers = {};
             for (var i=0;i<dataOfUser.length;i++){
                 var user = dataOfUser[i].usuario;
                 expUsers["user"+i] = {};
@@ -63,7 +63,7 @@ angular.module('UsersService',[])
                 expUsers["user"+i].dataReqUser = createInfoReqUser(user);
             }
             return expUsers;
-        }
+        };
 
         service.getInfoUserById = function(expId, userId){
             var user = $http.post(
