@@ -5,12 +5,12 @@
             <md-input-container>
                 <label>Motivo*</label>
                 <md-select ng-model="estados">
-                    <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices">{{stateOption}}</md-option>
+                    <md-option ng-repeat="stateOption in statesOptions.choices">{{stateOption}}</md-option>
                 </md-select>
             </md-input-container>
             <md-input-container class="campoForm masPad offset-s1">
-                <label style="left:0px;color:#76777a;font-size: 14px;">Comentario</label>
-                <textarea class="validate" ng-model="comentario"></textarea>
+                <label for="comentario" style="color:#76777a;font-size: 14px;">Comentario</label>
+                <textarea id="comentario" class="validate"></textarea>
             </md-input-container>
         </div>
         <div class="ngdialog-buttons mt">
@@ -37,7 +37,7 @@
         </div>
         <div class="infoDatos">
             <div>{{infoHeader.DCText}}</div>
-            <div class="contNum"></div>
+            <div class="contNum">{{}}</div>
         </div>
         <div class="infoDatos masPad">
             <div>Cuenta</div>
@@ -49,11 +49,11 @@
         </div>
         <div class="infoDatos masPad">
             <div>Fecha alta</div>
-            <div class="contNum">{{infoExpediente.fecha_alta}}</div>
+            <div class="contNum">{{infoExpediente.fecha_alta | date : 'dd/MM/yyyy'}}</div>
         </div>
         <div class="infoDatos masPad">
             <div>Fecha modificaci&oacute;n</div>
-            <div class="contNum">{{infoExpediente.fecha_mod}}</div>
+            <div class="contNum">{{infoExpediente.fecha_mod | date : 'dd/MM/yyyy'}}</div>
         </div>
     </div>
 </div>

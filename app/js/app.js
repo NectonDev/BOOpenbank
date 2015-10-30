@@ -6,6 +6,7 @@ angular.module('BOOpenbank', [
   'ngStorage',
   'ngAnimate',
   'ngDialog',
+  'naif.base64',
   'APIConfig',
   'ez.datetime',
   'ez.modal',
@@ -21,6 +22,7 @@ angular.module('BOOpenbank', [
   'expDetailHeaderDirective',
   'expDetailBodyDirective',
   'userDetailDirective',
+  'infoReqUserDirective',
   'ExpedientesService',
   'TipoDocsService',
   'EstadosService',
@@ -30,19 +32,19 @@ angular.module('BOOpenbank', [
 .config(['$routeProvider', function($routeProvider){
   $routeProvider
     .when('/backoffice', {
-      templateUrl : 'templates/backoffice.html',
+      templateUrl : 'templates/backoffice.html'
     })
     .when('/backoffice/:expId', {
-      templateUrl : 'templates/expDetail.html',
+      templateUrl : 'templates/expDetail.html'
     })
     .when('/backoffice/:expId/:userId', {
-      templateUrl : 'templates/userDetail.html',
+      templateUrl : 'templates/userDetail.html'
     })
     .when('/contactcenter', {
-      templateUrl : 'templates/contactcenter.html',
+      templateUrl : 'templates/contactcenter.html'
     })
     .when('/buscador', {
-      templateUrl : 'templates/search.html',
+      templateUrl : 'templates/search.html'
     })
     .otherwise({redirectTo: '/backoffice'});
 }])
@@ -57,15 +59,24 @@ angular.module('BOOpenbank', [
       APIConfigService.getUrlListaDocs(),
       headers_object
     );
+    var allPaises  = $http.post(
+        APIConfigService.getUrlListaPaises(),
+        headers_object
+    );
     allEstados.then(function(data){
       $localStorage.tiposEstados = data.data;
-    }, function(data){
-      console.log("Error recuperando los estados: "+data);
+    }).catch(function(data){
+      console.log("Error recuperando los estados: " + data);
     });
     allDocs.then(function(data){
       $localStorage.tiposDocs = data.data;
-    }, function(data){
-      console.log("Error recuperando los tipos de documento: "+data);
+    }).catch(function(data){
+      console.log("Error recuperando los tipos de documento: " + data);
+    });
+    allPaises.then(function(data){
+      $localStorage.listaPaises = data.data.data.paises;
+    }).catch(function(data){
+      console.log("Error recuperando el listado de paises: " + data);
     });
     $localStorage.tiposPreFiltros = {
       pteValidacion : 'pendienteValidacion',
@@ -74,5 +85,10 @@ angular.module('BOOpenbank', [
       pteActivacion : 'pendienteActivacion',
       pteCancelacion : 'pendienteCancelacion'
     };
+    $localStorage.accountInfo = {
+      IBAN : 'ES89',
+      Entidad : '2229',
+      Oficina : '9598'
+    }
   })($http);
 }]);

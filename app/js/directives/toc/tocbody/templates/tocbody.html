@@ -36,30 +36,33 @@
                 </tr>
             </thead>
             <tbody id="contentTable">
-                <tr ng-show="!isFioc()" ng-click="goToDetail(expediente.expediente.r_object_id)" ng-repeat="expediente in tableResults.expedientes">
+                <tr ng-show="!isFioc()" ng-click="goToDetail(expediente.id)" ng-repeat="expediente in tableResults.expedientes">
                     <td>
-                        <i class="material-icons" ng-if="expediente.expediente.usuario_bloqueo != ''">lock</i>
+                        <i class="material-icons" ng-if="expediente.gestor != ''">lock</i>
                     </td>
-                    <td>{{expediente.expediente.codigo_cuenta_creada}}</td>
-                    <td>{{expediente.expediente.plataforma}}</td>
-                    <td>{{expediente.usuarios.length}}</td>
-                    <td>{{expediente.expediente.usuario_bloqueo}}</td>
-                    <td>{{expediente.expediente.r_creation_date | date : 'dd/MM/yyyy HH:mm'}}</td>
-                    <td>{{expediente.expediente.r_modify_date | date : 'dd/MM/yyyy HH:mm'}}</td>
+                    <td>{{expediente.num_cuenta}}</td>
+                    <td>{{expediente.plataforma}}</td>
+                    <td>{{expediente.numInterv}}</td>
+                    <td>{{expediente.gestor}}</td>
+                    <td>{{expediente.fecha_alta | date : 'dd/MM/yyyy HH:mm'}}</td>
+                    <td>{{expediente.fecha_mod | date : 'dd/MM/yyyy HH:mm'}}</td>
                 </tr>
                 <tr ng-show="isFioc()" ng-repeat="expediente in tableResults.expedientes">
-                    <td>{{expediente.expediente.codigo_cuenta_creada}}</td>
-                    <td>{{expediente.expediente.r_creation_date | date : 'dd/MM/yyyy HH:mm'}}</td>
-                    <td ng-repeat="usuario in expediente.usuarios">{{usuario.usuario.docident_nom_val}}</td>
-                    <td ng-repeat="usuario in expediente.usuarios">{{usuario.usuario.docident_ape1_val}} {{usuario.usuario.docident_ape2_val}}</td>
-                    <td ng-repeat="usuario in expediente.usuarios">{{usuario.usuario.kyc_empresa}}</td>
-                    <td ng-repeat="usuario in expediente.usuarios">{{usuario.usuario.kyc_actividad_empresa}}</td>
+                    <td>{{expediente.num_cuenta}}</td>
+                    <td>{{expediente.fecha_alta | date : 'dd/MM/yyyy HH:mm'}}</td>
+                    <td ng-repeat="usuario in expediente.usuarios">{{usuario.nombre}}</td>
+                    <td ng-repeat="usuario in expediente.usuarios">{{usuario.apellido1}} {{usuario.usuario.apellido2}}</td>
+                    <td ng-repeat="usuario in expediente.usuarios">{{usuario.empresa}}</td>
+                    <td ng-repeat="usuario in expediente.usuarios">{{usuario.actividad}}</td>
                     <td><md-checkbox ng-repeat="usuario in expediente.usuarios" ng-init="usersToProcess=true" role="checkbox" ng-model="usersToProcess" aria-label="Procesar Usuario"></md-checkbox></td>
                 </tr>
             </tbody>
         </table>
         <div ng-show="!isFioc()" ng-controller="TocFooterController">
             <toc-footer results-per-page-options="numResultsPerPageOptions" default-results-per-page="numResultsPerPageDefault" actual-size-per-page="numActualResultsPerPage" num-total-pages="numTotalPages" go-to-page="goToPage"></toc-footer>
+        </div>
+        <div ng-show="isFioc()" ng-controller="TocFooterController">
+            <button ng-click="procesarUsuarios()" class="btn waves-effect waves-light button-medium">PROCESAR</button>
         </div>
     </div>
 </form>

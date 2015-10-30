@@ -17,8 +17,6 @@ angular.module('tocBodyDirective', [])
             actividad: 'Actividad'
         };
 
-        $scope.tableResults = {};
-
         $scope.goToDetail = function(expId){
             var urlToDetail = "/backoffice/"+expId;
             $location.path(urlToDetail);
@@ -26,6 +24,10 @@ angular.module('tocBodyDirective', [])
 
         $scope.isFioc = function(){
             return ExpedientesModel.isFioc();
+        };
+
+        $scope.procesarUsuarios = function(){
+            alert("Se van a procesar 11 usuaruis");
         };
     }])
     .directive('tocBody', ['$location', '$timeout', 'ExpedientesModel', function($location, $timeout, ExpedientesModel) {
@@ -39,15 +41,16 @@ angular.module('tocBodyDirective', [])
             hideLocked: "=",
             goToDetail: "=",
             isFioc: "=",
-            printPage: "="
+            printPage: "=",
+            procesarUsuarios: "="
         },
         link: function($scope){
 
             function getExpedientes(){
                 $("#contentTable").hide();
                 ExpedientesModel.getAllExpedientesConFiltro().then(function (data){
-                    $scope.tableResults = data.data;
-                    $timeout(function(){$("#contentTable").fadeIn('slow')},1000);
+                    $scope.tableResults = ExpedientesModel.transformInfoExpedientes(data.data);
+                    $timeout(function(){$("#contentTable").fadeIn('slow')},500);
                 });
             }
 

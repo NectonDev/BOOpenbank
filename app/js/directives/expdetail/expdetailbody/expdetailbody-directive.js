@@ -33,11 +33,12 @@ angular.module('expDetailBodyDirective', [])
             infoHeader: "=",
             infoReqUser: "=",
             getUserDetail: "=",
-            showDetail: "="
-        },
-        link: function($scope){
-            $scope.showDetail = function(data){
-                console.log(data);
+            showDetail: "=",
+            showInfo: "="
+        },link: function($scope){
+            $scope.showInfo = function(){
+                $("#infoDesplegable").slideUp();
+                $("#infoDesplegable").slideDown();
             }
         }
     };

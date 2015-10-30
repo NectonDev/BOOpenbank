@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('expDetailHeaderDirective', ['ngDialog'])
-    .controller('ExpDetailHeaderController', ['$scope', 'ngDialog', function($scope, ngDialog) {
+    .controller('ExpDetailHeaderController', ['$scope', '$localStorage', 'ngDialog', function($scope, $localStorage, ngDialog) {
         $scope.infoHeader = {
             IBANText: 'IBAN',
-            IBANNumber: 'ES89',
+            IBANNumber: $localStorage.accountInfo.IBAN,
             EntidadText: 'Entidad',
-            EntidadNumber: '2229',
+            EntidadNumber: $localStorage.accountInfo.Entidad,
             OficinaText: 'Oficina',
-            OficinaNumber: '9598',
+            OficinaNumber: $localStorage.accountInfo.Oficina,
             DCText: 'DC'
         };
         $scope.$on('expInfo', function(event, args){

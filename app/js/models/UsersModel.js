@@ -14,7 +14,7 @@ angular.module('UsersService',[])
             }
         };
 
-        createDataUser = function (user){
+        transformDataUser = function (user){
             var dataUser = {};
             dataUser.id = user.r_object_id;
             dataUser.nombre = user.docident_nom_val;
@@ -38,7 +38,7 @@ angular.module('UsersService',[])
             return dataUser;
         };
 
-        createInfoReqUser = function (user){
+        transformInfoReqUser = function (user){
             var reqUser = {};
             reqUser.doc = RequisitosModel.getRequisitoById(user.req_doc_estado);
             reqUser.selfie = RequisitosModel.getInfoSelfie(user).fotoOk;
@@ -59,8 +59,8 @@ angular.module('UsersService',[])
             for (var i=0;i<dataOfUser.length;i++){
                 var user = dataOfUser[i].usuario;
                 expUsers["user"+i] = {};
-                expUsers["user"+i].dataUser = createDataUser(user);
-                expUsers["user"+i].dataReqUser = createInfoReqUser(user);
+                expUsers["user"+i].dataUser = transformDataUser(user);
+                expUsers["user"+i].dataReqUser = transformInfoReqUser(user);
             }
             return expUsers;
         };

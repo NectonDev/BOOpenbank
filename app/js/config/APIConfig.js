@@ -2,13 +2,15 @@ angular.module('APIConfig',[])
     .service('APIConfigService', function(){
         var service = this,
         endpointmap = {
-            apiUrl: 'http://hc-des-expediente.alphainn.gsnetcloud.com',
+            apiUrlServicios: 'http://hc-des-procesosi.alphainn.gsnetcloud.com',
+            apiUrlExpedientes: 'http://hc-des-expediente.alphainn.gsnetcloud.com',
             leerExpedientes: '/leerExpedientes',
             leerExpediente: '/leerExpediente',
             leerExpedientesFiltros: '/leerExpedientesFiltros',
             actualizarExpediente: '/actualizarExpediente',
             listaDocs: '/listaTipoDocs',
-            listaEstados: '/listaEstados'
+            listaEstados: '/listaEstados',
+            listaPaises: '/prPaises/listar/tablas'
         },
         headers_object = {
             headers:{
@@ -27,22 +29,25 @@ angular.module('APIConfig',[])
             return headers_object;
         };
         service.getUrlLeerExpedientes = function(){
-            return endpointmap.apiUrl+endpointmap.leerExpedientes;
+            return endpointmap.apiUrlExpedientes+endpointmap.leerExpedientes;
         };
         service.getUrlLeerExpediente = function(){
-            return endpointmap.apiUrl+endpointmap.leerExpediente;
+            return endpointmap.apiUrlExpedientes+endpointmap.leerExpediente;
         };
         service.getUrlLeerExpedientesFiltros = function(){
-            return endpointmap.apiUrl+endpointmap.leerExpedientesFiltros;
+            return endpointmap.apiUrlExpedientes+endpointmap.leerExpedientesFiltros;
         };
         service.getUrlActualizarExpedientes = function(){
-            return endpointmap.apiUrl+endpointmap.actualizarExpediente;
+            return endpointmap.apiUrlExpedientes+endpointmap.actualizarExpediente;
         };
         service.getUrlListaDocs = function(){
-            return endpointmap.apiUrl+endpointmap.listaDocs;
+            return endpointmap.apiUrlExpedientes+endpointmap.listaDocs;
         };
         service.getUrlListaEstados = function(){
-            return endpointmap.apiUrl+endpointmap.listaEstados;
+            return endpointmap.apiUrlExpedientes+endpointmap.listaEstados;
+        };
+        service.getUrlListaPaises = function(){
+            return endpointmap.apiUrlServicios+endpointmap.listaPaises;
         };
         service.getDefaultPageExpediente = function(){
             return default_parameters_expediente.page;

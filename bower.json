@@ -19,6 +19,7 @@
     "ez-modal": "~0.0.5",
     "ez-dropdown": "~0.3.1",
     "ez-transition": "~0.0.2",
-    "ng-dialog": "~0.5.5"
+    "ng-dialog": "~0.5.5",
+    "angular-base64-upload": "~0.1.13"
   }
 }
