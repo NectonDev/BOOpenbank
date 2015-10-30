@@ -1,14 +1,18 @@
 <div>
-    <div class="col s4 mostrar_resultados" style="padding-left:28px;">
+    <div class="col s4 mostrar_resultados" style="padding-left:28px;display:inline-block;">
+        <div style="position:relative;top:12px;">
         Mostrar:
-        <div style="width:35px;display:inline-block;height:20px;margin-left:5px;margin-right:5px;" class="noBorder">
+        </div>
+        <div style="width:35px;display:inline-block;height:20px;margin-left:5px;margin-right:5px;position:relative;bottom:20px;left:50px;" class="noBorder">
             <md-input-container style="width:90px;right:0px;font-size: 14px;">
                 <md-select id="comboPageSize" ng-model="actualSizePerPage" aria-label="Numero de resultados">
                     <md-option ng-selected="defaultResultsPerPage === resultsPerPage" ng-value="resultsPerPage" ng-repeat="resultsPerPage in resultsPerPageOptions">{{resultsPerPage}}</md-option>
                 </md-select>
             </md-input-container>
         </div>
+        <div style="position:relative;bottom:30px;left:160px;">
         registros por p&aacute;gina
+        </div>
     </div>
     <div>
         <ul class="pagination col s4 offset-s4 pagination-padding text-right-bottom noPadding" style="padding-right: 1.2% !important;">

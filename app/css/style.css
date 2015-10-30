@@ -10,6 +10,14 @@
  
 */
 
+*{
+  margin:0;
+  padding: 0;
+}
+
+body {
+  background-color: #E6E6E6;
+}
 
 @font-face {
     font-family: Roboto-Bold;
@@ -200,7 +208,7 @@
   width: 10px;
   height: 10px;
   position:relative;
-  z-index: 2;
+  z-index: 1;
 
   /*border-right: 100px solid blue;
   border-top: 100px solid transparent;
@@ -272,7 +280,7 @@
   position:relative;
   float:left;
   margin-right: 25px;
-  bottom:14px;
+  top:4px;
   font-size: 12px;
   font-family: "Roboto-Regular", "Roboto";
 }
@@ -461,7 +469,7 @@
 }
 
 #menuListado{
-  background-color: blue;
+  background-color: ;
   display:block;
 }
 
@@ -514,6 +522,27 @@
 
 .expediente_nav li{
   width:160px;
+  text-align: center;
+}
+/*.expediente_nav ul:nth-child(2){
+  width:200px;
+}
+*/
+
+#enlace0 {
+ width:130px;  
+}
+#enlace1 {
+ width:190px;  
+}
+#enlace2 {
+ width:140px;  
+}
+#enlace3 {
+ width:160px;  
+}
+#enlace4 {
+ width:170px;  
 }
 
 /* label color */
@@ -852,7 +881,7 @@
     height:10px;
     position:relative;
     top:15px;
-    background-color: blue;
+    background-color: ;
   }
 
   .contador {
@@ -986,4 +1015,11 @@
 
   .icon_search a{
     color:#767777a;
+  }
+
+
+  .numPag {
+    background-color: ;
+    width:90px;
+    color: black;
   }

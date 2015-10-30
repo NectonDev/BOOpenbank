@@ -19,7 +19,7 @@
                 <div class="margInf">{{searchInfo.DCText}}</div>
                 <div class="contNum" ng-moodel="dc"></div>
             </div>
-            <md-input-container class="campoForm masPad offset-s1" style="width:90px;">
+            <md-input-container class="campoForm masPad offset-s1" style="position:relative;right:5px;width:90px;">
                 <label style="left:0px;color:#76777a;font-size: 14px;">Cuenta</label>
                 <input class="validate" type="text" ng-model="cuenta">
             </md-input-container>
@@ -35,27 +35,31 @@
             </form> -->
         </div>
         <div class="col s12">
-            <md-input-container>
+            <md-input-container style="position:relative;bottom:2px;left:18px;width:100px;">
                 <label>Tipo</label>
                 <md-select ng-model="tipos">
                     <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices">{{stateOption}}</md-option>
                 </md-select>
             </md-input-container>
-            <md-input-container class="campoForm masPad offset-s1" style="width:90px;">
-                <label style="left:0px;color:#76777a;font-size: 14px;">N&uacute;mero del documento</label>
+            <md-input-container class="campoForm masPad offset-s1" style="width:190px;position:relative;bottom:83px;left:140px;">
+                <label style="left:0px;top:3px;color:#76777a;font-size: 14px;">N&uacute;mero del documento</label>
                 <input class="validate" type="text" ng-model="numDoc">
             </md-input-container>
-            <md-datepicker ng-model="fechaModDesde">F. Modificaci&oacute;n desde</md-datepicker>
-            <md-datepicker ng-model="fechaModHasta">F. Modificaci&oacute;n hasta</md-datepicker>
+            <div style="position:relative;bottom:68px;left:100px;">
+                <md-datepicker ng-model="fechaModDesde">F. Modificaci&oacute;n desde</md-datepicker>
+            </div>
+            <div style="position:relative;bottom:115px;left:290px;">
+                <md-datepicker ng-model="fechaModHasta">F. Modificaci&oacute;n hasta</md-datepicker>
+            </div>
         </div>
-        <div class="col s12 datosDetalle" style="border-bottom: 0px solid #D1D1D1;position:relative;right:50px;bottom:20px;margin-left:0px;">
-            <md-input-container>
+        <div class="col s12 datosDetalle" style="border-bottom: 0px solid #D1D1D1;position:relative;right:50px;bottom:110px;margin-left:0px;">
+            <md-input-container class="col s2" style="position:relative;left:55px;">
                 <label>Estado</label>
                 <md-select ng-model="estados">
                     <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices">{{stateOption}}</md-option>
                 </md-select>
             </md-input-container>
-            <md-input-container>
+            <md-input-container class="col s2" style="position:relative;left:100px;">
                 <label>Canal</label>
                 <md-select ng-model="canales">
                     <md-option ng-value="canalOption" ng-repeat="canalOption in canalesOptions.choices">{{canalOption}}</md-option>

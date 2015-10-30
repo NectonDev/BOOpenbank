@@ -432,10 +432,10 @@
   color: #5c6bc0 !important; }
 
 .indigo {
-  background-color: #3f51b5 !important; }
+  background-color: #000 !important; }
 
 .indigo-text {
-  color: #3f51b5 !important; }
+  color: #26a69a !important; }
 
 .indigo.darken-1 {
   background-color: #3949ab !important; }
@@ -2090,7 +2090,7 @@ img.responsive-img, video.responsive-video {
   .pagination li.active a {
     color: #fff; }
   .pagination li.active {
-    background-color: #ee6e73; }
+    background-color: #007c7a; }
   .pagination li.disabled a {
     cursor: default;
     color: #999; }
@@ -6351,7 +6351,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
     display: block;
     content: "";
     position: absolute;
-    top: 65px;
+    top: 45px;
     opacity: 0;
     transition: .2s opacity ease-out, .2s color ease-out; }
 
