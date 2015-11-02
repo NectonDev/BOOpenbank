@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('expDetailHeaderDirective', ['ngDialog'])
-    .controller('ExpDetailHeaderController', ['$scope', '$localStorage', 'ngDialog', function($scope, $localStorage, ngDialog) {
+    .controller('ExpDetailHeaderController', ['$scope', '$routeParams', '$location', '$localStorage', 'ngDialog', function($scope, $routeParams, $location, $localStorage, ngDialog) {
         $scope.infoHeader = {
             IBANText: 'IBAN',
             IBANNumber: $localStorage.accountInfo.IBAN,
@@ -20,6 +20,10 @@ angular.module('expDetailHeaderDirective', ['ngDialog'])
                 className: 'ngdialog-theme-default ngdialog-theme-custom'
             });
         };
+        $scope.goToObs = function(){
+            var urlToObs = "/observaciones/"+$routeParams.expId;
+            $location.path(urlToObs);
+        };
     }])
     .directive('expDetailHeader', function() {
     return {
@@ -30,7 +34,8 @@ angular.module('expDetailHeaderDirective', ['ngDialog'])
         scope: {
             infoHeader: "=",
             infoExpediente: "=",
-            openDialog: "="
+            openDialog: "=",
+            goToObs: "="
         }
     };
 });

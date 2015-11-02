@@ -7,6 +7,7 @@ angular.module('APIConfig',[])
             leerExpedientes: '/leerExpedientes',
             leerExpediente: '/leerExpediente',
             leerExpedientesFiltros: '/leerExpedientesFiltros',
+            leerObservaciones: '/listaObservaciones ',
             actualizarExpediente: '/actualizarExpediente',
             listaDocs: '/listaTipoDocs',
             listaEstados: '/listaEstados',
@@ -36,6 +37,9 @@ angular.module('APIConfig',[])
         };
         service.getUrlLeerExpedientesFiltros = function(){
             return endpointmap.apiUrlExpedientes+endpointmap.leerExpedientesFiltros;
+        };
+        service.getUrlLeerObservaciones = function(){
+            return endpointmap.apiUrlExpedientes+endpointmap.leerObservaciones;
         };
         service.getUrlActualizarExpedientes = function(){
             return endpointmap.apiUrlExpedientes+endpointmap.actualizarExpediente;

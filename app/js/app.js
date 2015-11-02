@@ -23,10 +23,12 @@ angular.module('BOOpenbank', [
   'expDetailBodyDirective',
   'userDetailDirective',
   'infoReqUserDirective',
+  'observacionesDirective',
   'ExpedientesService',
   'TipoDocsService',
   'EstadosService',
   'RequisitosService',
+  'ObservacionesService',
   'UsersService'
 ])
 .config(['$routeProvider', function($routeProvider){
@@ -45,6 +47,9 @@ angular.module('BOOpenbank', [
     })
     .when('/backoffice/:expId/:userId/mpdc', {
       templateUrl : 'templates/mpdc.html'
+    })
+    .when('/observaciones/:expId', {
+      templateUrl : 'templates/observaciones.html'
     })
     .when('/contactcenter', {
       templateUrl : 'templates/contactcenter.html'

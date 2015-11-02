@@ -4,8 +4,8 @@ angular.module('infoReqUserDirective', [])
     .controller('infoReqUserController', ['$scope', 'RequisitosModel', function($scope, RequisitosModel) {
         $scope.$on('reqToShow', function(event, args){
             $scope.infoHeader = RequisitosModel.getInfoHeader(args);
-            $scope.tipoReq = {
-                title: RequisitosModel.getTipoConfigReq(args),
+            $scope.datosReq = {
+                title: RequisitosModel.getTipoConfigReq(args)
             }
         });
 
@@ -17,7 +17,7 @@ angular.module('infoReqUserDirective', [])
         transclude: true,
         replace: true,
         scope: {
-            tipoReq: "=",
+            datosReq: "=",
             infoHeader: "="
         }
     };
