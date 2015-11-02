@@ -40,6 +40,12 @@ angular.module('BOOpenbank', [
     .when('/backoffice/:expId/:userId', {
       templateUrl : 'templates/userDetail.html'
     })
+    .when('/backoffice/:expId/:userId/td', {
+      templateUrl : 'templates/td.html'
+    })
+    .when('/backoffice/:expId/:userId/mpdc', {
+      templateUrl : 'templates/mpdc.html'
+    })
     .when('/contactcenter', {
       templateUrl : 'templates/contactcenter.html'
     })
@@ -59,9 +65,8 @@ angular.module('BOOpenbank', [
       APIConfigService.getUrlListaDocs(),
       headers_object
     );
-    var allPaises  = $http.post(
-        APIConfigService.getUrlListaPaises(),
-        headers_object
+    var allPaises  = $http.get(
+        APIConfigService.getUrlListaPaises()
     );
     allEstados.then(function(data){
       $localStorage.tiposEstados = data.data;
