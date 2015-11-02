@@ -55,9 +55,9 @@ angular.module('tocBodyDirective', [])
             }
 
             $scope.printPage = function(){
-                $("#comboPageSize").hide();
+                $(".mostrar_resultados").hide();
                 window.print();
-                $("#comboPageSize").show();
+                $(".mostrar_resultados").show();
             };
 
             $scope.$watch('hideLocked',function(data){

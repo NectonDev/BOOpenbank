@@ -10,6 +10,42 @@ angular.module('RequisitosService',[])
             RNE: "no_sim"
         };
 
+        var tiposReq = {
+            0: "Documentaci\u00F3n",
+            1: "Reconocimiento facial",
+            2: "Documentaci\u00F3n subsanaci\u00F3n de contrato",
+            3: "Documentaci\u00F3n de actividad profesional",
+            4: "Recibo",
+            5: "Modelo IC",
+            6: "Certificado",
+            7: "Fondos",
+            8: "Real Decreto 54"
+        };
+
+        var infoHeader = {
+            documentos: "Documentos",
+            gestor: "Gestor",
+            fechaCreacion: "Fecha Creaci\u00F3n"
+        };
+        var infoHeaderSelfie = {
+            porcentaje: "Porcentaje",
+            intentos: "Intentos",
+            fechaCreacion: "Fecha Creaci\u00F3n",
+            estado: "Estado"
+        };
+
+        service.getInfoHeader = function(tipoReq){
+            if (tipoReq[0]==="1") {
+                return infoHeaderSelfie;
+            }else{
+                return infoHeader;
+            }
+        };
+
+        service.getTipoConfigReq = function(tipoReq){
+            return tiposReq[tipoReq];
+        };
+
         service.getRequisitoById = function(reqId){
             for (var estadoReq in listaRequisitos){
                 if (listaRequisitos.hasOwnProperty(estadoReq) ) {

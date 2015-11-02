@@ -1,35 +1,15 @@
 <div id="infoDesplegable" class="docTit" style="display:none;">
     <div class="encabezadoDespleg">
-        <div class="tituloDesplegable">{{title}}</div>
+        <div class="tituloDesplegable">{{tipoReq.title}}</div>
         <div class="xCerrar"><i class="material-icons">clear</i></div>
     </div>
     <div class="tablaDoc">
         <table class="tablaDesplegable">
             <tbody>
                 <tr style=" border-style: solid;border-bottom: solid 1px #d1d1d1;">
-                    <td style="width:50%;">
+                    <td ng-repeat="headerValue in infoHeader">
                         <div>
-                            <p class="medium">Documentos</p>
-                        </div>
-                    </td>
-                    <td style="width:25%;">
-                        <div>
-                            <p class="medium">Gestor</p>
-                        </div>
-                    </td>
-                    <td style="width:12%;">
-                        <div>
-                            <p class="medium">Fecha creaci&oacute;n</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <p class="medium"></p>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <p class="medium"></p>
+                            <p class="medium">{{headerValue}}</p>
                         </div>
                     </td>
                 </tr>

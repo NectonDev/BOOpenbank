@@ -32,7 +32,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td ng-click="showInfo()" ng-repeat="element in user.dataReqUser track by $index">
+                        <td ng-click="showInfo(user.dataUser.tipoUser + $index)" ng-repeat="element in user.dataReqUser track by $index">
                             <div>
                                 <i class="material-icons">{{element}}</i>
                             </div>
@@ -41,7 +41,7 @@
                 </tbody>
             </table>
             <div ng-controller="infoReqUserController">
-                <info-req-user-detail title="title" file-to-upload="fileToUpload"></info-req-user-detail>
+                <info-req-user-detail class="desplegable {{user.dataUser.tipoUser + $index}}" ng-repeat="element in user.dataReqUser track by $index" tipo-req="tipoReq" info-header="infoHeader"></info-req-user-detail>
             </div>
         </div>
     </div>

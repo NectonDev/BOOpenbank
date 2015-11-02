@@ -1,12 +1,14 @@
 'use strict';
 
 angular.module('infoReqUserDirective', [])
-    .controller('infoReqUserController', ['$scope', function($scope) {
-        $scope.title = "Holaaa";
-
-        $scope.$watch('$scope.fileToUpload',function(data){
-            console.log(data);
+    .controller('infoReqUserController', ['$scope', 'RequisitosModel', function($scope, RequisitosModel) {
+        $scope.$on('reqToShow', function(event, args){
+            $scope.infoHeader = RequisitosModel.getInfoHeader(args);
+            $scope.tipoReq = {
+                title: RequisitosModel.getTipoConfigReq(args),
+            }
         });
+
     }])
     .directive('infoReqUserDetail', function() {
     return {
@@ -15,8 +17,8 @@ angular.module('infoReqUserDirective', [])
         transclude: true,
         replace: true,
         scope: {
-            title: "=",
-            fileToUpload: "="
+            tipoReq: "=",
+            infoHeader: "="
         }
     };
 });

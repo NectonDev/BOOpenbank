@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('expDetailBodyDirective', [])
-    .controller('ExpDetailBodyController', ['$scope', '$location', '$routeParams',  function($scope, $location, $routeParams) {
+    .controller('ExpDetailBodyController', ['$scope', '$location', '$routeParams', 'RequisitosModel',  function($scope, $location, $routeParams, RequisitosModel) {
         $scope.infoHeader = {
             DOC: "DOC",
             Selfie: "SELFIE",
@@ -22,8 +22,11 @@ angular.module('expDetailBodyDirective', [])
             var urlToUserDetail = "/backoffice/"+$routeParams.expId+"/"+userId;
             $location.path(urlToUserDetail);
         };
+        $scope.isSelfie = function(){
+            return RequisitosModel.getIsSelfie();
+        };
     }])
-    .directive('expDetailBody', function() {
+    .directive('expDetailBody', ['$rootScope', 'RequisitosModel', function($rootScope) {
     return {
         restrict: 'E',
         templateUrl: './js/directives/expdetail/expdetailbody/templates/expdetailbody.html',
@@ -34,12 +37,26 @@ angular.module('expDetailBodyDirective', [])
             infoReqUser: "=",
             getUserDetail: "=",
             showDetail: "=",
-            showInfo: "="
+            showInfo: "=",
+            isSelfie: "="
         },link: function($scope){
-            $scope.showInfo = function(){
-                $("#infoDesplegable").slideUp();
-                $("#infoDesplegable").slideDown();
+            $scope.showInfo = function(infoToDeploy){
+                $rootScope.$broadcast('reqToShow', infoToDeploy.match(/\d+/g));
+                $(".desplegable").slideUp();
+                $("." + infoToDeploy).slideDown();
+                /*var notIsDeployable = reqToDeploy[0] === "9" || reqToDeploy[0] === "10"
+                if (notIsDeployable){
+                    $(".desplegable").slideUp();
+                    if (reqToDeploy == "9") {
+                        console.log("3 DIR");
+                    }else {
+                        console.log("MDPC");
+                    }
+                }else {
+                    $(".desplegable").slideUp();
+                    $("." + infoToDeploy).slideDown();
+                }*/
             }
         }
     };
-});
+}]);
