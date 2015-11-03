@@ -42,8 +42,8 @@ angular.module('BOOpenbank', [
     .when('/backoffice/:expId/:userId', {
       templateUrl : 'templates/userDetail.html'
     })
-    .when('/backoffice/:expId/:userId/td', {
-      templateUrl : 'templates/td.html'
+    .when('/backoffice/:expId/:userId/cuestionario', {
+      templateUrl : 'templates/cuestionario.html'
     })
     .when('/backoffice/:expId/:userId/mpdc', {
       templateUrl : 'templates/mpdc.html'

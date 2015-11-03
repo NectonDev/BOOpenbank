@@ -1,4 +1,23 @@
-<div ng-repeat="observacion in observaciones">
-    <div>{{observacion.idExpediente}}</div>
-    <div>{{observacion.descripcion}}</div>
+<div class="row">
+    <table class="bordered highlight lowSize resultadosTabla text-center myDivToPrint" style="margin-bottom:10px;">
+        <thead>
+        <tr>
+            <th title="Fecha" data-field="impactado" style="width:10%;">Fecha</th>
+            <th title="Estado" data-field="n_cuenta" style="width:15%;">Estado</th>
+            <th title="Gestor" data-field="canal" style="width:10%;">Gestor</th>
+            <th title="Comentario" data-field="intervinientes" style="width:10%;">Comentario</th>
+        </tr>
+        </thead>
+        <tbody id="contentTable">
+            <tr ng-repeat="observacion in observaciones">
+                <td>{{observacion.fechaAlta | date : 'dd/MM/yyyy HH:mm'}}</td>
+                <td>{{observacion.estado}}</td>
+                <td>{{observacion.gestor}}</td>
+                <td>{{observacion.descripcion}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button class="btn waves-effect waves-light button-medium">VOLVER</button>
+    </div>
 </div>

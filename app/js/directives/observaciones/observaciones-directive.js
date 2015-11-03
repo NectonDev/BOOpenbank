@@ -4,8 +4,7 @@ angular.module('observacionesDirective', [])
     .controller('ObservacionesController', ['$scope', '$routeParams', 'ObservacionesModel', function($scope, $routeParams, ObservacionesModel) {
         var observaciones = ObservacionesModel.getObservacionesByExpId($routeParams.expId);
         observaciones.then(function(data){
-            console.log(data);
-            $scope.observaciones = data.data.observaciones;
+            $scope.observaciones = ObservacionesModel.transformInfoObservaciones(data.data.observaciones);
         });
     }])
     .directive('observaciones', function() {

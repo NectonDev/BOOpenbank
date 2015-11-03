@@ -19,9 +19,9 @@ angular.module('RequisitosService',[])
             5: "Modelo IC",
             6: "Certificado",
             7: "Fondos",
-            8: "Real Decreto 54"
+            8: "Real Decreto 54",
+            9: "Tercera Directiva"
         };
-
         var infoHeader = {
             documentos: "Documentos",
             gestor: "Gestor",
@@ -33,12 +33,22 @@ angular.module('RequisitosService',[])
             fechaCreacion: "Fecha Creaci\u00F3n",
             estado: "Estado"
         };
+        var infoHeaderTD = {
+            estado: "Estado",
+            riesgo: "Riesgo",
+            empresa: "\u00BFEn que empresa trabajas\u00B3",
+            actividad: "\u00BFCu\u00E1l es tu actividad en la empresa\u003F"
+        };
 
         service.getInfoHeader = function(tipoReq){
             if (tipoReq[0]==="1") {
                 return infoHeaderSelfie;
             }else{
-                return infoHeader;
+                if (tipoReq[0]==="9"){
+                    return infoHeaderTD;
+                }else{
+                    return infoHeader;
+                }
             }
         };
 

@@ -12,7 +12,7 @@ angular.module('expDetailBodyDirective', [])
             Certificacion: "CERTIF.",
             Fondos: "FONDOS",
             RD54: "RD54",
-            ThirDir: "3 DIR",
+            ThirDir: "3ª DIR",
             MDPC: "MPDC"
         };
         $scope.$on('usersReqInfo', function(event, args){
@@ -21,9 +21,6 @@ angular.module('expDetailBodyDirective', [])
         $scope.getUserDetail = function(userId){
             var urlToUserDetail = "/backoffice/"+$routeParams.expId+"/"+userId;
             $location.path(urlToUserDetail);
-        };
-        $scope.isSelfie = function(){
-            return RequisitosModel.getIsSelfie();
         };
     }])
     .directive('expDetailBody', ['$rootScope', 'RequisitosModel', function($rootScope) {
@@ -37,25 +34,12 @@ angular.module('expDetailBodyDirective', [])
             infoReqUser: "=",
             getUserDetail: "=",
             showDetail: "=",
-            showInfo: "=",
-            isSelfie: "="
+            showInfo: "="
         },link: function($scope){
             $scope.showInfo = function(infoToDeploy){
                 $rootScope.$broadcast('reqToShow', infoToDeploy.match(/\d+/g));
                 $(".desplegable").slideUp();
                 $("." + infoToDeploy).slideDown();
-                /*var notIsDeployable = reqToDeploy[0] === "9" || reqToDeploy[0] === "10"
-                if (notIsDeployable){
-                    $(".desplegable").slideUp();
-                    if (reqToDeploy == "9") {
-                        console.log("3 DIR");
-                    }else {
-                        console.log("MDPC");
-                    }
-                }else {
-                    $(".desplegable").slideUp();
-                    $("." + infoToDeploy).slideDown();
-                }*/
             }
         }
     };
