@@ -24,15 +24,20 @@ angular.module('BOOpenbank', [
   'userDetailDirective',
   'infoReqUserDirective',
   'observacionesDirective',
+  'loginDirective',
   'ExpedientesService',
   'TipoDocsService',
   'EstadosService',
   'RequisitosService',
   'ObservacionesService',
-  'UsersService'
+  'UsersService',
+  'LoginService'
 ])
 .config(['$routeProvider', function($routeProvider){
   $routeProvider
+    .when('/login', {
+      templateUrl : 'templates/login.html'
+    })
     .when('/backoffice', {
       templateUrl : 'templates/backoffice.html'
     })

@@ -40,6 +40,32 @@ angular.module('RequisitosService',[])
             actividad: "\u00BFCu\u00E1l es tu actividad en la empresa\u003F"
         };
 
+        var isSelfie, isTD, isMPDC = false;
+
+        service.setIsSelfie = function(args){
+            (args[0]==="1")?isSelfie=true:isSelfie=false;
+        };
+
+        service.getIsSelfie = function(){
+            return isSelfie;
+        };
+
+        service.setIsTD = function(args){
+            (args[0]==="9")?isTD=true:isTD=false;
+        };
+
+        service.getIsTD = function(){
+            return isTD;
+        };
+
+        service.setIsMPDC = function(args){
+            (args[0]==="10")?isMPDC=true:isMPDC=false;
+        };
+
+        service.getIsMPDC = function(){
+            return isMPDC;
+        };
+
         service.getInfoHeader = function(tipoReq){
             if (tipoReq[0]==="1") {
                 return infoHeaderSelfie;

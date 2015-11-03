@@ -14,6 +14,11 @@ angular.module('observacionesDirective', [])
             replace: true,
             scope: {
                 observaciones: "="
+            },
+            link: function(){
+                $("#backButton").on('click', function() {
+                    window.history.back();
+                });
             }
         };
     });

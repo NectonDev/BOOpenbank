@@ -1,0 +1,15 @@
+<div class="row">
+    <form>
+        <div class="group">
+            <label>Usuario</label>
+            <input type="text" ng-model="user.usuario"><span class="highlight"></span><span class="bar"></span>
+        </div>
+        <div class="group">
+            <label>Password</label>
+            <input type="password" ng-model="user.clave"><span class="highlight"></span><span class="bar"></span>
+        </div>
+        <button ng-click="doLogin(user)" type="button" class="button buttonBlue">Login
+            <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+        </button>
+    </form>
+</div>

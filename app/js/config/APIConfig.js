@@ -4,6 +4,7 @@ angular.module('APIConfig',[])
         endpointmap = {
             apiUrlServicios: 'http://hc-des-procesosi.alphainn.gsnetcloud.com',
             apiUrlExpedientes: 'http://hc-des-expediente.alphainn.gsnetcloud.com',
+            login: '/login',
             leerExpedientes: '/leerExpedientes',
             leerExpediente: '/leerExpediente',
             leerExpedientesFiltros: '/leerExpedientesFiltros',
@@ -28,6 +29,9 @@ angular.module('APIConfig',[])
 
         service.getHeaders = function(){
             return headers_object;
+        };
+        service.getUrlLogin = function(){
+            return endpointmap.apiUrlExpedientes+endpointmap.login;
         };
         service.getUrlLeerExpedientes = function(){
             return endpointmap.apiUrlExpedientes+endpointmap.leerExpedientes;

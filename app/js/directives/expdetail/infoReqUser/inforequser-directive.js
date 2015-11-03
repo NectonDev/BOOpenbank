@@ -1,8 +1,17 @@
 'use strict';
 
 angular.module('infoReqUserDirective', [])
-    .controller('infoReqUserController', ['$scope', 'RequisitosModel', function($scope, RequisitosModel) {
+    .controller('infoReqUserController', ['$scope', '$routeParams', '$location', 'RequisitosModel', function($scope, $routeParams, $location, RequisitosModel) {
         $scope.$on('reqToShow', function(event, args){
+            RequisitosModel.setIsSelfie(args);
+            RequisitosModel.setIsTD(args);
+            RequisitosModel.setIsMPDC(args);
+            $scope.isSelfie = RequisitosModel.getIsSelfie();
+            $scope.isTd = RequisitosModel.getIsTD();
+            if (RequisitosModel.getIsMPDC()){
+                var urlToMPDC = "/backoffice/"+$routeParams.expId+"/"+$routeParams.userId+"/cuestionario";
+                $location.path(urlToMPDC);
+            }
             $scope.infoHeader = RequisitosModel.getInfoHeader(args);
             $scope.datosReq = {
                 title: RequisitosModel.getTipoConfigReq(args)
@@ -18,7 +27,9 @@ angular.module('infoReqUserDirective', [])
         replace: true,
         scope: {
             datosReq: "=",
-            infoHeader: "="
+            infoHeader: "=",
+            isSelfie: "=",
+            isTd: "="
         }
     };
 });

@@ -22,7 +22,7 @@
 <body>
   <div class="contenedor">
     <div class="row" ng-controller="HeaderController">
-      <main-header main-info="headerInfo"></main-header>
+      <main-header main-info="headerInfo" usuario="usuario"></main-header>
     </div>
     <div class="row central">
       <div class="central-col" ng-view></div>
@@ -67,6 +67,7 @@
   <script src="js/directives/expdetail/infoReqUser/inforequser-directive.js"></script>
   <script src="js/directives/userdetail/userdetail-directive.js"></script>
   <script src="js/directives/observaciones/observaciones-directive.js"></script>
+  <script src="js/directives/login/login-directive.js"></script>
   <!-- Services -->
   <script src="js/models/ExpedientesModel.js"></script>
   <script src="js/models/EstadosModel.js"></script>
@@ -74,6 +75,7 @@
   <script src="js/models/RequisitosModel.js"></script>
   <script src="js/models/UsersModel.js"></script>
   <script src="js/models/ObservacionesModel.js"></script>
+  <script src="js/models/LoginModel.js"></script>
   <!-- Main App -->
   <script src="js/app.js"></script>
 </body>
