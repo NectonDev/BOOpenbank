@@ -1,4 +1,4 @@
-<nav class="cabecera">
+<nav ng-show="usuario" class="cabecera">
     <div class="contenido_nav">
         <div class="cont_sup">
             <div class="cabecera_center">
@@ -18,14 +18,14 @@
                 </ul>
                 <div class="lateral_derecha">
                     <div class="nom_usuario">
-                        <a href="#" ng-model="usuario" style="margin-right:7px;">{{usuario}}</a> |
+                        <a href="#" style="margin-right:7px;">{{usuario}}</a> |
                     </div>
                     <div class="iconos_cab">
                         <a href="#/buscador" style="margin-right:5px;margin-left:7px;";>
                             <i class="material-icons">search</i>
                         </a>
-                        <a href="#">
-                            <i class="material-icons">exit_to_app</i>
+                        <a>
+                            <i class="material-icons" ng-click="doLogout()">exit_to_app</i>
                         </a>
                     </div>
                 </div>

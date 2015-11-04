@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('userDetailDirective', [])
-    .controller('UserDetailController', ['$scope', '$routeParams' ,'UsersModel', function($scope, $routeParams, UsersModel) {
+    .controller('UserDetailController', ['$scope', '$routeParams' ,'UsersModel', 'LoginModel', function($scope, $routeParams, UsersModel, LoginModel) {
+        LoginModel.secureUrl();
         var expId = $routeParams.expId;
         var userId = $routeParams.userId;
         var userInfo = UsersModel.getInfoUserById(expId,userId);

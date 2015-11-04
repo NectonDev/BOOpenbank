@@ -1,15 +1,15 @@
 angular.module('ExpedientesService',[])
     .factory('ExpedientesModel', ['$http', '$localStorage', 'APIConfigService', 'EstadosModel', function ($http, $localStorage, APIConfigService, EstadosModel) {
         var service = this;
-        var config_object = {};
+        var config_object_exp = {};
 
-        getConfigObject = function(){
+        getConfigObjectExp = function(){
             return {
-                expediente : config_object
+                expediente : config_object_exp
             }
         };
 
-        getConfigObjectById = function(expId){
+        getConfigObjectExpById = function(expId){
             return {
                 "expediente": {
                     "r_object_id": expId
@@ -34,46 +34,46 @@ angular.module('ExpedientesService',[])
         }
 
         service.setPage = function(page){
-            config_object.page=page;
+            config_object_exp.page=page;
         };
 
         service.setPageSize = function(pageSize){
-            config_object.results=pageSize;
+            config_object_exp.results=pageSize;
         };
 
         service.setFilter = function(filter){
-            config_object.filtro=filter;
+            config_object_exp.filtro=filter;
         };
 
         service.setBloqueo = function(bloqueo){
-            config_object.bloqueo=bloqueo;
+            config_object_exp.bloqueo=bloqueo;
         };
 
         service.getPage = function(){
-            return config_object.page;
+            return config_object_exp.page;
         };
 
         service.getPageSize = function(){
-            return config_object.results;
+            return config_object_exp.results;
         };
 
         service.getFilter = function(){
-            return config_object.filtro;
+            return config_object_exp.filtro;
         };
 
         service.getBloqueo = function(){
-            return config_object.bloqueo;
+            return config_object_exp.bloqueo;
         };
 
         service.setDefaultParameters = function(){
-            config_object.page = APIConfigService.getDefaultPageExpediente();
-            config_object.results = APIConfigService.getDefaultPageSizeExpediente();
-            config_object.filtro = APIConfigService.getDefaultFilterExpediente();
-            //config_object.bloqueo = APIConfigService.getDefaultBloqueoExpediente();
+            config_object_exp.page = APIConfigService.getDefaultPageExpediente();
+            config_object_exp.results = APIConfigService.getDefaultPageSizeExpediente();
+            config_object_exp.filtro = APIConfigService.getDefaultFilterExpediente();
+            //config_object_exp.bloqueo = APIConfigService.getDefaultBloqueoExpediente();
         };
 
         service.isFioc = function(){
-            return config_object.filtro === $localStorage.tiposPreFiltros.fioc;
+            return config_object_exp.filtro === $localStorage.tiposPreFiltros.fioc;
         };
 
         service.transformUserExpInfo = function(dataExpediente){
@@ -118,7 +118,7 @@ angular.module('ExpedientesService',[])
         service.getAllExpedientesConFiltro = function(){
             return $http.post(
                 APIConfigService.getUrlLeerExpedientesFiltros(),
-                getConfigObject(),
+                getConfigObjectExp(),
                 APIConfigService.getHeaders()
             );
         };
@@ -126,7 +126,7 @@ angular.module('ExpedientesService',[])
         service.getExpedienteById = function(expId){
             return $http.post(
                 APIConfigService.getUrlLeerExpediente(),
-                getConfigObjectById(expId),
+                getConfigObjectExpById(expId),
                 APIConfigService.getHeaders()
             );
         };

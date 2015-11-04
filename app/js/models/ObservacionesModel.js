@@ -2,7 +2,7 @@ angular.module('ObservacionesService',[])
     .factory('ObservacionesModel', ['$http', 'APIConfigService', function ($http, APIConfigService) {
         var service = this;
 
-        getConfigObjectById = function(expId){
+        getConfigObjectObsById = function(expId){
             return {
                 "expediente": {
                     "r_object_id": expId
@@ -13,7 +13,7 @@ angular.module('ObservacionesService',[])
         service.getObservacionesByExpId = function(expId){
             return $http.post(
                 APIConfigService.getUrlLeerObservaciones(),
-                getConfigObjectById(expId),
+                getConfigObjectObsById(expId),
                 APIConfigService.getHeaders()
             );
         };

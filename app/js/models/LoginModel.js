@@ -1,30 +1,42 @@
 angular.module('LoginService',[])
-    .factory('LoginModel', ['$http', '$sessionStorage', 'APIConfigService', function ($http, $sessionStorage, APIConfigService) {
+    .factory('LoginModel', ['$http', '$sessionStorage', '$location', 'APIConfigService', function ($http, $sessionStorage, $location, APIConfigService) {
         var service = this;
 
-        var config_object = {};
+        var config_object_login = {};
 
-        getConfigObject = function(){
-            return config_object;
+        getConfigObjectLogin = function(){
+            return config_object_login;
         };
-        service.setConfigObject = function(data){
-            config_object = data;
+        service.setConfigObjectLogin = function(data){
+            config_object_login = data;
         };
 
         service.doLogin = function(){
             return $http.post(
                 APIConfigService.getUrlLogin(),
-                getConfigObject(),
+                getConfigObjectLogin(),
                 APIConfigService.getHeaders()
             );
         };
 
+        service.doLogout = function(){
+            $sessionStorage.infoUser = {};
+        };
+
         service.isLogged = function(){
-            return $sessionStorage.infoUser.isLogged;
+            var isLogged
+            ($sessionStorage.infoUser.isLogged)?isLogged=true:isLogged=false;
+            return isLogged;
         };
 
         service.getInfoUserLogged = function(){
             return $sessionStorage.infoUser;
+        };
+
+        service.secureUrl = function(){
+            if (service.isLogged()===false){
+                $location.path("/login");
+            }
         };
 
         return service;

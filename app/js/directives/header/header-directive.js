@@ -1,15 +1,25 @@
 'use strict';
 
 angular.module('headerDirective', [])
-    .controller('HeaderController', ['$scope', '$sessionStorage', 'LoginModel', function($scope, $sessionStorage, LoginModel) {
+    .controller('HeaderController', ['$scope', '$sessionStorage', '$location', 'LoginModel', function($scope, $sessionStorage, $location, LoginModel) {
         $scope.headerInfo = {
             headerValue: 'H\u00E1gase cliente m\u00F3vil',
             logoOpenBank: 'images/logo_blanco.png',
             buttonBackOffice: 'BACKOFFICE',
             buttonContactCenter: 'CONTACT CENTER'
         };
-        var userLogged = LoginModel.getInfoUserLogged();
-        userLogged?$scope.usuario=userLogged.usuario:$scope.usuario = "";
+
+        $scope.usuario = $sessionStorage.infoUser.usuario;
+
+        $scope.$on('logged', function(event, args){
+            $scope.usuario = args;
+        });
+
+        $scope.doLogout = function(){
+            LoginModel.doLogout();
+            $scope.usuario = $sessionStorage.infoUser.usuario;
+            $location.path("/login");
+        };
     }])
     .directive('mainHeader', function() {
         return {
@@ -18,7 +28,8 @@ angular.module('headerDirective', [])
             replace: true,
             scope: {
                 mainInfo: "=",
-                usuario: "="
+                usuario: "=",
+                doLogout: "="
             }
         };
     });
