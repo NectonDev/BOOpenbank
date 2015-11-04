@@ -24,13 +24,13 @@ angular.module('LoginService',[])
         };
 
         service.isLogged = function(){
-            var isLogged
-            ($sessionStorage.infoUser.isLogged)?isLogged=true:isLogged=false;
+            var isLogged;
+            if ($sessionStorage.infoUser===undefined){
+                isLogged = false;
+            }else{
+                ($sessionStorage.infoUser.isLogged)?isLogged=true:isLogged=false;
+            }
             return isLogged;
-        };
-
-        service.getInfoUserLogged = function(){
-            return $sessionStorage.infoUser;
         };
 
         service.secureUrl = function(){

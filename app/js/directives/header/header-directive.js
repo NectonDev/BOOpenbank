@@ -9,7 +9,12 @@ angular.module('headerDirective', [])
             buttonContactCenter: 'CONTACT CENTER'
         };
 
-        $scope.usuario = $sessionStorage.infoUser.usuario;
+        if ($sessionStorage.infoUser===undefined){
+            $scope.usuario = "";
+        }else{
+            $scope.usuario = $sessionStorage.infoUser.usuario
+        }
+
 
         $scope.$on('logged', function(event, args){
             $scope.usuario = args;

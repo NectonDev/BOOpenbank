@@ -104,6 +104,6 @@ angular.module('BOOpenbank', [
       IBAN : 'ES89',
       Entidad : '2229',
       Oficina : '9598'
-    }
+    };
   })($http);
 }]);
