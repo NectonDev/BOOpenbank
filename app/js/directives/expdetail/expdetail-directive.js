@@ -1,13 +1,12 @@
 'use strict';
 
 angular.module('expDetailDirective', ['ngAnimate'])
-    .controller('ExpDetailController', ['$scope', '$routeParams', 'ExpedientesModel', 'UsersModel', 'LoginModel', function($scope, $routeParams, ExpedientesModel, UsersModel, LoginModel) {
+    .controller('ExpDetailController', ['$scope', '$routeParams', 'ExpedientesModel', 'UsersModel', 'LoginModel', function($scope, $routeParams, ExpedientesModel, UsersModel,LoginModel) {
         LoginModel.secureUrl();
-        var callToExpById = ExpedientesModel.getExpedienteById($routeParams.expId);
-        callToExpById.then(function (data) {
-            $scope.$broadcast('expInfo', ExpedientesModel.transformInfoExpediente(data.data.expediente));
-            $scope.$broadcast('usersReqInfo', UsersModel.transformInfoUsers(data.data.usuarios));
-        });
+        var expInfo = ExpedientesModel.getExpedienteById($routeParams.expId);
+        $scope.$broadcast('expInfo', ExpedientesModel.transformInfoExpediente(expInfo[0]));
+        $scope.$broadcast('usersReqInfo', UsersModel.transformInfoUsers(expInfo[1]));
+
     }])
     .directive('expDetail', function() {
     return {

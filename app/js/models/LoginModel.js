@@ -1,5 +1,5 @@
-angular.module('LoginService',[])
-    .factory('LoginModel', ['$http', '$sessionStorage', '$location', 'APIConfigService', function ($http, $sessionStorage, $location, APIConfigService) {
+angular.module('LoginModel',[])
+    .service('LoginModel', ['$http', '$sessionStorage', '$location', 'APIConfigService', function ($http, $sessionStorage, $location, APIConfigService) {
         var service = this;
 
         var config_object_login = {};

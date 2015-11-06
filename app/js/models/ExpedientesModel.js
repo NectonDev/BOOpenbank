@@ -1,7 +1,8 @@
-angular.module('ExpedientesService',[])
-    .factory('ExpedientesModel', ['$http', '$localStorage', 'APIConfigService', 'EstadosModel', function ($http, $localStorage, APIConfigService, EstadosModel) {
+angular.module('ExpedientesModel',[])
+    .service('ExpedientesModel', ['$http', '$localStorage', 'APIConfigService', 'ExpedientesService', 'EstadosModel', function ($http, $localStorage, APIConfigService, ExpedientesService, EstadosModel) {
         var service = this;
         var config_object_exp = {};
+        var numTotalResultados = 0;
 
         getConfigObjectExp = function(){
             return {
@@ -31,7 +32,14 @@ angular.module('ExpedientesService',[])
             else if(dcParcial==10)
                 dcParcial=1;
             return dcParcial.toString();
-        }
+        };
+
+        service.setDefaultParameters = function(){
+            config_object_exp.page = APIConfigService.getDefaultPageExpediente();
+            config_object_exp.results = APIConfigService.getDefaultPageSizeExpediente();
+            config_object_exp.filtro = APIConfigService.getDefaultFilterExpediente();
+            config_object_exp.bloqueo = APIConfigService.getDefaultBloqueoExpediente();
+        };
 
         service.setPage = function(page){
             config_object_exp.page=page;
@@ -63,13 +71,6 @@ angular.module('ExpedientesService',[])
 
         service.getBloqueo = function(){
             return config_object_exp.bloqueo;
-        };
-
-        service.setDefaultParameters = function(){
-            config_object_exp.page = APIConfigService.getDefaultPageExpediente();
-            config_object_exp.results = APIConfigService.getDefaultPageSizeExpediente();
-            config_object_exp.filtro = APIConfigService.getDefaultFilterExpediente();
-            //config_object_exp.bloqueo = APIConfigService.getDefaultBloqueoExpediente();
         };
 
         service.isFioc = function(){
@@ -107,6 +108,7 @@ angular.module('ExpedientesService',[])
             var infoExpedientes = {};
             infoExpedientes.expedientes = {};
             infoExpedientes.numResults = dataExpedientes.numResults;
+            numTotalResultados = dataExpedientes.numResults;
             for (var i=0;i<dataExpedientes.expedientes.length;i++){
                 infoExpedientes.expedientes[i] = service.transformInfoExpediente(dataExpedientes.expedientes[i].expediente);
                 infoExpedientes.expedientes[i].numInterv = dataExpedientes.expedientes[i].usuarios.length;
@@ -116,19 +118,55 @@ angular.module('ExpedientesService',[])
         };
 
         service.getAllExpedientesConFiltro = function(){
-            return $http.post(
-                APIConfigService.getUrlLeerExpedientesFiltros(),
-                getConfigObjectExp(),
-                APIConfigService.getHeaders()
-            );
+            return ExpedientesService.getAllExpedientesConFiltro(getConfigObjectExp()).then(function(data){
+                return service.transformInfoExpedientes(data.data);
+            });
         };
 
         service.getExpedienteById = function(expId){
-            return $http.post(
-                APIConfigService.getUrlLeerExpediente(),
-                getConfigObjectExpById(expId),
-                APIConfigService.getHeaders()
-            );
+            ExpedientesService.getExpedienteById(getConfigObjectExpById(expId)).then(function(data){
+                return [data.data.expediente,data.data.usuarios];
+            });
+        };
+
+        service.getNumTotalExpedientes = function(){
+            return numTotalResultados;
+        };
+
+        service.makePagination = function(tableResults){
+            var arrayOfPages = [];
+            var arrayOfPageToShow = [];
+            var pageActual = parseInt(config_object_exp.page);
+            var numExpedientes = tableResults.numResults;
+            var leftToShow;
+            var rightToShow;
+            if (pageActual===1 || pageActual===2 || pageActual===3){
+                leftToShow = 0;
+                rightToShow = 5;
+            }else{
+                leftToShow = pageActual - 3;
+                rightToShow = pageActual + 2;
+            }
+            var arrayNumPages = (numExpedientes / config_object_exp.results).toString().split(".");
+            if (arrayNumPages[0]==0){
+                arrayOfPages.push(1);
+            }else{
+                for (var i = 0; i < arrayNumPages[0]; i++) {
+                    arrayOfPages.push(i + 1);
+                }
+                if (arrayNumPages[1] > 0){
+                    arrayOfPages.push(arrayOfPages.length+1);
+                }
+            }
+            var part1OnePages= arrayOfPages.slice(leftToShow,pageActual);
+            var partTwoPages = arrayOfPages.slice(pageActual,rightToShow);
+            for (var i=0;i<part1OnePages.length;i++){
+                arrayOfPageToShow.push(part1OnePages[i]);
+            }
+            for (var i=0;i<partTwoPages.length;i++){
+                arrayOfPageToShow.push(partTwoPages[i]);
+            }
+            return arrayOfPageToShow;
         };
 
         return service;

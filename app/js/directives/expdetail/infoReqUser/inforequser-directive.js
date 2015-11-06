@@ -16,6 +16,9 @@ angular.module('infoReqUserDirective', [])
             $scope.datosReq = {
                 title: RequisitosModel.getTipoConfigReq(args)
             }
+            $scope.onLoad = function (e, reader, file, fileList, fileOjects, fileObj) {
+                alert('this is handler for file reader onload event!');
+            };
         });
 
     }])
@@ -29,7 +32,13 @@ angular.module('infoReqUserDirective', [])
             datosReq: "=",
             infoHeader: "=",
             isSelfie: "=",
-            isTd: "="
+            isTd: "=",
+            onLoad: "=",
+            closeDesplegable: "="
+        }, link: function($scope){
+            $scope.closeDesplegable = function(){
+                $(".desplegable").slideUp();
+            };
         }
     };
 });

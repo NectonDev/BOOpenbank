@@ -1,5 +1,5 @@
-angular.module('RequisitosService',[])
-    .factory('RequisitosModel', [function () {
+angular.module('RequisitosModel',[])
+    .service('RequisitosModel', [function () {
         var service = this;
 
         var listaRequisitos = {

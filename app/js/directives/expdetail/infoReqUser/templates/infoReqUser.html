@@ -1,7 +1,7 @@
 <div id="infoDesplegable" class="docTit" style="display:none;">
     <div class="encabezadoDespleg">
         <div class="tituloDesplegable">{{datosReq.title}}</div>
-        <div class="xCerrar"><i class="material-icons">clear</i></div>
+        <div class="xCerrar"><i class="material-icons" ng-click="closeDesplegable()">clear</i></div>
     </div>
     <div class="tablaDoc">
         <table class="tablaDesplegable">
@@ -23,7 +23,7 @@
                 <div class="file-field input-field">
                     <div class="">
                         <a>A&Ntilde;ADIR DOCUMENTO</a>
-                        <input type="file" ng-model='fileToUpload' base-sixty-four-input>
+                        <input type="file" ng-model='fileToUpload' multiple base-sixty-four-input onload="onLoad">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text">
@@ -80,6 +80,9 @@
             <div class="input-field col s4 offset-s1" style="position:relative;top:30px;right:5px;margin-bottom:35px;">
                 <input id="comentario" type="text">
                 <label>Comentario</label>
+            </div>
+            <div class="input-field col s4 offset-s1" style="position:relative;top:30px;right:5px;margin-bottom:35px;">
+                <button class="btn waves-effect waves-light button-medium">GUARDAR</button>
             </div>
         </div>
     </div>

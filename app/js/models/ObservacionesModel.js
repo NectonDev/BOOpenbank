@@ -1,5 +1,5 @@
-angular.module('ObservacionesService',[])
-    .factory('ObservacionesModel', ['$http', 'APIConfigService', function ($http, APIConfigService) {
+angular.module('ObservacionesModel',[])
+    .service('ObservacionesModel', ['$http', 'APIConfigService', function ($http, APIConfigService) {
         var service = this;
 
         getConfigObjectObsById = function(expId){

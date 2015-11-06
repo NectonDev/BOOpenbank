@@ -1,5 +1,5 @@
-angular.module('UsersService',[])
-    .factory('UsersModel', ['$http', 'TipoDocsModel', 'RequisitosModel', 'APIConfigService', function ($http, TipoDocsModel, RequisitosModel, APIConfigService) {
+angular.module('UsersModel',[])
+    .service('UsersModel', ['$http', 'TipoDocsModel', 'RequisitosModel', 'APIConfigService', function ($http, TipoDocsModel, RequisitosModel, APIConfigService) {
         var service = this;
 
         getTypeOfUser = function (user){
@@ -22,7 +22,7 @@ angular.module('UsersService',[])
             dataUser.ape2 = user.docident_ape2_val;
             dataUser.numDoc = user.docident_num_val;
             dataUser.tipoUser = getTypeOfUser(user);
-            dataUser.tipoDoc = TipoDocsModel.getTipoDocById(user.docident_num_val);
+            dataUser.tipoDoc = TipoDocsModel.getTipoDocById(user.tipo_doc_ident);
             dataUser.fechaNac = user.docident_fecha_nac_val;
             dataUser.sexo = user.docident_sexo_val;
             dataUser.nacionalidad = user.docident_nacionalidad_val;

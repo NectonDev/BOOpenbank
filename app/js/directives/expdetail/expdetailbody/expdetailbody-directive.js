@@ -23,7 +23,7 @@ angular.module('expDetailBodyDirective', [])
             $location.path(urlToUserDetail);
         };
     }])
-    .directive('expDetailBody', ['$rootScope', 'RequisitosModel', function($rootScope) {
+    .directive('expDetailBody', ['$rootScope', '$timeout', function($rootScope, $timeout) {
     return {
         restrict: 'E',
         templateUrl: './js/directives/expdetail/expdetailbody/templates/expdetailbody.html',
@@ -37,9 +37,9 @@ angular.module('expDetailBodyDirective', [])
             showInfo: "="
         },link: function($scope){
             $scope.showInfo = function(infoToDeploy){
+                $(".desplegable").slideUp(500);
                 $rootScope.$broadcast('reqToShow', infoToDeploy.match(/\d+/g));
-                $(".desplegable").slideUp();
-                $("." + infoToDeploy).slideDown();
+                $("." + infoToDeploy).slideDown(500);
             }
         }
     };

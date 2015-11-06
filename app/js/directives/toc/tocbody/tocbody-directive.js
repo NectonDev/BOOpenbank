@@ -2,6 +2,7 @@
 
 angular.module('tocBodyDirective', [])
     .controller('TocBodyController', ['$scope', '$location', 'ExpedientesModel', function($scope, $location, ExpedientesModel) {
+
         ExpedientesModel.setDefaultParameters();
 
         $scope.tocbodyInfo = {
@@ -48,8 +49,8 @@ angular.module('tocBodyDirective', [])
 
             function getExpedientes(){
                 $("#contentTable").hide();
-                ExpedientesModel.getAllExpedientesConFiltro().then(function (data){
-                    $scope.tableResults = ExpedientesModel.transformInfoExpedientes(data.data);
+                ExpedientesModel.getAllExpedientesConFiltro().then(function(data){
+                    $scope.tableResults = data;
                     $timeout(function(){$("#contentTable").fadeIn('slow')},500);
                 });
             }
@@ -62,8 +63,12 @@ angular.module('tocBodyDirective', [])
 
             $scope.$watch('hideLocked',function(data){
                 if (typeof(data) != "undefined") {
-                    //ExpedientesModel.setBloqueo(data);
+                    ExpedientesModel.setBloqueo(data);
                     getExpedientes();
+                }else{
+                    ExpedientesModel.setBloqueo(true);
+                    getExpedientes();
+                    //TODO: ARREGLAR ESTE ELSE
                 }
             });
 
@@ -102,8 +107,6 @@ angular.module('tocBodyDirective', [])
                     getExpedientes();
                 }
             });
-
-            getExpedientes();
         }
     };
 }]);
