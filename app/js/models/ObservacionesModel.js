@@ -1,5 +1,5 @@
 angular.module('ObservacionesModel',[])
-    .service('ObservacionesModel', ['$http', 'APIConfigService', function ($http, APIConfigService) {
+    .service('ObservacionesModel', ['ObservacionesService', function (ObservacionesService) {
         var service = this;
 
         getConfigObjectObsById = function(expId){
@@ -11,11 +11,9 @@ angular.module('ObservacionesModel',[])
         };
 
         service.getObservacionesByExpId = function(expId){
-            return $http.post(
-                APIConfigService.getUrlLeerObservaciones(),
-                getConfigObjectObsById(expId),
-                APIConfigService.getHeaders()
-            );
+            return ObservacionesService.getObservacionesByExpId(getConfigObjectObsById(expId)).then(function(data){
+                return service.transformInfoObservaciones(data.data.observaciones);
+            });
         };
 
         service.transformInfoObservaciones = function(dataObservaciones){
@@ -28,7 +26,7 @@ angular.module('ObservacionesModel',[])
                 observaciones[i].descripcion = dataObservaciones[i].descripcion;
             }
             return observaciones;
-        }
+        };
 
         return service;
     }]);

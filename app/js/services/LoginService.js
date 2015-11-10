@@ -1,5 +1,5 @@
-angular.module('LoginModel',[])
-    .service('LoginModel', ['$http', '$sessionStorage', '$location', 'APIConfigService', function ($http, $sessionStorage, $location, APIConfigService) {
+angular.module('LoginService',[])
+    .service('LoginService', ['$http', '$sessionStorage', 'APIConfigService', function ($http, $sessionStorage, APIConfigService) {
         var service = this;
 
         var config_object_login = {};
@@ -7,6 +7,7 @@ angular.module('LoginModel',[])
         getConfigObjectLogin = function(){
             return config_object_login;
         };
+
         service.setConfigObjectLogin = function(data){
             config_object_login = data;
         };

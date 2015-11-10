@@ -10,8 +10,10 @@ angular.module('APIConfig',[])
             leerExpedientesFiltros: '/leerExpedientesFiltros',
             leerObservaciones: '/listaObservaciones ',
             actualizarExpediente: '/actualizarExpediente',
-            listaDocs: '/listaTipoDocs',
+            listaTipoDocs: '/listaTipoDocs',
             listaEstados: '/listaEstados',
+            listaRechazosReq: '/listaRechazoRequisito',
+            listaMotivosCancelacion: '/listaMotivosCancelacion',
             listaPaises: '/prPaises/listar/tablas',
             listaTipoVias: '/prTipoVia/listar/TipoVia',
             listaCiudades: '/prCiudad/listar/Tablas',
@@ -51,11 +53,17 @@ angular.module('APIConfig',[])
         service.getUrlActualizarExpedientes = function(){
             return endpointmap.apiUrlExpedientes+endpointmap.actualizarExpediente;
         };
-        service.getUrlListaDocs = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.listaDocs;
+        service.getUrlListaTipoDocs = function(){
+            return endpointmap.apiUrlExpedientes+endpointmap.listaTipoDocs;
         };
         service.getUrlListaEstados = function(){
             return endpointmap.apiUrlExpedientes+endpointmap.listaEstados;
+        };
+        service.getUrlListaRechazosReq = function(){
+            return endpointmap.apiUrlExpedientes+endpointmap.listaRechazosReq;
+        };
+        service.getUrlListaMotivosCancelacion = function(){
+            return endpointmap.apiUrlExpedientes+endpointmap.listaMotivosCancelacion;
         };
         service.getUrlListaPaises = function(){
             return endpointmap.apiUrlServicios+endpointmap.listaPaises;

@@ -3,7 +3,6 @@ angular.module('ExpedientesService',[])
         var service = this;
 
         service.getAllExpedientesConFiltro = function(configObject){
-            console.log(configObject);
             return $http.post(
                 APIConfigService.getUrlLeerExpedientesFiltros(),
                 configObject,

@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('tocDirective', [])
-    .controller('TocController', ['LoginModel', function(LoginModel) {
-        LoginModel.secureUrl();
+    .controller('TocController', ['LoginService', function(LoginService) {
+        LoginService.secureUrl();
     }])
     .directive('toc', function() {
         return {

@@ -19,7 +19,7 @@ angular.module('ExpedientesModel',[])
         };
 
         calculaDCParcial = function (cadena){
-            var dcParcial = 0;
+            //var dcParcial = 0;
             var tablaPesos = [6,3,7,9,10,5,8,4,2,1];
             var suma = 0;
             var i;
@@ -124,7 +124,7 @@ angular.module('ExpedientesModel',[])
         };
 
         service.getExpedienteById = function(expId){
-            ExpedientesService.getExpedienteById(getConfigObjectExpById(expId)).then(function(data){
+            return ExpedientesService.getExpedienteById(getConfigObjectExpById(expId)).then(function(data){
                 return [data.data.expediente,data.data.usuarios];
             });
         };
@@ -151,7 +151,7 @@ angular.module('ExpedientesModel',[])
             if (arrayNumPages[0]==0){
                 arrayOfPages.push(1);
             }else{
-                for (var i = 0; i < arrayNumPages[0]; i++) {
+                for (var i=0;i<arrayNumPages[0];i++) {
                     arrayOfPages.push(i + 1);
                 }
                 if (arrayNumPages[1] > 0){

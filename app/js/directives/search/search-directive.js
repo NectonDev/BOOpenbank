@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('searchDirective', [])
-    .controller('SearchController', ['$scope', 'LoginModel', function($scope, LoginModel) {
-        LoginModel.secureUrl();
+    .controller('SearchController', ['$scope', 'LoginService', function($scope, LoginService) {
+        LoginService.secureUrl();
 
         $scope.searchInfo = {
             IBANText: 'IBAN',

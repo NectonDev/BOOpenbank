@@ -1,16 +1,15 @@
 'use strict';
 
 angular.module('loginDirective', [])
-    .controller('LoginController', ['$scope', '$rootScope', '$location', '$sessionStorage', 'LoginModel', function($scope, $rootScope, $location, $sessionStorage, LoginModel) {
-        if (LoginModel.isLogged()){
+    .controller('LoginController', ['$scope', '$rootScope', '$location', '$sessionStorage', 'LoginService', function($scope, $rootScope, $location, $sessionStorage, LoginService) {
+        if (LoginService.isLogged()){
             $location.path("/backoffice");
         }
 
         $scope.doLogin = function(data){
-            LoginModel.setConfigObjectLogin(data);
+            LoginService.setConfigObjectLogin(data);
             var usuario = data.usuario;
-            var doLogin = LoginModel.doLogin();
-            doLogin.then(function(data){
+            LoginService.doLogin().then(function(data){
                 if (data.data.acceso === "0"){
                     $sessionStorage.infoUser = {};
                     $sessionStorage.infoUser.usuario = usuario;

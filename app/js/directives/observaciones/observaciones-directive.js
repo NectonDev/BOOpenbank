@@ -1,11 +1,10 @@
 'use strict';
 
 angular.module('observacionesDirective', [])
-    .controller('ObservacionesController', ['$scope', '$routeParams', 'ObservacionesModel', 'LoginModel', function($scope, $routeParams, ObservacionesModel, LoginModel) {
-        LoginModel.secureUrl();
-        var observaciones = ObservacionesModel.getObservacionesByExpId($routeParams.expId);
-        observaciones.then(function(data){
-            $scope.observaciones = ObservacionesModel.transformInfoObservaciones(data.data.observaciones);
+    .controller('ObservacionesController', ['$scope', '$routeParams', 'ObservacionesModel', 'LoginService', function($scope, $routeParams, ObservacionesModel, LoginService) {
+        LoginService.secureUrl();
+        ObservacionesModel.getObservacionesByExpId($routeParams.expId).then(function(data){
+            $scope.observaciones = data;
         });
     }])
     .directive('observaciones', function() {

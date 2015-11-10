@@ -31,9 +31,10 @@ angular.module('BOOpenbank', [
   'RequisitosModel',
   'ObservacionesModel',
   'UsersModel',
-  'LoginModel',
   'ListService',
-  'ExpedientesService'
+  'ExpedientesService',
+  'ObservacionesService',
+  'LoginService'
 ])
 .config(['$routeProvider', function($routeProvider){
   $routeProvider
@@ -69,7 +70,9 @@ angular.module('BOOpenbank', [
 .run(['ListService' ,function(ListService){
   (function(){
     ListService.getListEstados();
-    ListService.getListDocs();
+    ListService.getListRechazosReq();
+    ListService.getListMotivosCancelacion();
+    ListService.getListTipoDocs();
     ListService.getListPaises();
     ListService.getListCiudades();
     ListService.getListTipoVias();
