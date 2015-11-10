@@ -1,19 +1,19 @@
 angular.module('RequisitosModel',[])
     .service('RequisitosModel', [function () {
-        var service = this;
+        var service = this,
 
-        var listaRequisitos = {
+        listaRequisitos = {
             RE: "warning",
             NR: "NA",
             RV: "check",
             RR: "error",
             RNE: "no_sim"
-        };
+        },
 
-        var tiposReq = {
+        tiposReq = {
             0: "Documentaci\u00F3n",
             1: "Reconocimiento facial",
-            2: "Documentaci\u00F3n subsanaci\u00F3n de contrato",
+            2: "Documentaci\u00F3n subscripci\u00F3n de contrato",
             3: "Documentaci\u00F3n de actividad profesional",
             4: "Recibo",
             5: "Modelo IC",
@@ -21,26 +21,25 @@ angular.module('RequisitosModel',[])
             7: "Fondos",
             8: "Real Decreto 54",
             9: "Tercera Directiva"
-        };
-        var infoHeader = {
+        },
+        infoHeader = {
             documentos: "Documentos",
             gestor: "Gestor",
             fechaCreacion: "Fecha Creaci\u00F3n"
-        };
-        var infoHeaderSelfie = {
+        },
+        infoHeaderSelfie = {
             porcentaje: "Porcentaje",
             intentos: "Intentos",
             fechaCreacion: "Fecha Creaci\u00F3n",
             estado: "Estado"
-        };
-        var infoHeaderTD = {
+        },
+        infoHeaderTD = {
             estado: "Estado",
             riesgo: "Riesgo",
             empresa: "\u00BFEn que empresa trabajas\u00B3",
             actividad: "\u00BFCu\u00E1l es tu actividad en la empresa\u003F"
-        };
-
-        var isSelfie, isTD, isMPDC = false;
+        },
+        isSelfie, isTD, isMPDC = false;
 
         service.setIsSelfie = function(args){
             (args[0]==="1")?isSelfie=true:isSelfie=false;

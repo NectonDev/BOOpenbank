@@ -12,5 +12,16 @@ angular.module('TipoDocsModel',[])
             }
         };
 
+        service.getTipoDocs = function(){
+            var tipoDocs = [];
+            var listaTiposDocs = $localStorage.tiposDocs;
+            for (var doc in listaTiposDocs){
+                if (listaTiposDocs.hasOwnProperty(doc) ) {
+                    tipoDocs.push(doc);
+                }
+            }
+            return tipoDocs;
+        };
+
         return service;
     }]);

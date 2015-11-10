@@ -12,5 +12,17 @@ angular.module('EstadosModel',[])
             }
         };
 
+        service.getEstados = function(){
+            var estados = [];
+            var listaEstados = $localStorage.tiposEstados;
+            for (var estado in listaEstados){
+                if (listaEstados.hasOwnProperty(estado) ) {
+                    estados.push(listaEstados[estado]);
+                    //estados.push(estado);
+                }
+            }
+            return estados;
+        };
+
         return service;
     }]);

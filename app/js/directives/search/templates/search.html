@@ -38,7 +38,7 @@
             <md-input-container style="position:relative;bottom:2px;left:18px;width:100px;">
                 <label>Tipo</label>
                 <md-select ng-model="tipos">
-                    <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices">{{stateOption}}</md-option>
+                    <md-option ng-value="typeOptions" ng-repeat="typeOptions in typeOptions.choices">{{typeOptions}}</md-option>
                 </md-select>
             </md-input-container>
             <md-input-container class="campoForm masPad offset-s1" style="width:190px;position:relative;bottom:83px;left:140px;">
@@ -56,7 +56,7 @@
             <md-input-container class="col s2" style="position:relative;left:55px;">
                 <label>Estado</label>
                 <md-select ng-model="estados">
-                    <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices">{{stateOption}}</md-option>
+                    <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices track by $index">{{stateOption}}</md-option>
                 </md-select>
             </md-input-container>
             <md-input-container class="col s2" style="position:relative;left:100px;">

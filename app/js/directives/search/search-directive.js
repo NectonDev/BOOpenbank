@@ -1,26 +1,19 @@
 'use strict';
 
 angular.module('searchDirective', [])
-    .controller('SearchController', ['$scope', 'LoginService', function($scope, LoginService) {
+    .controller('SearchController', ['$scope', '$localStorage', 'LoginService', 'LiteralsConfigService', 'EstadosModel', 'TipoDocsModel', function($scope, $localStorage, LoginService, LiteralsConfigService, EstadosModel, TipoDocsModel) {
         LoginService.secureUrl();
 
-        $scope.searchInfo = {
-            IBANText: 'IBAN',
-            IBANNumber: 'ES89',
-            EntidadText: 'Entidad',
-            EntidadNumber: '2229',
-            OficinaText: 'Oficina',
-            OficinaNumber: '9598',
-            DCText: 'DC'
-        };
+        $scope.searchInfo = LiteralsConfigService.getSearchInfo();
+
         $scope.typeOptions = {
-            choices: ['Tipo 1', 'Tipo 2', 'Tipo 3']
+            choices: TipoDocsModel.getTipoDocs()
         };
         $scope.statesOptions = {
-            choices: ['En Proceso', 'Cancelado']
+            choices: EstadosModel.getEstados()
         };
         $scope.canalesOptions = {
-            choices: ['Movil', 'Ordenador']
+            choices: ['Movil', 'Web']
         };
     }])
     .directive('search', function() {
