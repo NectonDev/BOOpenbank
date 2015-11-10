@@ -1,5 +1,5 @@
 angular.module('ObservacionesModel',[])
-    .service('ObservacionesModel', ['ObservacionesService', function (ObservacionesService) {
+    .service('ObservacionesModel', ['ObservacionesService', 'EstadosModel', function (ObservacionesService, EstadosModel) {
         var service = this;
 
         getConfigObjectObsById = function(expId){
@@ -12,16 +12,16 @@ angular.module('ObservacionesModel',[])
 
         service.getObservacionesByExpId = function(expId){
             return ObservacionesService.getObservacionesByExpId(getConfigObjectObsById(expId)).then(function(data){
-                return service.transformInfoObservaciones(data.data.observaciones);
+                return transformInfoObservaciones(data.data.observaciones);
             });
         };
 
-        service.transformInfoObservaciones = function(dataObservaciones){
+        transformInfoObservaciones = function(dataObservaciones){
             var observaciones = {};
             for (var i=0;i<dataObservaciones.length;i++){
                 observaciones[i]={};
                 observaciones[i].fechaAlta = dataObservaciones[i].fecha_observacion;
-                observaciones[i].estado = dataObservaciones[i].estado_expediente;
+                observaciones[i].estado = EstadosModel.getEstadoById(dataObservaciones[i].estado_expediente);
                 observaciones[i].gestor = dataObservaciones[i].gestor;
                 observaciones[i].descripcion = dataObservaciones[i].descripcion;
             }

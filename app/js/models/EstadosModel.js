@@ -5,9 +5,9 @@ angular.module('EstadosModel',[])
         service.getEstadoById = function(estadoId){
             var listaEstados = $localStorage.tiposEstados;
             for (var estado in listaEstados){
-                if (listaEstados.hasOwnProperty(estado) ) {
-                    if (listaEstados[estado] === estadoId )
-                        return estado;
+                if (listaEstados.hasOwnProperty(estado)) {
+                    if (estado === estadoId)
+                        return listaEstados[estado];
                 }
             }
         };

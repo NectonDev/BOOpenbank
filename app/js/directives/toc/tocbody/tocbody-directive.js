@@ -1,22 +1,10 @@
 'use strict';
 
 angular.module('tocBodyDirective', [])
-    .controller('TocBodyController', ['$scope', '$location', 'ExpedientesModel', function($scope, $location, ExpedientesModel) {
-
+    .controller('TocBodyController', ['$scope', '$location', 'ExpedientesModel', 'LiteralsConfigService', function($scope, $location, ExpedientesModel, LiteralsConfigService) {
         ExpedientesModel.setDefaultParameters();
 
-        $scope.tocbodyInfo = {
-            numCuenta: 'N\u00FAmero cuenta',
-            canal: 'Canal',
-            interv: 'Interv.',
-            gestor: 'Gestor',
-            creationDate: 'Fecha Creaci\u00F3n',
-            modDate: 'Fecha Modificaci\u00F3n',
-            nombre: 'Nombre',
-            apellidos: 'Apellidos',
-            empresa: 'Empresa',
-            actividad: 'Actividad'
-        };
+        $scope.tocbodyInfo = LiteralsConfigService.getTocBodyLiterals();
 
         $scope.goToDetail = function(expId){
             var urlToDetail = "/backoffice/"+expId;

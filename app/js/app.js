@@ -8,6 +8,7 @@ angular.module('BOOpenbank', [
   'ngDialog',
   'naif.base64',
   'APIConfig',
+  'LiteralsConfig',
   'ez.datetime',
   'ez.modal',
   'ez.dropdown',

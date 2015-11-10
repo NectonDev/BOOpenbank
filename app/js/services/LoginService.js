@@ -1,5 +1,5 @@
 angular.module('LoginService',[])
-    .service('LoginService', ['$http', '$sessionStorage', 'APIConfigService', function ($http, $sessionStorage, APIConfigService) {
+    .service('LoginService', ['$http', '$location', '$sessionStorage', 'APIConfigService', function ($http, $location, $sessionStorage, APIConfigService) {
         var service = this;
 
         var config_object_login = {};

@@ -15,9 +15,33 @@ angular.module('ListService',[])
             });
         };
 
-        service.getListDocs = function(){
+        service.getListRechazosReq = function(){
+            var allRechazosReq = $http.get(
+                APIConfigService.getUrlListaRechazosReq(),
+                headers_object
+            );
+            allRechazosReq.then(function(data){
+                $localStorage.listaRechazosReq = data.data;
+            }).catch(function(data){
+                console.log("Error recuperando los rechazos de requisito: " + data);
+            });
+        };
+
+        service.getListMotivosCancelacion = function(){
+            var allMotivosCancelacion = $http.get(
+                APIConfigService.getUrlListaMotivosCancelacion(),
+                headers_object
+            );
+            allMotivosCancelacion.then(function(data){
+                $localStorage.listaMotivosCancelacion = data.data;
+            }).catch(function(data){
+                console.log("Error recuperando los motivos de cancelacion: " + data);
+            });
+        };
+
+        service.getListTipoDocs = function(){
             var allDocs = $http.get(
-                APIConfigService.getUrlListaDocs(),
+                APIConfigService.getUrlListaTipoDocs(),
                 headers_object
             );
             allDocs.then(function(data){
@@ -58,7 +82,7 @@ angular.module('ListService',[])
             }).catch(function(data){
                 console.log("Error recuperando el listado de tipo de vias: " + data);
             });
-        }
+        };
 
         service.getListPrefiltros = function(){
             $localStorage.tiposPreFiltros = {
@@ -76,7 +100,7 @@ angular.module('ListService',[])
                 Entidad : '2229',
                 Oficina : '9598'
             };
-        }
+        };
 
         return service;
     }]);

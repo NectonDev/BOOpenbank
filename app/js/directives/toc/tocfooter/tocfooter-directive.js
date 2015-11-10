@@ -8,7 +8,7 @@ angular.module('tocFooterDirective', [])
         $scope.numResultsPerPageDefault = $scope.numResultsPerPageOptions[0];
 
         $scope.goToPage = function(page){
-            if (page) {
+            if (page){
                 $rootScope.$broadcast('pageChange', page);
             }
         };
@@ -20,7 +20,7 @@ angular.module('tocFooterDirective', [])
         });
 
         $scope.$watch('numActualResultsPerPage',function(data){
-            if (data) {
+            if (data){
                 $scope.numPageResults = data;
                 $rootScope.$broadcast('pageSizeChange', data);
             }
