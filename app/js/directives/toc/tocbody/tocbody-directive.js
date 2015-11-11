@@ -54,9 +54,7 @@ angular.module('tocBodyDirective', [])
                     ExpedientesModel.setBloqueo(data);
                     getExpedientes();
                 }else{
-                    ExpedientesModel.setBloqueo(true);
                     getExpedientes();
-                    //TODO: ARREGLAR ESTE ELSE
                 }
             });
 
