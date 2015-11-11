@@ -59,7 +59,7 @@
             </tbody>
         </table>
         <div ng-show="!isFioc()" ng-controller="TocFooterController">
-            <toc-footer results-per-page-options="numResultsPerPageOptions" default-results-per-page="numResultsPerPageDefault" actual-size-per-page="numActualResultsPerPage" num-total-pages="numTotalPages" go-to-page="goToPage"></toc-footer>
+            <toc-footer results-per-page-options="numResultsPerPageOptions" default-results-per-page="numResultsPerPageDefault" actual-size-per-page="numActualResultsPerPage" num-total-pages="numTotalPages" go-to-page="goToPage" go-to-next-page="goToNextPage" go-to-prev-page="goToPrevPage"></toc-footer>
         </div>
         <div ng-show="isFioc()" ng-controller="TocFooterController">
             <button ng-click="procesarUsuarios()" class="btn waves-effect waves-light button-medium">PROCESAR</button>

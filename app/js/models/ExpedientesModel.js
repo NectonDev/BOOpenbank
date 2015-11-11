@@ -134,6 +134,8 @@ angular.module('ExpedientesModel',[])
         };
 
         service.makePagination = function(tableResults){
+            //TODO Algo pasa con la ultima pagina.
+            //TODO No regenerar la paginacion si estamos en las ultimas paginas, parece que falla.
             var arrayOfPages = [];
             var arrayOfPageToShow = [];
             var pageActual = parseInt(config_object_exp.page);

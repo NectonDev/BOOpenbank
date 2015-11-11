@@ -13,6 +13,19 @@ angular.module('tocFooterDirective', [])
             }
         };
 
+        $scope.goToPrevPage = function(){
+            var pageActual = ExpedientesModel.getPage();
+            if (pageActual>1){
+                $rootScope.$broadcast('pageChange', parseInt(pageActual)-1);
+            }
+
+        };
+
+        $scope.goToNextPage = function(){
+            var pageActual = ExpedientesModel.getPage();
+            $rootScope.$broadcast('pageChange', parseInt(pageActual)+1);
+        };
+
         $scope.$watch('tableResults', function(tableResults){
             if (tableResults){
                 $scope.numTotalPages = ExpedientesModel.makePagination(tableResults);
@@ -32,11 +45,13 @@ angular.module('tocFooterDirective', [])
             templateUrl: './js/directives/toc/tocfooter/templates/tocfooter.html',
             replace: true,
             scope: {
-                resultsPerPageOptions : "=",
-                defaultResultsPerPage : "=",
-                actualSizePerPage : "=",
-                numTotalPages : "=",
-                goToPage : "="
+                resultsPerPageOptions: "=",
+                defaultResultsPerPage: "=",
+                actualSizePerPage: "=",
+                numTotalPages: "=",
+                goToPage: "=",
+                goToPrevPage: "=",
+                goToNextPage: "="
             }
         };
     });
