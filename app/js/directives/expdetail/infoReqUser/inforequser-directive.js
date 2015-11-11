@@ -1,12 +1,16 @@
 'use strict';
 
 angular.module('infoReqUserDirective', [])
-    .controller('infoReqUserController', ['$scope', '$routeParams', '$location', 'RequisitosModel', function($scope, $routeParams, $location, RequisitosModel) {
+    .controller('infoReqUserController', ['$scope', '$routeParams', '$location', 'RequisitosModel', 'EstadosModel', function($scope, $routeParams, $location, RequisitosModel, EstadosModel) {
         $scope.$on('reqToShow', function(event, args){
             RequisitosModel.setIsSelfie(args);
+            RequisitosModel.setIsFondos(args);
+            RequisitosModel.setIsRD(args);
             RequisitosModel.setIsTD(args);
             RequisitosModel.setIsMPDC(args);
             $scope.isSelfie = RequisitosModel.getIsSelfie();
+            $scope.isFondos = RequisitosModel.getIsFondos();
+            $scope.isRd = RequisitosModel.getIsRD();
             $scope.isTd = RequisitosModel.getIsTD();
             if (RequisitosModel.getIsMPDC()){
                 var urlToMPDC = "/backoffice/"+$routeParams.expId+"/"+$routeParams.userId+"/cuestionario";
@@ -15,7 +19,10 @@ angular.module('infoReqUserDirective', [])
             $scope.infoHeader = RequisitosModel.getInfoHeader(args);
             $scope.datosReq = {
                 title: RequisitosModel.getTipoConfigReq(args)
-            }
+            };
+            $scope.statesOptions = {
+                choices: EstadosModel.getEstados()
+            };
             $scope.onLoad = function (e, reader, file, fileList, fileOjects, fileObj) {
                 alert('this is handler for file reader onload event!');
             };
@@ -30,8 +37,11 @@ angular.module('infoReqUserDirective', [])
         replace: true,
         scope: {
             datosReq: "=",
+            statesOptions: "=",
             infoHeader: "=",
             isSelfie: "=",
+            isFondos: "=",
+            isRd: "=",
             isTd: "=",
             onLoad: "=",
             closeDesplegable: "="

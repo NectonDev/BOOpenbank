@@ -39,7 +39,7 @@ angular.module('RequisitosModel',[])
             empresa: "\u00BFEn que empresa trabajas\u00B3",
             actividad: "\u00BFCu\u00E1l es tu actividad en la empresa\u003F"
         },
-        isSelfie, isTD, isMPDC = false;
+        isSelfie, isFondos, isRD, isTD, isMPDC = false;
 
         service.setIsSelfie = function(args){
             (args[0]==="1")?isSelfie=true:isSelfie=false;
@@ -47,6 +47,22 @@ angular.module('RequisitosModel',[])
 
         service.getIsSelfie = function(){
             return isSelfie;
+        };
+
+        service.setIsFondos = function(args){
+            (args[0]==="7")?isFondos=true:isFondos=false;
+        };
+
+        service.getIsFondos = function(){
+            return isFondos;
+        };
+
+        service.setIsRD = function(args){
+            (args[0]==="8")?isRD=true:isRD=false;
+        };
+
+        service.getIsRD = function(){
+            return isRD;
         };
 
         service.setIsTD = function(args){

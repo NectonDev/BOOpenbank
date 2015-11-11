@@ -3,10 +3,32 @@
         <div class="tituloDesplegable">{{datosReq.title}}</div>
         <div class="xCerrar"><i class="material-icons" ng-click="closeDesplegable()">clear</i></div>
     </div>
+    <div ng-show="isRd">
+        <md-input-container>
+            <label for="iban">IBAN</label>
+            <input id="iban" class="validate" type="text" ng-model="iban">
+        </md-input-container>
+        <md-input-container>
+            <label for="entidad">Entidad</label>
+            <input id="entidad" class="validate" type="text" ng-model="entidad">
+        </md-input-container>
+        <md-input-container>
+            <label for="oficina">Oficina</label>
+            <input id="oficina" class="validate" type="text" ng-model="oficina">
+        </md-input-container>
+        <md-input-container>
+            <label for="dc">DC</label>
+            <input id="dc" class="validate" type="text" ng-model="dc">
+        </md-input-container>
+        <md-input-container>
+            <label for="cuenta">N&uacute;mero de cuenta</label>
+            <input id="cuenta" class="validate" type="text" ng-model="cuenta">
+        </md-input-container>
+    </div>
     <div class="tablaDoc">
         <table class="tablaDesplegable">
             <tbody>
-                <tr style=" border-style: solid;border-bottom: solid 1px #d1d1d1;">
+                <tr style=" border-style: solid;border-bottom: solid 1px #d1d1d1;" ng-show="!isFondos">
                     <td ng-repeat="headerValue in infoHeader">
                         <div>
                             <p class="medium">{{headerValue}}</p>
@@ -19,11 +41,11 @@
             </tbody>
         </table>
         <div ng-show="!isSelfie && !isTd">
-            <div class="enlaceAnyadir">
+            <div class="enlaceAnyadir" ng-show="!isFondos">
                 <div class="file-field input-field">
-                    <div class="">
+                    <div>
                         <a>A&Ntilde;ADIR DOCUMENTO</a>
-                        <input type="file" ng-model='fileToUpload' multiple base-sixty-four-input onload="onLoad">
+                        <input type="file" name="file" id="file" class="inputfile" ng-model='fileToUpload' multiple base-sixty-four-input onload="onLoad">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text">
@@ -31,31 +53,18 @@
                 </div>
             </div>
 
-            <div class="input-field col s3" style="position:relative;top:50px;right:5px;margin-bottom:35px;">
+            <div class="input-field col s3">
                 <div class="select-wrapper">
-                    <span class="caret">?</span>
-                    <input type="text" class="select-dropdown" readonly="true" data-activates="select-options-7a4b3533-ef8f-1814-1280-f9a007d626a1" value="Rechazado">
-                    <ul id="select-options-7a4b3533-ef8f-1814-1280-f9a007d626a1" class="dropdown-content select-dropdown">
-                        <li>
-                            <span>Rechazado</span>
-                        </li>
-                        <li>
-                            <span>Aceptado</span>
-                        </li>
-                        <li>
-                            <span>En proceso</span>
-                        </li>
-                    </ul>
-                    <select style="background-color: #ccc;position:relative;z-index:3;" class="initialized">
-                        <option value="1" selected="">Rechazado</option>
-                        <option value="2">Aceptado</option>
-                        <option value="3">En proceso</option>
-                    </select>
+                    <md-input-container>
+                        <label>Estado</label>
+                        <md-select ng-model="estados" style="margin-top: 35px;">
+                            <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices track by $index">{{stateOption}}</md-option>
+                        </md-select>
+                    </md-input-container>
                 </div>
-                <label>Estado</label>
             </div>
             <div class="input-field col s3 offset-s1" style="position:relative;top:50px;right:5px;margin-bottom:35px;">
-                <div class="select-wrapper">
+                <!-- <div class="select-wrapper">
                     <span class="caret">?</span>
                     <input type="text" class="select-dropdown" readonly="true" data-activates="select-options-a156e194-91fa-537b-a903-8841806d2252" value="Rechazado">
                     <ul id="select-options-a156e194-91fa-537b-a903-8841806d2252" class="dropdown-content select-dropdown">
@@ -75,11 +84,11 @@
                         <option value="3">En proceso</option>
                     </select>
                 </div>
-                <label>Motivo</label>
+                <label>Motivo</label> -->
             </div>
             <div class="input-field col s4 offset-s1" style="position:relative;top:30px;right:5px;margin-bottom:35px;">
-                <input id="comentario" type="text">
-                <label>Comentario</label>
+                <!--<input id="comentario" type="text">
+                <label>Comentario</label> -->
             </div>
             <div class="input-field col s4 offset-s1" style="position:relative;top:30px;right:5px;margin-bottom:35px;">
                 <button class="btn waves-effect waves-light button-medium">GUARDAR</button>
