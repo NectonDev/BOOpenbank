@@ -8,10 +8,15 @@ angular.module('APIConfig',[])
             leerExpedientes: '/leerExpedientes',
             leerExpediente: '/leerExpediente',
             leerExpedientesFiltros: '/leerExpedientesFiltros',
-            leerObservaciones: '/listaObservaciones ',
+            leerExpedienteBloqueo: '/leerExpedienteBloqueo',
+            bloquearExpediente: '/bloquearExpediente',
+            desbloquearExpediente: '/desBloquearExpediente',
+            leerObservaciones: '/listaObservaciones',
             actualizarExpediente: '/actualizarExpediente',
             listaTipoDocs: '/listaTipoDocs',
             listaEstados: '/listaEstados',
+            listaReq: '/listaRequisitos',
+            listaEstadosReq: '/listaEstadosRequisitos',
             listaRechazosReq: '/listaRechazoRequisito',
             listaMotivosCancelacion: '/listaMotivosCancelacion',
             listaPaises: '/prPaises/listar/tablas',
@@ -47,6 +52,15 @@ angular.module('APIConfig',[])
         service.getUrlLeerExpedientesFiltros = function(){
             return endpointmap.apiUrlExpedientes+endpointmap.leerExpedientesFiltros;
         };
+        service.getUrlLeerExpedienteBloqueo = function(){
+            return endpointmap.apiUrlExpedientes+endpointmap.leerExpedienteBloqueo;
+        };
+        service.getUrlBloquearExpediente = function(){
+            return endpointmap.apiUrlExpedientes+endpointmap.bloquearExpediente;
+        };
+        service.getUrlDesbloquearExpediente = function(){
+            return endpointmap.apiUrlExpedientes+endpointmap.desbloquearExpediente;
+        };
         service.getUrlLeerObservaciones = function(){
             return endpointmap.apiUrlExpedientes+endpointmap.leerObservaciones;
         };
@@ -58,6 +72,12 @@ angular.module('APIConfig',[])
         };
         service.getUrlListaEstados = function(){
             return endpointmap.apiUrlExpedientes+endpointmap.listaEstados;
+        };
+        service.getUrlListaReq = function(){
+            return endpointmap.apiUrlExpedientes+endpointmap.listaReq;
+        };
+        service.getUrlListaEstadosReq = function(){
+            return endpointmap.apiUrlExpedientes+endpointmap.listaEstadosReq;
         };
         service.getUrlListaRechazosReq = function(){
             return endpointmap.apiUrlExpedientes+endpointmap.listaRechazosReq;

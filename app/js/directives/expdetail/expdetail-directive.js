@@ -1,12 +1,44 @@
 'use strict';
 
 angular.module('expDetailDirective', ['ngAnimate'])
-    .controller('ExpDetailController', ['$scope', '$routeParams', 'ExpedientesModel', 'UsersModel', 'LoginService', function($scope, $routeParams, ExpedientesModel, UsersModel, LoginService) {
+    .controller('ExpDetailController', ['$scope', '$routeParams', '$location', '$sessionStorage', 'ExpedientesModel', 'ExpedientesService', 'UsersModel', 'LoginService', function($scope, $routeParams, $location, $sessionStorage, ExpedientesModel, ExpedientesService, UsersModel, LoginService) {
+        //TODO: Rehacer con el servicio nuevo de expediente bloqueado
+        var expId = $routeParams.expId;
         LoginService.secureUrl();
-        ExpedientesModel.getExpedienteById($routeParams.expId).then(function(data){
-            $scope.$broadcast('expInfo', ExpedientesModel.transformInfoExpediente(data[0]));
-            $scope.$broadcast('usersReqInfo', UsersModel.transformInfoUsers(data[1]));
+        ExpedientesModel.isExpLocked(expId).then(function(data){
+            var usuario_bloqueo = data;
+            if (usuario_bloqueo === ""){
+                ExpedientesService.lockExpediente(ExpedientesModel.getConfigObjectLockExp($sessionStorage.infoUser.usuario,$routeParams.expId)).then(function(){
+                    ExpedientesModel.getExpedienteById($routeParams.expId).then(function(data){
+                        $scope.$on('$locationChangeStart', function(){
+                            if ($location.$$path === "/backoffice") {
+                                ExpedientesService.unlockExpediente(ExpedientesModel.getConfigObjectLockExp("",$routeParams.expId));
+                            }
+                        });
+                        $scope.$broadcast('expInfo', ExpedientesModel.transformInfoExpediente(data[0]));
+                        $scope.$broadcast('usersReqInfo', UsersModel.transformInfoUsers(data[1]));
+                    });
+                });
+            }else{
+                if (usuario_bloqueo===$sessionStorage.infoUser.usuario){
+                    ExpedientesModel.getExpedienteById($routeParams.expId).then(function(data){
+                        $scope.$on('$locationChangeStart', function(){
+                            if ($location.$$path === "/backoffice") {
+                                ExpedientesService.unlockExpediente(ExpedientesModel.getConfigObjectLockExp("",$routeParams.expId));
+                            }
+                        });
+                        $scope.$broadcast('expInfo', ExpedientesModel.transformInfoExpediente(data[0]));
+                        $scope.$broadcast('usersReqInfo', UsersModel.transformInfoUsers(data[1]));
+                    });
+                }else{
+                    ExpedientesModel.getExpedienteById($routeParams.expId).then(function(data){
+                        $scope.$broadcast('expInfo', ExpedientesModel.transformInfoExpediente(data[0]));
+                        $scope.$broadcast('usersReqInfo', UsersModel.transformInfoUsers(data[1]));
+                    });
+                }
+            }
         });
+
     }])
     .directive('expDetail', function() {
     return {

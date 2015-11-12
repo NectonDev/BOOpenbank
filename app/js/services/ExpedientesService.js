@@ -18,5 +18,29 @@ angular.module('ExpedientesService',[])
             );
         };
 
+        service.lockExpediente = function(configObject){
+            return $http.post(
+                APIConfigService.getUrlBloquearExpediente(),
+                configObject,
+                APIConfigService.getHeaders()
+            );
+        };
+
+        service.unlockExpediente = function(configObject){
+            return $http.post(
+                APIConfigService.getUrlDesbloquearExpediente(),
+                configObject,
+                APIConfigService.getHeaders()
+            );
+        };
+
+        service.isExpLocked = function(configObject){
+            return $http.post(
+                APIConfigService.getUrl(),
+                configObject,
+                APIConfigService.getHeaders()
+            );
+        };
+
         return service;
     }]);

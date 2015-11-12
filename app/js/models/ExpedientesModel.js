@@ -1,5 +1,5 @@
 angular.module('ExpedientesModel',[])
-    .service('ExpedientesModel', ['$http', '$localStorage', 'APIConfigService', 'ExpedientesService', 'EstadosModel', function ($http, $localStorage, APIConfigService, ExpedientesService, EstadosModel) {
+    .service('ExpedientesModel', ['$http', '$localStorage', '$sessionStorage' ,'APIConfigService', 'ExpedientesService', 'EstadosModel', function ($http, $localStorage, $sessionStorage, APIConfigService, ExpedientesService, EstadosModel) {
         var service = this;
         var config_object_exp = {};
         var numTotalResultados = 0;
@@ -14,6 +14,15 @@ angular.module('ExpedientesModel',[])
             return {
                 "expediente": {
                     "r_object_id": expId
+                }
+            }
+        };
+
+        service.getConfigObjectLockExp = function(userId,expId){
+            return {
+                "expediente": {
+                    "r_object_id": expId,
+                    "usuario_bloqueo": userId
                 }
             }
         };
@@ -97,7 +106,12 @@ angular.module('ExpedientesModel',[])
             infoExpediente.num_cuenta = dataExpediente.codigo_cuenta_creada;
             infoExpediente.digitoControl = calculaDCParcial(accountInfo.Entidad+accountInfo.Oficina)+calculaDCParcial(dataExpediente.codigo_cuenta_creada);
             infoExpediente.plataforma = dataExpediente.plataforma;
-            infoExpediente.estado = EstadosModel.getEstadoById(dataExpediente.estado);
+            if (dataExpediente.estado === "s06" || dataExpediente.estado === "s07" ){
+                infoExpediente.estado = EstadosModel.getEstadoById(dataExpediente.estado_validacion);
+            }else{
+                infoExpediente.estado = EstadosModel.getEstadoById(dataExpediente.estado);
+            }
+
             infoExpediente.fecha_alta = dataExpediente.r_creation_date;
             infoExpediente.fecha_mod = dataExpediente.r_modify_date;
             infoExpediente.gestor = dataExpediente.usuario_bloqueo;
@@ -167,6 +181,14 @@ angular.module('ExpedientesModel',[])
                 arrayOfPageToShow.push(partTwoPages[i]);
             }
             return arrayOfPageToShow;
+        };
+
+        service.isExpLocked = function(expId){
+            return ExpedientesService.getExpedienteById(getConfigObjectExpById(expId)).then(function(data){
+                var isLocked;
+                data.data.expediente.usuario_bloqueo===""?isLocked="":isLocked=data.data.expediente.usuario_bloqueo;
+                return isLocked;
+            });
         };
 
         return service;
