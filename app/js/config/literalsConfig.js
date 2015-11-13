@@ -28,6 +28,27 @@ angular.module('LiteralsConfig',[])
                 OficinaText: 'Oficina',
                 OficinaNumber: '9598',
                 DCText: 'DC'
+            },
+            mpdcHeader = {
+                nombre: 'Nombre',
+                primerApe: 'Primer Apellido',
+                segundoApe: 'Segundo Apellido',
+                TipoDoc: 'Tipo Documento',
+                numDoc: 'N\u00FAmero Documento',
+                dateNac: 'Fecha de Nacimiento',
+                sexo: 'Sexo',
+                nacionalidad: 'Nacionalidad',
+                tipoVia: 'Tipo de V\u00ECa',
+                nombreVia: 'Nombre de la V\u00ECa',
+                numero: 'N\u00FAmero',
+                piso: 'Piso',
+                codPostal: 'C\u00F3digo Postal',
+                localidad: 'Localidad',
+                provincia: 'Provincia',
+                pais: 'Pais',
+                mobilePhone: 'T\u00E8lefono M\u00F3vil',
+                phone: 'T\u00E8lefono Fijo',
+                email: 'E-mail'
             };
 
         service.getTocHeaderLiterlas = function(){
@@ -38,5 +59,8 @@ angular.module('LiteralsConfig',[])
         };
         service.getSearchInfo = function(){
             return searchInfo;
+        };
+        service.getMpdcInfo = function(){
+            return mpdcHeader;
         };
     });

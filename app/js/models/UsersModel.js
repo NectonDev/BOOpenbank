@@ -66,6 +66,7 @@ angular.module('UsersModel',[])
         };
 
         service.getInfoUserById = function(expId, userId){
+            //TODO Hacer esto correctamente
             return $http.post(
                 APIConfigService.getUrlLeerExpediente(),
                 {

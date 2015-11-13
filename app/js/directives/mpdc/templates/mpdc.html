@@ -1,0 +1,22 @@
+<div>
+    <div>
+        Modificaci&oacute;n de datos de cliente
+    </div>
+    <div>
+        <md-input-container>
+            <label>Estado</label>
+            <md-select ng-model="estados">
+                <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices track by $index">{{stateOption}}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+    <div>
+        <table>
+            <tr ng-repeat="elements in literalHeader track by $index">
+                <td>{{elements}}</td>
+                <td>{{infoUser}}</td>
+                <td>{{infoUserBdp}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

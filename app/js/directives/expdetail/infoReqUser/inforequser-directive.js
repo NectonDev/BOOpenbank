@@ -3,22 +3,22 @@
 angular.module('infoReqUserDirective', [])
     .controller('infoReqUserController', ['$scope', '$routeParams', '$location', 'RequisitosModel', 'EstadosModel', function($scope, $routeParams, $location, RequisitosModel, EstadosModel) {
         $scope.$on('reqToShow', function(event, args){
-            RequisitosModel.setIsSelfie(args);
-            RequisitosModel.setIsFondos(args);
-            RequisitosModel.setIsRD(args);
-            RequisitosModel.setIsTD(args);
-            RequisitosModel.setIsMPDC(args);
+            RequisitosModel.setIsSelfie(args[0]);
+            RequisitosModel.setIsFondos(args[0]);
+            RequisitosModel.setIsRD(args[0]);
+            RequisitosModel.setIsTD(args[0]);
+            RequisitosModel.setIsMPDC(args[0]);
             $scope.isSelfie = RequisitosModel.getIsSelfie();
             $scope.isFondos = RequisitosModel.getIsFondos();
             $scope.isRd = RequisitosModel.getIsRD();
             $scope.isTd = RequisitosModel.getIsTD();
             if (RequisitosModel.getIsMPDC()){
-                var urlToMPDC = "/backoffice/"+$routeParams.expId+"/"+$routeParams.userId+"/cuestionario";
+                var urlToMPDC = "/backoffice/"+$routeParams.expId+"/"+args[1]+"/mpdc";
                 $location.path(urlToMPDC);
             }
-            $scope.infoHeader = RequisitosModel.getInfoHeader(args);
+            $scope.infoHeader = RequisitosModel.getInfoHeader(args[0]);
             $scope.datosReq = {
-                title: RequisitosModel.getTipoConfigReq(args)
+                title: RequisitosModel.getTipoConfigReq(args[0])
             };
             $scope.statesOptions = {
                 choices: EstadosModel.getEstados()

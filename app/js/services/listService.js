@@ -15,6 +15,30 @@ angular.module('ListService',[])
             });
         };
 
+        service.getListReq = function(){
+            var allReq = $http.get(
+                APIConfigService.getUrlListaReq(),
+                headers_object
+            );
+            allReq.then(function(data){
+                $localStorage.listaReq = data.data;
+            }).catch(function(data){
+                console.log("Error recuperando los requisitos: " + data);
+            });
+        };
+
+        service.getListEstadosReq = function(){
+            var allEstadosReq = $http.get(
+                APIConfigService.getUrlListaEstadosReq(),
+                headers_object
+            );
+            allEstadosReq.then(function(data){
+                $localStorage.tiposEstadosReq = data.data;
+            }).catch(function(data){
+                console.log("Error recuperando los estados de requisito: " + data);
+            });
+        };
+
         service.getListRechazosReq = function(){
             var allRechazosReq = $http.get(
                 APIConfigService.getUrlListaRechazosReq(),
