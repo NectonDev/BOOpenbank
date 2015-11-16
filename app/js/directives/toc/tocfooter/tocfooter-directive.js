@@ -38,6 +38,10 @@ angular.module('tocFooterDirective', [])
                 $rootScope.$broadcast('pageSizeChange', data);
             }
         });
+
+        $scope.isFioc = function(){
+            return ExpedientesModel.isFioc();
+        };
     }])
     .directive('tocFooter', function() {
         return {
@@ -51,7 +55,8 @@ angular.module('tocFooterDirective', [])
                 numTotalPages: "=",
                 goToPage: "=",
                 goToPrevPage: "=",
-                goToNextPage: "="
+                goToNextPage: "=",
+                isFioc: "="
             }
         };
     });

@@ -35,7 +35,6 @@ angular.module('tocBodyDirective', [])
         link: function($scope, elem){
             $scope.userOkProcess = [];
             $scope.userKoProcess = [];
-            console.log(elem);
             function getExpedientes(){
                 $("#contentTable").hide();
                 ExpedientesModel.getAllExpedientesConFiltro().then(function(data){
