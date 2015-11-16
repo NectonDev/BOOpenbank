@@ -54,7 +54,8 @@
                     <td ng-repeat="usuario in expediente.usuarios">{{usuario.apellido1}} {{usuario.usuario.apellido2}}</td>
                     <td ng-repeat="usuario in expediente.usuarios">{{usuario.empresa}}</td>
                     <td ng-repeat="usuario in expediente.usuarios">{{usuario.actividad}}</td>
-                    <td><md-checkbox ng-repeat="usuario in expediente.usuarios" ng-init="usersToProcess=true" role="checkbox" ng-model="usersToProcess" aria-label="Procesar Usuario"></md-checkbox></td>
+                    <td><md-checkbox ng-repeat="usuario in expediente.usuarios track by $index" role="checkbox" ng-click="okProcess(usuario)" aria-label="Procesar Usuario"></md-checkbox></td>
+                    <td><md-checkbox ng-repeat="usuario in expediente.usuarios track by $index" role="checkbox" ng-click="koProcess(usuario)" aria-label="No Procesar Usuario"></md-checkbox></td>
                 </tr>
             </tbody>
         </table>

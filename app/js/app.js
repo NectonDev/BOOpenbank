@@ -73,7 +73,6 @@ angular.module('BOOpenbank', [
   (function(){
     ListService.getListEstados();
     ListService.getListReq();
-    ListService.getListEstadosReq();
     ListService.getListRechazosReq();
     ListService.getListMotivosCancelacion();
     ListService.getListTipoDocs();

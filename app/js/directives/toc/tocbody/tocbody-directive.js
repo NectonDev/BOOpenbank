@@ -15,9 +15,6 @@ angular.module('tocBodyDirective', [])
             return ExpedientesModel.isFioc();
         };
 
-        $scope.procesarUsuarios = function(){
-            alert("Se van a procesar 11 usuaruis");
-        };
     }])
     .directive('tocBody', ['$location', '$timeout', 'ExpedientesModel', function($location, $timeout, ExpedientesModel) {
     return {
@@ -31,17 +28,21 @@ angular.module('tocBodyDirective', [])
             goToDetail: "=",
             isFioc: "=",
             printPage: "=",
-            procesarUsuarios: "="
+            procesarUsuarios: "=",
+            okProcess: "=",
+            koProcess: "="
         },
-        link: function($scope){
-
+        link: function($scope, elem){
+            $scope.userOkProcess = [];
+            $scope.userKoProcess = [];
+            console.log(elem);
             function getExpedientes(){
                 $("#contentTable").hide();
                 ExpedientesModel.getAllExpedientesConFiltro().then(function(data){
                     $scope.tableResults = data;
                     $timeout(function(){$("#contentTable").fadeIn('slow')},500);
                 });
-            }
+            };
 
             $scope.printPage = function(){
                 $(".mostrar_resultados").hide();
@@ -71,7 +72,6 @@ angular.module('tocBodyDirective', [])
                     }
                     ExpedientesModel.setPage("1");
                     getExpedientes();
-
                 }
             });
 
@@ -93,6 +93,32 @@ angular.module('tocBodyDirective', [])
                     getExpedientes();
                 }
             });
+
+            $scope.procesarUsuarios = function(){
+                console.log("Procesamos: " + $scope.userOkProcess);
+                console.log("Rechazamos: " + $scope.userKoProcess);
+                getExpedientes();
+            };
+
+            $scope.okProcess = function(usuario){
+                console.log(elem);
+                var indexOfOkArray = $scope.userOkProcess.indexOf(usuario.objName);
+                var indexOfKoArray = $scope.userKoProcess.indexOf(usuario.objName);
+                if (indexOfKoArray>-1){
+                    $scope.userKoProcess.splice(indexOfKoArray, 1);
+                }
+                (indexOfOkArray>-1)?$scope.userOkProcess.splice(indexOfOkArray, 1):$scope.userOkProcess.push(usuario.objName);
+            };
+
+            $scope.koProcess = function(usuario, elem){
+                console.log(elem);
+                var indexOfOkArray = $scope.userOkProcess.indexOf(usuario.objName);
+                var indexOfKoArray = $scope.userKoProcess.indexOf(usuario.objName);
+                if (indexOfOkArray>-1){
+                    $scope.userOkProcess.splice(indexOfOkArray, 1);
+                }
+                (indexOfKoArray>-1)?$scope.userKoProcess.splice(indexOfKoArray, 1):$scope.userKoProcess.push(usuario.objName);
+            };
         }
     };
 }]);

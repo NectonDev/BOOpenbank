@@ -10,7 +10,7 @@
     "angular-route": "~1.4.0",
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
-    "angular-material": "1.0.0-rc1",
+    "angular-material": "1.0.0-rc4",
     "jquery": "2.1.4",
     "ngstorage": "~0.3.9",
     "angular-animate": "~1.4.7",

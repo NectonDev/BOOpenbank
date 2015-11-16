@@ -24,6 +24,7 @@ angular.module('expDetailHeaderDirective', ['ngDialog'])
             var urlToObs = "/observaciones/"+$routeParams.expId;
             $location.path(urlToObs);
         };
+        $scope.isObs = $location.$$path.indexOf("observaciones") > -1;
     }])
     .directive('expDetailHeader', function() {
     return {
@@ -35,7 +36,8 @@ angular.module('expDetailHeaderDirective', ['ngDialog'])
             infoHeader: "=",
             infoExpediente: "=",
             openDialog: "=",
-            goToObs: "="
+            goToObs: "=",
+            isObs: "="
         }
     };
 });

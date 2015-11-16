@@ -27,18 +27,6 @@ angular.module('ListService',[])
             });
         };
 
-        service.getListEstadosReq = function(){
-            var allEstadosReq = $http.get(
-                APIConfigService.getUrlListaEstadosReq(),
-                headers_object
-            );
-            allEstadosReq.then(function(data){
-                $localStorage.tiposEstadosReq = data.data;
-            }).catch(function(data){
-                console.log("Error recuperando los estados de requisito: " + data);
-            });
-        };
-
         service.getListRechazosReq = function(){
             var allRechazosReq = $http.get(
                 APIConfigService.getUrlListaRechazosReq(),

@@ -14,7 +14,7 @@ angular.module('UsersModel',[])
             }
         };
 
-        transformDataUser = function (user){
+        service.transformDataUser = function (user){
             var dataUser = {};
             dataUser.id = user.r_object_id;
             dataUser.nombre = user.docident_nom_val;
@@ -26,12 +26,15 @@ angular.module('UsersModel',[])
             dataUser.fechaNac = user.docident_fecha_nac_val;
             dataUser.sexo = user.docident_sexo_val;
             dataUser.nacionalidad = user.docident_nacionalidad_val;
+            dataUser.tipoVia = user.tipo_via_val;
             dataUser.paisNacimiento = user.docident_pais_nac_val;
             dataUser.pais = user.pais_domicilio;
             dataUser.provincia = user.provincia_domicilio;
             dataUser.nombreVia = user.nom_via_val;
             dataUser.numero = user.num_via_val;
             dataUser.codigoPostal = user.codigo_postal_val;
+            dataUser.provincia = user.provincia_domicilio;
+            dataUser.pais = user.pais_domicilio;
             dataUser.telefonoMovil = user.telefono_ini;
             dataUser.telefonoFijo = user.telefono_fijo;
             dataUser.email = user.email_invitacion;
@@ -59,7 +62,7 @@ angular.module('UsersModel',[])
             for (var i=0;i<dataOfUser.length;i++){
                 var user = dataOfUser[i].usuario;
                 expUsers["user"+i] = {};
-                expUsers["user"+i].dataUser = transformDataUser(user);
+                expUsers["user"+i].dataUser = service.transformDataUser(user);
                 expUsers["user"+i].dataReqUser = transformInfoReqUser(user);
             }
             return expUsers;

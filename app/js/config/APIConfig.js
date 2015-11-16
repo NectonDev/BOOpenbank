@@ -22,7 +22,8 @@ angular.module('APIConfig',[])
             listaPaises: '/prPaises/listar/tablas',
             listaTipoVias: '/prTipoVia/listar/TipoVia',
             listaCiudades: '/prCiudad/listar/Tablas',
-            adjuntarDocumento: '/adjuntarDocumento'
+            adjuntarDocumento: '/adjuntarDocumento',
+            procesadoFioc: '/procesadoFioc'
         },
         headers_object = {
             headers:{
@@ -96,6 +97,9 @@ angular.module('APIConfig',[])
         };
         service.getUrlAdjuntarDocumento = function(){
             return endpointmap.apiUrlServicios+endpointmap.adjuntarDocumento;
+        };
+        service.getUrlProcesadoFioc = function(){
+            return endpointmap.apiUrlServicios+endpointmap.procesadoFioc;
         };
         service.getDefaultPageExpediente = function(){
             return default_parameters_expediente.page;

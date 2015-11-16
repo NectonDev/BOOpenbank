@@ -90,6 +90,8 @@ angular.module('ExpedientesModel',[])
             var userExp = {};
             for (var i=0;i<dataExpediente.length;i++){
                 userExp[i] = {};
+                userExp[i].objName = dataExpediente[i].usuario.object_name;
+                userExp[i].id = dataExpediente[i].usuario.r_object_id;
                 userExp[i].nombre = dataExpediente[i].usuario.docident_nom_val;
                 userExp[i].apellido1 = dataExpediente[i].usuario.docident_ape1_val;
                 userExp[i].apellido2 = dataExpediente[i].usuario.docident_ape2_val;

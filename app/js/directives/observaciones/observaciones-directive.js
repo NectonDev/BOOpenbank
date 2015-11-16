@@ -1,10 +1,19 @@
 'use strict';
 
 angular.module('observacionesDirective', [])
-    .controller('ObservacionesController', ['$scope', '$routeParams', 'ObservacionesModel', 'LoginService', function($scope, $routeParams, ObservacionesModel, LoginService) {
+    .controller('ObservacionesController', ['$scope', '$location', '$routeParams', 'ObservacionesModel', 'ExpedientesModel', 'ExpedientesService', 'LoginService', function($scope, $location, $routeParams, ObservacionesModel, ExpedientesModel, ExpedientesService, LoginService) {
         LoginService.secureUrl();
+        $scope.$on('$locationChangeStart', function(){
+            if ($location.$$path === "/backoffice") {
+                ExpedientesService.unlockExpediente(ExpedientesModel.getConfigObjectLockExp("",$routeParams.expId));
+            }
+        });
+        console.log($scope.isObs);
         ObservacionesModel.getObservacionesByExpId($routeParams.expId).then(function(data){
             $scope.observaciones = data;
+        });
+        ExpedientesModel.getExpedienteById($routeParams.expId).then(function(data){
+            $scope.$broadcast('expInfo', ExpedientesModel.transformInfoExpediente(data[0]));
         });
     }])
     .directive('observaciones', function() {
