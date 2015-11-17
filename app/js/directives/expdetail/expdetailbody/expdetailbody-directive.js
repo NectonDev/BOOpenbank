@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('expDetailBodyDirective', [])
-    .controller('ExpDetailBodyController', ['$scope', '$location', '$routeParams', 'RequisitosModel',  function($scope, $location, $routeParams, RequisitosModel) {
+    .controller('ExpDetailBodyController', ['$scope', '$location', '$routeParams', function($scope, $location, $routeParams) {
         $scope.infoHeader = {
             DOC: "DOC",
             Selfie: "SELFIE",
@@ -36,11 +36,12 @@ angular.module('expDetailBodyDirective', [])
             showDetail: "=",
             showInfo: "="
         },link: function($scope){
-            $scope.showInfo = function(infoToDeploy,userId){
-                console.log(userId);
-                $(".desplegable").slideUp(500);
-                $rootScope.$broadcast('reqToShow', [infoToDeploy.match(/\d+/g), userId]);
-                $("." + infoToDeploy).slideDown(500);
+            $scope.showInfo = function(infoToDeploy,userId, userObjName, stateReq){
+                if (stateReq != "NA"){
+                    $(".desplegable").slideUp(500);
+                    $rootScope.$broadcast('reqToShow', [infoToDeploy.match(/\d+/g), userId, userObjName]);
+                    $("." + infoToDeploy).slideDown(500);
+                }
             }
         }
     };

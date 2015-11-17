@@ -9,18 +9,17 @@ angular.module('RequisitosModel',[])
             RR: "error",
             RNE: "no_sim"
         },
-
         tiposReq = {
-            0: "Documentaci\u00F3n",
-            1: "Reconocimiento facial",
-            2: "Documentaci\u00F3n subscripci\u00F3n de contrato",
-            3: "Documentaci\u00F3n de actividad profesional",
-            4: "Recibo",
-            5: "Modelo IC",
-            6: "Certificado",
-            7: "Fondos",
-            8: "Real Decreto 54",
-            9: "Tercera Directiva"
+            0: ["Documentaci\u00F3n","DOC"],
+            1: ["Reconocimiento facial"],
+            2: ["Documentaci\u00F3n subscripci\u00F3n de contrato","DSC"],
+            3: ["Documentaci\u00F3n de actividad profesional","DAAL"],
+            4: ["Recibo","Recibo"],
+            5: ["Modelo IC","IC"],
+            6: ["Certificado","Certificado"],
+            7: ["Fondos"],
+            8: ["Real Decreto 54"],
+            9: ["Tercera Directiva"],
         },
         infoHeader = {
             documentos: "Documentos",

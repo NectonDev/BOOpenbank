@@ -4,17 +4,17 @@
             <h5>Cancelaci&oacute;n del expediente</h5>
             <md-input-container>
                 <label>Motivo*</label>
-                <md-select ng-model="estados">
-                    <md-option ng-repeat="stateOption in statesOptions.choices">{{stateOption}}</md-option>
+                <md-select ng-model="motivo" ng-change="selectMotivo(motivo)">
+                    <md-option  ng-value="motivo" ng-repeat="motivo in motivosOptions.choices track by $index">{{motivo}}</md-option>
                 </md-select>
             </md-input-container>
             <md-input-container class="campoForm masPad offset-s1">
-                <label for="comentario" style="color:#76777a;font-size: 14px;">Comentario</label>
-                <textarea id="comentario" class="validate"></textarea>
+                <!-- <label for="comentario" style="color:#76777a;font-size: 14px;">Comentario</label> -->
+                <!-- <textarea id="comentario" class="validate"></textarea> -->
             </md-input-container>
         </div>
         <div class="ngdialog-buttons mt">
-            <button type="button" class="ngdialog-button ngdialog-button-secondary">Aceptar</button>
+            <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="cancelExp()">Aceptar</button>
         </div>
     </script>
     <div class="col s12 noPadding form_detalle_expediente_container top">

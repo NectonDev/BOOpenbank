@@ -18,6 +18,22 @@ angular.module('ExpedientesModel',[])
             }
         };
 
+        getConfigObjectCancelExp = function(userObjName, expId, motivo){
+            return {
+                "usuarios": [
+                    {
+                        "usuario": {
+                            "object_name": userObjName
+                        }
+                    }
+                ],
+                "expediente": {
+                    "r_object_id": expId,
+                    "motivo_cancelacion": motivo
+                }
+            }
+        };
+
         service.getConfigObjectLockExp = function(userId,expId){
             return {
                 "expediente": {
@@ -190,6 +206,13 @@ angular.module('ExpedientesModel',[])
                 var isLocked;
                 data.data.expediente.usuario_bloqueo===""?isLocked="":isLocked=data.data.expediente.usuario_bloqueo;
                 return isLocked;
+            });
+        };
+
+        service.cancelExp = function(userObjName,expId,motivo){
+            return ExpedientesService.cancelExpediente(getConfigObjectCancelExp(userObjName,expId,motivo)).then(function(data){
+                console.log(data);
+                return data;
             });
         };
 

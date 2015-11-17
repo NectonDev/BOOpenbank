@@ -28,7 +28,7 @@
     <div class="tablaDoc">
         <table class="tablaDesplegable">
             <tbody>
-                <tr style=" border-style: solid;border-bottom: solid 1px #d1d1d1;" ng-show="!isFondos">
+                <tr style=" border-style: solid;border-bottom: solid 1px #d1d1d1;" ng-hide="isFondos">
                     <td ng-repeat="headerValue in infoHeader">
                         <div>
                             <p class="medium">{{headerValue}}</p>
@@ -36,12 +36,36 @@
                     </td>
                 </tr>
                 <tr style=" border-style: solid;border-bottom: solid 1px #d1d1d1;font-size:12px;">
-
+                    <td>
+                        <div>
+                            <p class="">nomina_agosto2015.jpg</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p class="">Berta Sánchez</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p class="">25/07/2015</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p class=""> 13:27</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p class="blue-color"><i class="material-icons">visibility</i></p>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
-        <div ng-show="!isSelfie && !isTd">
-            <div class="enlaceAnyadir" ng-show="!isFondos">
+        <div ng-hide="isSelfie || isTd">
+            <div class="enlaceAnyadir" ng-hide="isFondos">
                 <div class="file-field input-field">
                     <div>
                         <a>A&Ntilde;ADIR DOCUMENTO</a>

@@ -17,6 +17,7 @@ angular.module('UsersModel',[])
         service.transformDataUser = function (user){
             var dataUser = {};
             dataUser.id = user.r_object_id;
+            dataUser.objName = user.object_name;
             dataUser.nombre = user.docident_nom_val;
             dataUser.ape1 = user.docident_ape1_val;
             dataUser.ape2 = user.docident_ape2_val;

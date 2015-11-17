@@ -42,5 +42,13 @@ angular.module('ExpedientesService',[])
             );
         };
 
+        service.cancelExpediente = function(configObject){
+            return $http.post(
+                APIConfigService.getUrlCancelarExpediente(),
+                configObject,
+                APIConfigService.getHeaders()
+            );
+        }
+
         return service;
     }]);

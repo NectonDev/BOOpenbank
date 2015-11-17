@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('infoReqUserDirective', [])
-    .controller('infoReqUserController', ['$scope', '$routeParams', '$location', 'RequisitosModel', 'EstadosModel', function($scope, $routeParams, $location, RequisitosModel, EstadosModel) {
+    .controller('infoReqUserController', ['$scope', '$routeParams', '$location', 'RequisitosModel', 'EstadosModel', 'DocumentosModel', function($scope, $routeParams, $location, RequisitosModel, EstadosModel, DocumentosModel) {
         $scope.$on('reqToShow', function(event, args){
             RequisitosModel.setIsSelfie(args[0]);
             RequisitosModel.setIsFondos(args[0]);
@@ -18,13 +18,15 @@ angular.module('infoReqUserDirective', [])
             }
             $scope.infoHeader = RequisitosModel.getInfoHeader(args[0]);
             $scope.datosReq = {
-                title: RequisitosModel.getTipoConfigReq(args[0])
+                title: RequisitosModel.getTipoConfigReq(args[0])[0]
             };
             $scope.statesOptions = {
                 choices: EstadosModel.getEstados()
             };
             $scope.onLoad = function (e, reader, file, fileList, fileOjects, fileObj) {
-                alert('this is handler for file reader onload event!');
+                DocumentosModel.addDocument(args[2], $routeParams.expId, fileObj.filename, "binary", "dctm_ok_tr_doctramit", "recibo", RequisitosModel.getTipoConfigReq(args[0])[1], fileObj.base64).then(function(data){
+                    console.log(data);
+                });
             };
         });
 

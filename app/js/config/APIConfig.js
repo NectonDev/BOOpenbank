@@ -13,6 +13,9 @@ angular.module('APIConfig',[])
             desbloquearExpediente: '/desBloquearExpediente',
             leerObservaciones: '/listaObservaciones',
             actualizarExpediente: '/actualizarExpediente',
+            adjuntarDocumento: '/adjuntarDocumento',
+            cancelarExpediente: '/cancelarExpediente',
+            procesadoFioc: '/procesadoFioc',
             listaTipoDocs: '/listaTipoDocs',
             listaEstados: '/listaEstados',
             listaReq: '/listaRequisitos',
@@ -21,9 +24,7 @@ angular.module('APIConfig',[])
             listaMotivosCancelacion: '/listaMotivosCancelacion',
             listaPaises: '/prPaises/listar/tablas',
             listaTipoVias: '/prTipoVia/listar/TipoVia',
-            listaCiudades: '/prCiudad/listar/Tablas',
-            adjuntarDocumento: '/adjuntarDocumento',
-            procesadoFioc: '/procesadoFioc'
+            listaCiudades: '/prCiudad/listar/Tablas'
         },
         headers_object = {
             headers:{
@@ -68,6 +69,12 @@ angular.module('APIConfig',[])
         service.getUrlActualizarExpedientes = function(){
             return endpointmap.apiUrlExpedientes+endpointmap.actualizarExpediente;
         };
+        service.getUrlCancelarExpediente = function(){
+            return endpointmap.apiUrlExpedientes+endpointmap.cancelarExpediente;
+        };
+        service.getUrlListaMotivosCancelacion = function(){
+            return endpointmap.apiUrlExpedientes+endpointmap.listaMotivosCancelacion;
+        };
         service.getUrlListaTipoDocs = function(){
             return endpointmap.apiUrlExpedientes+endpointmap.listaTipoDocs;
         };
@@ -83,8 +90,8 @@ angular.module('APIConfig',[])
         service.getUrlListaRechazosReq = function(){
             return endpointmap.apiUrlExpedientes+endpointmap.listaRechazosReq;
         };
-        service.getUrlListaMotivosCancelacion = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.listaMotivosCancelacion;
+        service.getUrlAdjuntarDocumento = function(){
+            return endpointmap.apiUrlExpedientes+endpointmap.adjuntarDocumento;
         };
         service.getUrlListaPaises = function(){
             return endpointmap.apiUrlServicios+endpointmap.listaPaises;
@@ -94,9 +101,6 @@ angular.module('APIConfig',[])
         };
         service.getUrlListaCiudades = function(){
             return endpointmap.apiUrlServicios+endpointmap.listaCiudades;
-        };
-        service.getUrlAdjuntarDocumento = function(){
-            return endpointmap.apiUrlServicios+endpointmap.adjuntarDocumento;
         };
         service.getUrlProcesadoFioc = function(){
             return endpointmap.apiUrlServicios+endpointmap.procesadoFioc;
