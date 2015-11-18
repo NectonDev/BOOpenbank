@@ -4,7 +4,7 @@
         Mostrar:
         </div>
         <div style="width:35px;display:inline-block;height:20px;margin-left:5px;margin-right:5px;position:relative;bottom:20px;left:50px;" class="noBorder">
-            <md-input-container style="width:90px;right:0px;font-size: 14px;">
+            <md-input-container>
                 <md-select id="comboPageSize" ng-model="actualSizePerPage" aria-label="Numero de resultados">
                     <md-option ng-selected="defaultResultsPerPage === resultsPerPage" ng-value="resultsPerPage" ng-repeat="resultsPerPage in resultsPerPageOptions">{{resultsPerPage}}</md-option>
                 </md-select>

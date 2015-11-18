@@ -20,8 +20,10 @@
     <div class="col s12 noPadding form_detalle_expediente_container top">
         <p class="bigger-font-size">Detalle del expediente</p>
     </div>
-    <button class="btn waves-effect waves-light button-medium bttRequer" ng-click="openDialog()" ng-hide="isObs">CANCELAR EXPEDIENTE</button>
-    <button class="btn waves-effect waves-light button-medium" ng-click="goToObs(infoExpediente.id)" ng-hide="isObs">OBSERVACIONES</button>
+    <div ng-hide="isObs" class="bttDetailExp">
+        <button class="btn waves-effect waves-light button-medium bttRequer" ng-click="openDialog()">CANCELAR EXPEDIENTE</button>
+        <button class="btn waves-effect waves-light button-medium" ng-click="goToObs(infoExpediente.id)">OBSERVACIONES</button>
+    </div>
     <div class="col s12 datosDetalle">
         <div class="infoDatos">
             <div>{{infoHeader.IBANText}}</div>

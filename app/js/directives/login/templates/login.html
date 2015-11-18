@@ -1,15 +1,29 @@
 <div class="row" ng-keydown="$event.which === 13 && doLogin(user)">
-    <form>
-        <div class="group">
-            <label>Usuario</label>
-            <input type="text" ng-model="user.usuario"><span class="highlight"></span><span class="bar"></span>
+    <div class="boxLogin">
+        <div class="headerLogin">
+            <div class="imgLogin">
+                <img src="{{mainInfo.logoOpenBank}}" alt="OpenBank">
+            </div>
         </div>
-        <div class="group">
-            <label>Password</label>
-            <input type="password" ng-model="user.clave"><span class="highlight"></span><span class="bar"></span>
+        <div class="titLogin">
+            <p>Hágase cliente: tramitación</p>
         </div>
-        <button ng-click="doLogin(user)" type="button" class="button buttonBlue">Login
-            <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-        </button>
-    </form>
+        <div class="contentLogin">
+            <form>
+                <div class="group boxUser">
+                    <label>Usuario</label>
+                    <input type="text" ng-model="user.usuario"><span class="highlight"></span><span class="bar"></span>
+                </div>
+                <div class="group boxPass">
+                    <label>Password</label>
+                    <input type="password" ng-model="user.clave"><span class="highlight"></span><span class="bar"></span>
+                </div>
+                <div class="divButton">
+                    <button ng-click="doLogin(user)" type="button" class="button buttonBlue buttonLogin">INICIAR SESIÓN
+                        <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+                    </button>
+                <div>
+            </form>
+        </div>
+    <div>
 </div>
