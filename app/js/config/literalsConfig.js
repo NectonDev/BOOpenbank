@@ -6,7 +6,8 @@ angular.module('LiteralsConfig',[])
                 pteDoc: 'PTE. DOCUMENTACI\u00D3N',
                 pteRevision: 'REVISI\u00D3N FIOC',
                 pteActivacion: 'PTE. ACTIVACI\u00D3N',
-                pteCancelacion: 'PTE. CANCELACI\u00D3N'
+                pteCancelacion: 'PTE. CANCELACI\u00D3N',
+                pteBloqueo: 'PTE. BLOQUEO'
             },
             tocBodyLiterals = {
                 numCuenta: 'N\u00FAmero cuenta',

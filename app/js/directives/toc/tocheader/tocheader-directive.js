@@ -10,7 +10,8 @@ angular.module('tocHeaderDirective', [])
             [tocHeaderLiterals.pteDoc,tiposPreFiltros.pteDocumentacion],
             [tocHeaderLiterals.pteRevision,tiposPreFiltros.fioc],
             [tocHeaderLiterals.pteActivacion,tiposPreFiltros.pteActivacion],
-            [tocHeaderLiterals.pteCancelacion,tiposPreFiltros.pteCancelacion]
+            [tocHeaderLiterals.pteCancelacion,tiposPreFiltros.pteCancelacion],
+            [tocHeaderLiterals.pteBloqueo,tiposPreFiltros.pteBloqueo]
         ];
     }])
     .directive('tocHeader', ['$rootScope', function($rootScope) {

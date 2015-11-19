@@ -102,7 +102,8 @@ angular.module('ListService',[])
                 pteDocumentacion : 'pendienteDocumentacion',
                 fioc : 'fioc',
                 pteActivacion : 'pendienteActivacion',
-                pteCancelacion : 'pendienteCancelacion'
+                pteCancelacion : 'pendienteCancelacion',
+                pteBloqueo: 'pendienteBloquear'
             };
         };
 
