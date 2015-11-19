@@ -35,42 +35,43 @@
             </form> -->
         </div>
         <div class="col s12">
-            <md-input-container style="position:relative;bottom:2px;left:18px;width:100px;">
+            <md-input-container style="position:relative;bottom:15px;right:220px;width:100px;">
                 <label>Tipo</label>
                 <md-select ng-model="tipos">
                     <md-option ng-value="typeOptions" ng-repeat="typeOptions in typeOptions.choices">{{typeOptions}}</md-option>
                 </md-select>
             </md-input-container>
-            <md-input-container class="campoForm masPad offset-s1" style="width:190px;position:relative;bottom:83px;left:140px;">
-                <label style="left:0px;top:3px;color:#76777a;font-size: 14px;">N&uacute;mero del documento</label>
+            <md-input-container class="campoForm masPad offset-s1" style="width:190px;position:relative;bottom:18px;left:140px;">
+                <label style="left:0px;color:#76777a;font-size: 14px;">Numero del documento</label>
                 <input class="validate" type="text" ng-model="numDoc">
+               
             </md-input-container>
-            <div style="position:relative;bottom:68px;left:100px;">
+            <div style="position:relative;bottom:76px;left:120px;">
                 <md-datepicker ng-model="fechaModDesde">F. Modificaci&oacute;n desde</md-datepicker>
             </div>
-            <div style="position:relative;bottom:115px;left:290px;">
+            <div style="position:relative;bottom:124px;left:600px;">
                 <md-datepicker ng-model="fechaModHasta">F. Modificaci&oacute;n hasta</md-datepicker>
             </div>
         </div>
         <div class="col s12 datosDetalle" style="border-bottom: 0px solid #D1D1D1;position:relative;right:50px;bottom:110px;margin-left:0px;">
-            <md-input-container class="col s2" style="position:relative;left:55px;">
+            <md-input-container class="col s3" style="position:relative;left:55px;top:10px;">
                 <label>Estado</label>
                 <md-select ng-model="estados">
                     <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices track by $index">{{stateOption}}</md-option>
                 </md-select>
             </md-input-container>
-            <md-input-container class="col s2" style="position:relative;left:100px;">
+            <md-input-container class="col s2" style="position:relative;left:100px;top:10px;">
                 <label>Canal</label>
                 <md-select ng-model="canales">
                     <md-option ng-value="canalOption" ng-repeat="canalOption in canalesOptions.choices">{{canalOption}}</md-option>
                 </md-select>
             </md-input-container>
-            <div class="col s12" style="margin-left:55px;position:relative;bottom:20px;">
+            <div class="col s12" style="margin-left:55px;position:relative;bottom:30px;">
                 <div class="col s2 offset-s8 text-right-bottom noPadding">
-                    <button type="reset" class="blue-color button-medium no-background">LIMPIAR B&Uacute;SQUEDA</button>
+                    <button type="reset" class="blue-color button-medium no-background bold">LIMPIAR B&Uacute;SQUEDA</button>
                 </div>
                 <div class="col s2 text-right-bottom buscar-submit row" style="margin-top:5px;">
-                    <button class="btn button-medium" type="button">BUSCAR</button>
+                    <button class="btn button-medium" style="height:35px;" type="button">BUSCAR</button>
                 </div>
             </div>
         </div>

@@ -2,20 +2,20 @@
     <div class="row" ng-repeat="user in infoReqUser">
         <div class="titTitular">{{user.dataUser.tipoUser}}</div>
         <div class="col s2" style="height:40px;">
-            <label for="nombre" class="blue-color">Nombre</label>
-            <p id="nombre" class="bold">{{user.dataUser.nombre}}</p>
+            <label for="nombre" class="regular">Nombre</label>
+            <p id="nombre" class="regularBold">{{user.dataUser.nombre}}</p>
         </div>
         <div class="col s2" style="height:20px;">
-            <label for="ape1" class="blue-color">Primer Apellido</label>
-            <p id="ape1" class="bold">{{user.dataUser.ape1}}</p>
+            <label for="ape1" class="regular">Primer Apellido</label>
+            <p id="ape1" class="regularBold">{{user.dataUser.ape1}}</p>
         </div>
         <div class="col s2" style="height:20px;">
-            <label for="ape2" class="blue-color">Segundo Apellido</label>
-            <p id="ape2" class="bold">{{user.dataUser.ape2}}</p>
+            <label for="ape2" class="regular">Segundo Apellido</label>
+            <p id="ape2" class="regularBold">{{user.dataUser.ape2}}</p>
         </div>
         <div class="col s2" style="height:20px;">
-            <label for="tipoDoc" class="blue-color">{{user.dataUser.tipoDoc}}</label>
-            <p id="tipoDoc" class="bold">{{user.dataUser.numDoc}}</p>
+            <label for="tipoDoc" class="regular">{{user.dataUser.tipoDoc}}</label>
+            <p id="tipoDoc" class="regularBold">{{user.dataUser.numDoc}}</p>
         </div>
         <div class="col s2 offset-s2 text-right-bottom">
             <br>
@@ -31,7 +31,7 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr style="font-size:12px !important;">
                         <td ng-click="showInfo(user.dataUser.tipoUser + $index, user.dataUser.id, user.dataUser.objName, element)" ng-repeat="element in user.dataReqUser track by $index">
                             <div>
                                 <i class="material-icons">{{element}}</i>

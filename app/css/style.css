@@ -272,6 +272,7 @@ body {
   position: relative:
   top:0px;
   margin-top: 0px;
+  margin-bottom: 25px;
 
 }
 
@@ -348,6 +349,27 @@ body {
 .medium {
   font-family: "Roboto-Medium";
   font-size: 12px;
+}
+
+.regular{
+  font-family:"Roboto-Regular","Roboto";
+  font-weight: 400;
+  font-size:12px;
+  color:#727272;
+}
+
+.regularBig{
+  font-family:"Roboto-Regular","Roboto";
+  font-weight: 400;
+  font-size:14px;
+  color:#000;
+}
+
+.regularBold{
+  font-family:"Roboto-Regular","Roboto";
+  font-size:14px;
+  font-weight: 500;
+  color:#263238;
 }
 
 .encabezadoDespleg{
@@ -502,13 +524,43 @@ body {
   padding: 0px;
 }
 
+#iban {
+  width:50px;
+  margin-right: 15px;
+}
+
+#entidad {
+  width:50px;
+  margin-right: 15px;
+}
+
+#oficina {
+  width:50px;
+  margin-right: 15px;
+}
+
+#dc {
+  width:30px;
+  margin-right: 15px;
+}
+
+#cuenta {
+  width:100px;
+}
+
+.posEstadoFondos {
+  position:relative;
+  bottom:20px !important;
+  right:15px !important;
+}
+
 .cent_detalle {
   background-color: #fff;
   width: 100%;
   height:auto;
   overflow: hidden;
   position:relative;
-  top:5px;
+  top:10px;
   float: inherit;
   display: inline-block;
   margin-bottom: 20px;
@@ -554,6 +606,7 @@ body {
   top:5px;
   margin-top: 10px;
   right:42px !important;
+  height:auto;
 }
 
 #enlace0 {
@@ -662,8 +715,12 @@ body {
 
    table .material-icons{
    	vertical-align: middle;
-   	font-size: 20px;
+   	font-size: 18px;
    	line-height: 0;
+   }
+
+   .tablaDesplegable:first-child{
+    font-size: 20px;
    }
 
    .resultadosTabla>thead>tr:first-child{
@@ -838,12 +895,20 @@ body {
 
   .customBorder{
     border: 1px solid #eaeaea;
+    font-size: 12px;
+    font-family: "Roboto-Medium", "Roboto";
+    font-weight: 500;
   }
+
 
   .customBorder tr{
     border-bottom: 1px solid #eaeaea;
+    height: 5px !important;
   }
 
+  .customBorder td{
+    padding: 10px 5px !important;
+  }
   .noPadding{
     padding: 0px !important;
   }
