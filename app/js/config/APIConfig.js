@@ -14,6 +14,7 @@ angular.module('APIConfig',[])
             leerObservaciones: '/listaObservaciones',
             actualizarExpediente: '/actualizarExpediente',
             adjuntarDocumento: '/adjuntarDocumento',
+            leerDocumentos: '/recuperarDocumentosUsuario',
             cancelarExpediente: '/cancelarExpediente',
             procesadoFioc: '/procesadoFioc',
             listaTipoDocs: '/listaTipoDocs',
@@ -92,6 +93,9 @@ angular.module('APIConfig',[])
         };
         service.getUrlAdjuntarDocumento = function(){
             return endpointmap.apiUrlExpedientes+endpointmap.adjuntarDocumento;
+        };
+        service.getUrlLeerDocumentos = function(){
+            return endpointmap.apiUrlExpedientes+endpointmap.leerDocumentos;
         };
         service.getUrlListaPaises = function(){
             return endpointmap.apiUrlServicios+endpointmap.listaPaises;

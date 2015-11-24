@@ -42,12 +42,12 @@
                 <td class="firstTd">
                     <i class="material-icons" ng-if="expediente.gestor != ''">lock</i>
                 </td>
-                <td>{{expediente.num_cuenta}}</td>
-                <td>{{expediente.plataforma}}</td>
-                <td>{{expediente.numInterv}}</td>
-                <td>{{expediente.gestor}}</td>
-                <td>{{expediente.fecha_alta | date : 'dd/MM/yyyy HH:mm'}}</td>
-                <td>{{expediente.fecha_mod | date : 'dd/MM/yyyy HH:mm'}}</td>
+                <td><span>{{expediente.num_cuenta}}</span></td>
+                <td><span>{{expediente.plataforma}}</span></td>
+                <td><span>{{expediente.numInterv}}</span></td>
+                <td><span>{{expediente.gestor}}</span></td>
+                <td><span>{{expediente.fecha_alta | date : 'dd/MM/yyyy HH:mm'}}</span></td>
+                <td><span>{{expediente.fecha_mod | date : 'dd/MM/yyyy HH:mm'}}</span></td>
             </tr>
             <tr ng-show="isFioc()" ng-repeat="expediente in tableResults.expedientes">
                 <td>{{expediente.num_cuenta}}</td>

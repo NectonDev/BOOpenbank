@@ -34,7 +34,7 @@
                     <tr style="font-size:12px !important;">
                         <td ng-click="showInfo(user.dataUser.tipoUser + $index, user.dataUser.id, user.dataUser.objName, element)" ng-repeat="element in user.dataReqUser track by $index">
                             <div>
-                                <i class="material-icons">{{element}}</i>
+                                <i class="material-icons icon_{{element}}">{{element}}</i>
                             </div>
                         </td>
                     </tr>

@@ -15,10 +15,10 @@ angular.module('RequisitosModel',[])
             2: ["Documentaci\u00F3n subscripci\u00F3n de contrato","DSC"],
             3: ["Documentaci\u00F3n de actividad profesional","DAAL"],
             4: ["Recibo","Recibo"],
-            5: ["Modelo IC","IC"],
-            6: ["Certificado","Certificado"],
+            5: ["Modelo IC","ModeloIC"],
+            6: ["Certificado","CERTI"],
             7: ["Fondos"],
-            8: ["Real Decreto 54"],
+            8: ["Real Decreto 54","RD54"],
             9: ["Tercera Directiva"],
         },
         infoHeader = {

@@ -16,8 +16,10 @@
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen,projection"/>
   <link rel="stylesheet" href="css/style_2.css" type="text/css" media="screen,projection"/>
   <link rel="stylesheet" href="css/pagination.css" type="text/css" media="screen,projection"/>
+ -->
+  <!--
   <link rel="stylesheet" href="css/style_mdpc.css" type="text/css" media="screen,projection"/>
--->
+  -->
 
   <link rel="stylesheet" href="css/materialize.css" type="text/css" media="screen,projection"/>
   <link rel="stylesheet" href="css/style.css" type="text/css" media="screen,projection"/>
@@ -28,10 +30,10 @@
 </head>
 <body>
   <div class="contenedor">
-    <div class="row" ng-controller="HeaderController as hc">
+    <div ng-controller="HeaderController as hc">
       <main-header main-info="headerInfo" usuario="usuario" do-logout="doLogout"></main-header>
     </div>
-    <div class="row central">
+    <div class="central">
       <div class="central-col" ng-view></div>
     </div>
   </div>

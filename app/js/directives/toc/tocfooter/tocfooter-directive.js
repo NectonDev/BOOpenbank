@@ -2,7 +2,7 @@
 
 angular.module('tocFooterDirective', [])
     .controller('TocFooterController', ['$rootScope', '$scope', 'ExpedientesModel', function($rootScope, $scope, ExpedientesModel) {
-        $scope.actualPage = 1;
+        $scope.actualPage = parseInt(ExpedientesModel.getPage());
 
         $scope.numResultsPerPageOptions = [5,10,15,20];
 
@@ -18,6 +18,7 @@ angular.module('tocFooterDirective', [])
         $scope.goToPrevPage = function(){
             var pageActual = ExpedientesModel.getPage();
             if (pageActual>1){
+                $scope.actualPage = parseInt(pageActual)-1;
                 $rootScope.$broadcast('pageChange', parseInt(pageActual)-1);
             }
 
@@ -25,6 +26,7 @@ angular.module('tocFooterDirective', [])
 
         $scope.goToNextPage = function(){
             var pageActual = ExpedientesModel.getPage();
+            $scope.actualPage = parseInt(pageActual)+1;
             $rootScope.$broadcast('pageChange', parseInt(pageActual)+1);
         };
 

@@ -24,10 +24,14 @@ angular.module('infoReqUserDirective', [])
                 choices: EstadosModel.getEstados()
             };
             $scope.onLoad = function (e, reader, file, fileList, fileOjects, fileObj) {
-                DocumentosModel.addDocument(args[2], $routeParams.expId, fileObj.filename, "binary", "dctm_ok_tr_doctramit", "recibo", RequisitosModel.getTipoConfigReq(args[0])[1], fileObj.base64).then(function(data){
-                    console.log(data);
+                DocumentosModel.addDocument(args[2], $routeParams.expId, fileObj.filename, "binary", "dctm_ok_tr_doctramit", "", RequisitosModel.getTipoConfigReq(args[0])[1], fileObj.base64).then(function(data){
+                    if (data.data.codResp === 0){
+                        //TODO: Meter modal de subda correcta de fichero.
+                        console.log("Subida del fichero correcta");
+                    }
                 });
             };
+
         });
 
     }])

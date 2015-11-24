@@ -39,7 +39,8 @@ angular.module('expDetailHeaderDirective', ['ngDialog'])
         };
         $scope.cancelExp = function(){
             ExpedientesModel.cancelExp($scope.objNameTit,$routeParams.expId,motivo).then(function(data){
-                console.log(data);
+                //TODO: Meter modal de expediente cancelado con exito.
+                $location.path("/backoffice");
             });
         };
         $scope.selectMotivo = function(data){

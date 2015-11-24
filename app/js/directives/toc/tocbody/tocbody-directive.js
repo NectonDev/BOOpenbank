@@ -64,11 +64,7 @@ angular.module('tocBodyDirective', [])
                 var pageSizeCombo = $("#comboPageSize").text();
                 if (filterActive != filter){
                     ExpedientesModel.setFilter(filter);
-                    if (ExpedientesModel.isFioc()){
-                        ExpedientesModel.setPageSize("15");
-                    }else{
-                        ExpedientesModel.setPageSize(pageSizeCombo);
-                    }
+                    ExpedientesModel.isFioc()?ExpedientesModel.setPageSize("15"):ExpedientesModel.setPageSize(pageSizeCombo);
                     ExpedientesModel.setPage("1");
                     getExpedientes();
                 }

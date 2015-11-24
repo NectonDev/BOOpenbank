@@ -1,16 +1,16 @@
 <div>
     <div ng-show="!isFioc()" class="col s4 mostrar_resultados tocFooter col-sm-6">
-        <div>
+        <div class="pull-left showResults">
             Mostrar:
         </div>
-        <div class="noBorder">
+        <div class="noBorder pull-left">
             <md-input-container>
                 <md-select id="comboPageSize" ng-model="actualSizePerPage" aria-label="Numero de resultados">
                     <md-option ng-selected="defaultResultsPerPage === resultsPerPage" ng-value="resultsPerPage" ng-repeat="resultsPerPage in resultsPerPageOptions">{{resultsPerPage}}</md-option>
                 </md-select>
             </md-input-container>
         </div>
-        <div>
+        <div class="pull-left recordsPage">
             registros por p&aacute;gina
         </div>
     </div>
