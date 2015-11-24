@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('mpdcDirective', [])
-    .controller('MpdcController', ['$scope', '$routeParams', '$location', 'LiteralsConfigService', 'ExpedientesService', 'UsersModel', 'ExpedientesModel', function($scope, $routeParams, $location, LiteralsConfigService, ExpedientesService, UsersModel, ExpedientesModel) {
+    .controller('MpdcController', ['$scope', '$routeParams', '$location', 'LiteralsConfigService', 'ExpedientesService', 'UsersModel', 'ExpedientesModel', 'EstadosModel', function($scope, $routeParams, $location, LiteralsConfigService, ExpedientesService, UsersModel, ExpedientesModel, EstadosModel) {
         $scope.$on('$locationChangeStart', function(){
             if ($location.$$path === "/backoffice") {
                 ExpedientesService.unlockExpediente(ExpedientesModel.getConfigObjectLockExp("",$routeParams.expId));
@@ -12,6 +12,9 @@ angular.module('mpdcDirective', [])
             $scope.infoUser = UsersModel.transformDataUser(data.data.usuarios[0].usuario);
         });
         $scope.infoUserBDP = LiteralsConfigService.getMpdcInfo();
+        $scope.statesOptions = {
+            choices: EstadosModel.getEstados()
+        };
     }])
     .directive('mpdc', function(){
         return {
@@ -21,7 +24,13 @@ angular.module('mpdcDirective', [])
             scope: {
                 literalHeader: "=",
                 infoUser: "=",
-                infoUserBdp: "="
+                infoUserBdp: "=",
+                statesOptions: "="
+            },
+            link: function(){
+                $("#backButton").on('click', function() {
+                    window.history.back();
+                });
             }
         };
     });

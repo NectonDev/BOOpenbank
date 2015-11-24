@@ -1,5 +1,5 @@
 angular.module('ExpedientesModel',[])
-    .service('ExpedientesModel', ['$http', '$localStorage', '$sessionStorage' ,'APIConfigService', 'ExpedientesService', 'EstadosModel', function ($http, $localStorage, $sessionStorage, APIConfigService, ExpedientesService, EstadosModel) {
+    .service('ExpedientesModel', ['$http', '$localStorage', '$sessionStorage', 'ngDialog', 'APIConfigService', 'ExpedientesService', 'EstadosModel', function ($http, $localStorage, $sessionStorage, ngDialog, APIConfigService, ExpedientesService, EstadosModel) {
         var service = this;
         var config_object_exp = {};
         var numTotalResultados = 0;
@@ -212,6 +212,7 @@ angular.module('ExpedientesModel',[])
         service.cancelExp = function(userObjName,expId,motivo){
             return ExpedientesService.cancelExpediente(getConfigObjectCancelExp(userObjName,expId,motivo)).then(function(data){
                 console.log(data);
+                ngDialog.closeAll();
                 return data;
             });
         };

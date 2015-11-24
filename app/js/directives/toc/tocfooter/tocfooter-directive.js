@@ -2,6 +2,7 @@
 
 angular.module('tocFooterDirective', [])
     .controller('TocFooterController', ['$rootScope', '$scope', 'ExpedientesModel', function($rootScope, $scope, ExpedientesModel) {
+        $scope.actualPage = 1;
 
         $scope.numResultsPerPageOptions = [5,10,15,20];
 
@@ -9,6 +10,7 @@ angular.module('tocFooterDirective', [])
 
         $scope.goToPage = function(page){
             if (page){
+                $scope.actualPage = page;
                 $rootScope.$broadcast('pageChange', page);
             }
         };
@@ -49,6 +51,7 @@ angular.module('tocFooterDirective', [])
             templateUrl: './js/directives/toc/tocfooter/templates/tocfooter.html',
             replace: true,
             scope: {
+                actualPage: "=",
                 resultsPerPageOptions: "=",
                 defaultResultsPerPage: "=",
                 actualSizePerPage: "=",

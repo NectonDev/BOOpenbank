@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('expDetailHeaderDirective', ['ngDialog'])
-    .controller('ExpDetailHeaderController', ['$scope', '$routeParams', '$location', '$localStorage', 'ngDialog', 'MotivosModel', 'ExpedientesModel',  function($scope, $routeParams, $location, $localStorage, ngDialog, MotivosModel, ExpedientesModel) {
+    .controller('ExpDetailHeaderController', ['$scope', '$routeParams', '$location', '$localStorage', 'ngDialog', 'MotivosModel', 'ExpedientesModel', function($scope, $routeParams, $location, $localStorage, ngDialog, MotivosModel, ExpedientesModel) {
         var motivo = "";
         $scope.infoHeader = {
             IBANText: 'IBAN',
@@ -12,6 +12,9 @@ angular.module('expDetailHeaderDirective', ['ngDialog'])
             OficinaNumber: $localStorage.accountInfo.Oficina,
             DCText: 'DC'
         };
+        $scope.$on('usersReqInfo', function(event, args){
+            $scope.objNameTit = args.user0.dataUser.objName;
+        });
         $scope.$on('expInfo', function(event, args){
             $scope.infoExpediente = args;
         });
@@ -35,7 +38,7 @@ angular.module('expDetailHeaderDirective', ['ngDialog'])
             choices: MotivosModel.getMotivos()
         };
         $scope.cancelExp = function(){
-            ExpedientesModel.cancelExp("elusuario.999@mail.com",$routeParams.expId,motivo).then(function(data){
+            ExpedientesModel.cancelExp($scope.objNameTit,$routeParams.expId,motivo).then(function(data){
                 console.log(data);
             });
         };
@@ -51,6 +54,7 @@ angular.module('expDetailHeaderDirective', ['ngDialog'])
         replace: true,
         scope: {
             infoHeader: "=",
+            objNameTit: "=",
             infoExpediente: "=",
             openDialog: "=",
             goToObs: "=",

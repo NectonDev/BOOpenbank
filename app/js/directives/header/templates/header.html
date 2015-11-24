@@ -1,30 +1,30 @@
-<nav ng-show="usuario" class="cabecera">
+<nav ng-show="usuario" class="cabecera col-sm-12">
     <div class="contenido_nav">
         <div class="cont_sup">
             <div class="cabecera_center">
-                <div class="tit_cliente">
+                <div class="tit_cliente col-sm-6 left">
                     <p>{{mainInfo.headerValue}}</p>
                 </div>
-                <div class="img_open col s3">
+                <div class="img_open col s3 col-sm-6 right">
                     <img class="img_logo" src="{{mainInfo.logoOpenBank}}" alt="OpenBank">
                 </div>
             </div>
         </div>
         <div class="cont_inf">
-            <div class="cabecera_center">
-                <ul id="menu_nav" class="menu_nav menu_cabecera">
+            <div class="cabecera_center col-sm-12">
+                <ul id="menu_nav" class="menu_nav menu_cabecera col-sm-5">
                     <li><a href="#/backoffice">{{mainInfo.buttonBackOffice}}</a></li>
                     <li><a href="#/contactcenter">{{mainInfo.buttonContactCenter}}</a></li>
                 </ul>
                 <div class="lateral_derecha">
                     <div class="nom_usuario">
-                        <a href="#" style="margin-right:7px;">{{usuario}}</a> |
+                        <a href="#">{{usuario}}</a>
                     </div>
                     <div class="iconos_cab">
-                        <a href="#/buscador" style="margin-right:5px;margin-left:7px;";>
+                        <a href="#/buscador" style="margin-right:5px;margin-left:7px;" class="right">
                             <i class="material-icons">search</i>
                         </a>
-                        <a>
+                        <a class="right">
                             <i class="material-icons" ng-click="doLogout()">exit_to_app</i>
                         </a>
                     </div>

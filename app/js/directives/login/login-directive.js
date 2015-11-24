@@ -14,6 +14,8 @@ angular.module('loginDirective', [])
                     $sessionStorage.infoUser = {};
                     $sessionStorage.infoUser.usuario = usuario;
                     $sessionStorage.infoUser.isLogged = true;
+                    $sessionStorage.infoUser.perfil = data.data.perfil;
+                    $sessionStorage.infoUser.expire = data.data.expire;
                     $rootScope.$broadcast('logged', usuario);
                     $location.path("/backoffice");
                }

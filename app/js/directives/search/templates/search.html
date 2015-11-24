@@ -19,9 +19,9 @@
                 <div class="margInf">{{searchInfo.DCText}}</div>
                 <div class="contNum"></div>
             </div>
-            <md-input-container class="campoForm masPad offset-s1" style="position:relative;right:5px;width:90px;">
-                <label style="left:0px;color:#76777a;font-size: 14px;">Cuenta</label>
-                <input class="validate" type="text" ng-model="cuenta">
+            <md-input-container class="campoForm masPad offset-s1">
+                <label>Cuenta</label>
+                <input class="validate" type="text" ng-model="parameters.cuenta">
             </md-input-container>
             <!-- <form name="_form4" class="ng-pristine ng-valid">
                 <a ez-datetime-range-control="" from="fCreacionDesde" to="fCreacionHasta" on-change="modelChanged()" class="ng-binding ng-isolate-scope ez-datetime-control">
@@ -37,7 +37,7 @@
         <div class="col s12">
             <md-input-container style="position:relative;bottom:15px;right:220px;width:100px;">
                 <label>Tipo</label>
-                <md-select ng-model="tipos">
+                <md-select ng-model="parameters.tipoDoc">
                     <md-option ng-value="typeOptions" ng-repeat="typeOptions in typeOptions.choices">{{typeOptions}}</md-option>
                 </md-select>
             </md-input-container>
@@ -56,22 +56,22 @@
         <div class="col s12 datosDetalle" style="border-bottom: 0px solid #D1D1D1;position:relative;right:50px;bottom:110px;margin-left:0px;">
             <md-input-container class="col s3" style="position:relative;left:55px;top:10px;">
                 <label>Estado</label>
-                <md-select ng-model="estados">
+                <md-select ng-model="parameters.estado">
                     <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices track by $index">{{stateOption}}</md-option>
                 </md-select>
             </md-input-container>
             <md-input-container class="col s2" style="position:relative;left:100px;top:10px;">
                 <label>Canal</label>
-                <md-select ng-model="canales">
+                <md-select ng-model="parameters.canal">
                     <md-option ng-value="canalOption" ng-repeat="canalOption in canalesOptions.choices">{{canalOption}}</md-option>
                 </md-select>
             </md-input-container>
             <div class="col s12" style="margin-left:55px;position:relative;bottom:30px;">
                 <div class="col s2 offset-s8 text-right-bottom noPadding">
-                    <button type="reset" class="blue-color button-medium no-background bold">LIMPIAR B&Uacute;SQUEDA</button>
+                    <button ng-click="cleanSearch()" type="reset" class="blue-color button-medium no-background bold">LIMPIAR B&Uacute;SQUEDA</button>
                 </div>
                 <div class="col s2 text-right-bottom buscar-submit row" style="margin-top:5px;">
-                    <button class="btn button-medium" style="height:35px;" type="button">BUSCAR</button>
+                    <button ng-click="doSearch()" class="btn button-medium" style="height:35px;" type="button">BUSCAR</button>
                 </div>
             </div>
         </div>

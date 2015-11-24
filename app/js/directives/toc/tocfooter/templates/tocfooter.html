@@ -1,25 +1,25 @@
 <div>
-    <div ng-show="!isFioc()" class="col s4 mostrar_resultados" style="padding-left:28px;display:inline-block;">
-        <div style="position:relative;top:12px;">
-        Mostrar:
+    <div ng-show="!isFioc()" class="col s4 mostrar_resultados tocFooter col-sm-6">
+        <div>
+            Mostrar:
         </div>
-        <div style="width:35px;display:inline-block;height:20px;margin-left:5px;margin-right:5px;position:relative;bottom:20px;left:50px;" class="noBorder">
+        <div class="noBorder">
             <md-input-container>
                 <md-select id="comboPageSize" ng-model="actualSizePerPage" aria-label="Numero de resultados">
                     <md-option ng-selected="defaultResultsPerPage === resultsPerPage" ng-value="resultsPerPage" ng-repeat="resultsPerPage in resultsPerPageOptions">{{resultsPerPage}}</md-option>
                 </md-select>
             </md-input-container>
         </div>
-        <div style="position:relative;bottom:30px;left:160px;">
-        registros por p&aacute;gina
+        <div>
+            registros por p&aacute;gina
         </div>
     </div>
-    <div>
-        <ul class="pagination col s4 offset-s4 pagination-padding text-right-bottom noPadding" style="padding-right: 1.2% !important;">
+    <div class="col-sm-6">
+        <ul class="pagination col s4 offset-s4 pagination-padding text-right-bottom noPadding pull-right">
             <li class="disabled">
                 <a ng-click="goToPrevPage()"><i class="material-icons">chevron_left</i></a>
             </li>
-            <li class="active" ng-repeat="page in numTotalPages">
+            <li ng-class="{active: page === actualPage}" ng-repeat="page in numTotalPages">
                 <a ng-click="goToPage(page)">{{page}}</a>
             </li>
             <li class="disabled">
