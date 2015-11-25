@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('infoReqUserDirective', [])
-    .controller('infoReqUserController', ['$scope', '$routeParams', '$location', 'RequisitosModel', 'EstadosModel', 'DocumentosModel', function($scope, $routeParams, $location, RequisitosModel, EstadosModel, DocumentosModel) {
+    .controller('infoReqUserController', ['$scope', '$routeParams', '$location', 'RequisitosModel', 'EstadosModel', 'DocumentosModel', 'UsersModel', function($scope, $routeParams, $location, RequisitosModel, EstadosModel, DocumentosModel, UsersModel) {
         $scope.$on('reqToShow', function(event, args){
             RequisitosModel.setIsSelfie(args[0]);
             RequisitosModel.setIsFondos(args[0]);
@@ -17,11 +17,16 @@ angular.module('infoReqUserDirective', [])
                 $location.path(urlToMPDC);
             }
             $scope.infoHeader = RequisitosModel.getInfoHeader(args[0]);
+            //TODO: Usado de manera provisional hasta que el clave/valor de lista de estado de requisitos este correcto
+            //El campo estado debe de llamar a getDescRequisitoById pasandole como parametro lo que tiene ahora.
+            //De todas maneras habria que buscar una forma mas eficiente.
             $scope.datosReq = {
-                title: RequisitosModel.getTipoConfigReq(args[0])[0]
+                title: RequisitosModel.getTipoConfigReq(args[0])[0],
+                estado: RequisitosModel.getKeyRequisitoByValue($scope.$parent.user.dataReqUser[RequisitosModel.getTipoConfigReq(args[0])[2]])
             };
+            //Preguntar mañana si los estados de requerimiento son iguales que los de expediente
             $scope.statesOptions = {
-                choices: EstadosModel.getEstados()
+                choices: EstadosModel.getEstadosReq()
             };
             $scope.onLoad = function (e, reader, file, fileList, fileOjects, fileObj) {
                 DocumentosModel.addDocument(args[2], $routeParams.expId, fileObj.filename, "binary", "dctm_ok_tr_doctramit", "", RequisitosModel.getTipoConfigReq(args[0])[1], fileObj.base64).then(function(data){
@@ -31,7 +36,12 @@ angular.module('infoReqUserDirective', [])
                     }
                 });
             };
-
+            UsersModel.getInfoSelfieOfUser($routeParams.expId, args[1]).then(function(data){
+                $scope.infoReq = data;
+            });
+            $scope.selectEstado = function(estado){
+                console.log(estado);
+            };
         });
 
     }])
@@ -50,7 +60,9 @@ angular.module('infoReqUserDirective', [])
             isRd: "=",
             isTd: "=",
             onLoad: "=",
-            closeDesplegable: "="
+            closeDesplegable: "=",
+            infoReq: "=",
+            selectEstado: "="
         }, link: function($scope){
             $scope.closeDesplegable = function(){
                 $(".desplegable").slideUp();

@@ -36,55 +36,45 @@
                     </td>
                 </tr>
                 <tr class="tableData">
-                    <td>
-                        <div>
-                            <p class="">nomina_agosto2015.jpg</p>
+                    <td ng-show="isSelfie" ng-repeat="req in infoReq">
+                        <div ng-hide="$last || $index === 2">
+                            <p>{{req}}</p>
+                        </div>
+                        <div ng-show="$index === 2">
+                            <p>{{req | date : 'dd/MM/yyyy HH:mm'}}</p>
+                        </div>
+                        <div ng-show="$last">
+                            <i class="material-icons icon_{{req}}">{{req}}</i>
                         </div>
                     </td>
-                    <td>
-                        <div>
-                            <p class="">Berta Sánchez</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <p class="">25/07/2015</p>
-                        </div>
-                    </td>
-                    <td>
-                        <div>
-                            <p class=""> 13:27</p>
-                        </div>
-                    </td>
-                    <td>
+                    <!-- td>
                         <div>
                             <p class="blue-color"><i class="material-icons icon_visibility">visibility</i></p>
                         </div>
-                    </td>
+                    </td> -->
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <div ng-hide="isSelfie || isTd" class="col-sm-12">
-        <div ng-hide="isFondos" class="col-sm-6">
-            <div class="file-field input-field">
+    <div ng-hide="isSelfie || isTd" class="col-sm-12 addDocumentContent">
+        <div ng-hide="isFondos">
+            <div class="file-field input-field addDocumentFile">
                 <div>
-                    <a class="col-sm-12">A&Ntilde;ADIR DOCUMENTO</a>
-                    <input type="file" name="file" id="file" class="inputfile" ng-model='fileToUpload' multiple base-sixty-four-input onload="onLoad">
+                    <a class="col-sm-12 text-right textAquaDark">A&Ntilde;ADIR DOCUMENTO</a>
+                    <input type="file" name="file" id="file" class="inputfile col-sm-6" ng-model='fileToUpload' multiple base-sixty-four-input onload="onLoad">
                 </div>
-                <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
+                <div class="file-path-wrapper pull-left col-sm-6">
+                    <input class="file-path validate col-sm-12" type="text">
                 </div>
             </div>
         </div>
 
-        <div class="col-sm-6">
+        <div class="col-sm-6 standContainer">
             <div class="select-wrapper">
                 <md-input-container>
-                    <label>Estado</label>
-                    <md-select ng-model="estados">
-                        <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices track by $index">{{stateOption}}</md-option>
+                    <md-select ng-model="estado" ng-change="selectEstado(estado)">
+                        <md-option ng-selected="estado==datosReq.estado" ng-repeat="estado in statesOptions.choices track by $index">{{estado}}</md-option>
                     </md-select>
                 </md-input-container>
             </div>
@@ -116,8 +106,8 @@
             <!--<input id="comentario" type="text">
             <label>Comentario</label> -->
         </div>
-        <div>
-            <button class="buttonDefault">GUARDAR</button>
+        <div class="col-sm-12">
+            <button class="buttonDefault pull-right">GUARDAR</button>
         </div>
     </div>
 </div>

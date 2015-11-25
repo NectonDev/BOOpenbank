@@ -42,7 +42,7 @@
                 </tbody>
             </table>
             <div ng-controller="infoReqUserController">
-                <info-req-user-detail class="desplegable {{user.dataUser.tipoUser + $index}}" ng-repeat="element in user.dataReqUser track by $index" datos-req="datosReq" info-header="infoHeader" is-selfie="isSelfie" is-fondos="isFondos" is-rd="isRd" is-td="isTd" on-load="onLoad" close-desplegable="closeDesplegable" states-options="statesOptions"></info-req-user-detail>
+                <info-req-user-detail class="desplegable {{user.dataUser.tipoUser + $index}}" ng-repeat="element in user.dataReqUser track by $index" datos-req="datosReq" info-header="infoHeader" is-selfie="isSelfie" is-fondos="isFondos" is-rd="isRd" is-td="isTd" on-load="onLoad" close-desplegable="closeDesplegable" states-options="statesOptions" info-req="infoReq" select-estado="selectEstado"></info-req-user-detail>
             </div>
         </div>
     </div>

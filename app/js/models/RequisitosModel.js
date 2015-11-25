@@ -1,5 +1,5 @@
 angular.module('RequisitosModel',[])
-    .service('RequisitosModel', [function () {
+    .service('RequisitosModel', ['$localStorage', function ($localStorage) {
         var service = this,
 
         listaRequisitos = {
@@ -7,18 +7,18 @@ angular.module('RequisitosModel',[])
             NR: "NA",
             RV: "check",
             RR: "error",
-            RNE: "no_sim"
+            RNE: "no_sim",
         },
         tiposReq = {
-            0: ["Documentaci\u00F3n","DOC"],
+            0: ["Documentaci\u00F3n","DOC","doc"],
             1: ["Reconocimiento facial"],
-            2: ["Documentaci\u00F3n subscripci\u00F3n de contrato","DSC"],
-            3: ["Documentaci\u00F3n de actividad profesional","DAAL"],
-            4: ["Recibo","Recibo"],
-            5: ["Modelo IC","ModeloIC"],
-            6: ["Certificado","CERTI"],
-            7: ["Fondos"],
-            8: ["Real Decreto 54","RD54"],
+            2: ["Documentaci\u00F3n subscripci\u00F3n de contrato","DSC","dsc"],
+            3: ["Documentaci\u00F3n de actividad profesional","DAAL","daal"],
+            4: ["Recibo","Recibo","recibo"],
+            5: ["Modelo IC","ModeloIC","ic"],
+            6: ["Certificado","CERTI","certif"],
+            7: ["Fondos","","fondos"],
+            8: ["Real Decreto 54","RD54","rd54"],
             9: ["Tercera Directiva"],
         },
         infoHeader = {
@@ -105,12 +105,28 @@ angular.module('RequisitosModel',[])
             }
         };
 
-        service.getInfoSelfie = function(user){
-            var infoSelfie = {};
-            infoSelfie.fotoOk = user.concordancia_foto?listaRequisitos["RV"]:listaRequisitos["RE"];
-            infoSelfie.porcAcierto = user.concordancia_pctje;
-            infoSelfie.fecha = user.fecha_selfie;
-            return infoSelfie;
+        service.getKeyRequisitoByValue = function(value){
+            for (var prop in listaRequisitos ) {
+                if (listaRequisitos.hasOwnProperty(prop)){
+                    if (listaRequisitos[prop]===value)
+                        return prop;
+                }
+            }
+        }
+
+        //TODO: Usar cuando se arregle el servicio de estados de requisito
+        service.getDescRequisitoById = function(reqId){
+            var listaEstadosReq = $localStorage.listaReq;
+            for (var estadoReq in listaEstadosReq){
+                if (listaEstadosReq.hasOwnProperty(estadoReq) ) {
+                    if (estadoReq === reqId)
+                        return listaEstadosReq[estadoReq];
+                }
+            }
+        };
+
+        service.getFotoOk = function(concordancia_foto){
+            return concordancia_foto?listaRequisitos["RV"]:listaRequisitos["RE"];
         };
 
         return service;

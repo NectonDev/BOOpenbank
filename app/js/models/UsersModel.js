@@ -45,7 +45,7 @@ angular.module('UsersModel',[])
         transformInfoReqUser = function (user){
             var reqUser = {};
             reqUser.doc = RequisitosModel.getRequisitoById(user.req_doc_estado);
-            reqUser.selfie = RequisitosModel.getInfoSelfie(user).fotoOk;
+            reqUser.selfie = RequisitosModel.getFotoOk(user.concordancia_foto);
             reqUser.dsc = RequisitosModel.getRequisitoById(user.req_dsc_estado);
             reqUser.daal = RequisitosModel.getRequisitoById(user.req_daal_estado);
             reqUser.recibo = RequisitosModel.getRequisitoById(user.req_recibo_estado);
@@ -91,6 +91,17 @@ angular.module('UsersModel',[])
                     }
                 }
             );
+        };
+
+        service.getInfoSelfieOfUser = function(expId, userId){
+            return service.getInfoUserById(expId, userId).then(function(data){
+                var infoSelfie = {};
+                infoSelfie.porcAcierto = data.data.usuarios[0].usuario.concordancia_pctje;
+                infoSelfie.intentos = data.data.usuarios[0].usuario.iteraciones_foto_selfie;
+                infoSelfie.fecha = data.data.usuarios[0].usuario.fecha_selfie;
+                infoSelfie.fotoOk =  RequisitosModel.getFotoOk(data.data.usuarios[0].usuario.concordancia_foto);
+                return infoSelfie;
+            });
         };
 
         return service;
