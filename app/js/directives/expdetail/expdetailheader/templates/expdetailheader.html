@@ -1,4 +1,4 @@
-<div style="margin-bottom:10px;">
+<div class="expHeader">
     <script type="text/ng-template" id="firstDialog">
         <div class="ngdialog-message">
             <h5>Cancelaci&oacute;n del expediente</h5>
@@ -17,12 +17,12 @@
             <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="cancelExp()">Aceptar</button>
         </div>
     </script>
-    <div class="col s12 noPadding form_detalle_expediente_container top">
+    <div class="col-sm-6 breadcrumbSite">
         <p class="bigger-font-size">Detalle del expediente</p>
     </div>
-    <div ng-hide="isObs" class="bttDetailExp">
-        <button class="btn waves-effect waves-light button-medium bttRequer" ng-click="openDialog()">CANCELAR EXPEDIENTE</button>
-        <button class="btn waves-effect waves-light button-medium" ng-click="goToObs(infoExpediente.id)">OBSERVACIONES</button>
+    <div ng-hide="isObs" class="pull-right bttDetailExp">
+        <button class="buttonDefault btn-white" ng-click="openDialog()">CANCELAR EXPEDIENTE</button>
+        <button class="buttonDefault" ng-click="goToObs(infoExpediente.id)">OBSERVACIONES</button>
     </div>
     <div class="col s12 datosDetalle">
         <div class="infoDatos">

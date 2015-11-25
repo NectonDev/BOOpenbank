@@ -1,14 +1,14 @@
-<div class="row">
+<div class="cent_detalle expDetalle">
     <div ng-controller="ExpDetailHeaderController">
         <exp-detail-header info-header="infoHeader" info-expediente="infoExpediente" open-dialog="openDialog" go-to-obs="goToObs" is-obs="isObs"></exp-detail-header>
     </div>
-    <table class="bordered highlight lowSize resultadosTabla text-center myDivToPrint" style="margin-bottom:10px;">
+    <table class="bordered highlight lowSize resultadosTabla text-center myDivToPrint">
         <thead>
         <tr>
-            <th title="Fecha" data-field="fechs" style="width:10%;">Fecha</th>
-            <th title="Estado" data-field="estado" style="width:15%;">Estado</th>
-            <th title="Gestor" data-field="egstor" style="width:10%;">Gestor</th>
-            <th title="Comentario" data-field="comentario" style="width:10%;">Comentario</th>
+            <th title="Fecha" data-field="fechs">Fecha</th>
+            <th title="Estado" data-field="estado">Estado</th>
+            <th title="Gestor" data-field="egstor">Gestor</th>
+            <th title="Comentario" data-field="comentario">Comentario</th>
         </tr>
         </thead>
         <tbody id="contentTable">
@@ -21,6 +21,6 @@
         </tbody>
     </table>
     <div>
-        <button id="backButton" class="btn waves-effect waves-light button-medium">VOLVER</button>
+        <button id="backButton" class="buttonDefault btn-white">VOLVER</button>
     </div>
 </div>

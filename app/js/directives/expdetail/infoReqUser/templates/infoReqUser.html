@@ -1,7 +1,7 @@
-<div id="infoDesplegable" class="docTit" style="display:none;">
+<div id="infoDesplegable" style="display:none;" class="infoReqUserTable">
     <div class="encabezadoDespleg">
-        <div class="tituloDesplegable">{{datosReq.title}}</div>
-        <div class="xCerrar"><i class="material-icons" ng-click="closeDesplegable()">clear</i></div>
+        <div class="tituloDesplegable col-sm-11">{{datosReq.title}}</div>
+        <div class="xCerrar pull-right"><i class="material-icons" ng-click="closeDesplegable()">clear</i></div>
     </div>
     <div ng-show="isRd">
         <md-input-container>
@@ -26,16 +26,16 @@
         </md-input-container>
     </div>
     <div class="tablaDoc">
-        <table class="tablaDesplegable" style="background-color:#fafafa !important;box-shadow:0px 0px 2px black;width:540px;margin-top:15px;">
+        <table class="tablaDesplegable">
             <tbody>
-                <tr style=" border-style: solid;border-bottom: solid 1px #d1d1d1;" ng-hide="isFondos">
+                <tr ng-hide="isFondos" class="tableTit">
                     <td ng-repeat="headerValue in infoHeader">
                         <div>
                             <p class="medium">{{headerValue}}</p>
                         </div>
                     </td>
                 </tr>
-                <tr style=" border-style: solid;border-bottom: solid 1px #d1d1d1;font-size:12px;">
+                <tr class="tableData">
                     <td>
                         <div>
                             <p class="">nomina_agosto2015.jpg</p>
@@ -58,65 +58,66 @@
                     </td>
                     <td>
                         <div>
-                            <p class="blue-color"><i class="material-icons">visibility</i></p>
+                            <p class="blue-color"><i class="material-icons icon_visibility">visibility</i></p>
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <div ng-hide="isSelfie || isTd">
-            <div class="enlaceAnyadir" ng-hide="isFondos">
-                <div class="file-field input-field">
-                    <div>
-                        <a>A&Ntilde;ADIR DOCUMENTO</a>
-                        <input type="file" name="file" id="file" class="inputfile" ng-model='fileToUpload' multiple base-sixty-four-input onload="onLoad">
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text">
-                    </div>
-                </div>
-            </div>
+    </div>
 
-            <div class="input-field col s3">
-                <div class="select-wrapper">
-                    <md-input-container>
-                        <label>Estado</label>
-                        <md-select ng-model="estados" style="margin-top: 35px;">
-                            <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices track by $index">{{stateOption}}</md-option>
-                        </md-select>
-                    </md-input-container>
+    <div ng-hide="isSelfie || isTd" class="col-sm-12">
+        <div ng-hide="isFondos" class="col-sm-6">
+            <div class="file-field input-field">
+                <div>
+                    <a class="col-sm-12">A&Ntilde;ADIR DOCUMENTO</a>
+                    <input type="file" name="file" id="file" class="inputfile" ng-model='fileToUpload' multiple base-sixty-four-input onload="onLoad">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
                 </div>
             </div>
-            <div class="input-field col s3 offset-s1" style="position:relative;top:50px;right:5px;margin-bottom:35px;">
-                <!-- <div class="select-wrapper">
-                    <span class="caret">?</span>
-                    <input type="text" class="select-dropdown" readonly="true" data-activates="select-options-a156e194-91fa-537b-a903-8841806d2252" value="Rechazado">
-                    <ul id="select-options-a156e194-91fa-537b-a903-8841806d2252" class="dropdown-content select-dropdown">
-                        <li class="">
-                            <span>Rechazado</span>
-                        </li>
-                        <li class="">
-                            <span>Aceptado</span>
-                        </li>
-                        <li class="">
-                            <span>En proceso</span>
-                        </li>
-                    </ul>
-                    <select class="initialized">
-                        <option value="1" selected="">Rechazado</option>
-                        <option value="2">Aceptado</option>
-                        <option value="3">En proceso</option>
-                    </select>
-                </div>
-                <label>Motivo</label> -->
+        </div>
+
+        <div class="col-sm-6">
+            <div class="select-wrapper">
+                <md-input-container>
+                    <label>Estado</label>
+                    <md-select ng-model="estados">
+                        <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices track by $index">{{stateOption}}</md-option>
+                    </md-select>
+                </md-input-container>
             </div>
-            <div class="input-field col s4 offset-s1" style="position:relative;top:30px;right:5px;margin-bottom:35px;">
-                <!--<input id="comentario" type="text">
-                <label>Comentario</label> -->
+        </div>
+        <div class="input-field col s3 offset-s1">
+            <!-- <div class="select-wrapper">
+                <span class="caret">?</span>
+                <input type="text" class="select-dropdown" readonly="true" data-activates="select-options-a156e194-91fa-537b-a903-8841806d2252" value="Rechazado">
+                <ul id="select-options-a156e194-91fa-537b-a903-8841806d2252" class="dropdown-content select-dropdown">
+                    <li class="">
+                        <span>Rechazado</span>
+                    </li>
+                    <li class="">
+                        <span>Aceptado</span>
+                    </li>
+                    <li class="">
+                        <span>En proceso</span>
+                    </li>
+                </ul>
+                <select class="initialized">
+                    <option value="1" selected="">Rechazado</option>
+                    <option value="2">Aceptado</option>
+                    <option value="3">En proceso</option>
+                </select>
             </div>
-            <div class="input-field col s4 offset-s1" style="position:relative;top:30px;right:5px;margin-bottom:35px;">
-                <button class="btn waves-effect waves-light button-medium">GUARDAR</button>
-            </div>
+            <label>Motivo</label> -->
+        </div>
+        <div class="input-field col s4 offset-s1">
+            <!--<input id="comentario" type="text">
+            <label>Comentario</label> -->
+        </div>
+        <div>
+            <button class="buttonDefault">GUARDAR</button>
         </div>
     </div>
 </div>

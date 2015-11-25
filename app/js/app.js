@@ -21,6 +21,7 @@ angular.module('BOOpenbank', [
   'userDetailDirective',
   'infoReqUserDirective',
   'observacionesDirective',
+  'cuestionarioDirective',
   'loginDirective',
   'mpdcDirective',
   'ExpedientesModel',
