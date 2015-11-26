@@ -9,7 +9,7 @@ angular.module('mpdcDirective', [])
         });
         $scope.literalHeader = LiteralsConfigService.getMpdcInfo();
         UsersModel.getInfoUserById($routeParams.expId, $routeParams.userId).then(function(data){
-            $scope.infoUser = UsersModel.transformDataUser(data.data.usuarios[0].usuario);
+            $scope.infoUser = UsersModel.transformDataUser(data);
         });
         $scope.infoUserBDP = LiteralsConfigService.getMpdcInfo();
         $scope.statesOptions = {

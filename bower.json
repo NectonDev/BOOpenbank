@@ -1,6 +1,6 @@
 {
   "name": "BOOpenbank",
-  "description": "Backoffice para la gesti�n de cuentas de Openbank",
+  "description": "Backoffice para la gestion de cuentas de Openbank",
   "version": "0.0.0",
   "homepage": "https://github.com/angular/angular-seed",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "angular-route": "~1.4.0",
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
-    "angular-material": "1.0.0-rc4",
+    "angular-material": "1.0.0-rc5",
     "jquery": "2.1.4",
     "ngstorage": "~0.3.9",
     "angular-animate": "~1.4.7",

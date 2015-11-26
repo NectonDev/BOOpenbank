@@ -34,6 +34,22 @@ angular.module('ExpedientesModel',[])
             }
         };
 
+        getConfigObjectProcesarFioc = function(objName,expId,valid){
+            return {
+                "usuarios": [
+                    {
+                        "usuario": {
+                            "object_name": objName,
+                            "req_3adir_estado": valid
+                        }
+                    }
+                ],
+                    "expediente": {
+                    "r_object_id": expId
+                }
+            }
+        };
+
         service.getConfigObjectLockExp = function(userId,expId){
             return {
                 "expediente": {
@@ -211,10 +227,23 @@ angular.module('ExpedientesModel',[])
 
         service.cancelExp = function(userObjName,expId,motivo){
             return ExpedientesService.cancelExpediente(getConfigObjectCancelExp(userObjName,expId,motivo)).then(function(data){
-                console.log(data);
                 ngDialog.closeAll();
                 return data;
             });
+        };
+
+        service.procesarFioc = function(okToProcess,koToProcess){
+            angular.forEach(okToProcess,function(value){
+                return ExpedientesService.procesarFioc(getConfigObjectProcesarFioc(value[0],value[1],"RV")).then(function(data){
+                    console.log(data);
+                });
+            });
+            angular.forEach(koToProcess,function(value){
+                return ExpedientesService.procesarFioc(getConfigObjectProcesarFioc(value[0],value[1],"RR")).then(function(data){
+                    console.log(data);
+                });
+            });
+
         };
 
         return service;

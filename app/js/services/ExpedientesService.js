@@ -48,7 +48,15 @@ angular.module('ExpedientesService',[])
                 configObject,
                 APIConfigService.getHeaders()
             );
-        }
+        };
+
+        service.procesarFioc = function(configObject){
+            return $http.post(
+                APIConfigService.getUrlProcesadoFioc(),
+                configObject,
+                APIConfigService.getHeaders()
+            );
+        };
 
         return service;
     }]);

@@ -36,7 +36,8 @@ angular.module('BOOpenbank', [
   'ExpedientesService',
   'ObservacionesService',
   'LoginService',
-  'DocumentosService'
+  'DocumentosService',
+  'UsersService'
 ])
 .config(['$routeProvider', function($routeProvider){
   $routeProvider

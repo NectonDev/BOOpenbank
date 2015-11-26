@@ -1,8 +1,8 @@
 <div class="expHeader">
     <script type="text/ng-template" id="firstDialog">
-        <div class="ngdialog-message">
+        <div class="ngdialog-message cancelRecordModal col-sm-12">
             <h5>Cancelaci&oacute;n del expediente</h5>
-            <md-input-container>
+            <md-input-container class="col-sm-8">
                 <label>Motivo*</label>
                 <md-select ng-model="motivo" ng-change="selectMotivo(motivo)">
                     <md-option  ng-value="motivo" ng-repeat="motivo in motivosOptions.choices track by $index">{{motivo}}</md-option>
@@ -14,7 +14,7 @@
             </md-input-container>
         </div>
         <div class="ngdialog-buttons mt">
-            <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="cancelExp()">Aceptar</button>
+            <button type="button" class="btnAccept cursorPointer pull-right" ng-click="cancelExp()">ACEPTAR</button>
         </div>
     </script>
     <div class="col-sm-6 breadcrumbSite">

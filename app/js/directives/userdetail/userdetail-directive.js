@@ -5,13 +5,9 @@ angular.module('userDetailDirective', [])
         LoginService.secureUrl();
         var expId = $routeParams.expId;
         var userId = $routeParams.userId;
-        var userInfo = UsersModel.getInfoUserById(expId,userId);
-
-        userInfo.then(function (data) {
-            $scope.userInfo = UsersModel.transformInfoUsers(data.data.usuarios);
+        UsersModel.getInfoUserById(expId,userId).then(function(data){
+            $scope.userInfo = UsersModel.transformDataUser(data);
         });
-
-
     }])
     .directive('userDetail', function() {
     return {

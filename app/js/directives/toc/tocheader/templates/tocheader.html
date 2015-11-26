@@ -2,7 +2,7 @@
     <div class="col s12 noPadding expediente_nav_container">
         <nav>
             <ul id="expediente_nav" class="menu_nav expediente_nav">
-                <li id="enlace{{$index}}" ng-repeat="button in headerInfo track by $index">
+                <li id="enlace{{$index}}" ng-class="{active: filterActive === button[1]}" ng-repeat="button in headerInfo track by $index">
                     <a ng-click="changeFilter(button[1])">{{button[0]}}</a>
                 </li>
             </ul>

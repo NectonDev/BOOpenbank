@@ -35,6 +35,10 @@ angular.module('tocBodyDirective', [])
         link: function($scope, elem){
             $scope.userOkProcess = [];
             $scope.userKoProcess = [];
+            //TODO: Pensar manera mejor de hacer esto.
+            var OkToProcessArrayWithExp = [];
+            var KoToProcessArrayWithExp = [];
+
             function getExpedientes(){
                 $("#contentTable").hide();
                 ExpedientesModel.getAllExpedientesConFiltro().then(function(data){
@@ -90,29 +94,31 @@ angular.module('tocBodyDirective', [])
             });
 
             $scope.procesarUsuarios = function(){
-                console.log("Procesamos: " + $scope.userOkProcess);
-                console.log("Rechazamos: " + $scope.userKoProcess);
+
+                ExpedientesModel.procesarFioc(OkToProcessArrayWithExp,KoToProcessArrayWithExp);
                 getExpedientes();
             };
 
-            $scope.okProcess = function(usuario){
-                console.log(elem);
+            $scope.okProcess = function(usuario, expId){
                 var indexOfOkArray = $scope.userOkProcess.indexOf(usuario.objName);
                 var indexOfKoArray = $scope.userKoProcess.indexOf(usuario.objName);
                 if (indexOfKoArray>-1){
                     $scope.userKoProcess.splice(indexOfKoArray, 1);
+                    KoToProcessArrayWithExp.splice(indexOfKoArray, 1);
                 }
                 (indexOfOkArray>-1)?$scope.userOkProcess.splice(indexOfOkArray, 1):$scope.userOkProcess.push(usuario.objName);
+                (indexOfOkArray>-1)?OkToProcessArrayWithExp.splice(indexOfOkArray, 1):OkToProcessArrayWithExp.push([usuario.objName,expId]);
             };
 
-            $scope.koProcess = function(usuario, elem){
-                console.log(elem);
+            $scope.koProcess = function(usuario, expId){
                 var indexOfOkArray = $scope.userOkProcess.indexOf(usuario.objName);
                 var indexOfKoArray = $scope.userKoProcess.indexOf(usuario.objName);
                 if (indexOfOkArray>-1){
                     $scope.userOkProcess.splice(indexOfOkArray, 1);
+                    OkToProcessArrayWithExp.splice(indexOfOkArray, 1);
                 }
                 (indexOfKoArray>-1)?$scope.userKoProcess.splice(indexOfKoArray, 1):$scope.userKoProcess.push(usuario.objName);
+                (indexOfKoArray>-1)?KoToProcessArrayWithExp.splice(indexOfKoArray, 1):KoToProcessArrayWithExp.push([usuario.objName,expId]);
             };
         }
     };

@@ -14,7 +14,7 @@ angular.module('tocHeaderDirective', [])
             [tocHeaderLiterals.pteBloqueo,tiposPreFiltros.pteBloqueo]
         ];
     }])
-    .directive('tocHeader', ['$rootScope', function($rootScope) {
+    .directive('tocHeader', ['$rootScope', 'ExpedientesModel', function($rootScope, ExpedientesModel) {
         return {
             restrict: 'E',
             templateUrl: './js/directives/toc/tocheader/templates/tocheader.html',
@@ -25,8 +25,10 @@ angular.module('tocHeaderDirective', [])
                 filterActive: "="
             },
             link: function($scope){
+                $scope.filterActive = ExpedientesModel.getFilter();
                 $scope.changeFilter = function(filter){
                     if (filter) {
+                        $scope.filterActive = filter;
                         $rootScope.$broadcast('filterChange',filter);
                     }
                 };

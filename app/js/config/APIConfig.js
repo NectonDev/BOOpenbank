@@ -1,9 +1,11 @@
 angular.module('APIConfig',[])
     .service('APIConfigService', function(){
         var service = this,
-        endpointmap = {
+        urlApis = {
             apiUrlServicios: 'http://hc-des-procesosi.alphainn.gsnetcloud.com',
-            apiUrlExpedientes: 'http://hc-des-expediente.alphainn.gsnetcloud.com',
+            apiUrlExpedientes: 'http://hc-des-expediente.alphainn.gsnetcloud.com'
+        },
+        endpointmap = {
             login: '/login',
             leerExpedientes: '/leerExpedientes',
             leerExpediente: '/leerExpediente',
@@ -44,70 +46,70 @@ angular.module('APIConfig',[])
             return headers_object;
         };
         service.getUrlLogin = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.login;
+            return urlApis.apiUrlExpedientes+endpointmap.login;
         };
         service.getUrlLeerExpedientes = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.leerExpedientes;
+            return urlApis.apiUrlExpedientes+endpointmap.leerExpedientes;
         };
         service.getUrlLeerExpediente = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.leerExpediente;
+            return urlApis.apiUrlExpedientes+endpointmap.leerExpediente;
         };
         service.getUrlLeerExpedientesFiltros = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.leerExpedientesFiltros;
+            return urlApis.apiUrlExpedientes+endpointmap.leerExpedientesFiltros;
         };
         service.getUrlLeerExpedienteBloqueo = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.leerExpedienteBloqueo;
+            return urlApis.apiUrlExpedientes+endpointmap.leerExpedienteBloqueo;
         };
         service.getUrlBloquearExpediente = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.bloquearExpediente;
+            return urlApis.apiUrlExpedientes+endpointmap.bloquearExpediente;
         };
         service.getUrlDesbloquearExpediente = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.desbloquearExpediente;
+            return urlApis.apiUrlExpedientes+endpointmap.desbloquearExpediente;
         };
         service.getUrlLeerObservaciones = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.leerObservaciones;
+            return urlApis.apiUrlExpedientes+endpointmap.leerObservaciones;
         };
         service.getUrlActualizarExpedientes = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.actualizarExpediente;
+            return urlApis.apiUrlExpedientes+endpointmap.actualizarExpediente;
         };
         service.getUrlCancelarExpediente = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.cancelarExpediente;
+            return urlApis.apiUrlExpedientes+endpointmap.cancelarExpediente;
         };
         service.getUrlListaMotivosCancelacion = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.listaMotivosCancelacion;
+            return urlApis.apiUrlExpedientes+endpointmap.listaMotivosCancelacion;
         };
         service.getUrlListaTipoDocs = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.listaTipoDocs;
+            return urlApis.apiUrlExpedientes+endpointmap.listaTipoDocs;
         };
         service.getUrlListaEstados = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.listaEstados;
+            return urlApis.apiUrlExpedientes+endpointmap.listaEstados;
         };
         service.getUrlListaReq = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.listaReq;
+            return urlApis.apiUrlExpedientes+endpointmap.listaReq;
         };
         service.getUrlListaEstadosReq = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.listaEstadosReq;
+            return urlApis.apiUrlExpedientes+endpointmap.listaEstadosReq;
         };
         service.getUrlListaRechazosReq = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.listaRechazosReq;
+            return urlApis.apiUrlExpedientes+endpointmap.listaRechazosReq;
         };
         service.getUrlAdjuntarDocumento = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.adjuntarDocumento;
+            return urlApis.apiUrlExpedientes+endpointmap.adjuntarDocumento;
         };
         service.getUrlLeerDocumentos = function(){
-            return endpointmap.apiUrlExpedientes+endpointmap.leerDocumentos;
-        };
-        service.getUrlListaPaises = function(){
-            return endpointmap.apiUrlServicios+endpointmap.listaPaises;
-        };
-        service.getUrlListaTipoVias = function(){
-            return endpointmap.apiUrlServicios+endpointmap.listaTipoVias;
-        };
-        service.getUrlListaCiudades = function(){
-            return endpointmap.apiUrlServicios+endpointmap.listaCiudades;
+            return urlApis.apiUrlExpedientes+endpointmap.leerDocumentos;
         };
         service.getUrlProcesadoFioc = function(){
-            return endpointmap.apiUrlServicios+endpointmap.procesadoFioc;
+            return urlApis.apiUrlExpedientes+endpointmap.procesadoFioc;
+        };
+        service.getUrlListaPaises = function(){
+            return urlApis.apiUrlServicios+endpointmap.listaPaises;
+        };
+        service.getUrlListaTipoVias = function(){
+            return urlApis.apiUrlServicios+endpointmap.listaTipoVias;
+        };
+        service.getUrlListaCiudades = function(){
+            return urlApis.apiUrlServicios+endpointmap.listaCiudades;
         };
         service.getDefaultPageExpediente = function(){
             return default_parameters_expediente.page;

@@ -1,5 +1,5 @@
 angular.module('UsersModel',[])
-    .service('UsersModel', ['$http', 'TipoDocsModel', 'RequisitosModel', 'APIConfigService', function ($http, TipoDocsModel, RequisitosModel, APIConfigService) {
+    .service('UsersModel', ['$http', 'TipoDocsModel', 'RequisitosModel', 'UsersService', 'APIConfigService', function ($http, TipoDocsModel, RequisitosModel, UsersService, APIConfigService) {
         var service = this;
 
         getTypeOfUser = function (user){
@@ -11,6 +11,20 @@ angular.module('UsersModel',[])
             }
             if (user.cotitular){
                 return "Cotitular";
+            }
+        };
+
+        getConfigObjectUserById = function(userId, expId){
+            return {
+                "usuarios": [
+                    {   "usuario": {
+                            "r_object_id": userId
+                        }
+                    }
+                ],
+                "expediente": {
+                    "r_object_id": expId
+                }
             }
         };
 
@@ -70,36 +84,18 @@ angular.module('UsersModel',[])
         };
 
         service.getInfoUserById = function(expId, userId){
-            //TODO Hacer esto correctamente
-            return $http.post(
-                APIConfigService.getUrlLeerExpediente(),
-                {
-                    "usuarios": [
-                        {   "usuario": {
-                                "r_object_id": userId
-                            }
-                        }
-                    ],
-                    "expediente": {
-                        "r_object_id": expId
-                    }
-                },
-                {
-                    headers:{
-                        'Access-Control-Allow-Origin': '*',
-                        'Content-Type': 'application/json'
-                    }
-                }
-            );
+            return UsersService.getInfoUserById(getConfigObjectUserById(userId, expId)).then(function(data){
+                return data.data.usuarios[0].usuario;
+            });
         };
 
         service.getInfoSelfieOfUser = function(expId, userId){
             return service.getInfoUserById(expId, userId).then(function(data){
                 var infoSelfie = {};
-                infoSelfie.porcAcierto = data.data.usuarios[0].usuario.concordancia_pctje;
-                infoSelfie.intentos = data.data.usuarios[0].usuario.iteraciones_foto_selfie;
-                infoSelfie.fecha = data.data.usuarios[0].usuario.fecha_selfie;
-                infoSelfie.fotoOk =  RequisitosModel.getFotoOk(data.data.usuarios[0].usuario.concordancia_foto);
+                infoSelfie.porcAcierto = data.concordancia_pctje;
+                infoSelfie.intentos = data.iteraciones_foto_selfie;
+                infoSelfie.fecha = data.fecha_selfie;
+                infoSelfie.fotoOk =  RequisitosModel.getFotoOk(data.concordancia_foto);
                 return infoSelfie;
             });
         };
