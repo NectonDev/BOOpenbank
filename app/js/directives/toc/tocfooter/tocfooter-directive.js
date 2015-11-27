@@ -21,6 +21,7 @@ angular.module('tocFooterDirective', [])
                 $scope.actualPage = parseInt(pageActual)-1;
                 $rootScope.$broadcast('pageChange', parseInt(pageActual)-1);
             }
+
         };
 
         $scope.goToNextPage = function(){

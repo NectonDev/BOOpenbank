@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
 
-
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen,projection"/>
   <link rel="stylesheet" href="css/style_2.css" type="text/css" media="screen,projection"/>
   <link rel="stylesheet" href="css/pagination.css" type="text/css" media="screen,projection"/>
@@ -31,8 +30,8 @@
 <body>
   <div class="contenedor">
     <div ng-controller="HeaderController as hc">
-    <main-header main-info="headerInfo" usuario="usuario" do-logout="doLogout"></main-header>
-  </div>
+      <main-header main-info="headerInfo" usuario="usuario" do-logout="doLogout"></main-header>
+    </div>
     <div class="central">
       <div class="central-col" ng-view></div>
     </div>
@@ -45,6 +44,7 @@
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/ng-dialog/js/ngDialog.min.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-aria/angular-aria.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>

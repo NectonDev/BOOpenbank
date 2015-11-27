@@ -44,6 +44,8 @@ angular.module('tocBodyDirective', [])
                 ExpedientesModel.getAllExpedientesConFiltro().then(function(data){
                     $scope.tableResults = data;
                     $timeout(function(){$("#contentTable").fadeIn('slow')},500);
+                }).catch(function(data){
+                    console.log(data);
                 });
             };
 
@@ -94,7 +96,6 @@ angular.module('tocBodyDirective', [])
             });
 
             $scope.procesarUsuarios = function(){
-
                 ExpedientesModel.procesarFioc(OkToProcessArrayWithExp,KoToProcessArrayWithExp);
                 getExpedientes();
             };

@@ -233,17 +233,17 @@ angular.module('ExpedientesModel',[])
         };
 
         service.procesarFioc = function(okToProcess,koToProcess){
+            var expedientes = { expedientes:[]};
             angular.forEach(okToProcess,function(value){
-                return ExpedientesService.procesarFioc(getConfigObjectProcesarFioc(value[0],value[1],"RV")).then(function(data){
-                    console.log(data);
-                });
+                expedientes.expedientes.push(getConfigObjectProcesarFioc(value[0],value[1],"RV"));
             });
             angular.forEach(koToProcess,function(value){
-                return ExpedientesService.procesarFioc(getConfigObjectProcesarFioc(value[0],value[1],"RR")).then(function(data){
-                    console.log(data);
-                });
-            });
+                expedientes.expedientes.push(getConfigObjectProcesarFioc(value[0],value[1],"RR"));
 
+            });
+            return ExpedientesService.procesarFioc(expedientes).then(function(data){
+                //TODO: Modal de procesador correctamente
+            });
         };
 
         return service;
