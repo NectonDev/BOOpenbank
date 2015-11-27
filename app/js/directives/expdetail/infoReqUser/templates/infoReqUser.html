@@ -59,12 +59,13 @@
 
     <div ng-hide="isSelfie || isTd" class="col-sm-12 addDocumentContent">
         <div ng-hide="isFondos">
-            <div class="file-field input-field addDocumentFile">
-                <div>
-                    <a class="col-sm-12 text-right textAquaDark">A&Ntilde;ADIR DOCUMENTO</a>
-                    <input type="file" name="file" id="file" class="inputfile col-sm-6" ng-model='fileToUpload' multiple base-sixty-four-input onload="onLoad">
+            <div class="file-field input-field addDocumentFileContent">
+                <div class="addDocumentFile col-sm-12">
+                    <span class="btnFile textAquaDark pull-right">
+                        A&Ntilde;ADIR DOCUMENTO <input type="file" name="file" id="file" class="inputfile col-sm-2" ng-model='fileToUpload' multiple base-sixty-four-input onload="onLoad">
+                    </span>
                 </div>
-                <div class="file-path-wrapper pull-left col-sm-6">
+                <div class="file-path-wrapper pull-left col-sm-6 fileName">
                     <input class="file-path validate col-sm-12" type="text">
                 </div>
             </div>

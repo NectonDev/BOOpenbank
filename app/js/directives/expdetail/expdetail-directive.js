@@ -49,6 +49,11 @@ angular.module('expDetailDirective', ['ngAnimate'])
         scope: {
             expInfo: "=",
             usersInfo: "="
+        },
+        link: function(){
+            $("#backButton").on('click', function() {
+                window.history.back();
+            });
         }
     };
 });

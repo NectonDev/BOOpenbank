@@ -8,7 +8,6 @@ angular.module('observacionesDirective', [])
                 ExpedientesService.unlockExpediente(ExpedientesModel.getConfigObjectLockExp("",$routeParams.expId));
             }
         });
-        console.log($scope.isObs);
         ObservacionesModel.getObservacionesByExpId($routeParams.expId).then(function(data){
             $scope.observaciones = data;
         });
