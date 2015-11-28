@@ -1,0 +1,29 @@
+ul.pagination {
+  max-width: 100%; }
+  ul.pagination > li {
+    cursor: pointer; }
+    ul.pagination > li.active > a {
+      background: #339999 !important;
+      color: #fff;
+      text-align: center;
+      vertical-align: middle; }
+    ul.pagination > li.disabled > a {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      padding: 3px; }
+      ul.pagination > li.disabled > a > i {
+        font-size: 16px !important;
+        cursor: pointer;
+        color: #666; }
+    ul.pagination > li > a {
+      color: #999;
+      width: 20px;
+      height: 20px;
+      padding: 5px;
+      font-size: 9px;
+      border: none !important;
+      text-align: center;
+      vertical-align: middle; }
+
+/*# sourceMappingURL=pagination.css.map */

@@ -1,0 +1,54 @@
+//--COLORS------------------------
+$green:                  #339999 !default;
+$green-light:            #00e6e6 !default;
+$green-dark:             #1a2e35 !default;
+
+$gray-light:             #ddd !default;
+$gray:                   #999 !default;
+$gray-dark:              #666 !default;
+$gray-darker:            #333 !default;
+
+$white:                  #fff !default;
+
+
+ul.pagination{
+  max-width: 100%;
+  >li{
+    cursor: pointer;
+    &.active{
+      >a{
+        background: $green !important;
+        color: $white;
+        text-align: center;
+        vertical-align: middle;
+      }//end a
+    }//end &.active
+
+    &.disabled{
+      >a{
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+        padding: 3px;
+        >i{
+          font-size: 16px !important;
+          cursor: pointer;
+          color: $gray-dark;
+        }//end i
+      }//end a
+    }//end disabled
+
+    >a{
+      color: $gray;
+      width: 20px;
+      height: 20px;
+      padding: 5px;
+      font-size: 9px;
+      border: none !important;
+      text-align: center;
+      vertical-align: middle;
+    }//end a
+  }//end li
+}//end ul.pagination
+
+
