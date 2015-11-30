@@ -79,33 +79,19 @@
                     </md-select>
                 </md-input-container>
             </div>
-        </div>
-        <div class="input-field col s3 offset-s1">
-            <!-- <div class="select-wrapper">
-                <span class="caret">?</span>
-                <input type="text" class="select-dropdown" readonly="true" data-activates="select-options-a156e194-91fa-537b-a903-8841806d2252" value="Rechazado">
-                <ul id="select-options-a156e194-91fa-537b-a903-8841806d2252" class="dropdown-content select-dropdown">
-                    <li class="">
-                        <span>Rechazado</span>
-                    </li>
-                    <li class="">
-                        <span>Aceptado</span>
-                    </li>
-                    <li class="">
-                        <span>En proceso</span>
-                    </li>
-                </ul>
-                <select class="initialized">
-                    <option value="1" selected="">Rechazado</option>
-                    <option value="2">Aceptado</option>
-                    <option value="3">En proceso</option>
-                </select>
+            <div ng-show="estadoReqCombo=='Requisito rechazado'" class="input-field col s4 offset-s1">
+                <md-input-container>
+                    <md-select ng-model="motivo" ng-change="selectMotivo(motivo)">
+                        <md-option ng-repeat="motivo in motivosOptions.choices track by $index">{{motivo}}</md-option>
+                    </md-select>
+                </md-input-container>
             </div>
-            <label>Motivo</label> -->
-        </div>
-        <div class="input-field col s4 offset-s1">
-            <!--<input id="comentario" type="text">
-            <label>Comentario</label> -->
+            <div ng-show="estadoReqCombo=='Requisito rechazado'" class="input-field col s3 offset-s1">
+                <md-input-container>
+                    <label>Comentario</label>
+                    <input class="validate" type="text" ng-model="comentario">
+                </md-input-container>
+            </div>
         </div>
         <div class="col-sm-12">
             <button class="buttonDefault pull-right">GUARDAR</button>

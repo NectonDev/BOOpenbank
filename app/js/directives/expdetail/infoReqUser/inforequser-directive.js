@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('infoReqUserDirective', [])
-    .controller('infoReqUserController', ['$scope', '$routeParams', '$location', 'RequisitosModel', 'EstadosModel', 'DocumentosModel', 'UsersModel', function($scope, $routeParams, $location, RequisitosModel, EstadosModel, DocumentosModel, UsersModel) {
+    .controller('infoReqUserController', ['$scope', '$routeParams', '$location', 'RequisitosModel', 'EstadosModel', 'DocumentosModel', 'UsersModel', 'MotivosModel', function($scope, $routeParams, $location, RequisitosModel, EstadosModel, DocumentosModel, UsersModel, MotivosModel) {
         $scope.$on('reqToShow', function(event, args){
             RequisitosModel.setIsSelfie(args[0]);
             RequisitosModel.setIsFondos(args[0]);
@@ -22,11 +22,14 @@ angular.module('infoReqUserDirective', [])
             //De todas maneras habria que buscar una forma mas eficiente.
             $scope.datosReq = {
                 title: RequisitosModel.getTipoConfigReq(args[0])[0],
-                estado: RequisitosModel.getKeyRequisitoByValue($scope.$parent.user.dataReqUser[RequisitosModel.getTipoConfigReq(args[0])[2]])
+                estado: RequisitosModel.getDescRequisitoById(RequisitosModel.getKeyRequisitoByValue(args[3]))
             };
             //Preguntar mañana si los estados de requerimiento son iguales que los de expediente
             $scope.statesOptions = {
                 choices: EstadosModel.getEstadosReq()
+            };
+            $scope.motivosOptions = {
+                choices: MotivosModel.getMotivosRechazosByReq(RequisitosModel.getTipoConfigReq(args[0])[1])
             };
             $scope.onLoad = function (e, reader, file, fileList, fileOjects, fileObj) {
                 DocumentosModel.addDocument(args[2], $routeParams.expId, fileObj.filename, "binary", "dctm_ok_tr_doctramit", "", RequisitosModel.getTipoConfigReq(args[0])[1], fileObj.base64).then(function(data){
@@ -36,11 +39,16 @@ angular.module('infoReqUserDirective', [])
                     }
                 });
             };
+            $scope.estadoReqCombo = RequisitosModel.getDescRequisitoById(RequisitosModel.getKeyRequisitoByValue($scope.$parent.user.dataReqUser[RequisitosModel.getTipoConfigReq(args[0])[2]]));
+            $scope.motivoReqCombo = "";
             UsersModel.getInfoSelfieOfUser($routeParams.expId, args[1]).then(function(data){
                 $scope.infoReq = data;
             });
             $scope.selectEstado = function(estado){
-                console.log(estado);
+                $scope.estadoReqCombo = estado;
+            };
+            $scope.selectMotivo = function(motivo){
+                $scope.motivoReqCombo = motivo;
             };
         });
 
@@ -54,6 +62,7 @@ angular.module('infoReqUserDirective', [])
         scope: {
             datosReq: "=",
             statesOptions: "=",
+            motivosOptions: "=",
             infoHeader: "=",
             isSelfie: "=",
             isFondos: "=",
@@ -62,7 +71,10 @@ angular.module('infoReqUserDirective', [])
             onLoad: "=",
             closeDesplegable: "=",
             infoReq: "=",
-            selectEstado: "="
+            selectEstado: "=",
+            selectMotivo: "=",
+            estadoReqCombo: "=",
+            motivoReqCombo: "="
         }, link: function($scope){
             $scope.closeDesplegable = function(){
                 $(".desplegable").slideUp();

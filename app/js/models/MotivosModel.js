@@ -23,5 +23,22 @@ angular.module('MotivosModel',[])
             return motivos;
         };
 
+        service.getMotivosRechazosByReq = function(Req){
+            var motivos = [];
+            var listaMotivosRechazosReq = $localStorage.listaRechazosReq;
+            for (var motivo in listaMotivosRechazosReq){
+                if (listaMotivosRechazosReq.hasOwnProperty(motivo)) {
+                    if (motivo === Req) {
+                        for (var motivoReq in listaMotivosRechazosReq[motivo]) {
+                            if (listaMotivosRechazosReq[motivo].hasOwnProperty(motivoReq)) {
+                                motivos.push(listaMotivosRechazosReq[motivo][motivoReq]);
+                            }
+                        }
+                    }
+                }
+            }
+            return motivos;
+        };
+
         return service;
     }]);

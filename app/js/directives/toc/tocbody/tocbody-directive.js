@@ -96,8 +96,9 @@ angular.module('tocBodyDirective', [])
             });
 
             $scope.procesarUsuarios = function(){
-                ExpedientesModel.procesarFioc(OkToProcessArrayWithExp,KoToProcessArrayWithExp);
-                getExpedientes();
+                ExpedientesModel.procesarFioc(OkToProcessArrayWithExp,KoToProcessArrayWithExp).then(function(data){
+                    getExpedientes();
+                });
             };
 
             $scope.okProcess = function(usuario, expId){

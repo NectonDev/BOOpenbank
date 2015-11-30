@@ -34,5 +34,15 @@ angular.module('EstadosModel',[])
             return estados;
         };
 
+        service.getEstadosReqById = function(Req){
+            var listaEstadosReq = $localStorage.listaReq;
+            for (var estadoReq in listaEstadosReq){
+                if (listaEstadosReq.hasOwnProperty(estadoReq) ) {
+                    if (estadoReq === Req)
+                        return listaEstadosReq[estadoReq];
+                }
+            }
+        };
+
         return service;
     }]);

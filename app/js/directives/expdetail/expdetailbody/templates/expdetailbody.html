@@ -35,6 +35,9 @@
                     <tr>
                         <td ng-click="showInfo(user.dataUser.tipoUser + $index, user.dataUser.id, user.dataUser.objName, element)" ng-repeat="element in user.dataReqUser track by $index">
                             <div>
+                                <md-tooltip ng-show="element!='NA'">
+                                    {{getStateReq(element)}}
+                                </md-tooltip>
                                 <i class="material-icons icon_{{element}}">{{element}}</i>
                             </div>
                         </td>
@@ -42,7 +45,7 @@
                 </tbody>
             </table>
             <div ng-controller="infoReqUserController">
-                <info-req-user-detail class="desplegable {{user.dataUser.tipoUser + $index}}" ng-repeat="element in user.dataReqUser track by $index" datos-req="datosReq" info-header="infoHeader" is-selfie="isSelfie" is-fondos="isFondos" is-rd="isRd" is-td="isTd" on-load="onLoad" close-desplegable="closeDesplegable" states-options="statesOptions" info-req="infoReq" select-estado="selectEstado"></info-req-user-detail>
+                <info-req-user-detail class="desplegable {{user.dataUser.tipoUser + $index}}" ng-repeat="element in user.dataReqUser track by $index" datos-req="datosReq" info-header="infoHeader" is-selfie="isSelfie" is-fondos="isFondos" is-rd="isRd" is-td="isTd" on-load="onLoad" close-desplegable="closeDesplegable" states-options="statesOptions" motivos-options="motivosOptions" info-req="infoReq" select-estado="selectEstado" select-motivo="selectMotivo" estado-req-combo="estadoReqCombo" motivo-req-combo="motivoReqCombo"></info-req-user-detail>
             </div>
         </div>
     </div>

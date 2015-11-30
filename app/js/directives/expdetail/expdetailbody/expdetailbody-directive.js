@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('expDetailBodyDirective', [])
-    .controller('ExpDetailBodyController', ['$scope', '$location', '$routeParams', function($scope, $location, $routeParams) {
+    .controller('ExpDetailBodyController', ['$scope', '$location', '$routeParams', 'RequisitosModel', 'EstadosModel', function($scope, $location, $routeParams, RequisitosModel, EstadosModel) {
         $scope.infoHeader = {
             DOC: "DOC",
             Selfie: "SELFIE",
@@ -22,6 +22,9 @@ angular.module('expDetailBodyDirective', [])
             var urlToUserDetail = "/backoffice/"+$routeParams.expId+"/"+userId;
             $location.path(urlToUserDetail);
         };
+        $scope.getStateReq = function(element){
+            return EstadosModel.getEstadosReqById(RequisitosModel.getKeyRequisitoByValue(element));
+        };
     }])
     .directive('expDetailBody', ['$rootScope', function($rootScope){
     return {
@@ -34,12 +37,13 @@ angular.module('expDetailBodyDirective', [])
             infoReqUser: "=",
             getUserDetail: "=",
             showDetail: "=",
-            showInfo: "="
+            showInfo: "=",
+            getStateReq: "="
         },link: function($scope){
-            $scope.showInfo = function(infoToDeploy,userId, userObjName, stateReq){
+            $scope.showInfo = function(infoToDeploy, userId, userObjName, stateReq){
                 if (stateReq != "NA"){
                     $(".desplegable").slideUp(500);
-                    $rootScope.$broadcast('reqToShow', [infoToDeploy.match(/\d+/g), userId, userObjName]);
+                    $rootScope.$broadcast('reqToShow', [infoToDeploy.match(/\d+/g), userId, userObjName, stateReq]);
                     $("." + infoToDeploy).slideDown(500);
                 }
             }
