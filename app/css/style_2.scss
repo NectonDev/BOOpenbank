@@ -45,8 +45,7 @@ $icon_NA:                #999 !default;
   .icon_warning{
     color: $icon_warning !important;
     border-radius: 50px;
-    padding: 4px;
-    background: $white;
+    padding: 2px;
     font-size: 18px !important;
   }//end .icon_warning
   .icon_check{
@@ -139,6 +138,7 @@ $icon_NA:                #999 !default;
     border:1px solid #00b1b1;
     font-family: Roboto-Medium;
     color: $white;
+    margin-right: 10px;
   }//end .buttonDefault
 
   .buttonDefault:hover{
@@ -275,10 +275,12 @@ $aquaDark: #007c7b;
 }//end hover
 //--end--COLORS------------------------
 
+/*maria
 .row{
   margin-right: 15px !important;
   margin-left: 15px !important;
 }//end row
+*/
 
 .material-icons{cursor: pointer;}
 
@@ -681,14 +683,16 @@ $aquaDark: #007c7b;
     font-size: 1em;
     padding-bottom: 50px;
     margin-bottom: 40px;
+    /*maria
     padding: 15px;
+    */
     display: table;
     max-width: 979px;
     .expHeader{
-      padding: 15px 0;
+      padding: 15px;
       border-bottom: 2px solid $gray-light;
       .datosDetalle{
-        padding: 15px 15px 0px;
+        padding: 15px 15px 0;
         display: table;
         width: 100%;
         font-family: "Roboto-Light", "Roboto";
@@ -709,16 +713,18 @@ $aquaDark: #007c7b;
     }//end .expHeader
 
     .expBody{
-      padding: 15px 15px;
+      margin-top: 15px;
       .titTitular{
         font-family: "Roboto-Bold", "Roboto";
         font-size: 1.167em;
+        padding: 0 30px;
       }//end titTitular
       .datosDetalle {
         display: table;
         font-family: Roboto-Light;
         color:#727272;
         font-size: 1em;
+        padding: 0 30px;
         .infoDatos {
           display: table-cell;
           font-size: 1em;
@@ -735,15 +741,22 @@ $aquaDark: #007c7b;
           }//end p
 
         }//end infoDatos
-        .centertable{
-          display: table-footer-group;
-          width: 100%;
-        }//end centertable
+
       }//end datosDetalle
 
+      .centertable{
+        /*
+        padding: 0 30px;
+        */
+        padding: 0;
+        table.customBorder{
+          margin: 15px 2.5%;
+          width: 95%;
+        }//end table.customBorder
+      }//end centertable
+
       .textAquaDark{
-        padding-top: 26px;
-        padding-right: 16px;
+        padding: 26px 30px 0 0;
       }//end textAquaDark
 
       .centertable{
@@ -775,18 +788,6 @@ $aquaDark: #007c7b;
           height: 100%;
           display: inline-block;
           margin: 25px 0;
-/*
-
-    background: $blue-light !important;
-    width: 62%;
-    position: absolute;
-    padding: 0 45px;
-    color: #1a2e35;
-    display: inline-block;
-    margin: 15px 0 0 0;
-    left: 19%;
-    right: 19%;
-*/
 
           .encabezadoDespleg{
             height: 30px;
@@ -897,17 +898,14 @@ $aquaDark: #007c7b;
         font-size: 1em;
 
         .infoFirst{
-          background: red;
           display: table;
         }//end infoFirst
 
         .infoSecond{
-          background: yellow;
           display: table;
         }//end .infoSecond
 
         .infoThird{
-          background: pink;
           display: table;
         }//end .infoThird
 

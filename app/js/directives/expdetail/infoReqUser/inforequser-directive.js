@@ -50,6 +50,7 @@ angular.module('infoReqUserDirective', [])
             $scope.selectMotivo = function(motivo){
                 $scope.motivoReqCombo = motivo;
             };
+            $scope.numResultsDocs = 0;
         });
 
     }])
@@ -74,7 +75,8 @@ angular.module('infoReqUserDirective', [])
             selectEstado: "=",
             selectMotivo: "=",
             estadoReqCombo: "=",
-            motivoReqCombo: "="
+            motivoReqCombo: "=",
+            numResultsDocs: "="
         }, link: function($scope){
             $scope.closeDesplegable = function(){
                 $(".desplegable").slideUp();
