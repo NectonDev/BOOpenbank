@@ -174,11 +174,11 @@ $icon_NA:                #999 !default;
   }//end hover
 
   .btnReturn{
-    color:#007c7b;
+    color: #007c7b;
     font-family: "Roboto-Bold", "Roboto";
-    background: transparent;
+    background: #fff;
     font-size: 0.917em;
-    border-radius: 5px;
+    border: none;
   }//end .btnReturn
 
   .btnReturn:hover{
@@ -846,17 +846,15 @@ $aquaDark: #007c7b;
             padding: 0;
             .addDocumentFileContent{
               .addDocumentFile{
-                .addDocumentFile {
-                  position: relative;
-                  overflow: hidden;
-                  margin: 10px;
-                }//end addDocumentFile
+                position: relative;
+                overflow: hidden;
+                margin: 10px;
+              }//end addDocumentFile
 
-                .fileName{
-                  display: none;
-                }//end fileName
-              }//end addDocumentFileS
-            }//end addDocumentFile
+              .fileName{
+                display: none;
+              }//end fileName
+            }//end addDocumentFileContent
 
             .standContainer{
               background: yellow;

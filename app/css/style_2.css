@@ -116,9 +116,9 @@ md-input-container label {
 .btnReturn {
   color: #007c7b;
   font-family: "Roboto-Bold", "Roboto";
-  background: transparent;
+  background: #fff;
   font-size: 0.917em;
-  border-radius: 5px; }
+  border: none; }
 
 .btnReturn:hover {
   color: #00e6e6;
@@ -595,11 +595,11 @@ $aquaDark: #007c7b;
                 text-align: left; }
       .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent {
         padding: 0; }
-        .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .addDocumentFile .addDocumentFile {
+        .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .addDocumentFile {
           position: relative;
           overflow: hidden;
           margin: 10px; }
-        .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .addDocumentFile .fileName {
+        .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .fileName {
           display: none; }
         .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer {
           background: yellow; }
