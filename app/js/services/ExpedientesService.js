@@ -58,5 +58,13 @@ angular.module('ExpedientesService',[])
             );
         };
 
+        service.updateExp = function(configObject){
+            return $http.post(
+                APIConfigService.getUrlActualizarExpedientes(),
+                configObject,
+                APIConfigService.getHeaders()
+            );
+        };
+
         return service;
     }]);

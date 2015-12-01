@@ -50,6 +50,21 @@ angular.module('ExpedientesModel',[])
             }
         };
 
+        getConfigObjectUpdateExp = function(objName,expID){
+            return {
+                "usuarios": [
+                    {
+                        "usuario": {
+                            "object_name": objName
+                        }
+                    }
+                ],
+                "expediente": {
+                    "r_object_id": expID
+                }
+            }
+        };
+
         service.getConfigObjectLockExp = function(userId,expId){
             return {
                 "expediente": {
@@ -244,6 +259,16 @@ angular.module('ExpedientesModel',[])
             return ExpedientesService.procesarFioc(expedientes).then(function(data){
                 //TODO: Modal de procesador correctamente
             });
+        };
+
+        service.updateExp = function(userObjName,reqToUpdate, estadoToUpdate, motivoRechazo, expId){
+            var configObjectUpdateExp = getConfigObjectUpdateExp(userObjName,expId);
+            configObjectUpdateExp.usuarios[0].usuario[reqToUpdate] = estadoToUpdate;
+
+            console.log(configObjectUpdateExp);
+            /*return ExpedientesService.updateExp(getConfigObjectUpdateExp(userObjName,expId)).then(function(data){
+                return data;
+            });*/
         };
 
         return service;

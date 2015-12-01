@@ -44,5 +44,15 @@ angular.module('EstadosModel',[])
             }
         };
 
+        service.getKeyEstadoByValue = function(value){
+            var listaEstadoReq = $localStorage.listaReq;
+            for (var prop in listaEstadoReq) {
+                if (listaEstadoReq.hasOwnProperty(prop)){
+                    if (listaEstadoReq[prop]===value)
+                        return prop;
+                }
+            }
+        };
+
         return service;
     }]);

@@ -1,1 +1,62 @@
-<div>Pantalla de Tercera directiva</div>
+<div class="cent_detalle expDetalle">
+    <div ng-controller="ExpDetailHeaderController">
+        <exp-detail-header info-header="infoHeader" info-expediente="infoExpediente" open-dialog="openDialog" go-to-obs="goToObs" is-obs="isObs" is-td="isTd"></exp-detail-header>
+    </div>
+    <div>Tercera Directiva</div>
+    <div>
+        <md-input-container>
+            <input class="validate" type="text" placeholder="&iquest;Cual es tu ocupaci&oacute;n?" value="Trabajo para mí" disabled>
+        </md-input-container>
+        <md-input-container>
+            <input class="validate" type="text" placeholder="La finalidad de esta cuenta es para" value="Gestionar mi actividad profesional" disabled>
+        </md-input-container>
+        <md-input-container>
+            <input class="validate" type="text" placeholder="&iquest;A que te dedicas?" value="Pescador de agua dulce" disabled>
+        </md-input-container>
+    </div>
+    <div>
+        <md-input-container>
+            <input class="validate" type="text" placeholder="Catergor&iacute;a" value="A- Agricultura, ganaderia, silvicultura ..." disabled>
+        </md-input-container>
+        <md-input-container>
+            <input class="validate" type="text" placeholder="Subcategor&iacute;a" value="03 - Pesca y agricultura" disabled>
+        </md-input-container>
+        <md-input-container>
+            <input class="validate" type="text" placeholder="C&oacute;digo de actividad econ&oacute;mica (CNAE)" value="0312 - Pesca en agua dulce" disabled>
+        </md-input-container>
+    </div>
+    <div>
+        <div>
+            <label>&iquest;Realizas actividades de cambio de moneda o gesti&oacute;n de transferencias?</label>
+            <md-checkbox disabled>Si</md-checkbox>
+            <md-checkbox disabled ng-checked="true">No</md-checkbox>
+        </div>
+        <div>
+            <label>&iquest;Gestionas el patrimonio de otros?</label>
+            <md-checkbox disabled>Si</md-checkbox>
+            <md-checkbox disabled ng-checked="true">No</md-checkbox>
+        </div>
+    </div>
+    <div>
+        <div>
+            <label>&iquest;Tienes obligaciones fiscales en alg&uacute;n pa&iacute;s distinto de Espa&ntilde;a?</label>
+            <md-checkbox disabled ng-checked="true">Si</md-checkbox>
+            <md-checkbox disabled>No</md-checkbox>
+        </div>
+        <div>
+            <md-input-container>
+                <input class="validate" type="text" placeholder="Pa&iacute;s" value="Estados Unidos" disabled>
+            </md-input-container>
+        </div>
+    </div>
+    <div>
+        <div>
+            <label>En los &uacute;ltimos cuatro a&ntilde;os &iquest;Has desempa&ntilde;ado alg&uacute;n cargo p&uacute;blico, eres familiar directo o mantienes relaciones de negocio con alguien que lo sea?</label>
+            <md-checkbox disabled>Si</md-checkbox>
+            <md-checkbox disabled ng-checked="true">No</md-checkbox>
+        </div>
+    </div>
+    <div>
+        <button id="backButton" class="buttonDefault btn-white pull-right">VOLVER</button>
+    </div>
+</div>

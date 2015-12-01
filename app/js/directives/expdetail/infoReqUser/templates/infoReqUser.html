@@ -74,6 +74,7 @@
         <div class="col-sm-6 standContainer">
             <div class="select-wrapper">
                 <md-input-container>
+                    <label>Estado</label>
                     <md-select ng-model="estado" ng-change="selectEstado(estado)">
                         <md-option ng-selected="estado==datosReq.estado" ng-repeat="estado in statesOptions.choices track by $index">{{estado}}</md-option>
                     </md-select>
@@ -95,7 +96,7 @@
             </div>
         </div>
         <div class="col-sm-12">
-            <button class="buttonDefault pull-right">GUARDAR</button>
+            <button class="buttonDefault pull-right" ng-click="updateExp()">GUARDAR</button>
         </div>
     </div>
 </div>

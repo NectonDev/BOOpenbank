@@ -34,6 +34,7 @@ angular.module('expDetailHeaderDirective', ['ngDialog'])
             $location.path(urlToObs);
         };
         $scope.isObs = $location.$$path.indexOf("observaciones") > -1;
+        $scope.isTd = $location.$$path.indexOf("cuestionario") > -1;
         $scope.motivosOptions = {
             choices: MotivosModel.getMotivos()
         };
@@ -60,6 +61,7 @@ angular.module('expDetailHeaderDirective', ['ngDialog'])
             openDialog: "=",
             goToObs: "=",
             isObs: "=",
+            isTd: "=",
             motivosOptions: "=",
             cancelExp: "=",
             selectMotivo: "="

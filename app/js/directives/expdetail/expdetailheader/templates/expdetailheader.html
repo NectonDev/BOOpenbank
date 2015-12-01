@@ -20,7 +20,7 @@
     <div class="col-sm-6 breadcrumbSite">
         <p class="bigger-font-size">Detalle del expediente</p>
     </div>
-    <div ng-hide="isObs" class="pull-right bttDetailExp">
+    <div ng-hide="isObs || isTd" class="pull-right bttDetailExp">
         <button class="buttonDefault btn-white" ng-click="openDialog()">CANCELAR EXPEDIENTE</button>
         <button class="buttonDefault" ng-click="goToObs(infoExpediente.id)">OBSERVACIONES</button>
     </div>
