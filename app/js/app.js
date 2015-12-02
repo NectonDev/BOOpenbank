@@ -82,6 +82,7 @@ angular.module('BOOpenbank', [
     ListService.getListTipoVias();
     ListService.getListPrefiltros();
     ListService.getListAccount();
+    ListService.getListAccionesFioc();
   })();
 }]);
 

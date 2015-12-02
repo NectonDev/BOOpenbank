@@ -208,7 +208,6 @@ $icon_NA:                #999 !default;
       display: block;
     }
   //--end---botón añadir archivo---
-
 //--end--BUTTONS------------------------
 
 //----ANGULAR MATERIAL ELEMENTS DEFAULT-
@@ -241,6 +240,14 @@ $icon_NA:                #999 !default;
         border-color: $green !important;
       }//end
     //--end--CHECKBOX DEFAULT MD-CHECKBOX----
+
+    md-input-container:not(.md-input-invalid).md-input-focused label{
+      color: $gray !important;
+    }//end
+
+    md-input-container:not(.md-input-invalid).md-input-focused .md-input{
+      border-color: $gray-light !important;
+    }//end
 
 //--end--ANGULAR MATERIAL ELEMENTS DEFAULT-
 
@@ -275,12 +282,12 @@ $aquaDark: #007c7b;
 }//end hover
 //--end--COLORS------------------------
 
-/*maria
-.row{
-  margin-right: 15px !important;
+
+.rowOk{
   margin-left: 15px !important;
+  margin-right: 15px !important;
 }//end row
-*/
+
 
 .material-icons{cursor: pointer;}
 
@@ -683,9 +690,6 @@ $aquaDark: #007c7b;
     font-size: 1em;
     padding-bottom: 50px;
     margin-bottom: 40px;
-    /*maria
-    padding: 15px;
-    */
     display: table;
     max-width: 979px;
     .expHeader{
@@ -768,6 +772,12 @@ $aquaDark: #007c7b;
             border:1px solid $gray-light;
             td{
               vertical-align: middle;
+              &:focus{
+                background: $blue-light ;
+              }//end focus
+              &:hover{
+                background: $blue-light ;
+              }//end hover
               p{
                 padding: 0;
                 margin: 0;
@@ -858,7 +868,6 @@ $aquaDark: #007c7b;
             }//end addDocumentFileContent
 
             .standContainer{
-              background: yellow;
               md-input-container{
                 padding: 0;
                 md-select{
@@ -944,6 +953,14 @@ $aquaDark: #007c7b;
         }//end centertable
       }//end datosDetalle
     }//end cent_buscador
+
+.cuestionThird{
+  padding: 15px;
+  font-family: "Roboto-Medium", "Roboto";
+
+}//end cuestionThird
+
+
   }//end expDetalle
 //--end------EXPDETAIL
 

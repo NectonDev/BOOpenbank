@@ -35,11 +35,11 @@ angular.module('DocumentosModel',[])
             });
         };
 
-        /*service.getDocsByExp = function(userObjName,expId,fileName,fileType,tipoDoc,tipoDocTramit,ReqAsociado,file){
+        service.getDocsByUser = function(userObjName,expId,fileName,fileType,tipoDoc,tipoDocTramit,ReqAsociado,file){
             return DocumentosService.getAllDocumentsByExp(getConfigObject(userObjName,expId,fileName,fileType,tipoDoc,tipoDocTramit,ReqAsociado,file)).then(function(data){
                 return data;
             });
-        };*/
+        };
 
         return service;
     }]);

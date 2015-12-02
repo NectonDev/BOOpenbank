@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tocBodyDirective', [])
-    .controller('TocBodyController', ['$scope', '$location', 'ExpedientesModel', 'LiteralsConfigService', function($scope, $location, ExpedientesModel, LiteralsConfigService) {
+    .controller('TocBodyController', ['$scope', '$location', '$localStorage', 'ExpedientesModel', 'LiteralsConfigService', function($scope, $location, $localStorage, ExpedientesModel, LiteralsConfigService) {
         ExpedientesModel.setDefaultParameters();
 
         $scope.tocbodyInfo = LiteralsConfigService.getTocBodyLiterals();
@@ -14,13 +14,13 @@ angular.module('tocBodyDirective', [])
         $scope.isFioc = function(){
             return ExpedientesModel.isFioc();
         };
-
+        $scope.listAccionesFioc = $localStorage.accionesFioc;
     }])
     .directive('tocBody', ['$location', '$timeout', 'ExpedientesModel', function($location, $timeout, ExpedientesModel) {
     return {
         restrict: 'E',
         templateUrl: './js/directives/toc/tocbody/templates/tocbody.html',
-        replace: true,
+        priority: 100,
         scope: {
             tableInfo: "=",
             tableResults: "=",
@@ -30,12 +30,17 @@ angular.module('tocBodyDirective', [])
             printPage: "=",
             procesarUsuarios: "=",
             okProcess: "=",
-            koProcess: "="
+            koProcess: "=",
+            selectAccionFioc: "=",
+            listAccionesFioc: "=",
+            estado: "="
         },
-        link: function($scope, elem){
+        link: function($scope){
+            $scope.estado = {};
+
             $scope.userOkProcess = [];
             $scope.userKoProcess = [];
-            //TODO: Pensar manera mejor de hacer esto.
+
             var OkToProcessArrayWithExp = [];
             var KoToProcessArrayWithExp = [];
 
@@ -98,7 +103,29 @@ angular.module('tocBodyDirective', [])
             $scope.procesarUsuarios = function(){
                 ExpedientesModel.procesarFioc(OkToProcessArrayWithExp,KoToProcessArrayWithExp).then(function(data){
                     getExpedientes();
+                    $scope.estado = {};
                 });
+            };
+
+            $scope.selectAccionFioc = function(usuario,expId,accion){
+                if (accion!='No Procesar'){
+                    if (accion==='Todo Correcto'){
+                        $scope.okProcess(usuario,expId);
+                    }else{
+                        $scope.koProcess(usuario,expId,accion);
+                    }
+                }else{
+                    var indexOfOkArray = $scope.userOkProcess.indexOf(usuario.objName);
+                    var indexOfKoArray = $scope.userKoProcess.indexOf(usuario.objName);
+                    if (indexOfKoArray>-1){
+                        $scope.userKoProcess.splice(indexOfKoArray, 1);
+                        KoToProcessArrayWithExp.splice(indexOfKoArray, 1);
+                    }
+                    if (indexOfOkArray>-1){
+                        $scope.userOkProcess.splice(indexOfOkArray, 1);
+                        OkToProcessArrayWithExp.splice(indexOfOkArray, 1);
+                    }
+                }
             };
 
             $scope.okProcess = function(usuario, expId){
@@ -112,7 +139,7 @@ angular.module('tocBodyDirective', [])
                 (indexOfOkArray>-1)?OkToProcessArrayWithExp.splice(indexOfOkArray, 1):OkToProcessArrayWithExp.push([usuario.objName,expId]);
             };
 
-            $scope.koProcess = function(usuario, expId){
+            $scope.koProcess = function(usuario, expId, motivoKo){
                 var indexOfOkArray = $scope.userOkProcess.indexOf(usuario.objName);
                 var indexOfKoArray = $scope.userKoProcess.indexOf(usuario.objName);
                 if (indexOfOkArray>-1){
@@ -120,7 +147,7 @@ angular.module('tocBodyDirective', [])
                     OkToProcessArrayWithExp.splice(indexOfOkArray, 1);
                 }
                 (indexOfKoArray>-1)?$scope.userKoProcess.splice(indexOfKoArray, 1):$scope.userKoProcess.push(usuario.objName);
-                (indexOfKoArray>-1)?KoToProcessArrayWithExp.splice(indexOfKoArray, 1):KoToProcessArrayWithExp.push([usuario.objName,expId]);
+                (indexOfKoArray>-1)?KoToProcessArrayWithExp.splice(indexOfKoArray, 1):KoToProcessArrayWithExp.push([usuario.objName,expId, motivoKo]);
             };
         }
     };

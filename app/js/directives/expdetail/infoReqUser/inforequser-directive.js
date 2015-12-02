@@ -1,13 +1,15 @@
 'use strict';
 
 angular.module('infoReqUserDirective', [])
-    .controller('infoReqUserController', ['$scope', '$routeParams', '$location', 'RequisitosModel', 'EstadosModel', 'DocumentosModel', 'UsersModel', 'MotivosModel', 'ExpedientesModel', function($scope, $routeParams, $location, RequisitosModel, EstadosModel, DocumentosModel, UsersModel, MotivosModel, ExpedientesModel) {
+    .controller('infoReqUserController', ['$scope', '$route', '$routeParams', '$location', 'ngDialog', 'RequisitosModel', 'EstadosModel', 'DocumentosModel', 'UsersModel', 'MotivosModel', 'ExpedientesModel', function($scope, $route, $routeParams, $location, ngDialog, RequisitosModel, EstadosModel, DocumentosModel, UsersModel, MotivosModel, ExpedientesModel) {
         $scope.$on('reqToShow', function(event, args){
+            RequisitosModel.setIsDoc(args[0]);
             RequisitosModel.setIsSelfie(args[0]);
             RequisitosModel.setIsFondos(args[0]);
             RequisitosModel.setIsRD(args[0]);
             RequisitosModel.setIsTD(args[0]);
             RequisitosModel.setIsMPDC(args[0]);
+            $scope.isDoc = RequisitosModel.getIsDoc();
             $scope.isSelfie = RequisitosModel.getIsSelfie();
             $scope.isFondos = RequisitosModel.getIsFondos();
             $scope.isRd = RequisitosModel.getIsRD();
@@ -46,13 +48,33 @@ angular.module('infoReqUserDirective', [])
                 $scope.motivoReqCombo = motivo;
             };
             $scope.numResultsDocs = 0;
-            $scope.updateExp = function(){
+            $scope.updateExp = function(comentario){
                 var estadoToUpdate = EstadosModel.getKeyEstadoByValue($scope.estadoReqCombo);
-                var reqToUpdate = RequisitosModel.getTipoConfigReq(args[0])[1];
-                ExpedientesModel.updateExp(args[2],reqToUpdate,estadoToUpdate,$scope.motivoReqCombo,$routeParams.expId);
-                /*ExpedientesModel.updateExp(args[2],$routeParams.expId).then(function(data){
-                    console.log(data);
-                });*/
+                var reqToUpdate = RequisitosModel.getTipoConfigReq(args[0])[2];
+                var motivo = $scope.motivoReqCombo==="Otros"?comentario:$scope.motivoReqCombo;
+                if (estadoToUpdate === "RR"){
+                    if (((motivo !== "") && (motivo != undefined))){
+                        ExpedientesModel.updateExp(args[2],reqToUpdate,estadoToUpdate,motivo,$routeParams.expId).then(function(data){
+                            $route.reload();
+                        });
+                    }
+                }else{
+                    ExpedientesModel.updateExp(args[2],reqToUpdate,estadoToUpdate,null,$routeParams.expId).then(function(data){
+                        $route.reload();
+                    });
+                }
+            };
+            $scope.openDialog = function(){
+                ngDialog.open({
+                    template: 'base64Image',
+                    className: 'ngdialog-theme-default ngdialog-theme-custom hola',
+                    scope: $scope,
+                    closeByEscape: true
+                });
+            };
+            $scope.goToCuestionario = function(){
+                var urlToTd = "/backoffice/"+$routeParams.expId+"/"+args[1]+"/cuestionario";
+                $location.path(urlToTd);
             };
         });
 
@@ -72,6 +94,7 @@ angular.module('infoReqUserDirective', [])
             isFondos: "=",
             isRd: "=",
             isTd: "=",
+            isDoc: "=",
             onLoad: "=",
             closeDesplegable: "=",
             infoReq: "=",
@@ -80,7 +103,9 @@ angular.module('infoReqUserDirective', [])
             estadoReqCombo: "=",
             motivoReqCombo: "=",
             numResultsDocs: "=",
-            updateExp: "="
+            updateExp: "=",
+            openDialog: "=",
+            goToCuestionario: "="
         }, link: function($scope){
             $scope.closeDesplegable = function(){
                 $(".desplegable").slideUp();

@@ -10,13 +10,11 @@ angular.module('DocumentosService',[])
             );
         };
 
-        /*service.getAllDocumentsByExp = function(configObject){
-            return $http.post(
-                APIConfigService.getUrlAdjuntarDocumento(),
-                configObject,
-                APIConfigService.getHeaders()
+        service.getDocumentsByUser = function(){
+            return $http.get(
+                APIConfigService.getUrlLeerDocumentos(expId,userObjName,"dctm_ok_tr_doctramit")
             );
-        };*/
+        };
 
         return service;
     }]);

@@ -10,16 +10,16 @@ angular.module('RequisitosModel',[])
             RNE: "no_sim",
         },
         tiposReq = {
-            0: ["Documentaci\u00F3n","DOC"],
+            0: ["Documentaci\u00F3n","DOC","doc"],
             1: ["Reconocimiento facial"],
-            2: ["Documentaci\u00F3n subscripci\u00F3n de contrato","DSC"],
-            3: ["Documentaci\u00F3n de actividad profesional","DAAL"],
-            4: ["Recibo","Recibo"],
-            5: ["Modelo IC","ModeloIC"],
-            6: ["Certificado","CERTI"],
-            7: ["Fondos",""],
-            8: ["Real Decreto 54","RD54"],
-            9: ["Tercera Directiva"],
+            2: ["Documentaci\u00F3n subscripci\u00F3n de contrato","DSC","dsc"],
+            3: ["Documentaci\u00F3n de actividad profesional","DAAL","daal"],
+            4: ["Recibo","Recibo","recibo"],
+            5: ["Modelo IC","ModeloIC","ic"],
+            6: ["Certificado","CERTI","certif"],
+            7: ["Fondos","Fondos","fondos"],
+            8: ["Real Decreto 54","RD54","rd54"],
+            9: ["Tercera Directiva","3adir"],
         },
         infoHeader = {
             documentos: "Documentos",
@@ -33,12 +33,19 @@ angular.module('RequisitosModel',[])
             estado: "Estado"
         },
         infoHeaderTD = {
-            estado: "Estado",
             riesgo: "Riesgo",
-            empresa: "\u00BFEn que empresa trabajas\u00B3",
-            actividad: "\u00BFCu\u00E1l es tu actividad en la empresa\u003F"
+            gestor: "Gestor",
+            fechaCreacion: "Fecha Creaci\u00F3n"
         },
-        isSelfie, isFondos, isRD, isTD, isMPDC = false;
+        isSelfie, isFondos, isRD, isTD, isDoc, isMPDC = false;
+
+        service.setIsDoc = function(args){
+            (args[0]==="0")?isDoc=true:isDoc=false;
+        };
+
+        service.getIsDoc = function(){
+            return isDoc;
+        };
 
         service.setIsSelfie = function(args){
             (args[0]==="1")?isSelfie=true:isSelfie=false;

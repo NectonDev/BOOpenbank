@@ -14,7 +14,7 @@ angular.module('APIConfig',[])
             bloquearExpediente: '/bloquearExpediente',
             desbloquearExpediente: '/desBloquearExpediente',
             leerObservaciones: '/listaObservaciones',
-            actualizarExpediente: '/actualizarExpediente',
+            actualizarRequisito: '/actualizacionRequisito',
             adjuntarDocumento: '/adjuntarDocumento',
             leerDocumentos: '/recuperarDocumentosUsuario',
             cancelarExpediente: '/cancelarExpediente',
@@ -69,8 +69,8 @@ angular.module('APIConfig',[])
         service.getUrlLeerObservaciones = function(){
             return urlApis.apiUrlExpedientes+endpointmap.leerObservaciones;
         };
-        service.getUrlActualizarExpedientes = function(){
-            return urlApis.apiUrlExpedientes+endpointmap.actualizarExpediente;
+        service.getUrlActualizarRequisito = function(){
+            return urlApis.apiUrlExpedientes+endpointmap.actualizarRequisito;
         };
         service.getUrlCancelarExpediente = function(){
             return urlApis.apiUrlExpedientes+endpointmap.cancelarExpediente;
@@ -96,8 +96,8 @@ angular.module('APIConfig',[])
         service.getUrlAdjuntarDocumento = function(){
             return urlApis.apiUrlExpedientes+endpointmap.adjuntarDocumento;
         };
-        service.getUrlLeerDocumentos = function(){
-            return urlApis.apiUrlExpedientes+endpointmap.leerDocumentos;
+        service.getUrlLeerDocumentos = function(expId,userObjName,tipoDoc){
+            return urlApis.apiUrlExpedientes+endpointmap.leerDocumentos+"/"+expId+"/"+userObjName+"/"+tipoDoc;
         };
         service.getUrlProcesadoFioc = function(){
             return urlApis.apiUrlExpedientes+endpointmap.procesadoFioc;

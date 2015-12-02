@@ -1,5 +1,5 @@
 angular.module('ExpedientesModel',[])
-    .service('ExpedientesModel', ['$http', '$localStorage', '$sessionStorage', 'ngDialog', 'APIConfigService', 'ExpedientesService', 'EstadosModel', function ($http, $localStorage, $sessionStorage, ngDialog, APIConfigService, ExpedientesService, EstadosModel) {
+    .service('ExpedientesModel', ['$http', '$route', '$localStorage', '$sessionStorage', 'ngDialog', 'APIConfigService', 'ExpedientesService', 'EstadosModel', function ($http, $route, $localStorage, $sessionStorage, ngDialog, APIConfigService, ExpedientesService, EstadosModel) {
         var service = this;
         var config_object_exp = {};
         var numTotalResultados = 0;
@@ -250,25 +250,29 @@ angular.module('ExpedientesModel',[])
         service.procesarFioc = function(okToProcess,koToProcess){
             var expedientes = { expedientes:[]};
             angular.forEach(okToProcess,function(value){
-                expedientes.expedientes.push(getConfigObjectProcesarFioc(value[0],value[1],"RV"));
+                expedientes.expedientes.push( getConfigObjectProcesarFioc(value[0],value[1],"RV"));
             });
             angular.forEach(koToProcess,function(value){
-                expedientes.expedientes.push(getConfigObjectProcesarFioc(value[0],value[1],"RR"));
+                var configObject = getConfigObjectProcesarFioc(value[0],value[1],"RR");
+                configObject.usuarios[0].usuario["req_3adir_motivo_rechazo"] = value[2];
+                expedientes.expedientes.push(configObject);
 
             });
             return ExpedientesService.procesarFioc(expedientes).then(function(data){
+                console.log(data);
                 //TODO: Modal de procesador correctamente
             });
         };
 
         service.updateExp = function(userObjName,reqToUpdate, estadoToUpdate, motivoRechazo, expId){
             var configObjectUpdateExp = getConfigObjectUpdateExp(userObjName,expId);
-            configObjectUpdateExp.usuarios[0].usuario[reqToUpdate] = estadoToUpdate;
-
-            console.log(configObjectUpdateExp);
-            /*return ExpedientesService.updateExp(getConfigObjectUpdateExp(userObjName,expId)).then(function(data){
+            configObjectUpdateExp.usuarios[0].usuario["req_"+reqToUpdate+"_estado"] = estadoToUpdate;
+            if (estadoToUpdate === "RR"){
+                configObjectUpdateExp.usuarios[0].usuario["req_"+reqToUpdate+"_motivo_rechazo"] = motivoRechazo;
+            }
+            return ExpedientesService.updateExp(configObjectUpdateExp).then(function(data){
                 return data;
-            });*/
+            });
         };
 
         return service;

@@ -167,6 +167,12 @@ md-checkbox.md-checked .md-icon {
 md-checkbox.md-default-theme.md-checked .md-icon:after, md-checkbox.md-checked .md-icon:after {
   border-color: #339999 !important; }
 
+md-input-container:not(.md-input-invalid).md-input-focused label {
+  color: #999 !important; }
+
+md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+  border-color: #ddd !important; }
+
 .pagination {
   margin: 24px 0; }
 
@@ -191,12 +197,10 @@ $aquaDark: #007c7b;
   color: #00e6e6;
   text-decoration: none; }
 
-/*maria
-.row{
-  margin-right: 15px !important;
+.rowOk {
   margin-left: 15px !important;
-}//end row
-*/
+  margin-right: 15px !important; }
+
 .material-icons {
   cursor: pointer; }
 
@@ -471,9 +475,6 @@ $aquaDark: #007c7b;
   font-size: 1em;
   padding-bottom: 50px;
   margin-bottom: 40px;
-  /*maria
-  padding: 15px;
-  */
   display: table;
   max-width: 979px; }
   .expDetalle.cent_detalle .expHeader {
@@ -535,6 +536,10 @@ $aquaDark: #007c7b;
         border: 1px solid #ddd; }
         .expDetalle.cent_detalle .expBody .centertable table tr td {
           vertical-align: middle; }
+          .expDetalle.cent_detalle .expBody .centertable table tr td:focus {
+            background: #f1f7f7; }
+          .expDetalle.cent_detalle .expBody .centertable table tr td:hover {
+            background: #f1f7f7; }
           .expDetalle.cent_detalle .expBody .centertable table tr td p {
             padding: 0;
             margin: 0;
@@ -599,16 +604,14 @@ $aquaDark: #007c7b;
           margin: 10px; }
         .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .fileName {
           display: none; }
-        .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer {
-          background: yellow; }
-          .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container {
-            padding: 0; }
-            .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container md-select .md-select-value {
-              background: #fff;
-              padding-top: 0;
-              border-bottom: 1px solid #999; }
-              .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container md-select .md-select-value span {
-                color: #666 !important; }
+        .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container {
+          padding: 0; }
+          .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container md-select .md-select-value {
+            background: #fff;
+            padding-top: 0;
+            border-bottom: 1px solid #999; }
+            .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container md-select .md-select-value span {
+              color: #666 !important; }
         .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .textAquaDark {
           display: block;
           padding: 10px 0; }
@@ -667,6 +670,9 @@ $aquaDark: #007c7b;
     .expDetalle.cent_detalle .cent_buscador .datosDetalle .centertable {
       display: table-footer-group;
       width: 100%; }
+  .expDetalle.cent_detalle .cuestionThird {
+    padding: 15px;
+    font-family: "Roboto-Medium", "Roboto"; }
 
 .userDetailContent {
   background: #fff;
