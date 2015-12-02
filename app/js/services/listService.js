@@ -115,5 +115,16 @@ angular.module('ListService',[])
             };
         };
 
+        service.getListAccionesFioc = function(){
+            $localStorage.accionesFioc = {
+                noProcesar: 'No Procesar',
+                ok: 'Todo Correcto',
+                empresaKo1: 'Empresa No Existe',
+                empresaKo2: 'Empresa incorrecta',
+                actividadKo: 'Actividad Incorrecta',
+                ambasKo: 'Ambas incorrectas'
+            };
+        };
+
         return service;
     }]);
