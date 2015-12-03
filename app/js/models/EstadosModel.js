@@ -25,7 +25,7 @@ angular.module('EstadosModel',[])
 
         service.getEstadosReq = function(){
             var estados = [];
-            var listaEstadosReq = $localStorage.listaReq;
+            var listaEstadosReq = $localStorage.listaEstadosReq;
             for (var estado in listaEstadosReq){
                 if (listaEstadosReq.hasOwnProperty(estado)) {
                     estados.push(listaEstadosReq[estado]);
@@ -35,7 +35,7 @@ angular.module('EstadosModel',[])
         };
 
         service.getEstadosReqById = function(Req){
-            var listaEstadosReq = $localStorage.listaReq;
+            var listaEstadosReq = $localStorage.listaEstadosReq;
             for (var estadoReq in listaEstadosReq){
                 if (listaEstadosReq.hasOwnProperty(estadoReq) ) {
                     if (estadoReq === Req)
@@ -44,8 +44,8 @@ angular.module('EstadosModel',[])
             }
         };
 
-        service.getKeyEstadoByValue = function(value){
-            var listaEstadoReq = $localStorage.listaReq;
+        service.getKeyEstadosReqByValue = function(value){
+            var listaEstadoReq = $localStorage.listaEstadosReq;
             for (var prop in listaEstadoReq) {
                 if (listaEstadoReq.hasOwnProperty(prop)){
                     if (listaEstadoReq[prop]===value)

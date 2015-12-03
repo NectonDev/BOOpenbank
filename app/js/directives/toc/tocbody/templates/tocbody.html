@@ -69,8 +69,8 @@
                 <td ng-repeat="usuario in expediente.usuarios">
                     <md-input-container>
                         <label>Seleccione una acci&oacute;n</label>
-                        <md-select ng-model="estado" ng-change="selectAccionFioc(usuario,expediente.id,estado)">
-                            <md-option ng-repeat="accion in listAccionesFioc track by $index">{{accion}}</md-option>
+                        <md-select ng-model="usuario.selected" ng-change="selectAccionFioc(usuario,expediente.id,usuario.selected)">
+                            <md-option ng-selected="false" ng-repeat="accion in listAccionesFioc track by $index">{{accion}}</md-option>
                         </md-select>
                     </md-input-container>
                 </td>

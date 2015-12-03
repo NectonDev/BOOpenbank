@@ -53,21 +53,25 @@ md-input-container label {
   bottom: 100% !important;
   left: 0 !important; }
 
-.ngdialog-content .cancelRecordModal h5 {
-  font-family: Roboto-Medium;
-  color: #666;
-  font-size: 1.167em; }
-.ngdialog-content .cancelRecordModal md-input-container {
-  padding: 0;
-  margin: 0 0 30px 0; }
-  .ngdialog-content .cancelRecordModal md-input-container label {
-    color: #339999 !important; }
-  .ngdialog-content .cancelRecordModal md-input-container.md-input-has-value label {
-    display: none; }
-  .ngdialog-content .cancelRecordModal md-input-container md-select .md-select-value {
-    border-bottom: 2px solid #ddd; }
-    .ngdialog-content .cancelRecordModal md-input-container md-select .md-select-value span {
-      color: #1a2e35; }
+.ngdialog-content {
+  width: 600px !important; }
+  .ngdialog-content .cancelRecordModal img {
+    width: 100% !important; }
+  .ngdialog-content .cancelRecordModal h5 {
+    font-family: Roboto-Medium;
+    color: #666;
+    font-size: 1.167em; }
+  .ngdialog-content .cancelRecordModal md-input-container {
+    padding: 0;
+    margin: 0 0 30px 0; }
+    .ngdialog-content .cancelRecordModal md-input-container label {
+      color: #339999 !important; }
+    .ngdialog-content .cancelRecordModal md-input-container.md-input-has-value label {
+      display: none; }
+    .ngdialog-content .cancelRecordModal md-input-container md-select .md-select-value {
+      border-bottom: 2px solid #ddd; }
+      .ngdialog-content .cancelRecordModal md-input-container md-select .md-select-value span {
+        color: #1a2e35; }
 
 .buttonLogin {
   padding: 2px 58px;
@@ -144,6 +148,13 @@ md-input-container label {
   cursor: inherit;
   display: block; }
 
+md-tooltip {
+  border: 2px solid #339999 !important; }
+  md-tooltip .tooltipFioc {
+    padding: 20px !important; }
+    md-tooltip .tooltipFioc span {
+      padding: 20px !important; }
+
 .md-select-menu-container.md-active md-select-menu > * {
   color: #999 !important; }
 
@@ -168,10 +179,14 @@ md-checkbox.md-default-theme.md-checked .md-icon:after, md-checkbox.md-checked .
   border-color: #339999 !important; }
 
 md-input-container:not(.md-input-invalid).md-input-focused label {
-  color: #999 !important; }
+  color: rgba(0, 0, 0, 0.54) !important;
+  font-size: 1em !important; }
 
 md-input-container:not(.md-input-invalid).md-input-focused .md-input {
   border-color: #ddd !important; }
+
+md-select.md-default-theme:not([disabled]):focus .md-select-value, md-select:not([disabled]):focus .md-select-value {
+  border-color: #999 !important; }
 
 .pagination {
   margin: 24px 0; }
@@ -596,6 +611,9 @@ $aquaDark: #007c7b;
                 font-size: 0.8333em;
                 color: #263238;
                 text-align: left; }
+              .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableData td i {
+                float: left;
+                margin: 0 0 3px 10px; }
       .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent {
         padding: 0; }
         .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .addDocumentFile {
@@ -604,75 +622,169 @@ $aquaDark: #007c7b;
           margin: 10px; }
         .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .fileName {
           display: none; }
-        .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container {
-          padding: 0; }
-          .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container md-select .md-select-value {
-            background: #fff;
-            padding-top: 0;
-            border-bottom: 1px solid #999; }
-            .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container md-select .md-select-value span {
-              color: #666 !important; }
+        .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer {
+          font-family: Roboto-Regular !important; }
+          .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container {
+            padding: 0; }
+            .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container md-select .md-select-value {
+              background: transparent;
+              padding-top: 0;
+              border-bottom: 1px solid #999; }
+              .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container md-select .md-select-value span {
+                color: #666 !important; }
         .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .textAquaDark {
           display: block;
           padding: 10px 0; }
         .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .buttonDefault {
           margin: 20px 0; }
-  .expDetalle.cent_detalle .cent_buscador .datosDetalle {
-    display: table;
-    font-family: Roboto-Light;
-    color: #727272;
-    font-size: 1em; }
-    .expDetalle.cent_detalle .cent_buscador .datosDetalle .infoFirst {
-      display: table; }
-    .expDetalle.cent_detalle .cent_buscador .datosDetalle .infoSecond {
-      display: table; }
-    .expDetalle.cent_detalle .cent_buscador .datosDetalle .infoThird {
-      display: table; }
-    .expDetalle.cent_detalle .cent_buscador .datosDetalle .infoDatos,
-    .expDetalle.cent_detalle .cent_buscador .datosDetalle .campoForm,
-    .expDetalle.cent_detalle .cent_buscador .datosDetalle md-input-container,
-    .expDetalle.cent_detalle .cent_buscador .datosDetalle .calendar {
-      display: table-cell;
-      font-size: 1em;
-      padding: 0 15px; }
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .infoDatos .margInf,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .infoDatos .contNum,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .infoDatos label,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .infoDatos input,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .campoForm .margInf,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .campoForm .contNum,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .campoForm label,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .campoForm input,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle md-input-container .margInf,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle md-input-container .contNum,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle md-input-container label,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle md-input-container input,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .calendar .margInf,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .calendar .contNum,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .calendar label,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .calendar input {
-        display: table-caption; }
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .infoDatos label,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .campoForm label,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle md-input-container label,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .calendar label {
-        color: #999;
-        font-family: Roboto-Regular;
-        font-size: 1em;
-        font-weight: normal; }
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .infoDatos p,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .campoForm p,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle md-input-container p,
-      .expDetalle.cent_detalle .cent_buscador .datosDetalle .calendar p {
-        font-family: Roboto-Regular;
-        font-size: 1em;
-        color: #1a2e35; }
-    .expDetalle.cent_detalle .cent_buscador .datosDetalle .centertable {
-      display: table-footer-group;
-      width: 100%; }
-  .expDetalle.cent_detalle .cuestionThird {
+  .expDetalle.cent_detalle .cent_buscador {
+    padding-top: 20px; }
+    .expDetalle.cent_detalle .cent_buscador .datosDetalle {
+      display: table;
+      font-family: Roboto-Light;
+      color: #727272;
+      font-size: 1em; }
+      .expDetalle.cent_detalle .cent_buscador .datosDetalle > div {
+        display: table;
+        min-height: 50px;
+        margin: 10px 0; }
+        .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos,
+        .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container,
+        .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div {
+          display: table-cell; }
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.contNum,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > label,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-select,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > input,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-datepicker,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.margInf,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.contNum,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > label,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-select,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > input,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-datepicker,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.margInf,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.contNum,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > label,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-select,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > input,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-datepicker {
+            display: table-caption; }
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.contNum .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > label .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-select .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > input .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-datepicker .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.margInf .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.contNum .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > label .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-select .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > input .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-datepicker .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.margInf .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.contNum .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > label .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-select .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > input .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-datepicker .md-button.md-icon-button {
+              width: auto; }
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.contNum md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > label md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-select md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > input md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-datepicker md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.margInf md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.contNum md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > label md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-select md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > input md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-datepicker md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.margInf md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.contNum md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > label md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-select md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > input md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-datepicker md-datepicker {
+              padding: 0; }
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.contNum .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > label .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-select .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > input .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-datepicker .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.margInf .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.contNum .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > label .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-select .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > input .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-datepicker .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.margInf .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.contNum .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > label .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-select .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > input .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-datepicker .md-button.md-icon-button {
+              margin: 0;
+              padding: 0; }
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.contNum .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > label .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-select .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > input .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-datepicker .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.margInf .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.contNum .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > label .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-select .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > input .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-datepicker .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.margInf .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.contNum .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > label .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-select .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > input .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-datepicker .md-datepicker-input {
+              max-width: auto !important;
+              min-width: auto !important; }
+  .expDetalle.cent_detalle .thirdDirective {
     padding: 15px;
-    font-family: "Roboto-Medium", "Roboto"; }
+    font-family: Roboto-Medium;
+    font-size: 1em; }
+    .expDetalle.cent_detalle .thirdDirective .tit {
+      font-size: 1.250em;
+      color: #999;
+      padding: 0 0 10px 0; }
+    .expDetalle.cent_detalle .thirdDirective .thirdDirectiveTable {
+      display: table;
+      height: 100%; }
+      .expDetalle.cent_detalle .thirdDirective .thirdDirectiveTable md-input-container {
+        display: table-cell; }
+        .expDetalle.cent_detalle .thirdDirective .thirdDirectiveTable md-input-container label {
+          position: relative !important;
+          font-size: 1.200em;
+          font-family: Roboto-Regular;
+          color: #999;
+          margin-bottom: 0; }
+        .expDetalle.cent_detalle .thirdDirective .thirdDirectiveTable md-input-container input {
+          display: table-cell;
+          font-size: 1em;
+          color: #1a2e35;
+          background-image: none; }
+    .expDetalle.cent_detalle .thirdDirective .thirdDirectiveChecks {
+      padding: 15px;
+      display: table;
+      height: 100%; }
+      .expDetalle.cent_detalle .thirdDirective .thirdDirectiveChecks label {
+        font-weight: normal;
+        font-size: 1em;
+        color: #999; }
+      .expDetalle.cent_detalle .thirdDirective .thirdDirectiveChecks md-checkbox span {
+        color: #1a2e35; }
+      .expDetalle.cent_detalle .thirdDirective .thirdDirectiveChecks md-input-container {
+        margin-left: 15px; }
 
 .userDetailContent {
   background: #fff;

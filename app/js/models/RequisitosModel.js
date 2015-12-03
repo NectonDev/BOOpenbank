@@ -121,9 +121,8 @@ angular.module('RequisitosModel',[])
             }
         };
 
-        //TODO: Usar cuando se arregle el servicio de estados de requisito
         service.getDescRequisitoById = function(reqId){
-            var listaEstadosReq = $localStorage.listaReq;
+            var listaEstadosReq = $localStorage.listaEstadosReq;
             for (var estadoReq in listaEstadosReq){
                 if (listaEstadosReq.hasOwnProperty(estadoReq)){
                     if (estadoReq === reqId)

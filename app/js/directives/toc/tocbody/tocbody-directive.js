@@ -32,8 +32,7 @@ angular.module('tocBodyDirective', [])
             okProcess: "=",
             koProcess: "=",
             selectAccionFioc: "=",
-            listAccionesFioc: "=",
-            estado: "="
+            listAccionesFioc: "="
         },
         link: function($scope){
             $scope.estado = {};
@@ -102,8 +101,9 @@ angular.module('tocBodyDirective', [])
 
             $scope.procesarUsuarios = function(){
                 ExpedientesModel.procesarFioc(OkToProcessArrayWithExp,KoToProcessArrayWithExp).then(function(data){
+                    OkToProcessArrayWithExp = [];
+                    KoToProcessArrayWithExp = [];
                     getExpedientes();
-                    $scope.estado = {};
                 });
             };
 

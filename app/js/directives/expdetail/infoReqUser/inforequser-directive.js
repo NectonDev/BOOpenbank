@@ -49,7 +49,7 @@ angular.module('infoReqUserDirective', [])
             };
             $scope.numResultsDocs = 0;
             $scope.updateExp = function(comentario){
-                var estadoToUpdate = EstadosModel.getKeyEstadoByValue($scope.estadoReqCombo);
+                var estadoToUpdate = EstadosModel.getKeyEstadosReqByValue($scope.estadoReqCombo);
                 var reqToUpdate = RequisitosModel.getTipoConfigReq(args[0])[2];
                 var motivo = $scope.motivoReqCombo==="Otros"?comentario:$scope.motivoReqCombo;
                 if (estadoToUpdate === "RR"){

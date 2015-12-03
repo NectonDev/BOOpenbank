@@ -89,7 +89,13 @@ $icon_NA:                #999 !default;
     left: 0 !important;
   }
   .ngdialog-content{
+    width: 600px !important;
     .cancelRecordModal{
+
+      img{
+        width: 100% !important;
+      }//end img
+
       h5{
         font-family: Roboto-Medium;
         color: $gray-dark;
@@ -210,6 +216,18 @@ $icon_NA:                #999 !default;
   //--end---botón añadir archivo---
 //--end--BUTTONS------------------------
 
+//----TOOLTIP----
+  md-tooltip{
+    border: 2px solid $green !important;
+    .tooltipFioc{
+      padding: 20px !important;
+      span{
+        padding: 20px !important;
+      }//end span
+    }//end tooltipFioc
+  }//end md-tooltip
+//--END---TOOLTIP
+
 //----ANGULAR MATERIAL ELEMENTS DEFAULT-
     //--SELECT-------md-select-value-----
       .md-select-menu-container.md-active md-select-menu > *{
@@ -242,12 +260,17 @@ $icon_NA:                #999 !default;
     //--end--CHECKBOX DEFAULT MD-CHECKBOX----
 
     md-input-container:not(.md-input-invalid).md-input-focused label{
-      color: $gray !important;
+      color: rgba(0 ,0 ,0 ,0.54) !important;
+      font-size: 1em !important;
     }//end
 
     md-input-container:not(.md-input-invalid).md-input-focused .md-input{
       border-color: $gray-light !important;
     }//end
+
+    md-select.md-default-theme:not([disabled]):focus .md-select-value, md-select:not([disabled]):focus .md-select-value{
+      border-color: $gray !important;
+    }
 
 //--end--ANGULAR MATERIAL ELEMENTS DEFAULT-
 
@@ -840,6 +863,7 @@ $aquaDark: #007c7b;
                 font-family: Roboto-light;
                 font-size: 1.167em;
                 color: $green-dark;
+
                 td{
                   border-top: 1px solid #ddd;
                   padding-top: 5px;
@@ -849,6 +873,12 @@ $aquaDark: #007c7b;
                     color: #263238;
                     text-align: left;
                   }//end p
+
+                  i{
+                    float: left;
+                    margin: 0 0 3px 10px;
+                  }//end i
+
                 }//end td
               }//end tableData
             }//end tablaDesplegable
@@ -868,11 +898,12 @@ $aquaDark: #007c7b;
             }//end addDocumentFileContent
 
             .standContainer{
+              font-family: Roboto-Regular !important;
               md-input-container{
                 padding: 0;
                 md-select{
                   .md-select-value{
-                    background: $white;
+                    background: transparent;
                     padding-top: 0;
                     border-bottom: 1px solid $gray;
                     span{
@@ -900,65 +931,95 @@ $aquaDark: #007c7b;
     }//end expBody
 
     .cent_buscador{
+      padding-top: 20px;
       .datosDetalle {
         display: table;
         font-family: Roboto-Light;
         color:#727272;
         font-size: 1em;
 
-        .infoFirst{
+        >div{
           display: table;
-        }//end infoFirst
+          min-height: 50px;
+          margin: 10px 0;
 
-        .infoSecond{
-          display: table;
-        }//end .infoSecond
-
-        .infoThird{
-          display: table;
-        }//end .infoThird
-
-        .infoDatos ,
-        .campoForm ,
-        md-input-container ,
-        .calendar{
+          div.infoDatos ,
+          >md-input-container ,
+          >div{
           display: table-cell;
-          font-size: 1em;
-          padding: 0 15px;
 
-          .margInf ,
-          .contNum ,
-          label,
-          input{
-            display: table-caption;
-          }//end margInf
+            >div.margInf ,
+            >div.contNum ,
+            >label ,
+            >md-select ,
+            >input ,
+            >md-datepicker{
+              display: table-caption;
 
-          label{
-            color: $gray;
-            font-family: Roboto-Regular;
-            font-size: 1em;
-            font-weight: normal;
-          }//end label
-          p{
-            font-family: Roboto-Regular;
-            font-size: 1em;
-            color: $green-dark;
-          }//end p
+              .md-button.md-icon-button{width: auto;}
+              md-datepicker{padding: 0;}
+              .md-button.md-icon-button{margin: 0;padding: 0;}
+              .md-datepicker-input{max-width:auto !important;min-width:auto !important;}
+            }//end
+          }//end md-input-container
+        }//end div
 
-        }//end infoDatos // campoForm
-
-        .centertable{
-          display: table-footer-group;
-          width: 100%;
-        }//end centertable
       }//end datosDetalle
     }//end cent_buscador
 
-.cuestionThird{
-  padding: 15px;
-  font-family: "Roboto-Medium", "Roboto";
+    .thirdDirective{
+      padding: 15px;
+      font-family: Roboto-Medium;
+      font-size: 1em;
 
-}//end cuestionThird
+      .tit{
+        font-size: 1.250em;
+        color: #999;
+        padding: 0 0 10px 0;
+      }//end tit
+
+      .thirdDirectiveTable{
+        display: table;
+        height: 100%;
+        md-input-container{
+          display: table-cell;
+
+          label{
+            position: relative !important;
+            font-size: 1.200em;
+            font-family: Roboto-Regular;
+            color: $gray;
+            margin-bottom: 0;
+          }//end label
+          input{
+            display: table-cell;
+            font-size: 1em;
+            color: $green-dark;
+            background-image: none;
+          }//end input
+        }//end md-input-container
+      }//end thirdDirectiveTable
+
+      .thirdDirectiveChecks{
+        padding: 15px;
+        display: table;
+        height: 100%;
+        label{
+          font-weight: normal;
+          font-size: 1em;
+          color: $gray;
+        }//end label
+        md-checkbox{
+          span{
+            color: $green-dark;
+          }//end span
+        }//end md-checkbox
+        md-input-container{
+          margin-left: 15px;
+        }//end md-input-container
+      }//end thirdDirectiveChecks
+
+    }//end thirdDirective
 
 
   }//end expDetalle
