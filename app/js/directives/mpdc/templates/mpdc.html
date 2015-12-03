@@ -1,120 +1,122 @@
-<div class="container_mdpc">
-    <div class="titulo_container">
-        Modificaci&oacute;n de datos de cliente
-    </div>
-    <div class="cmb_estado">
-        <md-input-container>
-            <label>Estado</label>
-            <md-select ng-model="estados">
-                <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices track by $index">{{stateOption}}</md-option>
-            </md-select>
-        </md-input-container>
-    </div>
-    <div class="tab_datos_cli">
-        <table class="table table-striped">
-            <tr>
-                <th class="tdTitulo">Campos</th>
-                <th class="tdTitulo">Datos facilitados por la Base de Clientes</th>
-                <th class="tdTitulo">Datos facilitados por el Cliente</th>
-            </tr>
-            <tr>
-                <td>{{literalHeader.nombre}}</td>
-                <td class="tdBold">{{infoUser.nombre}}</td>
-                <td class="tdBold">{{infoUserBdp.nombre}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.primerApe}}</td>
-                <td class="tdBold">{{infoUser.ape1}}</td>
-                <td class="tdBold">{{infoUserBdp.primerApe}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.segundoApe}}</td>
-                <td class="tdBold">{{infoUser.ape2}}</td>
-                <td class="tdBold">{{infoUserBdp.segundoApe}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.TipoDoc}}</td>
-                <td class="tdBold">{{infoUser.tipoDoc}}</td>
-                <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.numDoc}}</td>
-                <td class="tdBold">{{infoUser.numDoc}}</td>
-                <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.dateNac}}</td>
-                <td class="tdBold">{{infoUser.fechaNac}}</td>
-                <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.sexo}}</td>
-                <td class="tdBold">{{infoUser.sexo}}</td>
-                <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.nacionalidad}}</td>
-                <td class="tdBold">{{infoUser.nacionalidad}}</td>
-                <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.tipoVia}}</td>
-                <td class="tdBold">{{infoUser.tipoVia}}</td>
-                <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.nombreVia}}</td>
-                <td class="tdBold">{{infoUser.nombreVia}}</td>
-                <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.numero}}</td>
-                <td class="tdBold">{{infoUser.numero}}</td>
-                <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.piso}}</td>
-                <td class="tdBold">--</td>
-                <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.codPostal}}</td>
-                <td class="tdBold">{{infoUser.codigoPostal}}</td>
-                <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.localidad}}</td>
-                <td class="tdBold">--</td>
-                <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.provincia}}</td>
-                <td class="tdBold">{{infoUser.provincia}}</td>
-                <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.pais}}</td>
-                <td class="tdBold">{{infoUser.pais}}</td>
-                <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.mobilePhone}}</td>
-                <td class="tdBold">{{infoUser.telefonoMovil}}</td>
-                <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.phone}}</td>
-                <td class="tdBold">{{infoUser.telefonoFijo}}</td>
-                <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
-            </tr>
-            <tr>
-                <td>{{literalHeader.email}}</td>
-                <td class="tdBold">{{infoUser.email}}</td>
-                <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
-            </tr>
-        </table>
-    </div>
-    <div class="divBoton">
-        <button id="backButton" class="bttVolver" type="button">VOLVER</button>
+<div class="mpcContainer">
+    <div class="mpcTable">
+        <div class="breadcrumbSite">
+            <p>Modificaci&oacute;n de datos de cliente</p>
+        </div>
+        <div class="cmb_estado">
+            <md-input-container>
+                <label>Estado</label>
+                <md-select ng-model="estados">
+                    <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices track by $index">{{stateOption}}</md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+        <div class="tab_datos_cli">
+            <table class="table table-striped">
+                <tr>
+                    <th class="tdTitulo">Campos</th>
+                    <th class="tdTitulo">Datos facilitados por la Base de Clientes</th>
+                    <th class="tdTitulo">Datos facilitados por el Cliente</th>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.nombre}}</td>
+                    <td class="tdBold">{{infoUser.nombre}}</td>
+                    <td class="tdBold">{{infoUserBdp.nombre}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.primerApe}}</td>
+                    <td class="tdBold">{{infoUser.ape1}}</td>
+                    <td class="tdBold">{{infoUserBdp.primerApe}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.segundoApe}}</td>
+                    <td class="tdBold">{{infoUser.ape2}}</td>
+                    <td class="tdBold">{{infoUserBdp.segundoApe}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.TipoDoc}}</td>
+                    <td class="tdBold">{{infoUser.tipoDoc}}</td>
+                    <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.numDoc}}</td>
+                    <td class="tdBold">{{infoUser.numDoc}}</td>
+                    <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.dateNac}}</td>
+                    <td class="tdBold">{{infoUser.fechaNac}}</td>
+                    <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.sexo}}</td>
+                    <td class="tdBold">{{infoUser.sexo}}</td>
+                    <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.nacionalidad}}</td>
+                    <td class="tdBold">{{infoUser.nacionalidad}}</td>
+                    <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.tipoVia}}</td>
+                    <td class="tdBold">{{infoUser.tipoVia}}</td>
+                    <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.nombreVia}}</td>
+                    <td class="tdBold">{{infoUser.nombreVia}}</td>
+                    <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.numero}}</td>
+                    <td class="tdBold">{{infoUser.numero}}</td>
+                    <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.piso}}</td>
+                    <td class="tdBold">--</td>
+                    <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.codPostal}}</td>
+                    <td class="tdBold">{{infoUser.codigoPostal}}</td>
+                    <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.localidad}}</td>
+                    <td class="tdBold">--</td>
+                    <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.provincia}}</td>
+                    <td class="tdBold">{{infoUser.provincia}}</td>
+                    <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.pais}}</td>
+                    <td class="tdBold">{{infoUser.pais}}</td>
+                    <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.mobilePhone}}</td>
+                    <td class="tdBold">{{infoUser.telefonoMovil}}</td>
+                    <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.phone}}</td>
+                    <td class="tdBold">{{infoUser.telefonoFijo}}</td>
+                    <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
+                </tr>
+                <tr>
+                    <td>{{literalHeader.email}}</td>
+                    <td class="tdBold">{{infoUser.email}}</td>
+                    <td class="tdBold">{{infoUserBdp.TipoDoc}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="divBoton">
+            <button id="backButton" class="buttonDefault btn-white pull-right" type="button">VOLVER</button>
+        </div>
     </div>
 </div>

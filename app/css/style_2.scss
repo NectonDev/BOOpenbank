@@ -218,17 +218,29 @@ $icon_NA:                #999 !default;
 
 //----TOOLTIP----
   md-tooltip{
-    border: 2px solid $green !important;
-    .tooltipFioc{
-      padding: 20px !important;
-      span{
+      border: 2px solid $green !important;
+      .tooltipFioc{
         padding: 20px !important;
-      }//end span
-    }//end tooltipFioc
-  }//end md-tooltip
+        span{
+          padding: 20px !important;
+        }//end span
+      }//end tooltipFioc
+    }//end md-tooltip
 //--END---TOOLTIP
 
 //----ANGULAR MATERIAL ELEMENTS DEFAULT-
+
+    //--SELECT SCROLL REVISIÓN FIOC------
+/*
+      md-select-menu ,
+      md-select-menu md-content{
+        height: 100% !important;
+        max-height:100% !important;
+      }//end
+*/
+    //--end--SELECT SCROLL REVISIÓN FIOC--
+
+
     //--SELECT-------md-select-value-----
       .md-select-menu-container.md-active md-select-menu > *{
         color: $gray !important;
@@ -704,7 +716,8 @@ $aquaDark: #007c7b;
 }
 
 //EXPDETAIL
-  .expDetalle.cent_detalle{
+  .expDetalle.cent_detalle ,
+  .mpcContainer{
     background: $white;
     margin: 0 auto;
     margin-top: 15px;
@@ -715,7 +728,8 @@ $aquaDark: #007c7b;
     margin-bottom: 40px;
     display: table;
     max-width: 979px;
-    .expHeader{
+
+    .expHeader , .mpcTable{
       padding: 15px;
       border-bottom: 2px solid $gray-light;
       .datosDetalle{
@@ -736,8 +750,10 @@ $aquaDark: #007c7b;
           }//end .contNum
         }//end infoDatos
       }//end datosDetalle
-
-    }//end .expHeader
+    }//end .expHeader - mpcTable
+    .mpcTable{
+      border: none;
+    }//end mpcTable
 
     .expBody{
       margin-top: 15px;

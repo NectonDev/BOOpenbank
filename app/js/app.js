@@ -5,6 +5,7 @@ angular.module('BOOpenbank', [
   'ngMaterial',
   'ngStorage',
   'ngAnimate',
+  'angular.filter',
   'ngDialog',
   'naif.base64',
   'APIConfig',

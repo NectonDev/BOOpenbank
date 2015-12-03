@@ -21,6 +21,7 @@
     "ez-datetime": "~0.1.7",
     "ez-modal": "~0.0.5",
     "ez-dropdown": "~0.3.1",
-    "ez-transition": "~0.0.2"
+    "ez-transition": "~0.0.2",
+    "angular-filter": "~0.5.8"
   }
 }

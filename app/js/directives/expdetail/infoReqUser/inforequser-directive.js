@@ -9,6 +9,9 @@ angular.module('infoReqUserDirective', [])
             RequisitosModel.setIsRD(args[0]);
             RequisitosModel.setIsTD(args[0]);
             RequisitosModel.setIsMPDC(args[0]);
+            DocumentosModel.getDocsByUser($scope.$parent.user.dataUser.tipoUser, $scope.$parent.user.dataUser.objName, $routeParams.expId).then(function(data){
+                $scope.filesUser = data;
+            });
             $scope.isDoc = RequisitosModel.getIsDoc();
             $scope.isSelfie = RequisitosModel.getIsSelfie();
             $scope.isFondos = RequisitosModel.getIsFondos();
@@ -21,7 +24,9 @@ angular.module('infoReqUserDirective', [])
             $scope.infoHeader = RequisitosModel.getInfoHeader(args[0]);
             $scope.datosReq = {
                 title: RequisitosModel.getTipoConfigReq(args[0])[0],
-                estado: RequisitosModel.getDescRequisitoById(RequisitosModel.getKeyRequisitoByValue(args[3]))
+                estado: RequisitosModel.getDescRequisitoById(RequisitosModel.getKeyRequisitoByValue(args[3])),
+                reqDeployed: RequisitosModel.getTipoConfigReq(args[0])[2],
+                tipoUserReq: $scope.$parent.user.dataUser.tipoUser
             };
             $scope.statesOptions = {
                 choices: EstadosModel.getEstadosReq()
@@ -33,6 +38,7 @@ angular.module('infoReqUserDirective', [])
                 DocumentosModel.addDocument(args[2], $routeParams.expId, fileObj.filename, "binary", "dctm_ok_tr_doctramit", "", RequisitosModel.getTipoConfigReq(args[0])[1], fileObj.base64).then(function(data){
                     if (data.data.codResp === 0){
                         //TODO: Meter modal de subda correcta de fichero.
+                        $scope.filesUser = data;
                         console.log("Subida del fichero correcta");
                     }
                 });
@@ -47,7 +53,6 @@ angular.module('infoReqUserDirective', [])
             $scope.selectMotivo = function(motivo){
                 $scope.motivoReqCombo = motivo;
             };
-            $scope.numResultsDocs = 0;
             $scope.updateExp = function(comentario){
                 var estadoToUpdate = EstadosModel.getKeyEstadosReqByValue($scope.estadoReqCombo);
                 var reqToUpdate = RequisitosModel.getTipoConfigReq(args[0])[2];
@@ -64,18 +69,24 @@ angular.module('infoReqUserDirective', [])
                     });
                 }
             };
-            $scope.openDialog = function(){
+            $scope.openDialog = function(fileToShow){
+                $scope.fileToShow = fileToShow;
                 ngDialog.open({
-                    template: 'base64Image',
-                    className: 'ngdialog-theme-default ngdialog-theme-custom hola',
+                    template: "<div class='ngdialog-message cancelRecordModal col-sm-12'><object data="+$scope.fileToShow.content+" type="+$scope.fileToShow.mimeType+" width='100%' height='100%'></object></div>",
+                    plain: true,
+                    className: 'ngdialog-theme-default ngdialog-theme-custom',
                     scope: $scope,
-                    closeByEscape: true
+                    closeByEscape: true,
+                    preCloseCallback: function(){
+                        $scope.fileToShow = "";
+                    }
                 });
             };
             $scope.goToCuestionario = function(){
                 var urlToTd = "/backoffice/"+$routeParams.expId+"/"+args[1]+"/cuestionario";
                 $location.path(urlToTd);
             };
+
         });
 
     }])
@@ -102,10 +113,11 @@ angular.module('infoReqUserDirective', [])
             selectMotivo: "=",
             estadoReqCombo: "=",
             motivoReqCombo: "=",
-            numResultsDocs: "=",
             updateExp: "=",
             openDialog: "=",
-            goToCuestionario: "="
+            goToCuestionario: "=",
+            filesUser: "=",
+            fileToShow: "="
         }, link: function($scope){
             $scope.closeDesplegable = function(){
                 $(".desplegable").slideUp();
