@@ -58,6 +58,14 @@ angular.module('ExpedientesService',[])
             );
         };
 
+        service.bloquearCuenta = function(configObject){
+            return $http.post(
+                APIConfigService.getUrlBloquearCuenta(),
+                configObject,
+                APIConfigService.getHeaders()
+            );
+        };
+
         service.updateExp = function(configObject){
             return $http.post(
                 APIConfigService.getUrlActualizarRequisito(),

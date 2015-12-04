@@ -218,7 +218,6 @@ $icon_NA:                #999 !default;
 
 //----TOOLTIP----
   md-tooltip{
-      border: 2px solid $green !important;
       .tooltipFioc{
         padding: 20px !important;
         span{
@@ -285,17 +284,24 @@ $icon_NA:                #999 !default;
 
 //--end--ANGULAR MATERIAL ELEMENTS DEFAULT-
 
-body.ngdialog-open, html{overflow: hidden;}
-
-.md-select-icon:after {
-  display: block;
-  content: '\25BC';
-  position: relative;
-  top: 2px;
-  speak: none;
-  -webkit-transform: scaleY(0.6) scaleX(1);
-  transform: scaleY(0.6) scaleX(1);
+body.ngdialog-open, html.ngdialog-open ,
+body.ngdialog-open, html ,
+.modal-open{
+  overflow: initial !important;
 }
+
+//----icono fecha
+  .md-select-icon:after {
+    display: block;
+    content: '\25BC';
+    position: relative;
+    top: 2px;
+    speak: none;
+    -webkit-transform: scaleY(0.6) scaleX(1);
+    transform: scaleY(0.6) scaleX(1);
+  }//end .md-select-icon
+//--end--icono fecha
+
 
 .pagination{
   margin: 24px 0;
@@ -636,6 +642,7 @@ $aquaDark: #007c7b;
             }//end button
           }//end buttonPrint
         }//end .ResultsListPrint
+
       }//end .ResultsListPrintRecord
 
       table.resultadosTabla{
@@ -685,13 +692,45 @@ $aquaDark: #007c7b;
 
           }//end td
         }//end tr
-      }//end table.resultadosTabla
+
+        &.tableFioc{
+          md-input-container{
+            margin: 0;
+            label{
+              display: none;
+            }
+            md-select{
+              .md-select-value{
+                border: none;
+                padding: 0;
+                margin-top: -6px;
+              }//end .md-select-value
+            }//end md-select
+          }//end md-input-container
+        }//end tableFioc
+
+
+      }//end table.resultadosTabla'
 
       .contentBtnProcessUser{
         margin: 10px 0;
         padding: 0 22px;
+        &.BtnBlock{
+          margin: 10px 0 !important;
+        }//end BtnBlock
       }//end .contentBtnProcessUser
 
+      .tocFooterBloqueo{
+        height: 100%;
+        display: block;
+        .mostrar_resultados{
+          width: 33.3%;
+        }//end mostrar_resultados
+        .paginationContainer{
+          width: 24.9%;
+          float: left;
+        }//end paginationContainer
+      }
     }//end form.tocBody
 
     .tocFooter{
@@ -779,7 +818,7 @@ $aquaDark: #007c7b;
         color:#727272;
         font-size: 1em;
         padding: 0 30px;
-        .infoDatos {
+        .infoDatos{
           display: table-cell;
           font-size: 1em;
           label{
@@ -793,8 +832,9 @@ $aquaDark: #007c7b;
             font-size: 1em;
             color: $green-dark;
           }//end p
+        }//end infoDatos/calendar
 
-        }//end infoDatos
+
 
       }//end datosDetalle
 
@@ -972,8 +1012,9 @@ $aquaDark: #007c7b;
 
           div.infoDatos ,
           >md-input-container ,
-          >div{
-          display: table-cell;
+          >div ,
+          >div.calendar{
+            display: table-cell;
 
             >div.margInf ,
             >div.contNum ,
@@ -988,8 +1029,51 @@ $aquaDark: #007c7b;
               .md-button.md-icon-button{margin: 0;padding: 0;}
               .md-datepicker-input{max-width:auto !important;min-width:auto !important;}
             }//end
+
+            >label{
+              top: -28px;
+            }//end >label
+
+          }//end
+
+          >md-input-container{
+            padding-top: 10px;
           }//end md-input-container
+
+
+
+          >div.calendar {
+            padding: 0 20px;
+            margin-top: 100px;
+            .dateTit {
+              span.md-select-icon {
+                float: right;
+              }//end span
+            }//end dateTit
+
+            .ng-binding{
+              border-bottom: 1px solid $gray-light;
+            }//end .ng-binding
+
+            &.ng-pristine{
+              .dateTit{
+                padding: 0px 2px 18px 2px;
+              }//end dateTit
+            }//end ng-pristine
+          }//end .calendar
+
+          &.infoThird{
+            padding: 0 15px !important;
+            md-input-container{
+              md-select{
+                margin-right: 15px !important;
+              }//end md-select
+            }//end md-input-container
+          }//end infoThird
+
         }//end div
+
+
 
       }//end datosDetalle
     }//end cent_buscador
@@ -1048,6 +1132,10 @@ $aquaDark: #007c7b;
 
     }//end thirdDirective
 
+
+    &.searchContent{
+      padding-bottom: 0;
+    }//end searchContent
 
   }//end expDetalle
 //--end------EXPDETAIL

@@ -3,15 +3,14 @@ angular.module('UsersModel',[])
         var service = this;
 
         getTypeOfUser = function (user){
-            if (user.autenticado_titular){
-                return "Titular";
-            }
+            var tipoUser = "Titular";
             if (user.autorizado){
-                return "Autorizado";
+                tipoUser = "Autorizado";
             }
             if (user.cotitular){
-                return "Cotitular";
+                tipoUser = "Cotitular";
             }
+            return tipoUser;
         };
 
         getConfigObjectUserById = function(userId, expId){

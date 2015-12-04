@@ -19,6 +19,7 @@ angular.module('APIConfig',[])
             leerDocumentos: '/recuperarDocumentosUsuario',
             cancelarExpediente: '/cancelarExpediente',
             procesadoFioc: '/procesadoFioc',
+            bloquearCuenta: '/bloquearCuenta',
             listaTipoDocs: '/listaTipoDocs',
             listaEstados: '/listaEstados',
             listaReq: '/listaRequisitos',
@@ -101,6 +102,9 @@ angular.module('APIConfig',[])
         };
         service.getUrlProcesadoFioc = function(){
             return urlApis.apiUrlExpedientes+endpointmap.procesadoFioc;
+        };
+        service.getUrlBloquearCuenta = function(){
+            return urlApis.apiUrlExpedientes+endpointmap.bloquearCuenta;
         };
         service.getUrlListaPaises = function(){
             return urlApis.apiUrlServicios+endpointmap.listaPaises;

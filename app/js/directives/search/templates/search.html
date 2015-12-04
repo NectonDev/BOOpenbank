@@ -1,4 +1,4 @@
-<div class="cent_detalle expDetalle">
+<div class="cent_detalle expDetalle searchContent">
     <div class="triangulo" id="triangulo"></div>
     <div class="cent_buscador" id="cent_buscador">
         <form class="col-sm-12 datosDetalle">
@@ -25,15 +25,15 @@
                 </md-input-container>
             </div>
             <div class="col-sm-6 infoFirst">
-                <div ez-datetime-control ng-model="parameters.fechaCreaDesde">
-                    <div>
-                        Fecha de modificaci&oacute;n desde<span class="md-select-icon"></span>
+                <div ez-datetime-control ng-model="parameters.fechaCreaDesde" class="calendar">
+                    <div class="dateTit">
+                        Fecha modificaci&oacute;n <span>desde</span><span class="md-select-icon"></span>
                     </div>
                     <div>{{parameters.fechaCreaDesde | date : 'dd/MM/yyyy HH:mm'}}</div>
                 </div>
-                <div ez-datetime-control ng-model="parameters.fechaCreaHasta">
-                    <div>
-                        Fecha de modificaci&oacute;n desde<span class="md-select-icon"></span>
+                <div ez-datetime-control ng-model="parameters.fechaCreaHasta" class="calendar">
+                    <div class="dateTit">
+                        Fecha modificaci&oacute;n <span>hasta</span><span class="md-select-icon"></span>
                     </div>
                     <div>{{parameters.fechaCreaHasta | date : 'dd/MM/yyyy HH:mm'}}</div>
                 </div>
@@ -51,20 +51,20 @@
                 </md-input-container>
             </div>
             <div class="col-sm-6 infoSecond">
-                <div ez-datetime-control ng-model="parameters.fechaModDesde">
-                    <div>
-                        Fecha de modificaci&oacute;n desde<span class="md-select-icon"></span>
+                <div ez-datetime-control ng-model="parameters.fechaModDesde" class="calendar">
+                    <div class="dateTit">
+                        Fecha modificaci&oacute;n <span>desde</span><span class="md-select-icon"></span>
                     </div>
                     <div>{{parameters.fechaModDesde | date : 'dd/MM/yyyy HH:mm'}}</div>
                 </div>
-                <div ez-datetime-control ng-model="parameters.fechaModHasta">
-                    <div>
-                        Fecha de modificaci&oacute;n hasta<span class="md-select-icon"></span>
+                <div ez-datetime-control ng-model="parameters.fechaModHasta" class="calendar">
+                    <div class="dateTit">
+                        Fecha modificaci&oacute;n <span>hasta</span><span class="md-select-icon"></span>
                     </div>
                     <div>{{parameters.fechaModHasta | date : 'dd/MM/yyyy HH:mm'}}</div>
                 </div>
             </div>
-            <div class="col-sm-12 infoThird datosDetalle">
+            <div class="infoThird datosDetalle">
                 <md-input-container class="col s3">
                     <label>Estado</label>
                     <md-select ng-model="parameters.estado">
@@ -77,15 +77,15 @@
                         <md-option ng-value="canalOption" ng-repeat="canalOption in canalesOptions.choices">{{canalOption}}</md-option>
                     </md-select>
                 </md-input-container>
-                <div class="col s12">
-                    <div class="col s2 offset-s8 text-right-bottom noPadding">
-                        <button ng-click="cleanSearch()" type="reset" class="blue-color button-medium no-background bold">LIMPIAR B&Uacute;SQUEDA</button>
-                    </div>
-                    <div class="col s2 text-right-bottom buscar-submit row">
-                        <button ng-click="doSearch()" class="buttonDefault" type="button">BUSCAR</button>
-                    </div>
-                </div>
+
+
             </div>
+
+            <div class="col-sm-12">
+                <button ng-click="doSearch()" class="buttonDefault pull-right" type="button">BUSCAR</button>
+                <button ng-click="cleanSearch()" type="reset" class="buttonDefault btn-white pull-right">LIMPIAR B&Uacute;SQUEDA</button>
+            </div>
+
         </form>
     </div>
 </div>

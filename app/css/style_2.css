@@ -148,12 +148,10 @@ md-input-container label {
   cursor: inherit;
   display: block; }
 
-md-tooltip {
-  border: 2px solid #339999 !important; }
-  md-tooltip .tooltipFioc {
+md-tooltip .tooltipFioc {
+  padding: 20px !important; }
+  md-tooltip .tooltipFioc span {
     padding: 20px !important; }
-    md-tooltip .tooltipFioc span {
-      padding: 20px !important; }
 
 .standFioc md-select-menu md-content,
 .standFioc md-select-menu md-content {
@@ -193,8 +191,10 @@ md-input-container:not(.md-input-invalid).md-input-focused .md-input {
 md-select.md-default-theme:not([disabled]):focus .md-select-value, md-select:not([disabled]):focus .md-select-value {
   border-color: #999 !important; }
 
-body.ngdialog-open, html {
-  overflow: hidden; }
+body.ngdialog-open, html.ngdialog-open,
+body.ngdialog-open, html,
+.modal-open {
+  overflow: initial !important; }
 
 .md-select-icon:after {
   display: block;
@@ -473,9 +473,27 @@ $aquaDark: #007c7b;
           text-align: right; }
       .Toc form.tocBody table.resultadosTabla tr td span {
         cursor: pointer; }
+    .Toc form.tocBody table.resultadosTabla.tableFioc md-input-container {
+      margin: 0; }
+      .Toc form.tocBody table.resultadosTabla.tableFioc md-input-container label {
+        display: none; }
+      .Toc form.tocBody table.resultadosTabla.tableFioc md-input-container md-select .md-select-value {
+        border: none;
+        padding: 0;
+        margin-top: -6px; }
   .Toc form.tocBody .contentBtnProcessUser {
     margin: 10px 0;
     padding: 0 22px; }
+    .Toc form.tocBody .contentBtnProcessUser.BtnBlock {
+      margin: 10px 0 !important; }
+  .Toc form.tocBody .tocFooterBloqueo {
+    height: 100%;
+    display: block; }
+    .Toc form.tocBody .tocFooterBloqueo .mostrar_resultados {
+      width: 33.3%; }
+    .Toc form.tocBody .tocFooterBloqueo .paginationContainer {
+      width: 24.9%;
+      float: left; }
   .Toc .tocFooter {
     padding: 15px;
     color: #999 !important;
@@ -723,9 +741,11 @@ $aquaDark: #007c7b;
         .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos,
         .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container,
         .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div,
+        .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar,
         .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos,
         .mpcContainer .cent_buscador .datosDetalle > div > md-input-container,
-        .mpcContainer .cent_buscador .datosDetalle > div > div {
+        .mpcContainer .cent_buscador .datosDetalle > div > div,
+        .mpcContainer .cent_buscador .datosDetalle > div > div.calendar {
           display: table-cell; }
           .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf,
           .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.contNum,
@@ -745,6 +765,12 @@ $aquaDark: #007c7b;
           .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-select,
           .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > input,
           .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-datepicker,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.margInf,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.contNum,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > label,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-select,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > input,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-datepicker,
           .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.margInf,
           .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.contNum,
           .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > label,
@@ -762,7 +788,13 @@ $aquaDark: #007c7b;
           .mpcContainer .cent_buscador .datosDetalle > div > div > label,
           .mpcContainer .cent_buscador .datosDetalle > div > div > md-select,
           .mpcContainer .cent_buscador .datosDetalle > div > div > input,
-          .mpcContainer .cent_buscador .datosDetalle > div > div > md-datepicker {
+          .mpcContainer .cent_buscador .datosDetalle > div > div > md-datepicker,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.margInf,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.contNum,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > label,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-select,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > input,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-datepicker {
             display: table-caption; }
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf .md-button.md-icon-button,
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.contNum .md-button.md-icon-button,
@@ -782,6 +814,12 @@ $aquaDark: #007c7b;
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-select .md-button.md-icon-button,
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > input .md-button.md-icon-button,
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-datepicker .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.margInf .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.contNum .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > label .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-select .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > input .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-datepicker .md-button.md-icon-button,
             .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.margInf .md-button.md-icon-button,
             .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.contNum .md-button.md-icon-button,
             .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > label .md-button.md-icon-button,
@@ -799,7 +837,13 @@ $aquaDark: #007c7b;
             .mpcContainer .cent_buscador .datosDetalle > div > div > label .md-button.md-icon-button,
             .mpcContainer .cent_buscador .datosDetalle > div > div > md-select .md-button.md-icon-button,
             .mpcContainer .cent_buscador .datosDetalle > div > div > input .md-button.md-icon-button,
-            .mpcContainer .cent_buscador .datosDetalle > div > div > md-datepicker .md-button.md-icon-button {
+            .mpcContainer .cent_buscador .datosDetalle > div > div > md-datepicker .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.margInf .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.contNum .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > label .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-select .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > input .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-datepicker .md-button.md-icon-button {
               width: auto; }
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf md-datepicker,
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.contNum md-datepicker,
@@ -819,6 +863,12 @@ $aquaDark: #007c7b;
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-select md-datepicker,
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > input md-datepicker,
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-datepicker md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.margInf md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.contNum md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > label md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-select md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > input md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-datepicker md-datepicker,
             .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.margInf md-datepicker,
             .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.contNum md-datepicker,
             .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > label md-datepicker,
@@ -836,7 +886,13 @@ $aquaDark: #007c7b;
             .mpcContainer .cent_buscador .datosDetalle > div > div > label md-datepicker,
             .mpcContainer .cent_buscador .datosDetalle > div > div > md-select md-datepicker,
             .mpcContainer .cent_buscador .datosDetalle > div > div > input md-datepicker,
-            .mpcContainer .cent_buscador .datosDetalle > div > div > md-datepicker md-datepicker {
+            .mpcContainer .cent_buscador .datosDetalle > div > div > md-datepicker md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.margInf md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.contNum md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > label md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-select md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > input md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-datepicker md-datepicker {
               padding: 0; }
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf .md-button.md-icon-button,
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.contNum .md-button.md-icon-button,
@@ -856,6 +912,12 @@ $aquaDark: #007c7b;
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-select .md-button.md-icon-button,
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > input .md-button.md-icon-button,
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-datepicker .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.margInf .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.contNum .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > label .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-select .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > input .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-datepicker .md-button.md-icon-button,
             .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.margInf .md-button.md-icon-button,
             .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.contNum .md-button.md-icon-button,
             .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > label .md-button.md-icon-button,
@@ -873,7 +935,13 @@ $aquaDark: #007c7b;
             .mpcContainer .cent_buscador .datosDetalle > div > div > label .md-button.md-icon-button,
             .mpcContainer .cent_buscador .datosDetalle > div > div > md-select .md-button.md-icon-button,
             .mpcContainer .cent_buscador .datosDetalle > div > div > input .md-button.md-icon-button,
-            .mpcContainer .cent_buscador .datosDetalle > div > div > md-datepicker .md-button.md-icon-button {
+            .mpcContainer .cent_buscador .datosDetalle > div > div > md-datepicker .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.margInf .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.contNum .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > label .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-select .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > input .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-datepicker .md-button.md-icon-button {
               margin: 0;
               padding: 0; }
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf .md-datepicker-input,
@@ -894,6 +962,12 @@ $aquaDark: #007c7b;
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-select .md-datepicker-input,
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > input .md-datepicker-input,
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-datepicker .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.margInf .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.contNum .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > label .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-select .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > input .md-datepicker-input,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-datepicker .md-datepicker-input,
             .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.margInf .md-datepicker-input,
             .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.contNum .md-datepicker-input,
             .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > label .md-datepicker-input,
@@ -911,9 +985,46 @@ $aquaDark: #007c7b;
             .mpcContainer .cent_buscador .datosDetalle > div > div > label .md-datepicker-input,
             .mpcContainer .cent_buscador .datosDetalle > div > div > md-select .md-datepicker-input,
             .mpcContainer .cent_buscador .datosDetalle > div > div > input .md-datepicker-input,
-            .mpcContainer .cent_buscador .datosDetalle > div > div > md-datepicker .md-datepicker-input {
+            .mpcContainer .cent_buscador .datosDetalle > div > div > md-datepicker .md-datepicker-input,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.margInf .md-datepicker-input,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.contNum .md-datepicker-input,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > label .md-datepicker-input,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-select .md-datepicker-input,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > input .md-datepicker-input,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-datepicker .md-datepicker-input {
               max-width: auto !important;
               min-width: auto !important; }
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > label,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > label,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > label,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > label,
+          .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > label,
+          .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > label,
+          .mpcContainer .cent_buscador .datosDetalle > div > div > label,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > label {
+            top: -28px; }
+        .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container,
+        .mpcContainer .cent_buscador .datosDetalle > div > md-input-container {
+          padding-top: 10px; }
+        .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar,
+        .mpcContainer .cent_buscador .datosDetalle > div > div.calendar {
+          padding: 0 20px;
+          margin-top: 100px; }
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar .dateTit span.md-select-icon,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar .dateTit span.md-select-icon {
+            float: right; }
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar .ng-binding,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar .ng-binding {
+            border-bottom: 1px solid #ddd; }
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar.ng-pristine .dateTit,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar.ng-pristine .dateTit {
+            padding: 0px 2px 18px 2px; }
+        .expDetalle.cent_detalle .cent_buscador .datosDetalle > div.infoThird,
+        .mpcContainer .cent_buscador .datosDetalle > div.infoThird {
+          padding: 0 15px !important; }
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div.infoThird md-input-container md-select,
+          .mpcContainer .cent_buscador .datosDetalle > div.infoThird md-input-container md-select {
+            margin-right: 15px !important; }
   .expDetalle.cent_detalle .thirdDirective,
   .mpcContainer .thirdDirective {
     padding: 15px;
@@ -960,6 +1071,9 @@ $aquaDark: #007c7b;
       .expDetalle.cent_detalle .thirdDirective .thirdDirectiveChecks md-input-container,
       .mpcContainer .thirdDirective .thirdDirectiveChecks md-input-container {
         margin-left: 15px; }
+  .expDetalle.cent_detalle.searchContent,
+  .mpcContainer.searchContent {
+    padding-bottom: 0; }
 
 .userDetailContent {
   background: #fff;

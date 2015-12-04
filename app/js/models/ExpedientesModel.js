@@ -34,7 +34,7 @@ angular.module('ExpedientesModel',[])
             }
         };
 
-        getConfigObjectProcesarFioc = function(objName,expId,valid){
+        getConfigObjectProcesarFioc = function(objName, expId, valid){
             return {
                 "usuarios": [
                     {
@@ -45,6 +45,21 @@ angular.module('ExpedientesModel',[])
                     }
                 ],
                     "expediente": {
+                    "r_object_id": expId
+                }
+            }
+        };
+
+        getConfigObjectBloquearCuenta = function(objName, expId){
+            return  {
+                "usuarios": [
+                    {
+                        "usuario": {
+                            "object_name": objName
+                        }
+                    }
+                ],
+                "expediente": {
                     "r_object_id": expId
                 }
             }
@@ -131,6 +146,10 @@ angular.module('ExpedientesModel',[])
 
         service.isFioc = function(){
             return config_object_exp.filtro === $localStorage.tiposPreFiltros.fioc;
+        };
+
+        service.isBloqueo = function(){
+            return config_object_exp.filtro === $localStorage.tiposPreFiltros.pteBloqueo;
         };
 
         service.transformUserExpInfo = function(dataExpediente){
@@ -260,7 +279,18 @@ angular.module('ExpedientesModel',[])
             });
             return ExpedientesService.procesarFioc(expedientes).then(function(data){
                 console.log(data);
-                //TODO: Modal de procesador correctamente
+                //TODO: Modal de procesados correctamente
+            });
+        };
+
+        service.procesarBloqueo = function(toBlock){
+            var expedientes = { expedientes:[]};
+            angular.forEach(toBlock,function(value){
+                expedientes.expedientes.push(getConfigObjectBloquearCuenta(value[0],value[1]));
+            });
+            return ExpedientesService.bloquearCuenta(expedientes).then(function(data){
+                console.log(data);
+                //TODO: Modal de procesados correctamente
             });
         };
 

@@ -17,9 +17,9 @@
         </div>
     </div>
     <div>
-        <table class="bordered highlight lowSize resultadosTabla text-center myDivToPrint col-sm-12">
+        <table class="bordered highlight lowSize resultadosTabl'a text-center myDivToPrint col-sm-12" ng-class="{tableFioc: isFioc()}">
             <thead>
-            <tr ng-show="!isFioc()" class="firstCell">
+            <tr ng-show="!isFioc() && !isBloqueo()" class="firstCell">
                 <th title="Impactado" data-field="impactado" class="firstTh"></th>
                 <th title="Número de cuenta" data-field="n_cuenta">{{tableInfo.numCuenta}}<i class="material-icons"></i></th>
                 <th title="Canal" data-field="canal">{{tableInfo.canal}}<i class="material-icons"></i></th>
@@ -31,14 +31,25 @@
             <tr ng-show="isFioc()">
                 <th title="N&uacute;mero de cuenta" data-field="n_cuenta">{{tableInfo.numCuenta}}<i class="material-icons"></i></th>
                 <th title="Fecha Creaci&oacute;n" data-field="FechaMod" class="">{{tableInfo.creationDate}}<i class="material-icons"></i></th>
-                <th title="Nomnbre" data-field="nombre">{{tableInfo.nombre}}<i class="material-icons"></i></th>
-                <th title="Apellidos" data-field="apellidos">{{tableInfo.apellidos}}<i class="material-icons"></i></th>
+                <th title="Gestor" data-field="gestor">{{tableInfo.gestor}}<i class="material-icons"></i></th>
+                <th title="datInterv" data-field="datInterv">{{tableInfo.datInterv}}<i class="material-icons"></i></th>
                 <th title="Empresa" data-field="empresa">{{tableInfo.empresa}}<i class="material-icons"></i></th>
                 <th title="Actividad" data-field="actividad">{{tableInfo.actividad}}<i class="material-icons"></i></th>
+                <th title="Revision Fioc" data-field="revFioc">{{tableInfo.revFioc}}<i class="material-icons"></i></th>
+            </tr>
+            <tr ng-show="isBloqueo()">
+                <th title="Impactado" data-field="impactado" class="firstTh"></th>
+                <th title="N&uacute;mero de cuenta" data-field="n_cuenta">{{tableInfo.numCuenta}}<i class="material-icons"></i></th>
+                <th title="Fecha Creaci&oacute;n" data-field="FechaMod" class="">{{tableInfo.creationDate}}<i class="material-icons"></i></th>
+                <th title="Gestor" data-field="gestor">{{tableInfo.gestor}}<i class="material-icons"></i></th>
+                <th title="datInterv" data-field="datInterv">{{tableInfo.datInterv}}<i class="material-icons"></i></th>
+                <th title="Empresa" data-field="empresa">{{tableInfo.empresa}}<i class="material-icons"></i></th>
+                <th title="Actividad" data-field="actividad">{{tableInfo.actividad}}<i class="material-icons"></i></th>
+                <th title="bloqueado" data-field="bloqueado">{{tableInfo.bloqueado}}<i class="material-icons"></i></th>
             </tr>
             </thead>
             <tbody id="contentTable">
-            <tr ng-show="!isFioc()" ng-click="goToDetail(expediente.id)" ng-repeat="expediente in tableResults.expedientes">
+            <tr ng-show="!isFioc() && !isBloqueo()" ng-click="goToDetail(expediente.id)" ng-repeat="expediente in tableResults.expedientes">
                 <td class="firstTd">
                     <i class="material-icons" ng-if="expediente.gestor != ''">lock</i>
                 </td>
@@ -49,11 +60,14 @@
                 <td><span>{{expediente.fecha_alta | date : 'dd/MM/yyyy HH:mm'}}</span></td>
                 <td><span>{{expediente.fecha_mod | date : 'dd/MM/yyyy HH:mm'}}</span></td>
             </tr>
-            <tr ng-show="isFioc()" ng-repeat="expediente in tableResults.expedientes">
+            <tr ng-show="isFioc() || isBloqueo()" ng-repeat="expediente in tableResults.expedientes">
+                <td class="firstTd" ng-show="isBloqueo()">
+                    <i class="material-icons" ng-if="expediente.gestor != ''">lock</i>
+                </td>
                 <td>{{expediente.num_cuenta}}</td>
                 <td>{{expediente.fecha_alta | date : 'dd/MM/yyyy HH:mm'}}</td>
-                <td ng-repeat="usuario in expediente.usuarios">{{usuario.nombre}}</td>
-                <td ng-repeat="usuario in expediente.usuarios">{{usuario.apellido1}} {{usuario.apellido2}}</td>
+                <td>{{expediente.gestor}}</td>
+                <td ng-repeat="usuario in expediente.usuarios"><span>{{usuario.nombre}} {{usuario.apellido1}} {{usuario.apellido2}}</span></td>
                 <td ng-repeat="usuario in expediente.usuarios">
                     <md-tooltip class="tooltipFioc" md-direction="left">
                         {{usuario.empresa}}
@@ -66,24 +80,26 @@
                     </md-tooltip>
                     {{usuario.actividad}}
                 </td>
-                <td ng-repeat="usuario in expediente.usuarios">
+                <td ng-hide="isBloqueo()" ng-repeat="usuario in expediente.usuarios">
                     <md-input-container>
-                        <label>Seleccione una acci&oacute;n</label>
+                        <label>Seleccione una opci&oacute;n</label>
                         <md-select class="standFioc" ng-model="usuario.selected" ng-change="selectAccionFioc(usuario,expediente.id,usuario.selected)">
                             <md-option ng-selected="false" ng-repeat="accion in listAccionesFioc track by $index">{{accion}}</md-option>
                         </md-select>
                     </md-input-container>
                 </td>
-                <!-- <td><md-checkbox ng-checked="userOkProcess.indexOf(usuario.objName) > -1" ng-repeat="usuario in expediente.usuarios track by $index" role="checkbox" ng-click="okProcess(usuario,expediente.id)" aria-label="Procesar Usuario"></md-checkbox></td>
-                <td><md-checkbox ng-checked="userKoProcess.indexOf(usuario.objName) > -1" ng-repeat="usuario in expediente.usuarios track by $index" role="checkbox" ng-click="koProcess(usuario,expediente.id)" aria-label="No Procesar Usuario"></md-checkbox></td> -->
+                <td ng-show="isBloqueo()" ng-repeat="usuario in expediente.usuarios">
+                    <md-checkbox ng-checked="usersToBlock.indexOf(usuario.objName) > -1" ng-repeat="usuario in expediente.usuarios track by $index" role="checkbox" ng-click="block(usuario,expediente.id)" aria-label="Bloquear Usuario"></md-checkbox>
+                </td>
             </tr>
             </tbody>
         </table>
-        <div ng-controller="TocFooterController" class="tocFooter">
+        <div ng-controller="TocFooterController" ng-class="{tocFooterBloqueo: isBloqueo()}" class="tocFooter">
             <toc-footer actual-page="actualPage" results-per-page-options="numResultsPerPageOptions" default-results-per-page="numResultsPerPageDefault" actual-size-per-page="numActualResultsPerPage" num-total-pages="numTotalPages" go-to-page="goToPage" go-to-next-page="goToNextPage" go-to-prev-page="goToPrevPage" is-fioc="isFioc"></toc-footer>
         </div>
-        <div ng-show="isFioc()" ng-controller="TocFooterController" class="col-sm-12 contentBtnProcessUser">
-            <button ng-click="procesarUsuarios()" class="buttonDefault pull-right">PROCESAR</button>
+        <div ng-controller="TocFooterController" class="col-sm-12 contentBtnProcessUser BtnBlock">
+            <button ng-show="isFioc()" ng-click="procesarUsuarios()" class="buttonDefault pull-right">PROCESAR</button>
+            <button ng-show="isBloqueo()" ng-click="bloquearCuentas()" class="buttonDefault pull-right">PROCESAR</button>
         </div>
     </div>
 </form>

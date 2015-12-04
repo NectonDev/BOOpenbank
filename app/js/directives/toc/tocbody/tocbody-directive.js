@@ -14,6 +14,11 @@ angular.module('tocBodyDirective', [])
         $scope.isFioc = function(){
             return ExpedientesModel.isFioc();
         };
+
+        $scope.isBloqueo = function(){
+          return ExpedientesModel.isBloqueo();
+        };
+
         $scope.listAccionesFioc = $localStorage.accionesFioc;
     }])
     .directive('tocBody', ['$location', '$timeout', 'ExpedientesModel', function($location, $timeout, ExpedientesModel) {
@@ -27,10 +32,14 @@ angular.module('tocBodyDirective', [])
             hideLocked: "=",
             goToDetail: "=",
             isFioc: "=",
+            isBloqueo: "=",
             printPage: "=",
             procesarUsuarios: "=",
+            bloquearCuentas: "=",
+            block: "=",
             okProcess: "=",
             koProcess: "=",
+            usersToBlock: "=",
             selectAccionFioc: "=",
             listAccionesFioc: "="
         },
@@ -39,9 +48,9 @@ angular.module('tocBodyDirective', [])
 
             $scope.userOkProcess = [];
             $scope.userKoProcess = [];
+            $scope.usersToBlock = [];
 
-            var OkToProcessArrayWithExp = [];
-            var KoToProcessArrayWithExp = [];
+            var OkToProcessArrayWithExp,KoToProcessArrayWithExp,BlockArrayWithExp = [];
 
             function getExpedientes(){
                 $("#contentTable").hide();
@@ -107,6 +116,13 @@ angular.module('tocBodyDirective', [])
                 });
             };
 
+            $scope.bloquearCuentas = function(){
+                ExpedientesModel.procesarBloqueo(BlockArrayWithExp).then(function(data){
+                    BlockArrayWithExp = [];
+                    getExpedientes();
+                });
+            };
+
             $scope.selectAccionFioc = function(usuario,expId,accion){
                 if (accion!='No Procesar'){
                     if (accion==='Todo Correcto'){
@@ -125,6 +141,17 @@ angular.module('tocBodyDirective', [])
                         $scope.userOkProcess.splice(indexOfOkArray, 1);
                         OkToProcessArrayWithExp.splice(indexOfOkArray, 1);
                     }
+                }
+            };
+
+            $scope.block = function(usuario, expId){
+                var indexOfBlockArray = $scope.usersToBlock.indexOf(usuario.objName);
+                if (indexOfBlockArray>-1){
+                    $scope.usersToBlock.splice(indexOfBlockArray, 1);
+                    BlockArrayWithExp.splice(indexOfBlockArray, 1);
+                }else{
+                    $scope.usersToBlock.push(usuario.objName);
+                    BlockArrayWithExp.push([usuario.objName,expId]);
                 }
             };
 
