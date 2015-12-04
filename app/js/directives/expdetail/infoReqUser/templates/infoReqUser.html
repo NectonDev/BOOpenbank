@@ -58,7 +58,7 @@
                         <p>{{file.gestor}}</p>
                     </td>
                     <td>
-                        <p>{{file.fechaCreacion}}</p>
+                        <p>{{file.fechaCreacion | date : 'dd/MM/yyyy HH:mm'}}</p>
                     </td>
                     <td ng-click="openDialog(file)">
                         <p class="blue-color"><i class="material-icons icon_visibility">visibility</i></p>

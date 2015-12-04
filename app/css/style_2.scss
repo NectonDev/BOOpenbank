@@ -231,15 +231,14 @@ $icon_NA:                #999 !default;
 //----ANGULAR MATERIAL ELEMENTS DEFAULT-
 
     //--SELECT SCROLL REVISIÓN FIOC------
-/*
-      md-select-menu ,
-      md-select-menu md-content{
+
+      .standFioc md-select-menu md-content ,
+      .standFioc md-select-menu md-content{
         height: 100% !important;
         max-height:100% !important;
       }//end
-*/
-    //--end--SELECT SCROLL REVISIÓN FIOC--
 
+    //--end--SELECT SCROLL REVISIÓN FIOC--
 
     //--SELECT-------md-select-value-----
       .md-select-menu-container.md-active md-select-menu > *{
@@ -285,6 +284,18 @@ $icon_NA:                #999 !default;
     }
 
 //--end--ANGULAR MATERIAL ELEMENTS DEFAULT-
+
+body.ngdialog-open, html{overflow: hidden;}
+
+.md-select-icon:after {
+  display: block;
+  content: '\25BC';
+  position: relative;
+  top: 2px;
+  speak: none;
+  -webkit-transform: scaleY(0.6) scaleX(1);
+  transform: scaleY(0.6) scaleX(1);
+}
 
 .pagination{
   margin: 24px 0;

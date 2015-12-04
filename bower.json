@@ -1,6 +1,6 @@
 {
   "name": "BOOpenbank",
-  "description": "Backoffice para la gestion de cuentas de Openbank",
+  "description": "Backoffice para la gestion de expedientes de Openbank",
   "version": "0.0.0",
   "homepage": "https://github.com/angular/angular-seed",
   "license": "MIT",

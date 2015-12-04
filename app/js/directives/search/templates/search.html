@@ -23,19 +23,19 @@
                     <label>Cuenta</label>
                     <input class="validate" type="number" ng-model="parameters.cuenta">
                 </md-input-container>
-</div>
-<div class="col-sm-6 infoFirst">
-                <div>
-                    <md-datepicker ng-model="fechaCreaDesde" md-placeholder="F. Creaci&oacute;n desde">F. Creaci&oacute;n desde</md-datepicker>
+            </div>
+            <div class="col-sm-6 infoFirst">
+                <div ez-datetime-control ng-model="parameters.fechaCreaDesde">
+                    <div>
+                        Fecha de modificaci&oacute;n desde<span class="md-select-icon"></span>
+                    </div>
+                    <div>{{parameters.fechaCreaDesde | date : 'dd/MM/yyyy HH:mm'}}</div>
                 </div>
-                <div>
-                    <md-datepicker ng-model="fechaCreaHasta" md-placeholder="F. Creaci&oacute;n hasta">F. Creaci&oacute;n hasta</md-datepicker>
-                </div>
-                <div>
-                    <md-datepicker ng-model="fechaModHasta" md-placeholder="F. Modificaci&oacute;n hasta">F. Modificaci&oacute;n hasta</md-datepicker>
-                </div>
-                <div>
-                    <md-datepicker ng-model="fechaModHasta" md-placeholder="F. Modificaci&oacute;n hasta">F. Modificaci&oacute;n hasta</md-datepicker>
+                <div ez-datetime-control ng-model="parameters.fechaCreaHasta">
+                    <div>
+                        Fecha de modificaci&oacute;n desde<span class="md-select-icon"></span>
+                    </div>
+                    <div>{{parameters.fechaCreaHasta | date : 'dd/MM/yyyy HH:mm'}}</div>
                 </div>
             </div>
             <div class="col-sm-6 infoSecond">
@@ -51,17 +51,17 @@
                 </md-input-container>
             </div>
             <div class="col-sm-6 infoSecond">
-                <div>
-                    <md-datepicker ng-model="fechaCreaDesde" md-placeholder="F. Creaci&oacute;n desde">F. Creaci&oacute;n desde</md-datepicker>
+                <div ez-datetime-control ng-model="parameters.fechaModDesde">
+                    <div>
+                        Fecha de modificaci&oacute;n desde<span class="md-select-icon"></span>
+                    </div>
+                    <div>{{parameters.fechaModDesde | date : 'dd/MM/yyyy HH:mm'}}</div>
                 </div>
-                <div>
-                    <md-datepicker ng-model="fechaCreaHasta" md-placeholder="F. Creaci&oacute;n hasta">F. Creaci&oacute;n hasta</md-datepicker>
-                </div>
-                <div>
-                    <md-datepicker ng-model="fechaModHasta" md-placeholder="F. Modificaci&oacute;n hasta">F. Modificaci&oacute;n hasta</md-datepicker>
-                </div>
-                <div>
-                    <md-datepicker ng-model="fechaModHasta" md-placeholder="F. Modificaci&oacute;n hasta">F. Modificaci&oacute;n hasta</md-datepicker>
+                <div ez-datetime-control ng-model="parameters.fechaModHasta">
+                    <div>
+                        Fecha de modificaci&oacute;n hasta<span class="md-select-icon"></span>
+                    </div>
+                    <div>{{parameters.fechaModHasta | date : 'dd/MM/yyyy HH:mm'}}</div>
                 </div>
             </div>
             <div class="col-sm-12 infoThird datosDetalle">
