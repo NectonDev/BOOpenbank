@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,eAAe;EACb,UAAU,EAAE,IAAI",
-"sources": ["style_mdps.scss"],
-"names": [],
-"file": "style_mdps.css"
-}
