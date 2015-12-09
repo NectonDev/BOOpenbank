@@ -19,7 +19,10 @@ angular.module('LiteralsConfig',[])
                 nombre: 'Nombre',
                 apellidos: 'Apellidos',
                 empresa: 'Empresa',
-                actividad: 'Actividad'
+                actividad: 'Actividad',
+                revFioc: 'Revisi\u00F3n Fioc',
+                datInterv: 'Datos Intervinientes',
+                bloqueado: 'Bloquear'
             },
             searchInfo = {
                 IBANText: 'IBAN',

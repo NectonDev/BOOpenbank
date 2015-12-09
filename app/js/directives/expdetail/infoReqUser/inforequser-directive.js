@@ -9,19 +9,20 @@ angular.module('infoReqUserDirective', [])
             RequisitosModel.setIsRD(args[0]);
             RequisitosModel.setIsTD(args[0]);
             RequisitosModel.setIsMPDC(args[0]);
-            DocumentosModel.getDocsByUser($scope.$parent.user.dataUser.tipoUser, $scope.$parent.user.dataUser.objName, $routeParams.expId).then(function(data){
-                $scope.filesUser = data;
-            });
             $scope.isDoc = RequisitosModel.getIsDoc();
             $scope.isSelfie = RequisitosModel.getIsSelfie();
             $scope.isFondos = RequisitosModel.getIsFondos();
             $scope.isRd = RequisitosModel.getIsRD();
             $scope.isTd = RequisitosModel.getIsTD();
+            $scope.infoHeader = RequisitosModel.getInfoHeader(args[0]);
+            var tipoDoc = $scope.isDoc?"dctm_ok_tr_ident":"dctm_ok_tr_doctramit";
+            DocumentosModel.getDocsByUser($scope.$parent.user.dataUser.tipoUser, $scope.$parent.user.dataUser.objName, $routeParams.expId, tipoDoc).then(function(data){
+                $scope.filesUser = data;
+            });
             if (RequisitosModel.getIsMPDC()){
                 var urlToMPDC = "/backoffice/"+$routeParams.expId+"/"+args[1]+"/mpdc";
                 $location.path(urlToMPDC);
             }
-            $scope.infoHeader = RequisitosModel.getInfoHeader(args[0]);
             $scope.datosReq = {
                 title: RequisitosModel.getTipoConfigReq(args[0])[0],
                 estado: RequisitosModel.getDescRequisitoById(RequisitosModel.getKeyRequisitoByValue(args[3])),

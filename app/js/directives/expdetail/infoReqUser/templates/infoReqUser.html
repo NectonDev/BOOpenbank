@@ -25,7 +25,7 @@
             <input id="cuenta" class="validate" type="text" ng-model="cuenta">
         </md-input-container>
     </div>
-    <div class="tablaDoc" ng-show="files.length>0 || isSelfie || isTd" ng-hide="isFondos">
+    <div class="tablaDoc" ng-show="(files.length>0 || isSelfie || isTd) === true;">
         <table class="tablaDesplegable">
             <thead>
                 <tr class="tableTit">
@@ -64,7 +64,7 @@
                         <p class="blue-color"><i class="material-icons icon_visibility">visibility</i></p>
                     </td>
                 </tr>
-                <tr ng-show="isTd">
+                <tr ng-show="isTd" class="tableThirdDirective">
                     <td>
                         <p>Alto</p>
                     </td>
@@ -87,7 +87,7 @@
             <div class="file-field input-field addDocumentFileContent">
                 <div class="addDocumentFile col-sm-12">
                     <span class="btnFile textAquaDark pull-right">
-                        <div ng-show="true">{{dataFilesUser["Titular"][0].gestor}}</div>
+                        <div>{{dataFilesUser["Titular"][0].gestor}}</div>
                         A&Ntilde;ADIR DOCUMENTO <input type="file" name="file" id="file" class="inputfile col-sm-2" ng-model='fileToUpload' multiple base-sixty-four-input onload="onLoad">
                     </span>
                 </div>

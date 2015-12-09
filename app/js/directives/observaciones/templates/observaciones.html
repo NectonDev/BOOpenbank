@@ -1,14 +1,15 @@
-<div class="cent_detalle expDetalle">
+<div class="cent_detalle expDetalle observationsContainer">
     <div ng-controller="ExpDetailHeaderController">
         <exp-detail-header info-header="infoHeader" info-expediente="infoExpediente" open-dialog="openDialog" go-to-obs="goToObs" is-obs="isObs" is-td="isTd"></exp-detail-header>
     </div>
-    <table class="bordered highlight lowSize resultadosTabla text-center myDivToPrint">
+    <table class="observationsTable col-sm-12">
         <thead>
-        <tr>
-            <th title="Fecha" data-field="fechs">Fecha</th>
-            <th title="Estado" data-field="estado">Estado</th>
-            <th title="Gestor" data-field="egstor">Gestor</th>
-            <th title="Comentario" data-field="comentario">Comentario</th>
+        <tr class="col-sm-12 firstCell">
+            <th title="Fecha" data-field="fechs" class="col-sm-2">Fecha</th>
+            <th title="Fecha" data-field="fechas" class="col-sm-3">Fecha</th>
+            <th title="Estado" data-field="estado" class="col-sm-1">Estado</th>
+            <th title="Gestor" data-field="gestor" class="col-sm-2">Gestor</th>
+            <th title="Comentario" data-field="comentario" class="col-sm-4">Comentario</th>
         </tr>
         </thead>
         <tbody id="contentTable">
@@ -16,6 +17,7 @@
                 <td>{{observacion.fechaAlta | date : 'dd/MM/yyyy HH:mm'}}</td>
                 <td>{{observacion.estado}}</td>
                 <td>{{observacion.gestor}}</td>
+                <td>{{observacion.descripcion}}</td>
                 <td>{{observacion.descripcion}}</td>
             </tr>
         </tbody>

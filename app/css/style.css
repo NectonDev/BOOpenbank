@@ -1,1130 +1,1134 @@
-/* Custom Stylesheet */
-/**
- 
-* Use this file to override Materialize files so you can update
- 
-* the core Materialize files in the future
+@font-face {
+  font-family: Roboto-Bold;
+  src: url(../font/roboto/Roboto-Bold.woff);
+  font-weight: bold; }
+@font-face {
+  font-family: Roboto-Medium;
+  src: url(../font/roboto/Roboto-Medium.woff); }
+@font-face {
+  font-family: Roboto-Regular;
+  src: url(../font/roboto/Roboto-Regular.woff); }
+@font-face {
+  font-family: Roboto-Light;
+  src: url(../font/roboto/Roboto-Light.woff); }
+.icon_warning {
+  color: #ff9933 !important;
+  border-radius: 50px;
+  padding: 2px;
+  font-size: 18px !important; }
 
- 
-* Made By MaterializeCSS.com
- 
+.icon_check {
+  color: #fff !important;
+  border-radius: 50px;
+  padding: 2px;
+  background: #82b64b;
+  font-size: 14px !important; }
+
+.icon_NA {
+  color: #999 !important;
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  padding: 4px;
+  background: #fff;
+  font-size: 14px !important;
+  font-family: Roboto-Light !important; }
+
+.icon_visibility {
+  color: #339999; }
+
+.icon_no_sim {
+  color: #999;
+  font-size: 22px !important; }
+
+.icon_clear {
+  color: #fff;
+  font-size: 18px !important;
+  background: red;
+  border-radius: 50px; }
+
+.md-select-menu-container {
+  z-index: 99999 !important; }
+
+md-input-container label {
+  position: absolute !important;
+  bottom: 100% !important;
+  left: 0 !important; }
+
+.ngdialog-content {
+  width: 600px !important; }
+  .ngdialog-content .cancelRecordModal img {
+    width: 100% !important; }
+  .ngdialog-content .cancelRecordModal h5 {
+    font-family: Roboto-Medium;
+    color: #666;
+    font-size: 1.167em; }
+  .ngdialog-content .cancelRecordModal md-input-container {
+    padding: 0;
+    margin: 0 0 30px 0; }
+    .ngdialog-content .cancelRecordModal md-input-container label {
+      color: #339999 !important; }
+    .ngdialog-content .cancelRecordModal md-input-container.md-input-has-value label {
+      display: none; }
+    .ngdialog-content .cancelRecordModal md-input-container md-select .md-select-value {
+      border-bottom: 2px solid #ddd; }
+      .ngdialog-content .cancelRecordModal md-input-container md-select .md-select-value span {
+        color: #1a2e35; }
+
+.buttonLogin {
+  padding: 2px 58px;
+  border-radius: 3px;
+  background-color: #339999;
+  color: #fff;
+  border: none;
+  font-family: "Roboto-Medium"; }
+
+.buttonDefault {
+  background: #339999;
+  border-radius: 3px;
+  border: 1px solid #00b1b1;
+  font-family: Roboto-Medium;
+  color: #fff;
+  margin-right: 10px; }
+
+.buttonDefault:hover {
+  background: #00e6e6;
+  border-color: #00e6e6;
+  color: #fff; }
+
+.buttonDefault.btn-white {
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid #00b1b1;
+  font-family: Roboto-Medium;
+  color: #00b1b1; }
+
+.buttonDefault.btn-white:hover {
+  background: #00b1b1;
+  border-color: #00b1b1;
+  color: #fff; }
+
+.btnAccept {
+  color: #007c7b;
+  font-family: "Roboto-Bold", "Roboto";
+  border: none;
+  background: transparent;
+  font-size: 0.917em; }
+
+.btnAccept:hover {
+  color: #00e6e6;
+  text-decoration: none; }
+
+.btnReturn {
+  color: #007c7b;
+  font-family: "Roboto-Bold", "Roboto";
+  background: #fff;
+  font-size: 0.917em;
+  border: none; }
+
+.btnReturn:hover {
+  color: #00e6e6;
+  text-decoration: none; }
+
+.btn-primary {
+  background: #339999 !important; }
+
+.btnFile {
+  position: relative;
+  overflow: hidden;
+  border: none !important; }
+
+.btnFile input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block; }
+
+md-tooltip .tooltipFioc {
+  padding: 20px !important; }
+  md-tooltip .tooltipFioc span {
+    padding: 20px !important; }
+
+.standFioc md-select-menu md-content,
+.standFioc md-select-menu md-content {
+  height: 100% !important;
+  max-height: 100% !important; }
+
+.md-select-menu-container.md-active md-select-menu > * {
+  color: #999 !important; }
+
+md-select-menu md-option[selected] {
+  color: #fff !important;
+  background: #339999; }
+
+md-checkbox.md-default-theme.md-checked .md-ink-ripple,
+md-checkbox.md-checked .md-ink-ripple {
+  color: #339999 !important;
+  background: #fff !important; }
+
+md-checkbox .md-icon {
+  border-color: #999 !important;
+  border: 1px solid #999 !important; }
+
+md-checkbox.md-default-theme.md-checked .md-icon,
+md-checkbox.md-checked .md-icon {
+  background: #fff !important; }
+
+md-checkbox.md-default-theme.md-checked .md-icon:after, md-checkbox.md-checked .md-icon:after {
+  border-color: #339999 !important; }
+
+md-input-container:not(.md-input-invalid).md-input-focused label {
+  color: rgba(0, 0, 0, 0.54) !important;
+  font-size: 1em !important; }
+
+md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+  border-color: #ddd !important; }
+
+md-select.md-default-theme:not([disabled]):focus .md-select-value, md-select:not([disabled]):focus .md-select-value {
+  border-color: #999 !important; }
+
+.ez-datetime-modal.ng-scope .btn-primary {
+  background: #339999; }
+.ez-datetime-modal.ng-scope .datepicker tbody td {
+  color: #339999; }
+  .ez-datetime-modal.ng-scope .datepicker tbody td.day:hover {
+    background: #339999 !important; }
+  .ez-datetime-modal.ng-scope .datepicker tbody td.active.active {
+    background: #1a2e35;
+    color: #fff; }
+.ez-datetime-modal.ng-scope .datepicker span.active.active {
+  background: #1a2e35;
+  color: #fff; }
+
+body.ngdialog-open, html.ngdialog-open,
+body.ngdialog-open,
+.modal-open {
+  overflow: initial !important; }
+
+.md-select-icon:after {
+  display: block;
+  content: '\25BC';
+  position: relative;
+  top: 2px;
+  speak: none;
+  -webkit-transform: scaleY(0.6) scaleX(1);
+  transform: scaleY(0.6) scaleX(1); }
+
+.pagination {
+  margin: 24px 0; }
+
+.cursorPointer {
+  cursor: pointer; }
+
+/*
+$darkGreen: #263238;
+$lightGreen: #007c7b;
+
+$lightGrey: #cccccc;
+$mediumGrey: #666666;
+
+$aquaLight: #00e6e6;
+$aquaDark: #007c7b;
 */
+.textAquaDark {
+  color: #007c7b;
+  font-family: "Roboto-Bold", "Roboto"; }
 
-*{
-  margin:0;
+.textAquaDark:hover {
+  color: #00e6e6;
+  text-decoration: none; }
+
+.rowOk {
+  margin-left: 15px !important;
+  margin-right: 15px !important; }
+
+.material-icons {
+  cursor: pointer;
+  vertical-align: middle; }
+
+.breadcrumbSite {
+  margin: 0;
   padding: 0;
-}
-
-body {
-  background-color: #E6E6E6;
-}
-
-@font-face {
-    font-family: Roboto-Bold;
-    src: url(../font/roboto/Roboto-Bold.woff);
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: Roboto-Medium;
-    src: url(../font/roboto/Roboto-Medium.woff);
-    
-}
-
-@font-face {
-    font-family: Roboto-Medium;
-    src: url(../font/roboto/Roboto-Regular.woff);
-    
-}
-
-
-.icon-block {
-  padding: 0 15px;
-}
-
-.icon-block .material-icons {
-	font-size: inherit;
-}
+  font-size: 1.250em;
+  font-family: "Roboto-Medium", "Roboto";
+  color: #999; }
 
 .contenedor {
-	background-color: #E6E6E6;
-	width:100%;
-	height:100%;
-}
-
-.cabecera {
-	background-color:#FDFDFD;
-	/*border-top: thick solid #AB0E0E;*/ /*  9E0A0A*/
-	margin: 0;
-    width: 100%;
-	height: 85px;
-	position:fixed;
-	z-index: 2;
-}
-
-.contenido_nav {
-  width:100%;
-	height: 100%;
   margin: 0 auto;
-  background-color:;
-}
-
-.cabecera_center{
-  width:980px;
-  margin:0 auto;
-}
-
-.cont_sup {
-  width:100%;
-	height:50px;
-  background-color:#124549; /*#1A2E35*/
-}
-
-.cont_inf {
-  width:100%;
-	height: 35px;
-  position:relative;
-  background-color:#124549;
-}
-
-.tit_cliente{
-	width:70%;
-	height:100%;
-	float:left;
-  padding-left: 10px;
-	color:#373535;
-	font-size: 20px;
-	font-weight:;
-  font-family: "Roboto-Medium";
-}
-
-.tit_cliente p{
-  position:relative;
-	right: 10px;
-  color:white;
-	/*width:200px;*/
-}
-
-.img_open {
-	width:30%;
-	height: 100%;
-	float: right;
-}
-
-.img_logo {
-	float:right;
-  position: relative;
-  left:70px;
-	margin-top:20px;
-  width: 120px;
-
-}
-
-.menu_nav{
-	width:400px;
-  position:relative;
-  left:0px;
-}
-
-.menu_cabecera{
-  bottom:25px;
-}
-
-.menu_cabecera li a{
-  color:white;
-}
-
-.lateral_derecha{
-  width:auto;
-  color:#76777a;
-  float:right;
-  position:relative;
-  left:0px;
-  bottom:25px;
-}
-
-.nom_usuario {
-  width:auto;
-  position:relative;
-  float:left;
-  left:0px;
-  font-size: 18px;
-  bottom: 5px;
-  color:#d1d1d1;
-  font-weight: 200;
-}
-
-.nom_usuario a{
-  color:#fff;
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.nom_usuario a:hover{
-  color:#00e6e6;
-  font-size: 13px;
-}
-
-.iconos_cab{
-  position:relative;
-  float:left;
-  top:0px;
-}
-
-.iconos_cab a{
-  color:#fff;
-}
-
-.iconos_cab a:hover{
-  color:#00e6e6;
-}
-
-.iconos_cab a i{
-  color:#fff;
-  font-size: 20px;
-  font-weight: 300;
-}
-
-.busq_expediente {
-	width:;
-}
-
-.central {
-	height: 100%;
-	position: relative;
-	top:80px;
-	/*margin-top:4%;*/
-}
-
-.central-col {
-  height: 100%;
-  margin-top: 20px;
-  width: 980px;
-  margin: 0 auto;
-}
-
-.triangulo {
-  background-color: orange;
-  width: 10px;
-  height: 10px;
-  position:relative;
-  z-index: 1;
-
-  /*border-right: 100px solid blue;
-  border-top: 100px solid transparent;
-  border-left: 100px solid transparent;
-  border-bottom: 100px solid blue;
-  */
-}
-
-.cent_buscador {
-	background-color: #fff;
-	width: 100%;
-  height: 280px;
-  position:relative;
-  top:5px;
-	/*min-height:45%;
-	height: auto;*/
-  float: inherit;
-  display: none;
-  padding-top: 20px;
-  padding-bottom: 15px;
-	margin-bottom: 15px;
-	box-shadow: 3px 3px 5px #848484;
-  padding-right:0px;
-  padding-left:0px;
-	/*padding-top: 20px;*/
-	/*padding-left: 30px;
-	padding-right: 30px;*/
-
-}
-
-.labels_busc1{
-  height: 10px;
-  width:60px;
-  color:#727272;
-  font-size: 12px;
-  display: inline-block;
-  font-family: "Roboto-Regular", "Roboto";
-}
-.labels_busc2{
-  height: 10px;
-  color:#2F8D8C;
-  font-size: 12px;
-  display: inline-block;
-  position:relative;
-  bottom:15px;
-}
-
-.labelsInfo {
-  position:relative;
-  width:300px;
-  height: 50px;
-  background-color:;
-  float:left;
-}
-
-.datosDetalle {
-  width:auto;
-  height:65px;
-  background-color:;
-  border-bottom: 1px solid #D1D1D1;
-  position: relative:
-  top:0px;
-  margin-top: 0px;
-
-}
-
-.infoDatos{
-  width: auto;
-  position:relative;
-  float:left;
-  margin-right: 25px;
-  top:4px;
-  font-size: 12px;
-  font-family: "Roboto-Regular", "Roboto";
-}
-
-.campoForm {
-  width: auto;
-  float:left;
-  margin-right: 25px;
-  font-size: 12px;
-  font-family: "Roboto-Regular", "Roboto";
-}
-
-.margInf{
-  margin-bottom:7px;
-}
-
-.masPad {
-  margin-right: 50px;
-}
- 
-.content_central {
-  height: auto;
-  background-color: ;
-  position:relative;
-  top:105px;
-}
-
-.tituloRequer {
-  width:100%;
-  height:50px;
-  background-color: ;
-  clear: both;
-  position: relative;
-  bottom:100px;
-  padding-top: 25px;
-}
-
-.tit {
-  float:left;
-  width:auto;
-  font-family: "Roboto-Regular", "Roboto";
-  font-size: 18px;
-  color:#76777A;
-}
-
-.docTit {
-  background-color: #f0f0f0;
-  position:relative;
-  overflow: hidden;
-  top:10px;
-  right:20px;
-  width:980px;
-  z-index:;
-  height: auto;
-  padding:20px;
-  padding-right:40px;
-  padding-left: 40px;
-}
-
-.docTit a{
-  color:#007c7b;
-  font-weight:400;
-}
-
-.medium {
-  font-family: "Roboto-Medium";
-  font-size: 12px;
-}
-
-.encabezadoDespleg{
-  width:100%;
-  height: auto;
-}
-
-.tituloDesplegable {
-  color:black;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.tablaDesplegable {
-  font-family: "Roboto-Regular", "Roboto";
-  font-size: 13px;
-}
-
-.xCerrar {
-  float:right;
-  position:relative;
-  bottom:25px;
-}
-
-.enlaceAnyadir {
-  position:relative;
-  top:5px;
-  float:right;
-}
-
-.bttRequer {
-  background-color: white;
-  color:#2AB7A9;
-  box-shadow: 0px 0px 2px #2AB7A9;
-  margin-right: 10px;
-  width: 190px !important;
-  padding: 0px;
-}
-
-.bttRequer:hover{
-  background-color: white;
-}
-
-.datosTitular{
-  background-color: ;
-  position: relative;
-  top:30px;
-}
-
-.datosCoTitular{
-  background-color:transparent;
-  position: relative;
-  top:20px;
-}
-
-.datosAutorizado{
-  background-color: ;
-  position: relative;
-  top:20px;
-}
-
-.titTitular{
-  height:20px;
-  position:relative;
-  left:10px;
-  margin-bottom: 15px;
-
-  font-family: "Roboto-Medium", "Roboto";
-  font-size: 16px;
-}
-
-.contNum{
-  font-size: 14px;
-  font-family: "Roboto-Regular", "Roboto";
-}
-
-.cont_labels{
-  position:relative;
-  top:15px;
-  width:30px;
-  color:;
-  display: inline-block;
-  text-align: ;
-}
-.cent_mostrar {
-	background-color: #fff;
-	width: 100%;
-  position:relative;
-  top:5px;
-  float: inherit;
-  display: inline-block;
-	margin-bottom: 20px;
-  margin-top:0px;
-	box-shadow: 3px 3px 5px #848484;
-}
-
-.cent_resultados {
-  background-color: #fff;
-  width: 100%;
-  position:relative;
-  top:5px;
-  float: inherit;
-  display: none;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  margin-top:0px;
-  box-shadow: 3px 3px 5px #848484;
-}
-
-.frmResulBusq{
-  margin-bottom:0px;
-  padding-right:20px; 
-  background-color: #fff; 
-  box-shadow: 3px 3px 5px #848484;
-}
-
-.central_mostrar {
-  background-color: transparent !important;
-  width: 100%;
-  height:auto;
-}
-
-#menuListado{
-  background-color: ;
-  display:block;
-}
-
-.left{
-  position:relative;
-  right:10px;
-}
-
- .top{
-  bottom:0px;
- }
-
-.titDetalle {
-  position: relative;
-  top:15px;
-}
-
-.bttDetailExp {
-  position:relative !important;
-  left:590px !important;
-  bottom:25px;
-}
-
-.bttDetailExp button {
-  height: 25px;
-  line-height: 8px;
-  width:145px;
-  padding: 0px;
-}
-
-.cent_detalle {
-  background-color: #fff;
-  width: 100%;
-  height:auto;
-  overflow: hidden;
-  position:relative;
-  top:5px;
-  float: inherit;
-  display: inline-block;
-  margin-bottom: 20px;
-  margin-top:0px;
-  box-shadow: 3px 3px 5px #848484;
-  padding:20px;
-}
-
-.cent_titulos{
-  position:relative;
-  right: 10px;
-  top:10px;
-}
-
-.filaDos {
-  position: relative;
-  bottom:30px;
-}
-
-#menu_nav li a{
-  height: 47px !important;
-  font-family: "Roboto-light","Roboto";
-  font-weight: 300;
-  font-size: 16px;
-  color:white;
-}
-
- #menu_nav li a:hover{
-  border-bottom: 4px solid #00E6E6;
- }
-
-.expediente_nav li{
-  width:160px;
-  text-align: center;
-}
-/*.expediente_nav ul:nth-child(2){
-  width:200px;
-}
-*/
-
-#infoDesplegable {
-  position: relative !important;
-  top:5px;
-  margin-top: 10px;
-  right:42px !important;
-}
-
-#enlace0 {
- width:130px;  
-}
-#enlace1 {
- width:190px;  
-}
-#enlace2 {
- width:140px;  
-}
-#enlace3 {
- width:160px;  
-}
-#enlace4 {
- width:170px;  
-}
-
-/* label color */
-   .input-field label {
-     color: #76777a;
-     font-size: 14px;
-   }
-   .prueba .input-field input[type=text]:focus + label {
-     color: #d1d1d1;
-   }
-   /* label focus color */
-   .input-field input[type=text]:focus + label {
-     color: #76777a;
-   }
-   /* label underline focus color */
-   .input-field input[type=text]:focus {
-     border-bottom: 1px thin #76777a;
-     box-shadow: 0 1px 0 0 #76777a;
-   }
-   /* valid color */
-   .input-field input[type=text].valid {
-     border-bottom: 1px solid #000;
-     box-shadow: 0 1px 0 0 #000;
-   }
-   /* invalid color */
-   .input-field input[type=text].invalid {
-     border-bottom: 1px solid #000;
-     box-shadow: 0 1px 0 0 #000;
-   }
-   /* icon prefix focus color */
-   .input-field .prefix.active {
-     color: #000;
-   }
-
-   .input-field input{
-    margin-bottom: 0px !important;
-   }
-
-   .input-field{
-    margin-top: 0px;
-   }
-        
-   .custom-width{
-   	 width:10%;
-   	 text-align: center;
-   	 color: #2F8D8C;
-   }
-
-   th {
-   	 color: #2F8D8C;
-     font-weight: normal;
-   }
-
-   td{
-   	line-height: 1;
-   }
-
-   .bigger-font-size{
-   	 font-size: 18px;
-     font-weight: 500;
-     color: #76777a;
-     font-family: "Roboto-Medium";
-   }
-
-   .blue-color{
-   	color: #2F8D8C;
-   }
-
-   .pagination{
-    font-family: "Roboto-Medium","Roboto";
-    font-size: 12px;
-   }
-
-   .pagination li{
-   	font-size: 0.8rem !important;
-   	vertical-align: text-top !important;
-   	line-height: 20px;
-    padding-left: 6.75px;
-    padding-right: 6.75px;
-   }
-
-   .pagination li i {
-      font-size: 1.2rem;
-      line-height: 20px;
-    }
-
-   .pagination-padding{
-   	margin-top: 10px;
-   }
-
-   table .material-icons{
-   	vertical-align: middle;
-   	font-size: 20px;
-   	line-height: 0;
-   }
-
-   .resultadosTabla>thead>tr:first-child{
-   	border-bottom: 2px solid #d0d0d0 !important;
-   }
-   .resultadosTabla tr{
-   	border-bottom: 1px solid #F2F2F2 !important;
-   }
-
-   .resultadosTabla th{
-    padding-bottom: 5px;
-    font-size: 12px;
-    color:#727272;
-    font-family: "Roboto-Regular", "Roboto";
-   }
-
-   .resultadosTabla th:hover{
-    cursor: pointer;
-   }
-
-   .resultadosTabla>tbody{
-    font-weight: 400;
-    font-size: 14px;
-   }
-
-   .resultadosTabla td{
-    font-family: "Roboto-Regular","Roboto";
-    font-size: 13px;
-    color: #263238;
-    padding-top: 8.5px;
-    padding-bottom: 8.5px;
-    height: 15px;
-   }
-
-   .posIzq {
-    position:relative;
-    left:10px;
-  }
-
-  .tdIcon {
-    color:#727272;
-  }
-
-/******* Tercera directiva *******/
-
-   .quest {
-    font-size: 12px;
-    font-family: "Roboto-Regular", "Roboto";
-    color:#76777a;
-
-   }
-
-   .answ{
-    font-size: 13px;
-    font-family: "Roboto-Regular", "Roboto";
-    color:#000;
-   }
-
-   .resultadosTabla td:first-child,.resultadosTabla th:first-child{
-    padding-left: 28px;
-   }
-
-   .resultadosTabla td:last-child,.resultadosTabla th:last-child{
-    padding-right: 22px;
-   }
-
-
-  .active{
-    padding-bottom: 0px !important;
-  }
-
-  /*.bold{
-    font-weight: bold;
-  }*/
-
-  .clickable{
-    cursor: pointer;
-  }
-
-    .bold {
-    font-weight: 500;
-    /*font-size: 12px;*/
-  }
-
-  .button-medium{
-    font-family: "Roboto-Medium";
-    font-size: 14px;
-  }
-
-  .right {
-    float:right;
-    padding-top: 20px;
-    color:#2F8D8C;
-  }
-
-  .lowSize{
-    font-size: 13px; 
-  }
-
-  .check{
-    color: green;
-  }
-
-  .check:before{
-    content: "check_circle";
-  }
-
-  .warning{
-    color: orange;
-  }
-
-  .warning:before{
-    content: "warning";
-  }
-
-  .inactive{
-    color: #cecece;
-  }
-
-  .inactive:before{
-    /*content: "check_box_outline_blank";*/
-    content: "stop";
-    border-radius: 4px;
-    background-color: #cecece;
-    font-size: 17px;
-  }
-
-  .inactive-disabled{
-    color: #eaeaea !important;
-  }
-
-  .inactive-disabled:before{
-    background-color: #eaeaea !important;
-  }
-
-  .centertable {
+  font-size: 1em;
+  background: #ddd;
+  min-height: 100%; }
+  .contenedor .central .central-col.ng-scope {
     position: relative;
-    right:0px;
-    top:20px;
-  }
-
-  .borde {
-    border-bottom: 10px solid grey;
-  }
-
-  .borde1 {
-    border-bottom: 10px solid green;
-  }
-
-  .centertable td{
-    text-align: center;
-  }
-
-  input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea{
-    height: 2.4rem;
-    font-size: 14px;
-    height:16px;
-    margin-top: 12px;
-    padding-bottom: 4px;
-  }
-
-  .select-wrapper input.select-dropdown{
-    height: 2.4rem;
-    font-size: 14px;
-    height: 30px;
-    margin-top: 1px;
-    padding-bottom: 4px;
-    top: -3px;
-  }
-
-
-
-  .customBorder{
-    border: 1px solid #eaeaea;
-  }
-
-  .customBorder tr{
-    border-bottom: 1px solid #eaeaea;
-  }
-
-  .noPadding{
-    padding: 0px !important;
-  }
-
-  .text-right-bottom{
-    text-align: right;
-    vertical-align: bottom;
-  }
-
-  .no-background,.no-background:focus{
-    background-color: transparent;
-  }
-
-  .buscar-submit{
-    vertical-align: baseline;
-    position: relative;
-    top: -7px;
-  }
-
-  .input-field label.active{
-    font-size: 12px;
-  }
-
-  .formulario-buscador-padding{
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-
-  .expediente_nav{
-    display: inline-block;
     width: 100%;
-    height: 40px;
-     border-bottom: 1px thin #76777a;
-  }
+    top: 100px; }
 
-  .expediente_nav_container{
-    height: 30px;
-    position: relative;
-    top:10px;
-    border-bottom: 2px solid #F0F0F0;
-    background-color:;
-  }
-
-  .expediente_nav_container nav{
-    background-color: transparent;
-    box-shadow: none;
-    height: 30px;
-    line-height: 70%;
-  }
-
-  .expediente_nav ul{
-    display: inline-block;
-    color:#15252A;
-  }
-
-  .expediente_nav ul{
-    display: inline-block;
-    color:#15252A;
-  }
-  .contadores{
-    width:400px;
-    height:10px;
-    position:relative;
-    top:15px;
-    background-color: ;
-  }
-
-  .contador {
-    width:17px;
-    height:15px;
-    background-color: #76777a;
-    margin-left:95px;
-    display: inline-block;
-    text-align: center;
-  }
-
-  .contador p{
-    font-size: 10px;
-    color:white;
-
-  }
-
-  .contador:hover{
-    background-color:#00E6E6;
-  }
-
-  .form_busqueda_container,.form_detalle_expediente_container{
-    padding-left: 0px !important;
-    padding-right: 40px;
-    margin-top: 0px;
-    padding-top: 20px ;
-    /*border-top: 1px solid #e0e0e0;*/
-  }
-  .form_detalle_expediente_container{
-    padding-top: 10px;
-  }
-
-  .form_busqueda_container > .row,.form_detalle_expediente_container  > .row{
-    padding-left: 20px;
-    /*padding-right: 40px;*/
-  }
-
-  .form_busqueda_container > .row > .input-field:first-child,.form_detalle_expediente_container  > .row > .input-field:first-child{
-    padding-left: 10px;
-  }
-
-   .form_busqueda_container > .row > .input-field:first-child > label,.form_detalle_expediente_container  > .row > .input-field:first-child > label{
-    padding-left: 10px;
-   }
-
-  .form_busqueda_container > .row > .input-field:last-child,.form_detalle_expediente_container  > .row > .input-field:last-child{
-    padding-right: 0px;
-  }
-
-  .form_mostrar_container{
-    padding-left: 20px !important;
-    padding-right: 40px !important;
-    margin-top: 0px;
-    padding-top: 30px !important;
-    border-top:1px thin grey;
-    background-color:;
-  }
-
-
-  nav ul li a{
-    color: white;
-    border-bottom: 2px solid transparent;
-    position: relative;
-
-    top: 25%;
-  }
-
-  nav ul li:hover{
-    background-color: transparent;
-    border-bottom: 0px !important;
-    color:#00E6E6;
-    font-weight: 500;
-    padding-bottom: 2px;
-  }
-
-  nav ul li a:hover{
-    color: #00E6E6 !important;
-    border-bottom: 2px solid #00E6E6 !important;
-    padding-bottom: 2px;
-    /*border-bottom: 1px solid #b61f26;*/
-    font-weight: 500;
-  }
-
-  .expediente_nav_container nav ul li a{
-    font-family: Roboto-Medium,Roboto;
-    font-size: 14px;
-    border-bottom: 0px;
-    padding-left: 20px;
-    padding-right: 20px;
-    height: 20px;
-    color: #15252A
-  }
-
-  .expediente_nav_container nav ul li a:hover {
-     font-size: 14px;
-     font-family: Roboto-Medium,Roboto;
-     font-weight: 600;
-  }
-
-  .expediente_nav_container nav ul li{
-    height: 39px;
-  }
-  
-  .resultado_numero{
-    display: inline-block;
-  }
-
-  .resultados_encontrados,.mostrar_resultados{
-    font-family: "Roboto-Regular","Roboto" !important;
-    font-size: 12px !important;
-  }
-
-  .noBorder input{
-    border-bottom: 0px !important;
-    font-family: "Roboto-Regular","Roboto" !important;
-    font-size: 12px !important;
-    top: 0 !important;
-  }
-
-  .noBorder .caret{
-    top: 15px !important;
-  }
-
-  .ascend i:before{
-    content: "keyboard_arrow_up";
-  }
-
-  .descend i:before{
-    content: "keyboard_arrow_down";
-  }
-
-  .icon_search a{
-    color:#767777a;
-  }
-
-
-  .numPag {
-    background-color: ;
-    width:90px;
-    color: black;
-  }
-
-  .boxLogin {
-    width:380px;
-    height: 370px;
-    background-color: white;
-    margin:auto auto;
-    box-shadow: 0px 3px 5px grey;
-  }
-
-  .headerLogin {
-    width:auto;
-    height: 85px;
-    background-color: #1a2e35;
-  }
-
-  .imgLogin {
-    position: relative;
-    top:20px;
-    left:160px;
-  }
-  .titLogin{
+.boxLogin {
+  background-color: #fff;
+  width: 380px;
+  height: 370px;
+  margin: auto auto;
+  box-shadow: 0px 3px 5px grey; }
+  .boxLogin .headerLogin {
     width: auto;
-    height: 90px;
-    line-height: 90px;
-    background-color:;
+    height: 85px;
+    background-color: #1a2e35; }
+    .boxLogin .headerLogin .imgLogin {
+      position: relative; }
+      .boxLogin .headerLogin .imgLogin img {
+        border: 1px solid yellow;
+        width: 190px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block;
+        padding-top: 25px; }
+  .boxLogin .titLogin {
+    width: auto;
+    height: 70px;
+    line-height: 70px;
     font-size: 22px;
     font-weight: bold;
-    color:#727272;
+    color: #666;
     position: relative;
-    top:5px;
-  }
-
-  .titLogin p{
-    font-family: "Roboto-Bold","Roboto";
-    width: 280px;
-    background-color:;
+    top: 5px; }
+    .boxLogin .titLogin p {
+      font-family: Roboto-Bold;
+      width: 280px;
+      margin-right: auto;
+      margin-left: auto; }
+  .boxLogin .contentLogin {
+    width: 220px;
     margin-right: auto;
-    margin-left: auto;
-  }
+    margin-left: auto; }
+    .boxLogin .contentLogin .group {
+      margin: 15px 0; }
+      .boxLogin .contentLogin .group label {
+        font-size: 14px;
+        font-family: "Roboto-Light";
+        color: #999; }
+      .boxLogin .contentLogin .group input {
+        background: #fff;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #ddd; }
 
-  label {
-    font-size: 14px;
-    font-family: "Roboto-Regular","Roboto";
-    color:#76777a;
-  }
+.cabecera {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100px;
+  background: #1a2e35;
+  color: #fff;
+  padding: 0; }
+  .cabecera .contenido_nav {
+    margin: 0 auto;
+    width: 979px; }
+    .cabecera .contenido_nav .cont_sup .cabecera_center {
+      height: 49px;
+      padding: 10px 0 40px 0; }
+      .cabecera .contenido_nav .cont_sup .cabecera_center .tit_cliente .ng-binding {
+        font-family: Roboto-Bold;
+        font-size: 1.5em; }
+      .cabecera .contenido_nav .cont_sup .cabecera_center .img_open img {
+        float: right; }
+    .cabecera .contenido_nav .cont_inf .cabecera_center {
+      height: 50px;
+      padding-top: 25px; }
+      .cabecera .contenido_nav .cont_inf .cabecera_center > ul.menu_cabecera li {
+        display: inline-block;
+        padding: 0 10px;
+        height: 25px; }
+        .cabecera .contenido_nav .cont_inf .cabecera_center > ul.menu_cabecera li a {
+          color: #fff;
+          font-size: 1.083em;
+          font-family: "Roboto-Medium", "Roboto";
+          padding: 0 6px 3px 6px; }
+          .cabecera .contenido_nav .cont_inf .cabecera_center > ul.menu_cabecera li a:hover {
+            color: #00e6e6;
+            text-decoration: none;
+            border-bottom: 3px solid #00e6e6; }
+          .cabecera .contenido_nav .cont_inf .cabecera_center > ul.menu_cabecera li a:focus {
+            color: #00e6e6;
+            text-decoration: none;
+            border-bottom: 3px solid #00e6e6; }
+      .cabecera .contenido_nav .cont_inf .cabecera_center > div.lateral_derecha {
+        padding: 0px;
+        display: table;
+        float: right;
+        padding-right: 5px; }
+        .cabecera .contenido_nav .cont_inf .cabecera_center > div.lateral_derecha > div {
+          display: table-cell; }
+        .cabecera .contenido_nav .cont_inf .cabecera_center > div.lateral_derecha .nom_usuario {
+          font-family: "Roboto-Medium", "Roboto";
+          font-size: 1em;
+          display: table-cell;
+          vertical-align: top;
+          height: 10px; }
+          .cabecera .contenido_nav .cont_inf .cabecera_center > div.lateral_derecha .nom_usuario a {
+            color: #fff;
+            border-right: 1px solid #fff;
+            padding-right: 10px; }
+        .cabecera .contenido_nav .cont_inf .cabecera_center > div.lateral_derecha .iconos_cab {
+          float: right;
+          display: table-cell;
+          vertical-align: top;
+          height: 25px; }
+          .cabecera .contenido_nav .cont_inf .cabecera_center > div.lateral_derecha .iconos_cab a {
+            color: #fff; }
+            .cabecera .contenido_nav .cont_inf .cabecera_center > div.lateral_derecha .iconos_cab a:hover {
+              text-decoration: none;
+              color: #ddd; }
 
-  .boxUser {
-    width:220px;
-    margin-right: auto;
-    margin-left: auto;
-  }
+.Toc {
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 979px;
+  background-color: #fff;
+  box-shadow: 1px 3px 4.7px 0.3px rgba(0, 0, 0, 0.24);
+  font-size: 1em;
+  padding-bottom: 50px;
+  margin-bottom: 40px; }
+  .Toc .tocHeader {
+    border-bottom: 2px solid #ddd; }
+    .Toc .tocHeader .expediente_nav_container nav ul {
+      padding: 0;
+      margin-bottom: 0px;
+      height: 41px; }
+      .Toc .tocHeader .expediente_nav_container nav ul li {
+        display: inline-block;
+        padding: 10px 20px;
+        cursor: pointer; }
+        .Toc .tocHeader .expediente_nav_container nav ul li:hover {
+          border-bottom: 3px solid #339999; }
+          .Toc .tocHeader .expediente_nav_container nav ul li:hover a {
+            color: #339999 !important;
+            text-decoration: none; }
+        .Toc .tocHeader .expediente_nav_container nav ul li.active {
+          border-bottom: 3px solid #339999; }
+          .Toc .tocHeader .expediente_nav_container nav ul li.active a {
+            color: #339999 !important;
+            text-decoration: none; }
+        .Toc .tocHeader .expediente_nav_container nav ul li a {
+          color: #1a2e35 !important;
+          font-size: 1.083em;
+          font-family: "Roboto-Medium", "Roboto"; }
+  .Toc form.tocBody .ResultsListPrintRecord {
+    padding: 15px 0 30px 0; }
+    .Toc form.tocBody .ResultsListPrintRecord .ResultsList {
+      display: table; }
+      .Toc form.tocBody .ResultsListPrintRecord .ResultsList .ResultsListCaption {
+        margin: 0;
+        padding: 0;
+        font-size: 1.250em;
+        font-family: "Roboto-Medium", "Roboto";
+        color: #999; }
+      .Toc form.tocBody .ResultsListPrintRecord .ResultsList .recordReview {
+        margin: 0;
+        padding: 0;
+        display: table-cell;
+        vertical-align: middle; }
+        .Toc form.tocBody .ResultsListPrintRecord .ResultsList .recordReview input {
+          display: table-cell;
+          vertical-align: middle;
+          margin: 0;
+          padding: 0;
+          border-radius: 2px;
+          border-width: 1px;
+          border-color: #999;
+          border-style: solid;
+          width: 20px;
+          height: 20px; }
+        .Toc form.tocBody .ResultsListPrintRecord .ResultsList .recordReview label {
+          margin: 0;
+          padding: 0;
+          color: #999;
+          font-size: 0.917em; }
+    .Toc form.tocBody .ResultsListPrintRecord .ResultsListPrint .resultados_encontrados {
+      color: #1a2e35;
+      font-size: 0.917em;
+      font-family: "Roboto-Bold", "Roboto"; }
+    .Toc form.tocBody .ResultsListPrintRecord .ResultsListPrint .buttonPrint button {
+      background: none;
+      border: none;
+      color: #339999; }
+      .Toc form.tocBody .ResultsListPrintRecord .ResultsListPrint .buttonPrint button:hover {
+        color: #999; }
+  .Toc form.tocBody table.resultadosTabla {
+    padding: 15px;
+    font-size: 1em;
+    width: 96%;
+    margin: 0 auto; }
+    .Toc form.tocBody table.resultadosTabla th {
+      text-align: left;
+      font-family: "Roboto-Regular";
+      color: #999;
+      width: auto;
+      font-weight: normal;
+      border-bottom: 1px solid red; }
+    .Toc form.tocBody table.resultadosTabla tr {
+      border-bottom: 2px solid #ddd; }
+      .Toc form.tocBody table.resultadosTabla tr.firstCell {
+        border-bottom: 2px solid #ddd; }
+        .Toc form.tocBody table.resultadosTabla tr.firstCell th {
+          text-align: left;
+          font-family: "Roboto-Regular";
+          color: #999;
+          width: auto;
+          font-weight: normal; }
+          .Toc form.tocBody table.resultadosTabla tr.firstCell th.firstTh {
+            width: 50px; }
+      .Toc form.tocBody table.resultadosTabla tr td {
+        color: #1a2e35;
+        font-size: 0.917em;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+        width: auto;
+        height: 30px; }
+        .Toc form.tocBody table.resultadosTabla tr td md-checkbox {
+          margin: 0; }
+        .Toc form.tocBody table.resultadosTabla tr td.firstTd {
+          text-align: right;
+          padding: 0 15px; }
+          .Toc form.tocBody table.resultadosTabla tr td.firstTd i.material-icons {
+            font-size: 1.083em !important;
+            text-align: right; }
+        .Toc form.tocBody table.resultadosTabla tr td span {
+          cursor: pointer; }
+    .Toc form.tocBody table.resultadosTabla.tableFioc.resultadosTabla tr td span {
+      cursor: auto; }
+    .Toc form.tocBody table.resultadosTabla.tableFioc md-input-container {
+      width: 100%;
+      margin: 0; }
+      .Toc form.tocBody table.resultadosTabla.tableFioc md-input-container label {
+        display: none; }
+      .Toc form.tocBody table.resultadosTabla.tableFioc md-input-container md-select .md-select-value {
+        border: none;
+        padding: 0;
+        margin-top: -6px; }
+  .Toc form.tocBody .contentBtnProcessUser {
+    margin: 10px 0;
+    padding: 0 22px; }
+    .Toc form.tocBody .contentBtnProcessUser.BtnBlock {
+      margin: 10px 0 !important; }
+  .Toc form.tocBody .tocFooterBloqueo {
+    height: 100%;
+    display: block; }
+    .Toc form.tocBody .tocFooterBloqueo .mostrar_resultados {
+      width: 33.3%; }
+    .Toc form.tocBody .tocFooterBloqueo .paginationContainer {
+      width: 24.9%;
+      float: left; }
+  .Toc .tocFooter {
+    padding: 15px;
+    color: #999 !important;
+    font-size: 0.917em; }
+    .Toc .tocFooter .showResults {
+      padding: 10px; }
+    .Toc .tocFooter .noBorder md-input-container {
+      margin: 0 !important;
+      padding: 0px !important; }
+      .Toc .tocFooter .noBorder md-input-container md-select .md-select-value {
+        border: none;
+        min-width: 20px; }
+        .Toc .tocFooter .noBorder md-input-container md-select .md-select-value *:first-child {
+          max-width: 30px; }
+        .Toc .tocFooter .noBorder md-input-container md-select .md-select-value .md-select-icon {
+          max-width: 10px; }
+    .Toc .tocFooter .recordsPage {
+      padding-top: 10px; }
 
-  .boxPass {
-    width:220px;
-    margin-right: auto;
-    margin-left: auto;
-  }
+.infoReqUserTable {
+  width: 100%; }
 
-  .divButton {
-    margin-left: auto;
-    margin-right: auto;
-    width:220px;
-    height: 20px;
-  }
-  .contentLogin {
-    position: relative;
-    bottom:15px;
-  }
-  .buttonLogin {
-    width:220px;
-    height:25px;
-    background-color: #007C7A;
-    margin-right: auto;
-    margin-left: auto;
-    color:#fff;
-    position: relative;
-    top:5px;
-  }
+.expDetalle.cent_detalle,
+.mpcContainer {
+  background: #fff;
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 979px;
+  box-shadow: 1px 3px 4.7px 0.3px rgba(0, 0, 0, 0.24);
+  font-size: 1em;
+  padding-bottom: 50px;
+  margin-bottom: 40px;
+  display: table;
+  max-width: 979px;
+  margin-top: 15px; }
+  .expDetalle.cent_detalle .expHeader, .expDetalle.cent_detalle .mpcTable,
+  .mpcContainer .expHeader,
+  .mpcContainer .mpcTable {
+    padding: 15px;
+    border-bottom: 2px solid #ddd; }
+    .expDetalle.cent_detalle .expHeader .datosDetalle, .expDetalle.cent_detalle .mpcTable .datosDetalle,
+    .mpcContainer .expHeader .datosDetalle,
+    .mpcContainer .mpcTable .datosDetalle {
+      padding: 15px 15px 0;
+      display: table;
+      width: 100%;
+      font-family: "Roboto-Light", "Roboto";
+      font-size: 1em; }
+      .expDetalle.cent_detalle .expHeader .datosDetalle .infoDatos, .expDetalle.cent_detalle .mpcTable .datosDetalle .infoDatos,
+      .mpcContainer .expHeader .datosDetalle .infoDatos,
+      .mpcContainer .mpcTable .datosDetalle .infoDatos {
+        display: table-cell; }
+        .expDetalle.cent_detalle .expHeader .datosDetalle .infoDatos > div, .expDetalle.cent_detalle .mpcTable .datosDetalle .infoDatos > div,
+        .mpcContainer .expHeader .datosDetalle .infoDatos > div,
+        .mpcContainer .mpcTable .datosDetalle .infoDatos > div {
+          color: #999;
+          font-family: Roboto-Regular;
+          font-size: 1em; }
+        .expDetalle.cent_detalle .expHeader .datosDetalle .infoDatos .contNum, .expDetalle.cent_detalle .mpcTable .datosDetalle .infoDatos .contNum,
+        .mpcContainer .expHeader .datosDetalle .infoDatos .contNum,
+        .mpcContainer .mpcTable .datosDetalle .infoDatos .contNum {
+          color: #1a2e35; }
+  .expDetalle.cent_detalle .mpcTable,
+  .mpcContainer .mpcTable {
+    border: none; }
+  .expDetalle.cent_detalle .expBody,
+  .mpcContainer .expBody {
+    margin-top: 15px; }
+    .expDetalle.cent_detalle .expBody .titTitular,
+    .mpcContainer .expBody .titTitular {
+      font-family: "Roboto-Bold", "Roboto";
+      font-size: 1.167em;
+      padding: 0 30px; }
+    .expDetalle.cent_detalle .expBody .datosDetalle,
+    .mpcContainer .expBody .datosDetalle {
+      display: table;
+      font-family: Roboto-Light;
+      color: #727272;
+      font-size: 1em;
+      padding: 0 30px; }
+      .expDetalle.cent_detalle .expBody .datosDetalle .infoDatos,
+      .mpcContainer .expBody .datosDetalle .infoDatos {
+        display: table-cell;
+        font-size: 1em; }
+        .expDetalle.cent_detalle .expBody .datosDetalle .infoDatos label,
+        .mpcContainer .expBody .datosDetalle .infoDatos label {
+          color: #999;
+          font-family: Roboto-Regular;
+          font-size: 1em;
+          font-weight: normal; }
+        .expDetalle.cent_detalle .expBody .datosDetalle .infoDatos p,
+        .mpcContainer .expBody .datosDetalle .infoDatos p {
+          font-family: Roboto-Regular;
+          font-size: 1em;
+          color: #1a2e35; }
+    .expDetalle.cent_detalle .expBody .centertable,
+    .mpcContainer .expBody .centertable {
+      padding: 0; }
+      .expDetalle.cent_detalle .expBody .centertable table.customBorder,
+      .mpcContainer .expBody .centertable table.customBorder {
+        margin: 15px 2.5%;
+        width: 95%; }
+    .expDetalle.cent_detalle .expBody .textAquaDark,
+    .mpcContainer .expBody .textAquaDark {
+      padding: 26px 30px 0 0; }
+    .expDetalle.cent_detalle .expBody .centertable table,
+    .mpcContainer .expBody .centertable table {
+      width: 100%; }
+      .expDetalle.cent_detalle .expBody .centertable table tr,
+      .mpcContainer .expBody .centertable table tr {
+        text-align: center;
+        color: #339999;
+        border: 1px solid #ddd; }
+        .expDetalle.cent_detalle .expBody .centertable table tr td,
+        .mpcContainer .expBody .centertable table tr td {
+          vertical-align: middle; }
+          .expDetalle.cent_detalle .expBody .centertable table tr td:focus,
+          .mpcContainer .expBody .centertable table tr td:focus {
+            background: #f1f7f7; }
+          .expDetalle.cent_detalle .expBody .centertable table tr td:hover,
+          .mpcContainer .expBody .centertable table tr td:hover {
+            background: #f1f7f7; }
+          .expDetalle.cent_detalle .expBody .centertable table tr td p,
+          .mpcContainer .expBody .centertable table tr td p {
+            padding: 0;
+            margin: 0;
+            font-size: 0.8333em;
+            font-family: "Roboto-Bold", "Roboto"; }
+    .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable,
+    .mpcContainer .expBody .centertable .infoReqUserTable {
+      background: #f1f7f7 !important;
+      width: 100%;
+      position: relative;
+      padding: 0 45px;
+      min-height: 100%;
+      color: #1a2e35;
+      height: 100%;
+      display: inline-block;
+      margin: 25px 0; }
+      .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .encabezadoDespleg,
+      .mpcContainer .expBody .centertable .infoReqUserTable .encabezadoDespleg {
+        height: 30px;
+        margin: 15px 0; }
+        .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .encabezadoDespleg .tituloDesplegable,
+        .mpcContainer .expBody .centertable .infoReqUserTable .encabezadoDespleg .tituloDesplegable {
+          padding: 13px 0 0 0;
+          font-size: 1.167em;
+          font-family: Roboto-Regular; }
+        .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .encabezadoDespleg .xCerrar,
+        .mpcContainer .expBody .centertable .infoReqUserTable .encabezadoDespleg .xCerrar {
+          padding: 13px 0 0 0; }
+      .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc,
+      .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc {
+        border: 1px solid #ddd;
+        background: #fff;
+        padding: 0;
+        margin-bottom: 25px; }
+        .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable,
+        .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable {
+          box-shadow: 1px 3px 4.7px 0.3px rgba(0, 0, 0, 0.24);
+          margin: 0; }
+          .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr,
+          .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr {
+            border: none; }
+            .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr td,
+            .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr td {
+              padding: 3px 20px 0 20px; }
+          .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableTit,
+          .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableTit {
+            font-family: Roboto-Regular;
+            font-size: 1em; }
+            .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableTit p,
+            .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableTit p {
+              font-family: Roboto-Regular;
+              color: #999;
+              font-size: 1em;
+              text-align: left; }
+          .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableData,
+          .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableData {
+            font-family: Roboto-light;
+            font-size: 1.167em;
+            color: #1a2e35; }
+            .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableData td,
+            .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableData td {
+              border-top: 1px solid #ddd;
+              padding-top: 5px; }
+              .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableData td p,
+              .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableData td p {
+                font-family: Roboto-Regular;
+                font-size: 0.8333em;
+                color: #263238;
+                text-align: left; }
+              .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableData td i,
+              .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableData td i {
+                float: left;
+                margin: 0 0 3px 10px; }
+          .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableThirdDirective,
+          .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableThirdDirective {
+            border-top: 1px solid #ddd; }
+            .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableThirdDirective td p,
+            .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableThirdDirective td p {
+              font-family: Roboto-Regular;
+              font-size: 1em;
+              color: #263238;
+              text-align: left; }
+      .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent,
+      .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent {
+        padding: 0; }
+        .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .addDocumentFile,
+        .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .addDocumentFile {
+          position: relative;
+          overflow: hidden; }
+          .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .addDocumentFile span.btnFile,
+          .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .addDocumentFile span.btnFile {
+            display: block;
+            padding: 0;
+            cursor: pointer; }
+        .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .fileName,
+        .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .fileName {
+          display: none; }
+        .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer,
+        .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer {
+          font-family: Roboto-Regular !important; }
+          .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container,
+          .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container {
+            padding: 0; }
+            .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container md-select .md-select-value,
+            .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container md-select .md-select-value {
+              background: transparent;
+              padding-top: 0;
+              border-bottom: 1px solid #999; }
+              .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container md-select .md-select-value span,
+              .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container md-select .md-select-value span {
+                color: #666 !important; }
+        .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .textAquaDark,
+        .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .textAquaDark {
+          display: block;
+          padding: 10px 0; }
+        .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .buttonDefault,
+        .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .buttonDefault {
+          margin: 20px 0; }
+  .expDetalle.cent_detalle .cent_buscador,
+  .mpcContainer .cent_buscador {
+    padding-top: 20px; }
+    .expDetalle.cent_detalle .cent_buscador .datosDetalle,
+    .mpcContainer .cent_buscador .datosDetalle {
+      display: table;
+      font-family: Roboto-Light;
+      color: #727272;
+      font-size: 1em; }
+      .expDetalle.cent_detalle .cent_buscador .datosDetalle > div,
+      .mpcContainer .cent_buscador .datosDetalle > div {
+        display: table;
+        min-height: 50px;
+        margin: 10px 0; }
+        .expDetalle.cent_detalle .cent_buscador .datosDetalle > div.infoSecond,
+        .mpcContainer .cent_buscador .datosDetalle > div.infoSecond {
+          padding-top: 30px !important; }
+        .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos,
+        .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container,
+        .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div,
+        .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar,
+        .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos,
+        .mpcContainer .cent_buscador .datosDetalle > div > md-input-container,
+        .mpcContainer .cent_buscador .datosDetalle > div > div,
+        .mpcContainer .cent_buscador .datosDetalle > div > div.calendar {
+          display: table-cell; }
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.contNum,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > label,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-select,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > input,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-datepicker,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.margInf,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.contNum,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > label,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-select,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > input,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-datepicker,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.margInf,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.contNum,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > label,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-select,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > input,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-datepicker,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.margInf,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.contNum,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > label,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-select,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > input,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-datepicker,
+          .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.margInf,
+          .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.contNum,
+          .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > label,
+          .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > md-select,
+          .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > input,
+          .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > md-datepicker,
+          .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > div.margInf,
+          .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > div.contNum,
+          .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > label,
+          .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > md-select,
+          .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > input,
+          .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > md-datepicker,
+          .mpcContainer .cent_buscador .datosDetalle > div > div > div.margInf,
+          .mpcContainer .cent_buscador .datosDetalle > div > div > div.contNum,
+          .mpcContainer .cent_buscador .datosDetalle > div > div > label,
+          .mpcContainer .cent_buscador .datosDetalle > div > div > md-select,
+          .mpcContainer .cent_buscador .datosDetalle > div > div > input,
+          .mpcContainer .cent_buscador .datosDetalle > div > div > md-datepicker,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.margInf,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.contNum,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > label,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-select,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > input,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-datepicker {
+            display: table-caption;
+            /*.md-datepicker-input{max-width:auto !important;min-width:auto !important;}*/ }
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.contNum .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > label .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-select .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > input .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-datepicker .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.margInf .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.contNum .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > label .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-select .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > input .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-datepicker .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.margInf .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.contNum .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > label .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-select .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > input .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-datepicker .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.margInf .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.contNum .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > label .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-select .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > input .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-datepicker .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.margInf .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.contNum .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > label .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > md-select .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > input .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > md-datepicker .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > div.margInf .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > div.contNum .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > label .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > md-select .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > input .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > md-datepicker .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > div.margInf .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > div.contNum .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > label .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > md-select .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > input .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > md-datepicker .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.margInf .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.contNum .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > label .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-select .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > input .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-datepicker .md-button.md-icon-button {
+              width: auto; }
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.contNum md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > label md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-select md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > input md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-datepicker md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.margInf md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.contNum md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > label md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-select md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > input md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-datepicker md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.margInf md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.contNum md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > label md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-select md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > input md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-datepicker md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.margInf md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.contNum md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > label md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-select md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > input md-datepicker,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-datepicker md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.margInf md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.contNum md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > label md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > md-select md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > input md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > md-datepicker md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > div.margInf md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > div.contNum md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > label md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > md-select md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > input md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > md-datepicker md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > div.margInf md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > div.contNum md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > label md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > md-select md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > input md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > md-datepicker md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.margInf md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.contNum md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > label md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-select md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > input md-datepicker,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-datepicker md-datepicker {
+              padding: 0; }
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.contNum .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > label .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-select .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > input .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > md-datepicker .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.margInf .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > div.contNum .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > label .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-select .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > input .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > md-datepicker .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.margInf .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > div.contNum .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > label .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-select .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > input .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > md-datepicker .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.margInf .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > div.contNum .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > label .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-select .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > input .md-button.md-icon-button,
+            .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > md-datepicker .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.margInf .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > div.contNum .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > label .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > md-select .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > input .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > md-datepicker .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > div.margInf .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > div.contNum .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > label .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > md-select .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > input .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > md-datepicker .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > div.margInf .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > div.contNum .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > label .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > md-select .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > input .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div > md-datepicker .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.margInf .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > div.contNum .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > label .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-select .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > input .md-button.md-icon-button,
+            .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-datepicker .md-button.md-icon-button {
+              margin: 0;
+              padding: 0; }
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > label,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > label,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > label,
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar > label,
+          .mpcContainer .cent_buscador .datosDetalle > div div.infoDatos > label,
+          .mpcContainer .cent_buscador .datosDetalle > div > md-input-container > label,
+          .mpcContainer .cent_buscador .datosDetalle > div > div > label,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > label {
+            top: -28px; }
+        .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container,
+        .mpcContainer .cent_buscador .datosDetalle > div > md-input-container {
+          padding-top: 10px; }
+        .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar,
+        .mpcContainer .cent_buscador .datosDetalle > div > div.calendar {
+          padding: 0 20px;
+          margin-top: 100px; }
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar .dateTit span.md-select-icon,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar .dateTit span.md-select-icon {
+            float: right; }
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar .ng-binding,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar .ng-binding {
+            border-bottom: 1px solid #ddd; }
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar.ng-pristine .dateTit,
+          .mpcContainer .cent_buscador .datosDetalle > div > div.calendar.ng-pristine .dateTit {
+            padding: 0px 2px 18px 2px; }
+        .expDetalle.cent_detalle .cent_buscador .datosDetalle > div.infoThird,
+        .mpcContainer .cent_buscador .datosDetalle > div.infoThird {
+          padding: 15px !important; }
+          .expDetalle.cent_detalle .cent_buscador .datosDetalle > div.infoThird md-input-container md-select,
+          .mpcContainer .cent_buscador .datosDetalle > div.infoThird md-input-container md-select {
+            margin-right: 15px !important; }
+  .expDetalle.cent_detalle .thirdDirective,
+  .mpcContainer .thirdDirective {
+    padding: 15px;
+    font-family: Roboto-Medium;
+    font-size: 1em; }
+    .expDetalle.cent_detalle .thirdDirective .tit,
+    .mpcContainer .thirdDirective .tit {
+      font-size: 1.250em;
+      color: #999;
+      padding: 0 0 10px 0; }
+    .expDetalle.cent_detalle .thirdDirective .thirdDirectiveTable,
+    .mpcContainer .thirdDirective .thirdDirectiveTable {
+      display: table;
+      height: 100%; }
+      .expDetalle.cent_detalle .thirdDirective .thirdDirectiveTable md-input-container,
+      .mpcContainer .thirdDirective .thirdDirectiveTable md-input-container {
+        display: table-cell; }
+        .expDetalle.cent_detalle .thirdDirective .thirdDirectiveTable md-input-container label,
+        .mpcContainer .thirdDirective .thirdDirectiveTable md-input-container label {
+          position: relative !important;
+          font-size: 1.200em;
+          font-family: Roboto-Regular;
+          color: #999;
+          margin-bottom: 0; }
+        .expDetalle.cent_detalle .thirdDirective .thirdDirectiveTable md-input-container input,
+        .mpcContainer .thirdDirective .thirdDirectiveTable md-input-container input {
+          display: table-cell;
+          font-size: 1em;
+          color: #1a2e35;
+          background-image: none; }
+    .expDetalle.cent_detalle .thirdDirective .thirdDirectiveChecks,
+    .mpcContainer .thirdDirective .thirdDirectiveChecks {
+      padding: 15px;
+      display: table;
+      height: 100%; }
+      .expDetalle.cent_detalle .thirdDirective .thirdDirectiveChecks label,
+      .mpcContainer .thirdDirective .thirdDirectiveChecks label {
+        font-weight: normal;
+        font-size: 1em;
+        color: #999; }
+      .expDetalle.cent_detalle .thirdDirective .thirdDirectiveChecks md-checkbox span,
+      .mpcContainer .thirdDirective .thirdDirectiveChecks md-checkbox span {
+        color: #1a2e35; }
+      .expDetalle.cent_detalle .thirdDirective .thirdDirectiveChecks md-input-container,
+      .mpcContainer .thirdDirective .thirdDirectiveChecks md-input-container {
+        margin-left: 15px; }
+  .expDetalle.cent_detalle.searchContent,
+  .mpcContainer.searchContent {
+    padding-bottom: 0; }
+
+.userDetailContent {
+  background: #fff;
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 979px;
+  box-shadow: 1px 3px 4.7px 0.3px rgba(0, 0, 0, 0.24);
+  font-size: 1em;
+  padding-bottom: 50px;
+  margin-bottom: 40px;
+  padding: 15px;
+  display: table;
+  max-width: 979px; }
+  .userDetailContent .datosDetalle {
+    display: table;
+    font-family: Roboto-Light;
+    color: #727272;
+    font-size: 1em;
+    margin: 15px 0;
+    margin: 15px 0; }
+    .userDetailContent .datosDetalle .infoDatos {
+      display: table-cell;
+      font-size: 1em;
+      padding: 0 15px; }
+      .userDetailContent .datosDetalle .infoDatos label {
+        color: #999;
+        font-family: Roboto-Regular;
+        font-size: 1em;
+        font-weight: normal; }
+      .userDetailContent .datosDetalle .infoDatos p {
+        font-family: Roboto-Regular;
+        font-size: 1em;
+        color: #1a2e35; }
+
+.observationsContainer table.observationsTable {
+  padding: 15px;
+  font-size: 1em;
+  width: 96%;
+  margin: 0 auto;
+  margin-top: 15px; }
+  .observationsContainer table.observationsTable tr.firstCell {
+    border-bottom: 2px solid #ddd; }
+  .observationsContainer table.observationsTable tr th {
+    text-align: left;
+    font-family: "Roboto-Regular";
+    color: #999;
+    font-weight: normal; }
+  .observationsContainer table.observationsTable tr td {
+    color: #1a2e35;
+    font-size: 0.917em;
+    text-align: left;
+    width: auto;
+    height: 30px;
+    padding: 0 15px; }
+
+html, body {
+  background: #dadada !important; }
+
+/*# sourceMappingURL=style.css.map */

@@ -12,12 +12,12 @@
                 resultados
             </div>
             <div class="col-sm-6 buttonPrint">
-                <button ng-click="printPage()" type="button" class="blue-color button-medium no-background pull-right">IMPRIMIR</button>
+                <button ng-click="printPage()" type="button" class="material-icons icon_print pull-right">print</button>
             </div>
         </div>
     </div>
     <div>
-        <table class="bordered highlight lowSize resultadosTabl'a text-center myDivToPrint col-sm-12" ng-class="{tableFioc: isFioc()}">
+        <table class="bordered highlight lowSize resultadosTabla text-center myDivToPrint col-sm-12" ng-class="{tableFioc: isFioc()}">
             <thead>
             <tr ng-show="!isFioc() && !isBloqueo()" class="firstCell">
                 <th title="Impactado" data-field="impactado" class="firstTh"></th>

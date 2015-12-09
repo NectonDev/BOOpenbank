@@ -64,14 +64,14 @@
                     <div>{{parameters.fechaModHasta | date : 'dd/MM/yyyy HH:mm'}}</div>
                 </div>
             </div>
-            <div class="infoThird datosDetalle">
-                <md-input-container class="col s3">
+            <div class="infoThird datosDetalle col-sm-12">
+                <md-input-container class="pull-left">
                     <label>Estado</label>
                     <md-select ng-model="parameters.estado">
                         <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices track by $index">{{stateOption}}</md-option>
                     </md-select>
                 </md-input-container>
-                <md-input-container class="col s2">
+                <md-input-container class="pull-left">
                     <label>Canal</label>
                     <md-select ng-model="parameters.canal">
                         <md-option ng-value="canalOption" ng-repeat="canalOption in canalesOptions.choices">{{canalOption}}</md-option>

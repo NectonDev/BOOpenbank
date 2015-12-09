@@ -10,9 +10,9 @@ angular.module('DocumentosService',[])
             );
         };
 
-        service.getDocumentsByUser = function(expId,userObjName){
+        service.getDocumentsByUser = function(expId,userObjName,tipoDoc){
             return $http.get(
-                APIConfigService.getUrlLeerDocumentos(expId,userObjName,"dctm_ok_tr_doctramit")
+                APIConfigService.getUrlLeerDocumentos(expId,userObjName,tipoDoc)
             );
         };
 

@@ -6,7 +6,7 @@ angular.module('RequisitosModel',[])
             RE: "warning",
             NR: "NA",
             RV: "check",
-            RR: "error",
+            RR: "clear",
             RNE: "no_sim",
         },
         tiposReq = {

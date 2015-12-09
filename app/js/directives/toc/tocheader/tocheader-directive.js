@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tocHeaderDirective', [])
-    .controller('TocHeaderController', ['$rootScope','$scope', '$localStorage', 'LiteralsConfigService', function($rootScope, $scope, $localStorage, LiteralsConfigService) {
+    .controller('TocHeaderController', ['$rootScope','$scope', '$localStorage', 'LiteralsConfigService', 'TipoAppService', function($rootScope, $scope, $localStorage, LiteralsConfigService, TipoAppService) {
         var tiposPreFiltros = $localStorage.tiposPreFiltros;
         var tocHeaderLiterals = LiteralsConfigService.getTocHeaderLiterlas();
 
@@ -13,6 +13,8 @@ angular.module('tocHeaderDirective', [])
             [tocHeaderLiterals.pteCancelacion,tiposPreFiltros.pteCancelacion],
             [tocHeaderLiterals.pteBloqueo,tiposPreFiltros.pteBloqueo]
         ];
+
+        $scope.tipoApp = TipoAppService.tipoApp();
     }])
     .directive('tocHeader', ['$rootScope', 'ExpedientesModel', function($rootScope, ExpedientesModel) {
         return {
@@ -22,7 +24,8 @@ angular.module('tocHeaderDirective', [])
             scope: {
                 headerInfo: "=",
                 changeFilter: "=",
-                filterActive: "="
+                filterActive: "=",
+                tipoApp: "="
             },
             link: function($scope){
                 $scope.filterActive = ExpedientesModel.getFilter();

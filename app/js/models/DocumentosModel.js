@@ -69,8 +69,8 @@ angular.module('DocumentosModel',[])
             });
         };
 
-        service.getDocsByUser = function(tipoUser, userObjName, expId){
-            return DocumentosService.getDocumentsByUser(expId,userObjName).then(function(data){
+        service.getDocsByUser = function(tipoUser, userObjName, expId, tipoDoc){
+            return DocumentosService.getDocumentsByUser(expId,userObjName,tipoDoc).then(function(data){
                 return transformDocInfo(tipoUser,data);
             });
         };
