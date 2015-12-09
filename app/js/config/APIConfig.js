@@ -36,10 +36,16 @@ angular.module('APIConfig',[])
                 'Content-Type': 'application/json'
             }
         },
-        default_parameters_expediente = {
+        default_parameters_expediente_bo = {
             page: '1',
             results: '5',
             filter: 'pendienteValidacion',
+            bloqueo: false
+        },
+        default_parameters_expediente_cc = {
+            page: '1',
+            results: '5',
+            filter: 'incidencia',
             bloqueo: false
         };
 
@@ -116,15 +122,18 @@ angular.module('APIConfig',[])
             return urlApis.apiUrlServicios+endpointmap.listaCiudades;
         };
         service.getDefaultPageExpediente = function(){
-            return default_parameters_expediente.page;
+            return default_parameters_expediente_bo.page;
         };
         service.getDefaultPageSizeExpediente = function(){
-            return default_parameters_expediente.results;
+            return default_parameters_expediente_bo.results;
         };
-        service.getDefaultFilterExpediente = function(){
-            return default_parameters_expediente.filter;
+        service.getDefaultFilterExpedienteBO = function(){
+            return default_parameters_expediente_bo.filter;
+        };
+        service.getDefaultFilterExpedienteCC = function(){
+            return default_parameters_expediente_cc.filter;
         };
         service.getDefaultBloqueoExpediente = function(){
-            return default_parameters_expediente.bloqueo;
+            return default_parameters_expediente_bo.bloqueo;
         };
     });

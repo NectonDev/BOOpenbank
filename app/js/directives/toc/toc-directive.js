@@ -1,13 +1,19 @@
 'use strict';
 
 angular.module('tocDirective', [])
-    .controller('TocController', ['LoginService', function(LoginService) {
+    .controller('TocController', ['$scope', 'LoginService', 'TipoAppService', function($scope, LoginService, TipoAppService) {
         LoginService.secureUrl();
+
+        $scope.tipoApp = TipoAppService.tipoApp();
+
     }])
     .directive('toc', function() {
         return {
             restrict: 'E',
             templateUrl: './js/directives/toc/templates/toc.html',
-            replace: true
+            replace: true,
+            scope: {
+                tipoApp: "="
+            }
         };
     });

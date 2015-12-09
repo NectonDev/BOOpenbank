@@ -1,6 +1,7 @@
 <div class="Toc">
     <div ng-controller="TocHeaderController">
-        <toc-header tipo-app="tipoApp" header-info="buttons" change-filter="changeFilter" filter-active="filterActive"></toc-header>
+        <toc-header ng-show="tipoApp === 'bo'" tipo-app="tipoApp" header-info="buttonsBO" change-filter="changeFilter" filter-active="filterActive"></toc-header>
+        <toc-header ng-show="tipoApp === 'cc'" tipo-app="tipoApp" header-info="buttonsCC" change-filter="changeFilter" filter-active="filterActive"></toc-header>
     </div>
     <div ng-controller="TocBodyController">
         <toc-body tipo-app="tipoApp" table-info="tocbodyInfo" table-results="tableResults" hide-locked="hideLocked" go-to-detail="goToDetail" is-fioc="isFioc" is-bloqueo="isBloqueo" print-page="printPage" procesar-usuarios="procesarUsuarios" bloquear-cuentas="bloquearCuentas" block="block" ok-process="okProcess" ko-process="koProcess" users-to-block="usersToBlock" select-accion-fioc="selectAccionFioc" list-acciones-fioc="listAccionesFioc"></toc-body>

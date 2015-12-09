@@ -1,5 +1,5 @@
 angular.module('ExpedientesModel',[])
-    .service('ExpedientesModel', ['$http', '$route', '$localStorage', '$sessionStorage', 'ngDialog', 'APIConfigService', 'ExpedientesService', 'EstadosModel', function ($http, $route, $localStorage, $sessionStorage, ngDialog, APIConfigService, ExpedientesService, EstadosModel) {
+    .service('ExpedientesModel', ['$http', '$route', '$localStorage', '$sessionStorage', 'ngDialog', 'APIConfigService', 'ExpedientesService', 'EstadosModel', 'TipoAppService', function ($http, $route, $localStorage, $sessionStorage, ngDialog, APIConfigService, ExpedientesService, EstadosModel, TipoAppService) {
         var service = this;
         var config_object_exp = {};
         var numTotalResultados = 0;
@@ -108,7 +108,7 @@ angular.module('ExpedientesModel',[])
         service.setDefaultParameters = function(){
             config_object_exp.page = APIConfigService.getDefaultPageExpediente();
             config_object_exp.results = APIConfigService.getDefaultPageSizeExpediente();
-            config_object_exp.filtro = APIConfigService.getDefaultFilterExpediente();
+            config_object_exp.filtro = TipoAppService.tipoApp() === 'bo'?APIConfigService.getDefaultFilterExpedienteBO():APIConfigService.getDefaultFilterExpedienteCC();;
             config_object_exp.bloqueo = APIConfigService.getDefaultBloqueoExpediente();
         };
 

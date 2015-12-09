@@ -1,17 +1,22 @@
 'use strict';
 
 angular.module('tocHeaderDirective', [])
-    .controller('TocHeaderController', ['$rootScope','$scope', '$localStorage', 'LiteralsConfigService', 'TipoAppService', function($rootScope, $scope, $localStorage, LiteralsConfigService, TipoAppService) {
+    .controller('TocHeaderController', ['$rootScope', '$scope', '$localStorage', 'LiteralsConfigService', 'TipoAppService', function($rootScope, $scope, $localStorage, LiteralsConfigService, TipoAppService) {
         var tiposPreFiltros = $localStorage.tiposPreFiltros;
         var tocHeaderLiterals = LiteralsConfigService.getTocHeaderLiterlas();
 
-        $scope.buttons = [
+        $scope.buttonsBO = [
             [tocHeaderLiterals.pteValidar,tiposPreFiltros.pteValidacion],
             [tocHeaderLiterals.pteDoc,tiposPreFiltros.pteDocumentacion],
             [tocHeaderLiterals.pteRevision,tiposPreFiltros.fioc],
             [tocHeaderLiterals.pteActivacion,tiposPreFiltros.pteActivacion],
             [tocHeaderLiterals.pteCancelacion,tiposPreFiltros.pteCancelacion],
             [tocHeaderLiterals.pteBloqueo,tiposPreFiltros.pteBloqueo]
+        ];
+
+        $scope.buttonsCC = [
+            [tocHeaderLiterals.lstIncidencias,tiposPreFiltros.incidencia],
+            [tocHeaderLiterals.avisos,tiposPreFiltros.avisos],
         ];
 
         $scope.tipoApp = TipoAppService.tipoApp();
