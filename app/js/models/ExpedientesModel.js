@@ -1,5 +1,5 @@
 angular.module('ExpedientesModel',[])
-    .service('ExpedientesModel', ['$http', '$route', '$localStorage', '$sessionStorage', 'ngDialog', 'APIConfigService', 'ExpedientesService', 'EstadosModel', 'TipoAppService', function ($http, $route, $localStorage, $sessionStorage, ngDialog, APIConfigService, ExpedientesService, EstadosModel, TipoAppService) {
+    .service('ExpedientesModel', ['$http', '$route', '$localStorage', '$sessionStorage', 'ngDialog', 'APIConfigService', 'ExpedientesService', 'EstadosModel', 'TipoAppService', 'LiteralsConfigService', function ($http, $route, $localStorage, $sessionStorage, ngDialog, APIConfigService, ExpedientesService, EstadosModel, TipoAppService, LiteralsConfigService) {
         var service = this;
         var config_object_exp = {};
         var numTotalResultados = 0;
@@ -278,7 +278,6 @@ angular.module('ExpedientesModel',[])
 
             });
             return ExpedientesService.procesarFioc(expedientes).then(function(data){
-                console.log(data);
                 //TODO: Modal de procesados correctamente
             });
         };
@@ -289,7 +288,6 @@ angular.module('ExpedientesModel',[])
                 expedientes.expedientes.push(getConfigObjectBloquearCuenta(value[0],value[1]));
             });
             return ExpedientesService.bloquearCuenta(expedientes).then(function(data){
-                console.log(data);
                 //TODO: Modal de procesados correctamente
             });
         };
@@ -303,6 +301,25 @@ angular.module('ExpedientesModel',[])
             return ExpedientesService.updateExp(configObjectUpdateExp).then(function(data){
                 return data;
             });
+        };
+
+        service.createJsonExcel = function(expedientes){
+            var arrayExcel = [];
+            var arrayRowExcel = [];
+            var arrayHeadersExcel = LiteralsConfigService.getHeadersExcel();
+            arrayExcel.push(arrayHeadersExcel);
+            angular.forEach(expedientes,function(value){
+                var jsonRowExcel = {}
+                jsonRowExcel.numCuenta = value.num_cuenta;
+                jsonRowExcel.estado = value.estado;
+                jsonRowExcel.canal = value.plataforma;
+                jsonRowExcel.numInterv = value.numInterv;
+                jsonRowExcel.fechaAlta = moment(value.fecha_alta).format('dd/MM/YYYY HH:mm');
+                jsonRowExcel.fechaMod = moment(value.fecha_mod).format('dd/MM/YYYY HH:mm');
+                arrayRowExcel.push(jsonRowExcel);
+            });
+            arrayExcel.push(arrayRowExcel);
+            return arrayExcel;
         };
 
         return service;

@@ -947,6 +947,12 @@ $aquaDark: #007c7b;
         display: inline-block;
         margin: 25px 0;
 
+        .rdTextFields{
+          md-input-container{
+            width: 19%;
+          }//end md-input-container
+        }//end rdTextFields
+
         .encabezadoDespleg{
           height: 30px;
           margin: 15px 0;
@@ -1082,7 +1088,7 @@ $aquaDark: #007c7b;
 
       >div{
         display: table;
-        min-height: 50px;
+        min-height: 66px;
         margin: 10px 0;
 
         &.infoSecond{

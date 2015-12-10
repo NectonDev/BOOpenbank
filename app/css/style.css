@@ -667,6 +667,9 @@ $aquaDark: #007c7b;
       height: 100%;
       display: inline-block;
       margin: 25px 0; }
+      .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .rdTextFields md-input-container,
+      .mpcContainer .expBody .centertable .infoReqUserTable .rdTextFields md-input-container {
+        width: 19%; }
       .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .encabezadoDespleg,
       .mpcContainer .expBody .centertable .infoReqUserTable .encabezadoDespleg {
         height: 30px;
@@ -781,7 +784,7 @@ $aquaDark: #007c7b;
       .expDetalle.cent_detalle .cent_buscador .datosDetalle > div,
       .mpcContainer .cent_buscador .datosDetalle > div {
         display: table;
-        min-height: 50px;
+        min-height: 66px;
         margin: 10px 0; }
         .expDetalle.cent_detalle .cent_buscador .datosDetalle > div.infoSecond,
         .mpcContainer .cent_buscador .datosDetalle > div.infoSecond {

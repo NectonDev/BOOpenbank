@@ -3,7 +3,7 @@
         <div class="tituloDesplegable col-sm-11">{{datosReq.title}}</div>
         <div class="xCerrar pull-right"><i class="material-icons" ng-click="closeDesplegable()">clear</i></div>
     </div>
-    <div ng-show="isRd">
+    <div ng-show="isRd" class="rdTextFields">
         <md-input-container>
             <label for="iban">IBAN</label>
             <input id="iban" class="validate" type="text" ng-model="iban">

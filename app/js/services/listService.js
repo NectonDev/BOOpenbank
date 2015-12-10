@@ -115,7 +115,8 @@ angular.module('ListService',[])
                 fioc : 'fioc',
                 pteActivacion : 'pendienteActivacion',
                 pteCancelacion : 'pendienteCancelacion',
-                pteBloqueo: 'pendienteBloquear'
+                pteBloqueo: 'pendienteBloquear',
+                incidencia: 'incidencia'
             };
         };
 
@@ -131,10 +132,9 @@ angular.module('ListService',[])
             $localStorage.accionesFioc = {
                 noProcesar: 'No Procesar',
                 ok: 'Todo Correcto',
-                empresaKo1: 'Empresa No Existe',
-                empresaKo2: 'Empresa incorrecta',
-                actividadKo: 'Actividad Incorrecta',
-                ambasKo: 'Ambas incorrectas'
+                empresaKo: 'Revisar Empresa',
+                actividadKo: 'Revisar Actividad',
+                ambasKo: 'Revisar Ambas'
             };
         };
 

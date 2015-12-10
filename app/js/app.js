@@ -11,6 +11,8 @@ angular.module('BOOpenbank', [
   'ez.dropdown',
   'ngDialog',
   'naif.base64',
+  'ngSanitize',
+  'ngCsv',
   'APIConfig',
   'LiteralsConfig',
   'headerDirective',

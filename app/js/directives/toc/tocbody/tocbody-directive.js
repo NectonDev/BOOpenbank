@@ -41,7 +41,8 @@ angular.module('tocBodyDirective', [])
             koProcess: "=",
             usersToBlock: "=",
             selectAccionFioc: "=",
-            listAccionesFioc: "="
+            listAccionesFioc: "=",
+            exportExcel: "="
         },
         link: function($scope){
             $scope.estado = {};
@@ -50,12 +51,15 @@ angular.module('tocBodyDirective', [])
             $scope.userKoProcess = [];
             $scope.usersToBlock = [];
 
-            var OkToProcessArrayWithExp,KoToProcessArrayWithExp,BlockArrayWithExp = [];
+            var OkToProcessArrayWithExp = [];
+            var KoToProcessArrayWithExp = [];
+            var BlockArrayWithExp = [];
 
             function getExpedientes(){
                 $("#contentTable").hide();
                 ExpedientesModel.getAllExpedientesConFiltro().then(function(data){
                     $scope.tableResults = data;
+                    $scope.exportExcel = ExpedientesModel.createJsonExcel(data.expedientes);
                     $timeout(function(){$("#contentTable").fadeIn('slow')},500);
                 }).catch(function(data){
                     console.log(data);
@@ -80,7 +84,7 @@ angular.module('tocBodyDirective', [])
             $scope.$on('filterChange', function(event, args){
                 var filterActive = ExpedientesModel.getFilter();
                 var filter = args.toString();
-                var pageSizeCombo = $("#comboPageSize").text();
+                var pageSizeCombo = ExpedientesModel.getPageSize();
                 if (filterActive != filter){
                     ExpedientesModel.setFilter(filter);
                     ExpedientesModel.isFioc()?ExpedientesModel.setPageSize("15"):ExpedientesModel.setPageSize(pageSizeCombo);
