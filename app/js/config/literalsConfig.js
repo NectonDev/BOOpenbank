@@ -7,7 +7,9 @@ angular.module('LiteralsConfig',[])
                 pteRevision: 'REVISI\u00D3N FIOC',
                 pteActivacion: 'PTE. ACTIVACI\u00D3N',
                 pteCancelacion: 'PTE. CANCELACI\u00D3N',
-                pteBloqueo: 'PTE. BLOQUEO'
+                pteBloqueo: 'PTE. BLOQUEO',
+                lstIncidencias: 'LISTADO INCIDENCIAS',
+                avisos: 'AVISOS'
             },
             tocBodyLiterals = {
                 numCuenta: 'N\u00FAmero cuenta',
@@ -53,7 +55,15 @@ angular.module('LiteralsConfig',[])
                 mobilePhone: 'T\u00E8lefono M\u00F3vil',
                 phone: 'T\u00E8lefono Fijo',
                 email: 'E-mail'
-            };
+            },
+            headersExcel = [
+                'N\u00FAmero cuenta',
+                'Estado Expediente',
+                'Canal',
+                'N\u00FAmero de intervinientes',
+                'Fecha de Alta',
+                'Fecha Modificaci\u00F3n'
+            ];
 
         service.getTocHeaderLiterlas = function(){
             return tocHeaderButtonsLiterals;
@@ -66,5 +76,8 @@ angular.module('LiteralsConfig',[])
         };
         service.getMpdcInfo = function(){
             return mpdcHeader;
+        };
+        service.getHeadersExcel = function(){
+            return headersExcel;
         };
     });
