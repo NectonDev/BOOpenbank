@@ -2,6 +2,14 @@ angular.module('ExpedientesService',[])
     .service('ExpedientesService', ['$http', 'APIConfigService', function ($http, APIConfigService) {
         var service = this;
 
+        service.getAllExpsSearch = function(configObject){
+            return $http.post(
+                APIConfigService.getUrlLeerExpedientes(),
+                configObject,
+                APIConfigService.getHeaders()
+            );
+        };
+
         service.getAllExpedientesConFiltro = function(configObject){
             return $http.post(
                 APIConfigService.getUrlLeerExpedientesFiltros(),
@@ -37,6 +45,14 @@ angular.module('ExpedientesService',[])
         service.isExpLocked = function(configObject){
             return $http.post(
                 APIConfigService.getUrl(),
+                configObject,
+                APIConfigService.getHeaders()
+            );
+        };
+
+        service.pteCancelExpediente = function(configObject){
+            return $http.post(
+                APIConfigService.getUrlPteCancelarExpediente(),
                 configObject,
                 APIConfigService.getHeaders()
             );

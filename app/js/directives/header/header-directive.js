@@ -3,7 +3,7 @@
 angular.module('headerDirective', [])
     .controller('HeaderController', ['$scope', '$sessionStorage', '$location', 'LoginService', function($scope, $sessionStorage, $location, LoginService) {
         $scope.headerInfo = {
-            headerValue: 'H\u00E1gase cliente m\u00F3vil',
+            headerValue: 'H\u00E1gase cliente tramitaci\u00F3n',
             logoOpenBank: 'images/logo_blanco.png',
             buttonBackOffice: 'BACKOFFICE',
             buttonContactCenter: 'CONTACT CENTER'

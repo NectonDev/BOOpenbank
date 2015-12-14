@@ -1,12 +1,21 @@
 'use strict';
 
 angular.module('searchDirective', [])
-    .controller('SearchController', ['$scope', '$localStorage', 'LoginService', 'LiteralsConfigService', 'EstadosModel', 'TipoDocsModel', function($scope, $localStorage, LoginService, LiteralsConfigService, EstadosModel, TipoDocsModel) {
+    .controller('SearchController', ['$scope', '$localStorage', 'LoginService', 'LiteralsConfigService', 'EstadosModel', 'TipoDocsModel', 'ExpedientesModel', function($scope, $localStorage, LoginService, LiteralsConfigService, EstadosModel, TipoDocsModel, ExpedientesModel) {
         LoginService.secureUrl();
+        $scope.tableInfo = LiteralsConfigService.getTocBodyLiterals();
+        function getExpedientes(params){
+            ExpedientesModel.getExpedientesSearch(params).then(function(data){
+                $scope.tableResults = data;
+                $scope.exportExcel = ExpedientesModel.createJsonExcel(data.expedientes);
+            }).catch(function(data){
+                console.log(data);
+            });
+        };
 
         $scope.parameters = {};
 
-        $scope.searchInfo = LiteralsConfigService.getSearchInfo();
+        $scope.searchInfo = LiteralsConfigService.getAccountInfo();
 
         $scope.typeOptions = {
             choices: TipoDocsModel.getTipoDocs()
@@ -15,10 +24,12 @@ angular.module('searchDirective', [])
             choices: EstadosModel.getEstados()
         };
         $scope.canalesOptions = {
-            choices: ['Movil', 'Web']
+            choices: ['Movil']
         };
         $scope.doSearch = function(){
-            console.log($scope.parameters);
+            if (!angular.equals({}, $scope.parameters)){
+                getExpedientes($scope.parameters);
+            }
         };
         $scope.cleanSearch = function(){
             $scope.parameters = {};
@@ -36,7 +47,9 @@ angular.module('searchDirective', [])
                 statesOptions: "=",
                 canalesOptions: "=",
                 doSearch: "=",
-                cleanSearch: "="
+                cleanSearch: "=",
+                tableResults: "=",
+                tableInfo: "="
             }
         };
     });

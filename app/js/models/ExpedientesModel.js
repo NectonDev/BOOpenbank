@@ -1,5 +1,5 @@
 angular.module('ExpedientesModel',[])
-    .service('ExpedientesModel', ['$http', '$route', '$localStorage', '$sessionStorage', 'ngDialog', 'APIConfigService', 'ExpedientesService', 'EstadosModel', 'TipoAppService', 'LiteralsConfigService', function ($http, $route, $localStorage, $sessionStorage, ngDialog, APIConfigService, ExpedientesService, EstadosModel, TipoAppService, LiteralsConfigService) {
+    .service('ExpedientesModel', ['$http', '$route', '$filter', '$localStorage', '$sessionStorage', 'ngDialog', 'APIConfigService', 'ExpedientesService', 'EstadosModel', 'TipoAppService', 'LiteralsConfigService', function ($http, $route, $filter, $localStorage, $sessionStorage, ngDialog, APIConfigService, ExpedientesService, EstadosModel, TipoAppService, LiteralsConfigService) {
         var service = this;
         var config_object_exp = {};
         var numTotalResultados = 0;
@@ -19,6 +19,22 @@ angular.module('ExpedientesModel',[])
         };
 
         getConfigObjectCancelExp = function(userObjName, expId, motivo){
+            return {
+                "usuarios": [
+                    {
+                        "usuario": {
+                            "object_name": userObjName
+                        }
+                    }
+                ],
+                "expediente": {
+                    "r_object_id": expId,
+                    "motivo_cancelacion": motivo
+                }
+            }
+        };
+
+        getConfigObjectPteCancelExp = function(userObjName, expId, motivo){
             return {
                 "usuarios": [
                     {
@@ -76,6 +92,38 @@ angular.module('ExpedientesModel',[])
                 ],
                 "expediente": {
                     "r_object_id": expID
+                }
+            }
+        };
+
+        getConfigObjectExpSearch = function(params){
+            var arrayFechaCrea = [];
+            var arrayFechaMod = [];
+            var fechaCreaDesde = $filter('date')(params.fechaCreaDesde, "dd/MM/yyyy hh:mm");
+            var fechaCreaHasta = $filter('date')(params.fechaCreaHasta, "dd/MM/yyyy hh:mm");
+            var fechaModDesde = $filter('date')(params.fechaModDesde, "dd/MM/yyyy hh:mm");
+            var fechaModHasta = $filter('date')(params.fechaModHasta, "dd/MM/yyyy hh:mm");
+            if (angular.isDefined(fechaCreaDesde)){
+                arrayFechaCrea.push(fechaCreaDesde);
+            }
+            if (angular.isDefined(fechaCreaHasta)){
+                arrayFechaCrea.push(fechaCreaHasta);
+            }
+            if (angular.isDefined(fechaModDesde)){
+                arrayFechaMod.push(fechaModDesde);
+            }
+            if (angular.isDefined(fechaCreaDesde)){
+                arrayFechaMod.push(fechaModHasta);
+            }
+            return {
+                "expediente": {
+                    "page" : "1",
+                    "results" : "5",
+                    codigo_cuenta_creada: params.codigo_cuenta_creada,
+                    tipo_doc_ident: params.tipoDoc,
+                    docident_num: params.numDoc,
+                    r_modify_date: arrayFechaMod,
+                    r_creation_date: arrayFechaCrea
                 }
             }
         };
@@ -152,6 +200,10 @@ angular.module('ExpedientesModel',[])
             return config_object_exp.filtro === $localStorage.tiposPreFiltros.pteBloqueo;
         };
 
+        service.isPteCancel = function(){
+            return config_object_exp.filtro === $localStorage.tiposPreFiltros.pteCancelacion;
+        };
+
         service.transformUserExpInfo = function(dataExpediente){
             var userExp = {};
             for (var i=0;i<dataExpediente.length;i++){
@@ -183,6 +235,7 @@ angular.module('ExpedientesModel',[])
             infoExpediente.fecha_alta = dataExpediente.r_creation_date;
             infoExpediente.fecha_mod = dataExpediente.r_modify_date;
             infoExpediente.gestor = dataExpediente.usuario_bloqueo;
+            infoExpediente.motivoCancel = dataExpediente.motivo_cancelacion;
             return infoExpediente;
         };
 
@@ -197,6 +250,12 @@ angular.module('ExpedientesModel',[])
                 infoExpedientes.expedientes[i].usuarios = service.transformUserExpInfo(dataExpedientes.expedientes[i].usuarios);
             }
             return infoExpedientes;
+        };
+
+        service.getExpedientesSearch = function(params){
+            return ExpedientesService.getAllExpsSearch(getConfigObjectExpSearch(params)).then(function(data){
+                return service.transformInfoExpedientes(data.data);
+            });
         };
 
         service.getAllExpedientesConFiltro = function(){
@@ -259,8 +318,8 @@ angular.module('ExpedientesModel',[])
             });
         };
 
-        service.cancelExp = function(userObjName,expId,motivo){
-            return ExpedientesService.cancelExpediente(getConfigObjectCancelExp(userObjName,expId,motivo)).then(function(data){
+        service.pteCancelExp = function(userObjName,expId,motivo){
+            return ExpedientesService.pteCancelExpediente(getConfigObjectPteCancelExp(userObjName,expId,motivo)).then(function(data){
                 ngDialog.closeAll();
                 return data;
             });
@@ -269,7 +328,7 @@ angular.module('ExpedientesModel',[])
         service.procesarFioc = function(okToProcess,koToProcess){
             var expedientes = { expedientes:[]};
             angular.forEach(okToProcess,function(value){
-                expedientes.expedientes.push( getConfigObjectProcesarFioc(value[0],value[1],"RV"));
+                expedientes.expedientes.push(getConfigObjectProcesarFioc(value[0],value[1],"RV"));
             });
             angular.forEach(koToProcess,function(value){
                 var configObject = getConfigObjectProcesarFioc(value[0],value[1],"RR");
@@ -292,6 +351,16 @@ angular.module('ExpedientesModel',[])
             });
         };
 
+        service.procesarCancelacion = function(toCancel){
+            var expedientes = { expedientes:[]};
+            angular.forEach(toCancel,function(value){
+                expedientes.expedientes.push(getConfigObjectCancelExp(value[0],value[1],value[2]));
+            });
+            return ExpedientesService.cancelExpediente(expedientes).then(function(data){
+                //TODO: Modal de procesados correctamente
+            });
+        };
+
         service.updateExp = function(userObjName,reqToUpdate, estadoToUpdate, motivoRechazo, expId){
             var configObjectUpdateExp = getConfigObjectUpdateExp(userObjName,expId);
             configObjectUpdateExp.usuarios[0].usuario["req_"+reqToUpdate+"_estado"] = estadoToUpdate;
@@ -310,7 +379,7 @@ angular.module('ExpedientesModel',[])
             arrayExcel.push(arrayHeadersExcel);
             angular.forEach(expedientes,function(value){
                 var jsonRowExcel = {}
-                jsonRowExcel.numCuenta = value.num_cuenta;
+                jsonRowExcel.numCuenta = $filter('limitTo')(value.num_cuenta, 10, 10);
                 jsonRowExcel.estado = value.estado;
                 jsonRowExcel.canal = value.plataforma;
                 jsonRowExcel.numInterv = value.numInterv;

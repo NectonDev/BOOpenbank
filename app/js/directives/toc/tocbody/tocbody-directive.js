@@ -19,6 +19,10 @@ angular.module('tocBodyDirective', [])
           return ExpedientesModel.isBloqueo();
         };
 
+        $scope.isPteCancel = function(){
+            return ExpedientesModel.isPteCancel();
+        };
+
         $scope.listAccionesFioc = $localStorage.accionesFioc;
     }])
     .directive('tocBody', ['$location', '$timeout', 'ExpedientesModel', function($location, $timeout, ExpedientesModel) {
@@ -36,13 +40,17 @@ angular.module('tocBodyDirective', [])
             printPage: "=",
             procesarUsuarios: "=",
             bloquearCuentas: "=",
+            cancelarCuentas: "=",
             block: "=",
+            cancel: "=",
             okProcess: "=",
             koProcess: "=",
             usersToBlock: "=",
+            userToCancel: "=",
             selectAccionFioc: "=",
             listAccionesFioc: "=",
-            exportExcel: "="
+            exportExcel: "=",
+            isPteCancel: "="
         },
         link: function($scope){
             $scope.estado = {};
@@ -50,10 +58,12 @@ angular.module('tocBodyDirective', [])
             $scope.userOkProcess = [];
             $scope.userKoProcess = [];
             $scope.usersToBlock = [];
+            $scope.userToCancel = [];
 
             var OkToProcessArrayWithExp = [];
             var KoToProcessArrayWithExp = [];
             var BlockArrayWithExp = [];
+            var CancelArrayWithExp = [];
 
             function getExpedientes(){
                 $("#contentTable").hide();
@@ -113,7 +123,7 @@ angular.module('tocBodyDirective', [])
             });
 
             $scope.procesarUsuarios = function(){
-                ExpedientesModel.procesarFioc(OkToProcessArrayWithExp,KoToProcessArrayWithExp).then(function(data){
+                ExpedientesModel.procesarFioc(OkToProcessArrayWithExp,KoToProcessArrayWithExp).then(function(){
                     OkToProcessArrayWithExp = [];
                     KoToProcessArrayWithExp = [];
                     getExpedientes();
@@ -121,8 +131,15 @@ angular.module('tocBodyDirective', [])
             };
 
             $scope.bloquearCuentas = function(){
-                ExpedientesModel.procesarBloqueo(BlockArrayWithExp).then(function(data){
+                ExpedientesModel.procesarBloqueo(BlockArrayWithExp).then(function(){
                     BlockArrayWithExp = [];
+                    getExpedientes();
+                });
+            };
+
+            $scope.cancelarCuentas = function(){
+                ExpedientesModel.procesarCancelacion(CancelArrayWithExp).then(function(){
+                    CancelArrayWithExp = [];
                     getExpedientes();
                 });
             };
@@ -156,6 +173,17 @@ angular.module('tocBodyDirective', [])
                 }else{
                     $scope.usersToBlock.push(usuario.objName);
                     BlockArrayWithExp.push([usuario.objName,expId]);
+                }
+            };
+
+            $scope.cancel = function(usuario, expId, motivo){
+                var indexOfCancelArray = $scope.userToCancel.indexOf(usuario.objName);
+                if (indexOfCancelArray>-1){
+                    $scope.userToCancel.splice(indexOfCancelArray, 1);
+                    CancelArrayWithExp.splice(indexOfCancelArray, 1);
+                }else{
+                    $scope.userToCancel.push(usuario.objName);
+                    CancelArrayWithExp.push([usuario.objName,expId,motivo]);
                 }
             };
 

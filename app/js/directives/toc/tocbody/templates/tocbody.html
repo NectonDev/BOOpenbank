@@ -1,19 +1,19 @@
-<form class="col s12 form_mostrar_container tocBody">
+<form class="form_mostrar_container tocBody">
     <div class="ResultsListPrintRecord">
         <div class="ResultsList col-sm-12">
-            <p class="col s2 noPadding bigger-font-size ResultsListCaption col-sm-6">Lista de resultados</p>
+            <p class="noPadding bigger-font-size ResultsListCaption col-sm-6">Lista de resultados</p>
             <p ng-show="!isFioc()" class="pull-right recordReview fieldset">
                 <input ng-model="hideLocked" type="checkbox" class="filled-in" id="filled-in-box">
                 <label for="filled-in-box">Ocultar expediente en revisi&oacute;n</label>
             </p>
         </div>
         <div class="ResultsListPrint">
-            <div class="col s4 noPadding resultados_encontrados col-sm-6">Se han encontrado <span class="resultado_numero">{{tableResults.numResults}}</span>
+            <div class="noPadding resultados_encontrados col-sm-6">Se han encontrado <span class="resultado_numero">{{tableResults.numResults}}</span>
                 resultados
             </div>
             <div class="col-sm-6 buttonPrint">
                 <button ng-click="printPage()" type="button" class="material-icons icon_print pull-right">print</button>
-                <button field-separator=";" add-bom="true" type="button" csv-header="exportExcel[0]" ng-csv="exportExcel[1]" filename="expedientes.csv" class="material-icons icon_print pull-right">print</button>
+                <button field-separator=";" add-bom="true" type="button" csv-header="exportExcel[0]" ng-csv="exportExcel[1]" filename="expedientes.csv" class="material-icons icon_print pull-right">get_app</button>
             </div>
         </div>
     </div>
@@ -21,13 +21,15 @@
         <table class="bordered highlight lowSize resultadosTabla text-center myDivToPrint col-sm-12" ng-class="{tableFioc: isFioc()}">
             <thead>
             <tr ng-show="!isFioc() && !isBloqueo()" class="firstCell">
-                <th title="Impactado" data-field="impactado" class="firstTh"></th>
+                <th ng-hide="isPteCancel()" title="Impactado" data-field="impactado" class="firstTh"></th>
                 <th title="Número de cuenta" data-field="n_cuenta">{{tableInfo.numCuenta}}<i class="material-icons"></i></th>
                 <th title="Canal" data-field="canal">{{tableInfo.canal}}<i class="material-icons"></i></th>
                 <th title="Intervinientes" data-field="intervinientes">{{tableInfo.interv}}<i class="material-icons"></i></th>
                 <th title="Gestor" data-field="gestor">{{tableInfo.gestor}}<i class="material-icons"></i></th>
-                <th title="FechaCre" data-field="fechaCre">{{tableInfo.creationDate}}<i class="material-icons"></i></th>
+                <th ng-hide="isPteCancel()" title="FechaCre" data-field="fechaCre">{{tableInfo.creationDate}}<i class="material-icons"></i></th>
+                <th ng-show="isPteCancel()" title="MotivoCancel" data-field="motivoCancel">{{tableInfo.motivoCancel}}<i class="material-icons"></i></th>
                 <th title="FechaMod" data-field="FechaMod" class="">{{tableInfo.modDate}}<i class="material-icons"></i></th>
+                <th ng-show="isPteCancel()" title="Cancelar" data-field="Cancelar" class="">{{tableInfo.cancelar}}<i class="material-icons"></i></th>
             </tr>
             <tr ng-show="isFioc()">
                 <th title="N&uacute;mero de cuenta" data-field="n_cuenta">{{tableInfo.numCuenta}}<i class="material-icons"></i></th>
@@ -50,22 +52,33 @@
             </tr>
             </thead>
             <tbody id="contentTable">
-            <tr ng-show="!isFioc() && !isBloqueo()" ng-click="goToDetail(expediente.id)" ng-repeat="expediente in tableResults.expedientes">
+            <tr ng-show="!isFioc() && !isBloqueo() && !isPteCancel()" ng-click="goToDetail(expediente.id)" ng-repeat="expediente in tableResults.expedientes">
                 <td class="firstTd">
                     <i class="material-icons" ng-if="expediente.gestor != ''">lock</i>
                 </td>
-                <td><span>{{expediente.num_cuenta}}</span></td>
+                <td><span>{{expediente.num_cuenta | limitTo: 10 : 10}}</span></td>
                 <td><span>{{expediente.plataforma}}</span></td>
                 <td><span>{{expediente.numInterv}}</span></td>
                 <td><span>{{expediente.gestor}}</span></td>
                 <td><span>{{expediente.fecha_alta | date : 'dd/MM/yyyy HH:mm'}}</span></td>
                 <td><span>{{expediente.fecha_mod | date : 'dd/MM/yyyy HH:mm'}}</span></td>
             </tr>
+            <tr ng-show="isPteCancel()" ng-repeat="expediente in tableResults.expedientes">
+                <td><span>{{expediente.num_cuenta | limitTo: 10 : 10}}</span></td>
+                <td><span>{{expediente.plataforma}}</span></td>
+                <td><span>{{expediente.numInterv}}</span></td>
+                <td><span>{{expediente.gestor}}</span></td>
+                <td><span>{{expediente.motivoCancel}}</span></td>
+                <td><span>{{expediente.fecha_mod | date : 'dd/MM/yyyy HH:mm'}}</span></td>
+                <td ng-repeat="usuario in expediente.usuarios">
+                    <md-checkbox ng-checked="userToCancel.indexOf(usuario.objName) > -1" ng-repeat="usuario in expediente.usuarios track by $index" role="checkbox" ng-click="cancel(usuario,expediente.id,expediente.motivoCancel)" aria-label="Cancelar Usuario"></md-checkbox>
+                </td>
+            </tr>
             <tr ng-show="isFioc() || isBloqueo()" ng-repeat="expediente in tableResults.expedientes">
                 <td class="firstTd" ng-show="isBloqueo()">
                     <i class="material-icons" ng-if="expediente.gestor != ''">lock</i>
                 </td>
-                <td>{{expediente.num_cuenta}}</td>
+                <td>{{expediente.num_cuenta | limitTo: 10 : 10}}</td>
                 <td>{{expediente.fecha_alta | date : 'dd/MM/yyyy HH:mm'}}</td>
                 <td>{{expediente.gestor}}</td>
                 <td ng-repeat="usuario in expediente.usuarios"><span>{{usuario.nombre}} {{usuario.apellido1}} {{usuario.apellido2}}</span></td>
@@ -95,12 +108,13 @@
             </tr>
             </tbody>
         </table>
-        <div ng-controller="TocFooterController" ng-class="{tocFooterBloqueo: isBloqueo()}" class="tocFooter">
+        <div ng-controller="TocFooterController" ng-class="{tocFooterBloqueo: isBloqueo() || isPteCancel()}" class="tocFooter">
             <toc-footer actual-page="actualPage" results-per-page-options="numResultsPerPageOptions" default-results-per-page="numResultsPerPageDefault" actual-size-per-page="numActualResultsPerPage" num-total-pages="numTotalPages" go-to-page="goToPage" go-to-next-page="goToNextPage" go-to-prev-page="goToPrevPage" is-fioc="isFioc"></toc-footer>
         </div>
         <div ng-controller="TocFooterController" class="col-sm-12 contentBtnProcessUser BtnBlock">
             <button ng-show="isFioc()" ng-click="procesarUsuarios()" class="buttonDefault pull-right">PROCESAR</button>
             <button ng-show="isBloqueo()" ng-click="bloquearCuentas()" class="buttonDefault pull-right">PROCESAR</button>
+            <button ng-show="isPteCancel()" ng-click="cancelarCuentas()" class="buttonDefault pull-right">PROCESAR</button>
         </div>
     </div>
 </form>

@@ -126,7 +126,7 @@ angular.module('RequisitosModel',[])
             for (var estadoReq in listaEstadosReq){
                 if (listaEstadosReq.hasOwnProperty(estadoReq)){
                     if (estadoReq === reqId)
-                        return listaEstadosReq[estadoReq];
+                        return listaEstadosReq[estadoReq][0];
                 }
             }
         };

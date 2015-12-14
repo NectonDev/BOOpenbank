@@ -561,6 +561,7 @@ $aquaDark: #007c7b;
             display: table-cell;
             vertical-align: top;
             height: 25px;
+            margin-top: -3px;
             a{
               color: $white;
               &:hover{
@@ -568,6 +569,9 @@ $aquaDark: #007c7b;
                 color: $gray-light;
               }//end hover
             }//end a
+            .searchRight{
+              margin: 0 5px 0 7px;
+            }//en searchRight
           }//end iconos_cab
 
         }//end div.lateral_derecha
@@ -1274,6 +1278,7 @@ $aquaDark: #007c7b;
     width: 96%;
     margin: 0 auto;
     margin-top: 15px;
+    margin-bottom: 15px;
 
     tr{
       &.firstCell{
@@ -1303,3 +1308,13 @@ html, body {
   background: #dadada !important;
 } // end html, body
 
+//----- LITTLE FIXES
+.tocSearch{
+  margin-top: -25px;
+}
+.tableSearchBG{
+  tr:hover td{
+    background: #f3f3f6;
+    cursor: pointer;
+  }
+}

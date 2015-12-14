@@ -1,91 +1,140 @@
-<div class="cent_detalle expDetalle searchContent">
-    <div class="triangulo" id="triangulo"></div>
-    <div class="cent_buscador" id="cent_buscador">
-        <form class="col-sm-12 datosDetalle">
-            <div class="col-sm-6 infoFirst">
-                <div class="infoDatos">
-                    <div class="margInf">{{searchInfo.IBANText}}</div>
-                    <div class="contNum">{{searchInfo.IBANNumber}}</div>
-                </div>
-                <div class="infoDatos">
-                    <div class="margInf">{{searchInfo.EntidadText}}</div>
-                    <div class="contNum">{{searchInfo.EntidadNumber}}</div>
-                </div>
-                <div class="infoDatos">
-                    <div class="margInf">{{searchInfo.OficinaText}}</div>
-                    <div class="contNum">{{searchInfo.OficinaNumber}}</div>
-                </div>
-                <div class="infoDatos">
-                    <div class="margInf">{{searchInfo.DCText}}</div>
-                    <div class="contNum">15</div>
-                </div>
-                <md-input-container class="campoForm masPad offset-s1">
-                    <label>Cuenta</label>
-                    <input class="validate" type="number" ng-model="parameters.cuenta">
-                </md-input-container>
-            </div>
-            <div class="col-sm-6 infoFirst">
-                <div ez-datetime-control ng-model="parameters.fechaCreaDesde" class="calendar">
-                    <div class="dateTit">
-                        Fecha modificaci&oacute;n <span>desde</span><span class="md-select-icon"></span>
+<div>
+    <div class="cent_detalle expDetalle searchContent">
+        <div class="triangulo" id="triangulo"></div>
+        <div class="cent_buscador" id="cent_buscador">
+            <form class="col-sm-12 datosDetalle">
+                <div class="col-sm-6 infoFirst">
+                    <div class="infoDatos">
+                        <div class="margInf">{{searchInfo.IBANText}}</div>
+                        <div class="contNum">{{searchInfo.IBANNumber}}</div>
                     </div>
-                    <div>{{parameters.fechaCreaDesde | date : 'dd/MM/yyyy HH:mm'}}</div>
-                </div>
-                <div ez-datetime-control ng-model="parameters.fechaCreaHasta" class="calendar">
-                    <div class="dateTit">
-                        Fecha modificaci&oacute;n <span>hasta</span><span class="md-select-icon"></span>
+                    <div class="infoDatos">
+                        <div class="margInf">{{searchInfo.EntidadText}}</div>
+                        <div class="contNum">{{searchInfo.EntidadNumber}}</div>
                     </div>
-                    <div>{{parameters.fechaCreaHasta | date : 'dd/MM/yyyy HH:mm'}}</div>
-                </div>
-            </div>
-            <div class="col-sm-6 infoSecond">
-                <md-input-container>
-                    <label>Tipo</label>
-                    <md-select ng-model="parameters.tipoDoc">
-                        <md-option ng-value="typeOptions" ng-repeat="typeOptions in typeOptions.choices">{{typeOptions}}</md-option>
-                    </md-select>
-                </md-input-container>
-                <md-input-container class="campoForm masPad offset-s1">
-                    <label>Numero del documento</label>
-                    <input class="validate" type="text" ng-model="numDoc">
-                </md-input-container>
-            </div>
-            <div class="col-sm-6 infoSecond">
-                <div ez-datetime-control ng-model="parameters.fechaModDesde" class="calendar">
-                    <div class="dateTit">
-                        Fecha modificaci&oacute;n <span>desde</span><span class="md-select-icon"></span>
+                    <div class="infoDatos">
+                        <div class="margInf">{{searchInfo.OficinaText}}</div>
+                        <div class="contNum">{{searchInfo.OficinaNumber}}</div>
                     </div>
-                    <div>{{parameters.fechaModDesde | date : 'dd/MM/yyyy HH:mm'}}</div>
-                </div>
-                <div ez-datetime-control ng-model="parameters.fechaModHasta" class="calendar">
-                    <div class="dateTit">
-                        Fecha modificaci&oacute;n <span>hasta</span><span class="md-select-icon"></span>
+                    <div class="infoDatos">
+                        <div class="margInf">{{searchInfo.DCText}}</div>
+                        <div class="contNum">15</div>
                     </div>
-                    <div>{{parameters.fechaModHasta | date : 'dd/MM/yyyy HH:mm'}}</div>
+                    <md-input-container class="campoForm masPad offset-s1">
+                        <label>Cuenta</label>
+                        <input class="validate" type="text" ng-model="parameters.codigo_cuenta_creada">
+                    </md-input-container>
                 </div>
-            </div>
-            <div class="infoThird datosDetalle col-sm-12">
-                <md-input-container class="pull-left">
-                    <label>Estado</label>
-                    <md-select ng-model="parameters.estado">
-                        <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices track by $index">{{stateOption}}</md-option>
-                    </md-select>
-                </md-input-container>
-                <md-input-container class="pull-left">
-                    <label>Canal</label>
-                    <md-select ng-model="parameters.canal">
-                        <md-option ng-value="canalOption" ng-repeat="canalOption in canalesOptions.choices">{{canalOption}}</md-option>
-                    </md-select>
-                </md-input-container>
-
-
-            </div>
-
-            <div class="col-sm-12">
-                <button ng-click="doSearch()" class="buttonDefault pull-right" type="button">BUSCAR</button>
-                <button ng-click="cleanSearch()" type="reset" class="buttonDefault btn-white pull-right">LIMPIAR B&Uacute;SQUEDA</button>
-            </div>
-
-        </form>
+                <div class="col-sm-6 infoFirst">
+                    <div ez-datetime-control ng-model="parameters.fechaCreaDesde" class="calendar">
+                        <div class="dateTit">
+                            Fecha creaci&oacute;n <span>desde</span><span class="md-select-icon"></span>
+                        </div>
+                        <div>{{parameters.fechaCreaDesde | date : 'dd/MM/yyyy HH:mm'}}</div>
+                    </div>
+                    <div ez-datetime-control ng-model="parameters.fechaCreaHasta" class="calendar">
+                        <div class="dateTit">
+                            Fecha creaci&oacute;n <span>hasta</span><span class="md-select-icon"></span>
+                        </div>
+                        <div>{{parameters.fechaCreaHasta | date : 'dd/MM/yyyy HH:mm'}}</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 infoSecond">
+                    <md-input-container>
+                        <label>Tipo</label>
+                        <md-select ng-model="parameters.tipoDoc">
+                            <md-option ng-value="typeOptions" ng-repeat="typeOptions in typeOptions.choices">{{typeOptions}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container class="campoForm masPad offset-s1">
+                        <label>Numero del documento</label>
+                        <input class="validate" type="text" ng-model="parameters.numDoc">
+                    </md-input-container>
+                </div>
+                <div class="col-sm-6 infoSecond">
+                    <div ez-datetime-control ng-model="parameters.fechaModDesde" class="calendar">
+                        <div class="dateTit">
+                            Fecha modificaci&oacute;n <span>desde</span><span class="md-select-icon"></span>
+                        </div>
+                        <div>{{parameters.fechaModDesde | date : 'dd/MM/yyyy HH:mm'}}</div>
+                    </div>
+                    <div ez-datetime-control ng-model="parameters.fechaModHasta" class="calendar">
+                        <div class="dateTit">
+                            Fecha modificaci&oacute;n <span>hasta</span><span class="md-select-icon"></span>
+                        </div>
+                        <div>{{parameters.fechaModHasta | date : 'dd/MM/yyyy HH:mm'}}</div>
+                    </div>
+                </div>
+                <div class="infoThird datosDetalle col-sm-12">
+                    <md-input-container class="pull-left">
+                        <label>Estado</label>
+                        <md-select ng-model="parameters.estado">
+                            <md-option ng-value="stateOption" ng-repeat="stateOption in statesOptions.choices track by $index">{{stateOption}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container class="pull-left">
+                        <label>Canal</label>
+                        <md-select ng-model="parameters.canal">
+                            <md-option ng-value="canalOption" ng-repeat="canalOption in canalesOptions.choices">{{canalOption}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div class="col-sm-12">
+                    <button ng-click="doSearch()" class="buttonDefault pull-right" type="button">BUSCAR</button>
+                    <button ng-click="cleanSearch()" type="reset" class="buttonDefault btn-white pull-right">LIMPIAR B&Uacute;SQUEDA</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="tocSearch">
+        <div class="Toc" ng-show="tableResults.numResults>0">
+            <form class="form_mostrar_container tocBody">
+                <div class="ResultsListPrintRecord">
+                    <div class="ResultsList col-sm-12">
+                        <p class="noPadding bigger-font-size ResultsListCaption col-sm-6">Lista de resultados</p>
+                    </div>
+                    <div class="ResultsListPrint">
+                        <div class="noPadding resultados_encontrados col-sm-6">Se han encontrado <span class="resultado_numero">{{tableResults.numResults}}</span>
+                            resultados
+                        </div>
+                        <div class="col-sm-6 buttonPrint">
+                            <button ng-click="printPage()" type="button" class="material-icons icon_print pull-right">print</button>
+                            <button field-separator=";" add-bom="true" type="button" csv-header="exportExcel[0]" ng-csv="exportExcel[1]" filename="expedientes.csv" class="material-icons icon_print pull-right">get_app</button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <table class="bordered highlight lowSize resultadosTabla text-center myDivToPrint tableSearchBG">
+                        <thead>
+                        <tr class="firstCell">
+                            <th title="Impactado" data-field="impactado" class="firstTh"></th>
+                            <th title="Número de cuenta" data-field="n_cuenta">{{tableInfo.numCuenta}}<i class="material-icons"></i></th>
+                            <th title="Canal" data-field="canal">{{tableInfo.canal}}<i class="material-icons"></i></th>
+                            <th title="Intervinientes" data-field="intervinientes">{{tableInfo.interv}}<i class="material-icons"></i></th>
+                            <th title="Gestor" data-field="gestor">{{tableInfo.gestor}}<i class="material-icons"></i></th>
+                            <th title="FechaCre" data-field="fechaCre">{{tableInfo.creationDate}}<i class="material-icons"></i></th>
+                            <th title="FechaMod" data-field="FechaMod" class="">{{tableInfo.modDate}}<i class="material-icons"></i></th>
+                        </tr>
+                        </thead>
+                        <tbody id="contentTable">
+                        <tr ng-click="goToDetail(expediente.id)" ng-repeat="expediente in tableResults.expedientes">
+                            <td class="firstTd">
+                                <i class="material-icons" ng-if="expediente.gestor != ''">lock</i>
+                            </td>
+                            <td><span>{{expediente.num_cuenta}}</span></td>
+                            <td><span>{{expediente.plataforma}}</span></td>
+                            <td><span>{{expediente.numInterv}}</span></td>
+                            <td><span>{{expediente.gestor}}</span></td>
+                            <td><span>{{expediente.fecha_alta | date : 'dd/MM/yyyy HH:mm'}}</span></td>
+                            <td><span>{{expediente.fecha_mod | date : 'dd/MM/yyyy HH:mm'}}</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div ng-controller="TocFooterController" class="tocFooter">
+                        <toc-footer actual-page="actualPage" results-per-page-options="numResultsPerPageOptions" default-results-per-page="numResultsPerPageDefault" actual-size-per-page="numActualResultsPerPage" num-total-pages="numTotalPages" go-to-page="goToPage" go-to-next-page="goToNextPage" go-to-prev-page="goToPrevPage" is-fioc="isFioc"></toc-footer>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

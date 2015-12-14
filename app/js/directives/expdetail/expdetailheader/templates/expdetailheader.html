@@ -8,13 +8,9 @@
                     <md-option  ng-value="motivo" ng-repeat="motivo in motivosOptions.choices track by $index">{{motivo}}</md-option>
                 </md-select>
             </md-input-container>
-            <md-input-container class="campoForm masPad offset-s1">
-                <!-- <label for="comentario" style="color:#76777a;font-size: 14px;">Comentario</label> -->
-                <!-- <textarea id="comentario" class="validate"></textarea> -->
-            </md-input-container>
         </div>
         <div class="ngdialog-buttons mt">
-            <button type="button" class="btnAccept cursorPointer pull-right" ng-click="cancelExp()">ACEPTAR</button>
+            <button type="button" class="btnAccept cursorPointer pull-right" ng-click="pteCancelExp()">ACEPTAR</button>
         </div>
     </script>
     <div class="col-sm-6 breadcrumbSite">
@@ -24,7 +20,7 @@
         <button class="buttonDefault btn-white" ng-click="openDialog()">CANCELAR EXPEDIENTE</button>
         <button class="buttonDefault" ng-click="goToObs(infoExpediente.id)">OBSERVACIONES</button>
     </div>
-    <div class="col s12 datosDetalle">
+    <div class="datosDetalle">
         <div class="infoDatos">
             <div>{{infoHeader.IBANText}}</div>
             <div class="contNum">{{infoHeader.IBANNumber}}</div>
@@ -43,7 +39,7 @@
         </div>
         <div class="infoDatos masPad">
             <div>Cuenta</div>
-            <div class="contNum">{{infoExpediente.num_cuenta}}</div>
+            <div class="contNum">{{infoExpediente.num_cuenta | limitTo: 10 : 10}}</div>
         </div>
         <div class="infoDatos masPad">
             <div>Estado</div>

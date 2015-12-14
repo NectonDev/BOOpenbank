@@ -2,8 +2,7 @@ angular.module('APIConfig',[])
     .service('APIConfigService', function(){
         var service = this,
         urlApis = {
-            apiUrlServicios: 'http://hc-des-procesosi.alphainn.gsnetcloud.com',
-            apiUrlExpedientes: 'http://hc-des-expediente.alphainn.gsnetcloud.com'
+            apiUrlExpedientes: 'https://hc-des-expediente.paas.openbank.es'
         },
         endpointmap = {
             login: '/login',
@@ -18,6 +17,7 @@ angular.module('APIConfig',[])
             adjuntarDocumento: '/adjuntarDocumento',
             leerDocumentos: '/recuperarDocumentosUsuario',
             cancelarExpediente: '/cancelarExpediente',
+            pteCancelarExpediente: '/pdtCancelarExpediente',
             procesadoFioc: '/procesadoFioc',
             bloquearCuenta: '/bloquearCuenta',
             listaTipoDocs: '/listaTipoDocs',
@@ -82,6 +82,9 @@ angular.module('APIConfig',[])
         service.getUrlCancelarExpediente = function(){
             return urlApis.apiUrlExpedientes+endpointmap.cancelarExpediente;
         };
+        service.getUrlPteCancelarExpediente = function(){
+            return urlApis.apiUrlExpedientes+endpointmap.pteCancelarExpediente;
+        };
         service.getUrlListaMotivosCancelacion = function(){
             return urlApis.apiUrlExpedientes+endpointmap.listaMotivosCancelacion;
         };
@@ -113,13 +116,13 @@ angular.module('APIConfig',[])
             return urlApis.apiUrlExpedientes+endpointmap.bloquearCuenta;
         };
         service.getUrlListaPaises = function(){
-            return urlApis.apiUrlServicios+endpointmap.listaPaises;
+            return urlApis.apiUrlExpedientes+endpointmap.listaPaises;
         };
         service.getUrlListaTipoVias = function(){
-            return urlApis.apiUrlServicios+endpointmap.listaTipoVias;
+            return urlApis.apiUrlExpedientes+endpointmap.listaTipoVias;
         };
         service.getUrlListaCiudades = function(){
-            return urlApis.apiUrlServicios+endpointmap.listaCiudades;
+            return urlApis.apiUrlExpedientes+endpointmap.listaCiudades;
         };
         service.getDefaultPageExpediente = function(){
             return default_parameters_expediente_bo.page;

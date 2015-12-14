@@ -2,21 +2,27 @@
   font-family: Roboto-Bold;
   src: url(../font/roboto/Roboto-Bold.woff);
   font-weight: bold; }
+
 @font-face {
   font-family: Roboto-Medium;
   src: url(../font/roboto/Roboto-Medium.woff); }
+
 @font-face {
   font-family: Roboto-Regular;
   src: url(../font/roboto/Roboto-Regular.woff); }
+
 @font-face {
   font-family: Roboto-Light;
   src: url(../font/roboto/Roboto-Light.woff); }
+
+/* line 45, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .icon_warning {
   color: #ff9933 !important;
   border-radius: 50px;
   padding: 2px;
   font-size: 18px !important; }
 
+/* line 51, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .icon_check {
   color: #fff !important;
   border-radius: 50px;
@@ -24,6 +30,7 @@
   background: #82b64b;
   font-size: 14px !important; }
 
+/* line 58, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .icon_NA {
   color: #999 !important;
   width: 25px;
@@ -34,47 +41,61 @@
   font-size: 14px !important;
   font-family: Roboto-Light !important; }
 
+/* line 68, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .icon_visibility {
   color: #339999; }
 
+/* line 71, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .icon_no_sim {
   color: #999;
   font-size: 22px !important; }
 
+/* line 75, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .icon_clear {
   color: #fff;
   font-size: 18px !important;
   background: red;
   border-radius: 50px; }
 
+/* line 84, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .md-select-menu-container {
   z-index: 99999 !important; }
 
+/* line 88, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 md-input-container label {
   position: absolute !important;
   bottom: 100% !important;
   left: 0 !important; }
 
+/* line 93, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .ngdialog-content {
   width: 600px !important; }
+  /* line 97, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .ngdialog-content .cancelRecordModal img {
     width: 100% !important; }
+  /* line 101, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .ngdialog-content .cancelRecordModal h5 {
     font-family: Roboto-Medium;
     color: #666;
     font-size: 1.167em; }
+  /* line 107, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .ngdialog-content .cancelRecordModal md-input-container {
     padding: 0;
     margin: 0 0 30px 0; }
+    /* line 110, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .ngdialog-content .cancelRecordModal md-input-container label {
       color: #339999 !important; }
+    /* line 114, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .ngdialog-content .cancelRecordModal md-input-container.md-input-has-value label {
       display: none; }
+    /* line 119, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .ngdialog-content .cancelRecordModal md-input-container md-select .md-select-value {
       border-bottom: 2px solid #ddd; }
+      /* line 121, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .ngdialog-content .cancelRecordModal md-input-container md-select .md-select-value span {
         color: #1a2e35; }
 
+/* line 134, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .buttonLogin {
   padding: 2px 58px;
   border-radius: 3px;
@@ -83,6 +104,7 @@ md-input-container label {
   border: none;
   font-family: "Roboto-Medium"; }
 
+/* line 143, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .buttonDefault {
   background: #339999;
   border-radius: 3px;
@@ -91,11 +113,13 @@ md-input-container label {
   color: #fff;
   margin-right: 10px; }
 
+/* line 152, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .buttonDefault:hover {
   background: #00e6e6;
   border-color: #00e6e6;
   color: #fff; }
 
+/* line 158, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .buttonDefault.btn-white {
   background: #fff;
   border-radius: 3px;
@@ -103,11 +127,13 @@ md-input-container label {
   font-family: Roboto-Medium;
   color: #00b1b1; }
 
+/* line 165, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .buttonDefault.btn-white:hover {
   background: #00b1b1;
   border-color: #00b1b1;
   color: #fff; }
 
+/* line 171, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .btnAccept {
   color: #007c7b;
   font-family: "Roboto-Bold", "Roboto";
@@ -115,10 +141,12 @@ md-input-container label {
   background: transparent;
   font-size: 0.917em; }
 
+/* line 179, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .btnAccept:hover {
   color: #00e6e6;
   text-decoration: none; }
 
+/* line 184, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .btnReturn {
   color: #007c7b;
   font-family: "Roboto-Bold", "Roboto";
@@ -126,18 +154,22 @@ md-input-container label {
   font-size: 0.917em;
   border: none; }
 
+/* line 192, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .btnReturn:hover {
   color: #00e6e6;
   text-decoration: none; }
 
+/* line 197, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .btn-primary {
   background: #339999 !important; }
 
+/* line 202, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .btnFile {
   position: relative;
   overflow: hidden;
   border: none !important; }
 
+/* line 207, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .btnFile input[type=file] {
   position: absolute;
   top: 0;
@@ -153,67 +185,88 @@ md-input-container label {
   cursor: inherit;
   display: block; }
 
+/* line 227, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 md-tooltip .tooltipFioc {
   padding: 20px !important; }
+  /* line 229, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   md-tooltip .tooltipFioc span {
     padding: 20px !important; }
 
+/* line 241, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .standFioc md-select-menu md-content,
 .standFioc md-select-menu md-content {
   height: 100% !important;
   max-height: 100% !important; }
 
+/* line 249, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .md-select-menu-container.md-active md-select-menu > * {
   color: #999 !important; }
 
+/* line 253, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 md-select-menu md-option[selected] {
   color: #fff !important;
   background: #339999; }
 
+/* line 261, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 md-checkbox.md-default-theme.md-checked .md-ink-ripple,
 md-checkbox.md-checked .md-ink-ripple {
   color: #339999 !important;
   background: #fff !important; }
 
+/* line 265, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 md-checkbox .md-icon {
   border-color: #999 !important;
   border: 1px solid #999 !important; }
 
+/* line 270, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 md-checkbox.md-default-theme.md-checked .md-icon,
 md-checkbox.md-checked .md-icon {
   background: #fff !important; }
 
+/* line 273, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 md-checkbox.md-default-theme.md-checked .md-icon:after, md-checkbox.md-checked .md-icon:after {
   border-color: #339999 !important; }
 
+/* line 278, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 md-input-container:not(.md-input-invalid).md-input-focused label {
   color: rgba(0, 0, 0, 0.54) !important;
   font-size: 1em !important; }
 
+/* line 283, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 md-input-container:not(.md-input-invalid).md-input-focused .md-input {
   border-color: #ddd !important; }
 
+/* line 287, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 md-select.md-default-theme:not([disabled]):focus .md-select-value, md-select:not([disabled]):focus .md-select-value {
   border-color: #999 !important; }
 
+/* line 293, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .ez-datetime-modal.ng-scope .btn-primary {
   background: #339999; }
+
+/* line 299, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .ez-datetime-modal.ng-scope .datepicker tbody td {
   color: #339999; }
+  /* line 302, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .ez-datetime-modal.ng-scope .datepicker tbody td.day:hover {
     background: #339999 !important; }
+  /* line 308, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .ez-datetime-modal.ng-scope .datepicker tbody td.active.active {
     background: #1a2e35;
     color: #fff; }
+
+/* line 318, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .ez-datetime-modal.ng-scope .datepicker span.active.active {
   background: #1a2e35;
   color: #fff; }
 
+/* line 332, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 body.ngdialog-open, html.ngdialog-open,
 body.ngdialog-open,
 .modal-open {
   overflow: initial !important; }
 
+/* line 337, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .md-select-icon:after {
   display: block;
   content: '\25BC';
@@ -223,9 +276,11 @@ body.ngdialog-open,
   -webkit-transform: scaleY(0.6) scaleX(1);
   transform: scaleY(0.6) scaleX(1); }
 
+/* line 348, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .pagination {
   margin: 24px 0; }
 
+/* line 352, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .cursorPointer {
   cursor: pointer; }
 
@@ -239,22 +294,27 @@ $mediumGrey: #666666;
 $aquaLight: #00e6e6;
 $aquaDark: #007c7b;
 */
+/* line 368, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .textAquaDark {
   color: #007c7b;
   font-family: "Roboto-Bold", "Roboto"; }
 
+/* line 373, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .textAquaDark:hover {
   color: #00e6e6;
   text-decoration: none; }
 
+/* line 380, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .rowOk {
   margin-left: 15px !important;
   margin-right: 15px !important; }
 
+/* line 386, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .material-icons {
   cursor: pointer;
   vertical-align: middle; }
 
+/* line 388, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .breadcrumbSite {
   margin: 0;
   padding: 0;
@@ -262,28 +322,34 @@ $aquaDark: #007c7b;
   font-family: "Roboto-Medium", "Roboto";
   color: #999; }
 
+/* line 397, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .contenedor {
   margin: 0 auto;
   font-size: 1em;
   background: #ddd;
   min-height: 100%; }
+  /* line 404, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .contenedor .central .central-col.ng-scope {
     position: relative;
     width: 100%;
     top: 100px; }
 
+/* line 414, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .boxLogin {
   background-color: #fff;
   width: 380px;
   height: 370px;
   margin: auto auto;
   box-shadow: 0px 3px 5px grey; }
+  /* line 420, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .boxLogin .headerLogin {
     width: auto;
     height: 85px;
     background-color: #1a2e35; }
+    /* line 424, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .boxLogin .headerLogin .imgLogin {
       position: relative; }
+      /* line 426, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .boxLogin .headerLogin .imgLogin img {
         border: 1px solid yellow;
         width: 190px;
@@ -291,6 +357,7 @@ $aquaDark: #007c7b;
         margin-right: auto !important;
         display: block;
         padding-top: 25px; }
+  /* line 436, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .boxLogin .titLogin {
     width: auto;
     height: 70px;
@@ -300,27 +367,33 @@ $aquaDark: #007c7b;
     color: #666;
     position: relative;
     top: 5px; }
+    /* line 445, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .boxLogin .titLogin p {
       font-family: Roboto-Bold;
       width: 280px;
       margin-right: auto;
       margin-left: auto; }
+  /* line 453, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .boxLogin .contentLogin {
     width: 220px;
     margin-right: auto;
     margin-left: auto; }
+    /* line 457, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .boxLogin .contentLogin .group {
       margin: 15px 0; }
+      /* line 459, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .boxLogin .contentLogin .group label {
         font-size: 14px;
         font-family: "Roboto-Light";
         color: #999; }
+      /* line 464, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .boxLogin .contentLogin .group input {
         background: #fff;
         width: 100%;
         border: none;
         border-bottom: 1px solid #ddd; }
 
+/* line 478, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .cabecera {
   position: fixed;
   top: 0;
@@ -330,65 +403,86 @@ $aquaDark: #007c7b;
   background: #1a2e35;
   color: #fff;
   padding: 0; }
+  /* line 488, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .cabecera .contenido_nav {
     margin: 0 auto;
     width: 979px; }
+    /* line 492, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .cabecera .contenido_nav .cont_sup .cabecera_center {
       height: 49px;
       padding: 10px 0 40px 0; }
+      /* line 496, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .cabecera .contenido_nav .cont_sup .cabecera_center .tit_cliente .ng-binding {
         font-family: Roboto-Bold;
         font-size: 1.5em; }
+      /* line 503, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .cabecera .contenido_nav .cont_sup .cabecera_center .img_open img {
         float: right; }
+    /* line 511, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .cabecera .contenido_nav .cont_inf .cabecera_center {
       height: 50px;
       padding-top: 25px; }
+      /* line 515, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .cabecera .contenido_nav .cont_inf .cabecera_center > ul.menu_cabecera li {
         display: inline-block;
         padding: 0 10px;
         height: 25px; }
+        /* line 519, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .cabecera .contenido_nav .cont_inf .cabecera_center > ul.menu_cabecera li a {
           color: #fff;
           font-size: 1.083em;
           font-family: "Roboto-Medium", "Roboto";
           padding: 0 6px 3px 6px; }
+          /* line 524, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .cabecera .contenido_nav .cont_inf .cabecera_center > ul.menu_cabecera li a:hover {
             color: #00e6e6;
             text-decoration: none;
             border-bottom: 3px solid #00e6e6; }
+          /* line 529, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .cabecera .contenido_nav .cont_inf .cabecera_center > ul.menu_cabecera li a:focus {
             color: #00e6e6;
             text-decoration: none;
             border-bottom: 3px solid #00e6e6; }
+      /* line 538, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .cabecera .contenido_nav .cont_inf .cabecera_center > div.lateral_derecha {
         padding: 0px;
         display: table;
         float: right;
         padding-right: 5px; }
+        /* line 544, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .cabecera .contenido_nav .cont_inf .cabecera_center > div.lateral_derecha > div {
           display: table-cell; }
+        /* line 547, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .cabecera .contenido_nav .cont_inf .cabecera_center > div.lateral_derecha .nom_usuario {
           font-family: "Roboto-Medium", "Roboto";
           font-size: 1em;
           display: table-cell;
           vertical-align: top;
           height: 10px; }
+          /* line 553, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .cabecera .contenido_nav .cont_inf .cabecera_center > div.lateral_derecha .nom_usuario a {
             color: #fff;
             border-right: 1px solid #fff;
             padding-right: 10px; }
+        /* line 559, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .cabecera .contenido_nav .cont_inf .cabecera_center > div.lateral_derecha .iconos_cab {
           float: right;
           display: table-cell;
           vertical-align: top;
-          height: 25px; }
+          height: 25px;
+          margin-top: -3px; }
+          /* line 565, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .cabecera .contenido_nav .cont_inf .cabecera_center > div.lateral_derecha .iconos_cab a {
             color: #fff; }
+            /* line 567, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
             .cabecera .contenido_nav .cont_inf .cabecera_center > div.lateral_derecha .iconos_cab a:hover {
               text-decoration: none;
               color: #ddd; }
+          /* line 572, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
+          .cabecera .contenido_nav .cont_inf .cabecera_center > div.lateral_derecha .iconos_cab .searchRight {
+            margin: 0 5px 0 7px; }
 
+/* line 587, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .Toc {
   margin: 0 auto;
   margin-top: 15px;
@@ -398,45 +492,58 @@ $aquaDark: #007c7b;
   font-size: 1em;
   padding-bottom: 50px;
   margin-bottom: 40px; }
+  /* line 597, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .Toc .tocHeader {
     border-bottom: 2px solid #ddd; }
+    /* line 601, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .Toc .tocHeader .expediente_nav_container nav ul {
       padding: 0;
       margin-bottom: 0px;
       height: 41px; }
+      /* line 605, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .Toc .tocHeader .expediente_nav_container nav ul li {
         display: inline-block;
         padding: 10px 20px;
         cursor: pointer; }
+        /* line 609, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .Toc .tocHeader .expediente_nav_container nav ul li:hover {
           border-bottom: 3px solid #339999; }
+          /* line 611, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .Toc .tocHeader .expediente_nav_container nav ul li:hover a {
             color: #339999 !important;
             text-decoration: none; }
+        /* line 617, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .Toc .tocHeader .expediente_nav_container nav ul li.active {
           border-bottom: 3px solid #339999; }
+          /* line 619, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .Toc .tocHeader .expediente_nav_container nav ul li.active a {
             color: #339999 !important;
             text-decoration: none; }
+        /* line 625, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .Toc .tocHeader .expediente_nav_container nav ul li a {
           color: #1a2e35 !important;
           font-size: 1.083em;
           font-family: "Roboto-Medium", "Roboto"; }
+  /* line 637, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .Toc form.tocBody .ResultsListPrintRecord {
     padding: 15px 0 30px 0; }
+    /* line 639, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .Toc form.tocBody .ResultsListPrintRecord .ResultsList {
       display: table; }
+      /* line 642, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .Toc form.tocBody .ResultsListPrintRecord .ResultsList .ResultsListCaption {
         margin: 0;
         padding: 0;
         font-size: 1.250em;
         font-family: "Roboto-Medium", "Roboto";
         color: #999; }
+      /* line 649, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .Toc form.tocBody .ResultsListPrintRecord .ResultsList .recordReview {
         margin: 0;
         padding: 0;
         display: table-cell;
         vertical-align: middle; }
+        /* line 654, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .Toc form.tocBody .ResultsListPrintRecord .ResultsList .recordReview input {
           display: table-cell;
           vertical-align: middle;
@@ -448,26 +555,32 @@ $aquaDark: #007c7b;
           border-style: solid;
           width: 20px;
           height: 20px; }
+        /* line 666, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .Toc form.tocBody .ResultsListPrintRecord .ResultsList .recordReview label {
           margin: 0;
           padding: 0;
           color: #999;
           font-size: 0.917em; }
+    /* line 676, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .Toc form.tocBody .ResultsListPrintRecord .ResultsListPrint .resultados_encontrados {
       color: #1a2e35;
       font-size: 0.917em;
       font-family: "Roboto-Bold", "Roboto"; }
+    /* line 682, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .Toc form.tocBody .ResultsListPrintRecord .ResultsListPrint .buttonPrint button {
       background: none;
       border: none;
       color: #339999; }
+      /* line 686, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .Toc form.tocBody .ResultsListPrintRecord .ResultsListPrint .buttonPrint button:hover {
         color: #999; }
+  /* line 695, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .Toc form.tocBody table.resultadosTabla {
     padding: 15px;
     font-size: 1em;
     width: 96%;
     margin: 0 auto; }
+    /* line 701, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .Toc form.tocBody table.resultadosTabla th {
       text-align: left;
       font-family: "Roboto-Regular";
@@ -475,18 +588,23 @@ $aquaDark: #007c7b;
       width: auto;
       font-weight: normal;
       border-bottom: 1px solid red; }
+    /* line 710, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .Toc form.tocBody table.resultadosTabla tr {
       border-bottom: 2px solid #ddd; }
+      /* line 712, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .Toc form.tocBody table.resultadosTabla tr.firstCell {
         border-bottom: 2px solid #ddd; }
+        /* line 715, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .Toc form.tocBody table.resultadosTabla tr.firstCell th {
           text-align: left;
           font-family: "Roboto-Regular";
           color: #999;
           width: auto;
           font-weight: normal; }
+          /* line 721, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .Toc form.tocBody table.resultadosTabla tr.firstCell th.firstTh {
             width: 50px; }
+      /* line 726, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .Toc form.tocBody table.resultadosTabla tr td {
         color: #1a2e35;
         font-size: 0.917em;
@@ -494,62 +612,84 @@ $aquaDark: #007c7b;
         text-align: left;
         width: auto;
         height: 30px; }
+        /* line 734, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .Toc form.tocBody table.resultadosTabla tr td md-checkbox {
           margin: 0; }
+        /* line 738, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .Toc form.tocBody table.resultadosTabla tr td.firstTd {
           text-align: right;
           padding: 0 15px; }
+          /* line 742, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .Toc form.tocBody table.resultadosTabla tr td.firstTd i.material-icons {
             font-size: 1.083em !important;
             text-align: right; }
+        /* line 749, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .Toc form.tocBody table.resultadosTabla tr td span {
           cursor: pointer; }
+    /* line 758, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .Toc form.tocBody table.resultadosTabla.tableFioc.resultadosTabla tr td span {
       cursor: auto; }
+    /* line 765, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .Toc form.tocBody table.resultadosTabla.tableFioc md-input-container {
       width: 100%;
       margin: 0; }
+      /* line 768, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .Toc form.tocBody table.resultadosTabla.tableFioc md-input-container label {
         display: none; }
+      /* line 772, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .Toc form.tocBody table.resultadosTabla.tableFioc md-input-container md-select .md-select-value {
         border: none;
         padding: 0;
         margin-top: -6px; }
+  /* line 782, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .Toc form.tocBody .contentBtnProcessUser {
     margin: 10px 0;
     padding: 0 22px; }
+    /* line 785, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .Toc form.tocBody .contentBtnProcessUser.BtnBlock {
       margin: 10px 0 !important; }
+  /* line 790, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .Toc form.tocBody .tocFooterBloqueo {
     height: 100%;
     display: block; }
+    /* line 793, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .Toc form.tocBody .tocFooterBloqueo .mostrar_resultados {
       width: 33.3%; }
+    /* line 796, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .Toc form.tocBody .tocFooterBloqueo .paginationContainer {
       width: 24.9%;
       float: left; }
+  /* line 803, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .Toc .tocFooter {
     padding: 15px;
     color: #999 !important;
     font-size: 0.917em; }
+    /* line 807, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .Toc .tocFooter .showResults {
       padding: 10px; }
+    /* line 811, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .Toc .tocFooter .noBorder md-input-container {
       margin: 0 !important;
       padding: 0px !important; }
+      /* line 815, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .Toc .tocFooter .noBorder md-input-container md-select .md-select-value {
         border: none;
         min-width: 20px; }
+        /* line 818, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .Toc .tocFooter .noBorder md-input-container md-select .md-select-value *:first-child {
           max-width: 30px; }
+        /* line 819, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .Toc .tocFooter .noBorder md-input-container md-select .md-select-value .md-select-icon {
           max-width: 10px; }
+    /* line 824, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .Toc .tocFooter .recordsPage {
       padding-top: 10px; }
 
+/* line 831, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .infoReqUserTable {
   width: 100%; }
 
+/* line 837, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .expDetalle.cent_detalle,
 .mpcContainer {
   background: #fff;
@@ -563,44 +703,53 @@ $aquaDark: #007c7b;
   display: table;
   max-width: 979px;
   margin-top: 15px; }
-  .expDetalle.cent_detalle .expHeader, .expDetalle.cent_detalle .mpcTable,
-  .mpcContainer .expHeader,
-  .mpcContainer .mpcTable {
+  /* line 850, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
+  .expDetalle.cent_detalle .expHeader,
+  .expDetalle.cent_detalle .mpcTable,
+  .mpcContainer .expHeader, .mpcContainer .mpcTable {
     padding: 15px;
     border-bottom: 2px solid #ddd; }
-    .expDetalle.cent_detalle .expHeader .datosDetalle, .expDetalle.cent_detalle .mpcTable .datosDetalle,
-    .mpcContainer .expHeader .datosDetalle,
-    .mpcContainer .mpcTable .datosDetalle {
+    /* line 853, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
+    .expDetalle.cent_detalle .expHeader .datosDetalle,
+    .expDetalle.cent_detalle .mpcTable .datosDetalle,
+    .mpcContainer .expHeader .datosDetalle, .mpcContainer .mpcTable .datosDetalle {
       padding: 15px 15px 0;
       display: table;
       width: 100%;
       font-family: "Roboto-Light", "Roboto";
       font-size: 1em; }
-      .expDetalle.cent_detalle .expHeader .datosDetalle .infoDatos, .expDetalle.cent_detalle .mpcTable .datosDetalle .infoDatos,
-      .mpcContainer .expHeader .datosDetalle .infoDatos,
-      .mpcContainer .mpcTable .datosDetalle .infoDatos {
+      /* line 859, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
+      .expDetalle.cent_detalle .expHeader .datosDetalle .infoDatos,
+      .expDetalle.cent_detalle .mpcTable .datosDetalle .infoDatos,
+      .mpcContainer .expHeader .datosDetalle .infoDatos, .mpcContainer .mpcTable .datosDetalle .infoDatos {
         display: table-cell; }
-        .expDetalle.cent_detalle .expHeader .datosDetalle .infoDatos > div, .expDetalle.cent_detalle .mpcTable .datosDetalle .infoDatos > div,
-        .mpcContainer .expHeader .datosDetalle .infoDatos > div,
-        .mpcContainer .mpcTable .datosDetalle .infoDatos > div {
+        /* line 861, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
+        .expDetalle.cent_detalle .expHeader .datosDetalle .infoDatos > div,
+        .expDetalle.cent_detalle .mpcTable .datosDetalle .infoDatos > div,
+        .mpcContainer .expHeader .datosDetalle .infoDatos > div, .mpcContainer .mpcTable .datosDetalle .infoDatos > div {
           color: #999;
           font-family: Roboto-Regular;
           font-size: 1em; }
-        .expDetalle.cent_detalle .expHeader .datosDetalle .infoDatos .contNum, .expDetalle.cent_detalle .mpcTable .datosDetalle .infoDatos .contNum,
-        .mpcContainer .expHeader .datosDetalle .infoDatos .contNum,
-        .mpcContainer .mpcTable .datosDetalle .infoDatos .contNum {
+        /* line 866, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
+        .expDetalle.cent_detalle .expHeader .datosDetalle .infoDatos .contNum,
+        .expDetalle.cent_detalle .mpcTable .datosDetalle .infoDatos .contNum,
+        .mpcContainer .expHeader .datosDetalle .infoDatos .contNum, .mpcContainer .mpcTable .datosDetalle .infoDatos .contNum {
           color: #1a2e35; }
+  /* line 872, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .expDetalle.cent_detalle .mpcTable,
   .mpcContainer .mpcTable {
     border: none; }
+  /* line 876, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .expDetalle.cent_detalle .expBody,
   .mpcContainer .expBody {
     margin-top: 15px; }
+    /* line 878, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .expDetalle.cent_detalle .expBody .titTitular,
     .mpcContainer .expBody .titTitular {
       font-family: "Roboto-Bold", "Roboto";
       font-size: 1.167em;
       padding: 0 30px; }
+    /* line 883, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .expDetalle.cent_detalle .expBody .datosDetalle,
     .mpcContainer .expBody .datosDetalle {
       display: table;
@@ -608,54 +757,67 @@ $aquaDark: #007c7b;
       color: #727272;
       font-size: 1em;
       padding: 0 30px; }
+      /* line 889, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .expDetalle.cent_detalle .expBody .datosDetalle .infoDatos,
       .mpcContainer .expBody .datosDetalle .infoDatos {
         display: table-cell;
         font-size: 1em; }
+        /* line 892, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .expBody .datosDetalle .infoDatos label,
         .mpcContainer .expBody .datosDetalle .infoDatos label {
           color: #999;
           font-family: Roboto-Regular;
           font-size: 1em;
           font-weight: normal; }
+        /* line 898, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .expBody .datosDetalle .infoDatos p,
         .mpcContainer .expBody .datosDetalle .infoDatos p {
           font-family: Roboto-Regular;
           font-size: 1em;
           color: #1a2e35; }
+    /* line 906, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .expDetalle.cent_detalle .expBody .centertable,
     .mpcContainer .expBody .centertable {
       padding: 0; }
+      /* line 908, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .expDetalle.cent_detalle .expBody .centertable table.customBorder,
       .mpcContainer .expBody .centertable table.customBorder {
         margin: 15px 2.5%;
         width: 95%; }
+    /* line 914, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .expDetalle.cent_detalle .expBody .textAquaDark,
     .mpcContainer .expBody .textAquaDark {
       padding: 26px 30px 0 0; }
+    /* line 919, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .expDetalle.cent_detalle .expBody .centertable table,
     .mpcContainer .expBody .centertable table {
       width: 100%; }
+      /* line 921, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .expDetalle.cent_detalle .expBody .centertable table tr,
       .mpcContainer .expBody .centertable table tr {
         text-align: center;
         color: #339999;
         border: 1px solid #ddd; }
+        /* line 925, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .expBody .centertable table tr td,
         .mpcContainer .expBody .centertable table tr td {
           vertical-align: middle; }
+          /* line 927, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .expDetalle.cent_detalle .expBody .centertable table tr td:focus,
           .mpcContainer .expBody .centertable table tr td:focus {
             background: #f1f7f7; }
+          /* line 930, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .expDetalle.cent_detalle .expBody .centertable table tr td:hover,
           .mpcContainer .expBody .centertable table tr td:hover {
             background: #f1f7f7; }
+          /* line 933, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .expDetalle.cent_detalle .expBody .centertable table tr td p,
           .mpcContainer .expBody .centertable table tr td p {
             padding: 0;
             margin: 0;
             font-size: 0.8333em;
             font-family: "Roboto-Bold", "Roboto"; }
+    /* line 943, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable,
     .mpcContainer .expBody .centertable .infoReqUserTable {
       background: #f1f7f7 !important;
@@ -667,128 +829,159 @@ $aquaDark: #007c7b;
       height: 100%;
       display: inline-block;
       margin: 25px 0; }
+      /* line 955, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .rdTextFields md-input-container,
       .mpcContainer .expBody .centertable .infoReqUserTable .rdTextFields md-input-container {
         width: 19%; }
+      /* line 960, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .encabezadoDespleg,
       .mpcContainer .expBody .centertable .infoReqUserTable .encabezadoDespleg {
         height: 30px;
         margin: 15px 0; }
+        /* line 963, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .encabezadoDespleg .tituloDesplegable,
         .mpcContainer .expBody .centertable .infoReqUserTable .encabezadoDespleg .tituloDesplegable {
           padding: 13px 0 0 0;
           font-size: 1.167em;
           font-family: Roboto-Regular; }
+        /* line 968, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .encabezadoDespleg .xCerrar,
         .mpcContainer .expBody .centertable .infoReqUserTable .encabezadoDespleg .xCerrar {
           padding: 13px 0 0 0; }
+      /* line 972, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc,
       .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc {
         border: 1px solid #ddd;
         background: #fff;
         padding: 0;
         margin-bottom: 25px; }
+        /* line 978, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable,
         .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable {
           box-shadow: 1px 3px 4.7px 0.3px rgba(0, 0, 0, 0.24);
           margin: 0; }
+          /* line 981, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr,
           .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr {
             border: none; }
+            /* line 983, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
             .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr td,
             .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr td {
               padding: 3px 20px 0 20px; }
+          /* line 987, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableTit,
           .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableTit {
             font-family: Roboto-Regular;
             font-size: 1em; }
+            /* line 990, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
             .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableTit p,
             .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableTit p {
               font-family: Roboto-Regular;
               color: #999;
               font-size: 1em;
               text-align: left; }
+          /* line 997, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableData,
           .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableData {
             font-family: Roboto-light;
             font-size: 1.167em;
             color: #1a2e35; }
+            /* line 1002, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
             .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableData td,
             .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableData td {
               border-top: 1px solid #ddd;
               padding-top: 5px; }
+              /* line 1005, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
               .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableData td p,
               .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableData td p {
                 font-family: Roboto-Regular;
                 font-size: 0.8333em;
                 color: #263238;
                 text-align: left; }
+              /* line 1012, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
               .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableData td i,
               .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableData td i {
                 float: left;
                 margin: 0 0 3px 10px; }
+          /* line 1020, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableThirdDirective,
           .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableThirdDirective {
             border-top: 1px solid #ddd; }
+            /* line 1023, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
             .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableThirdDirective td p,
             .mpcContainer .expBody .centertable .infoReqUserTable .tablaDoc table.tablaDesplegable tr.tableThirdDirective td p {
               font-family: Roboto-Regular;
               font-size: 1em;
               color: #263238;
               text-align: left; }
+      /* line 1034, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent,
       .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent {
         padding: 0; }
+        /* line 1037, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .addDocumentFile,
         .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .addDocumentFile {
           position: relative;
           overflow: hidden; }
+          /* line 1040, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .addDocumentFile span.btnFile,
           .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .addDocumentFile span.btnFile {
             display: block;
             padding: 0;
             cursor: pointer; }
+        /* line 1047, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .fileName,
         .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .addDocumentFileContent .fileName {
           display: none; }
+        /* line 1052, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer,
         .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer {
           font-family: Roboto-Regular !important; }
+          /* line 1054, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container,
           .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container {
             padding: 0; }
+            /* line 1057, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
             .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container md-select .md-select-value,
             .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container md-select .md-select-value {
               background: transparent;
               padding-top: 0;
               border-bottom: 1px solid #999; }
+              /* line 1061, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
               .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container md-select .md-select-value span,
               .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .standContainer md-input-container md-select .md-select-value span {
                 color: #666 !important; }
+        /* line 1069, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .textAquaDark,
         .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .textAquaDark {
           display: block;
           padding: 10px 0; }
+        /* line 1074, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .expBody .centertable .infoReqUserTable .addDocumentContent .buttonDefault,
         .mpcContainer .expBody .centertable .infoReqUserTable .addDocumentContent .buttonDefault {
           margin: 20px 0; }
+  /* line 1085, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .expDetalle.cent_detalle .cent_buscador,
   .mpcContainer .cent_buscador {
     padding-top: 20px; }
+    /* line 1087, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .expDetalle.cent_detalle .cent_buscador .datosDetalle,
     .mpcContainer .cent_buscador .datosDetalle {
       display: table;
       font-family: Roboto-Light;
       color: #727272;
       font-size: 1em; }
+      /* line 1093, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .expDetalle.cent_detalle .cent_buscador .datosDetalle > div,
       .mpcContainer .cent_buscador .datosDetalle > div {
         display: table;
         min-height: 66px;
         margin: 10px 0; }
+        /* line 1098, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .cent_buscador .datosDetalle > div.infoSecond,
         .mpcContainer .cent_buscador .datosDetalle > div.infoSecond {
           padding-top: 30px !important; }
+        /* line 1105, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos,
         .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container,
         .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div,
@@ -798,6 +991,7 @@ $aquaDark: #007c7b;
         .mpcContainer .cent_buscador .datosDetalle > div > div,
         .mpcContainer .cent_buscador .datosDetalle > div > div.calendar {
           display: table-cell; }
+          /* line 1113, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf,
           .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.contNum,
           .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > label,
@@ -848,6 +1042,7 @@ $aquaDark: #007c7b;
           .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-datepicker {
             display: table-caption;
             /*.md-datepicker-input{max-width:auto !important;min-width:auto !important;}*/ }
+            /* line 1116, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf .md-button.md-icon-button,
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.contNum .md-button.md-icon-button,
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > label .md-button.md-icon-button,
@@ -897,6 +1092,7 @@ $aquaDark: #007c7b;
             .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > input .md-button.md-icon-button,
             .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-datepicker .md-button.md-icon-button {
               width: auto; }
+            /* line 1117, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf md-datepicker,
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.contNum md-datepicker,
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > label md-datepicker,
@@ -946,6 +1142,7 @@ $aquaDark: #007c7b;
             .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > input md-datepicker,
             .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-datepicker md-datepicker {
               padding: 0; }
+            /* line 1118, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.margInf .md-button.md-icon-button,
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > div.contNum .md-button.md-icon-button,
             .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > label .md-button.md-icon-button,
@@ -996,6 +1193,7 @@ $aquaDark: #007c7b;
             .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > md-datepicker .md-button.md-icon-button {
               margin: 0;
               padding: 0; }
+          /* line 1122, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .expDetalle.cent_detalle .cent_buscador .datosDetalle > div div.infoDatos > label,
           .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container > label,
           .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div > label,
@@ -1005,45 +1203,57 @@ $aquaDark: #007c7b;
           .mpcContainer .cent_buscador .datosDetalle > div > div > label,
           .mpcContainer .cent_buscador .datosDetalle > div > div.calendar > label {
             top: -28px; }
+        /* line 1128, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > md-input-container,
         .mpcContainer .cent_buscador .datosDetalle > div > md-input-container {
           padding-top: 10px; }
+        /* line 1132, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar,
         .mpcContainer .cent_buscador .datosDetalle > div > div.calendar {
           padding: 0 20px;
           margin-top: 100px; }
+          /* line 1136, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar .dateTit span.md-select-icon,
           .mpcContainer .cent_buscador .datosDetalle > div > div.calendar .dateTit span.md-select-icon {
             float: right; }
+          /* line 1141, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar .ng-binding,
           .mpcContainer .cent_buscador .datosDetalle > div > div.calendar .ng-binding {
             border-bottom: 1px solid #ddd; }
+          /* line 1146, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .expDetalle.cent_detalle .cent_buscador .datosDetalle > div > div.calendar.ng-pristine .dateTit,
           .mpcContainer .cent_buscador .datosDetalle > div > div.calendar.ng-pristine .dateTit {
             padding: 0px 2px 18px 2px; }
+        /* line 1152, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .cent_buscador .datosDetalle > div.infoThird,
         .mpcContainer .cent_buscador .datosDetalle > div.infoThird {
           padding: 15px !important; }
+          /* line 1155, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
           .expDetalle.cent_detalle .cent_buscador .datosDetalle > div.infoThird md-input-container md-select,
           .mpcContainer .cent_buscador .datosDetalle > div.infoThird md-input-container md-select {
             margin-right: 15px !important; }
+  /* line 1168, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .expDetalle.cent_detalle .thirdDirective,
   .mpcContainer .thirdDirective {
     padding: 15px;
     font-family: Roboto-Medium;
     font-size: 1em; }
+    /* line 1173, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .expDetalle.cent_detalle .thirdDirective .tit,
     .mpcContainer .thirdDirective .tit {
       font-size: 1.250em;
       color: #999;
       padding: 0 0 10px 0; }
+    /* line 1179, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .expDetalle.cent_detalle .thirdDirective .thirdDirectiveTable,
     .mpcContainer .thirdDirective .thirdDirectiveTable {
       display: table;
       height: 100%; }
+      /* line 1182, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .expDetalle.cent_detalle .thirdDirective .thirdDirectiveTable md-input-container,
       .mpcContainer .thirdDirective .thirdDirectiveTable md-input-container {
         display: table-cell; }
+        /* line 1185, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .thirdDirective .thirdDirectiveTable md-input-container label,
         .mpcContainer .thirdDirective .thirdDirectiveTable md-input-container label {
           position: relative !important;
@@ -1051,32 +1261,39 @@ $aquaDark: #007c7b;
           font-family: Roboto-Regular;
           color: #999;
           margin-bottom: 0; }
+        /* line 1192, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
         .expDetalle.cent_detalle .thirdDirective .thirdDirectiveTable md-input-container input,
         .mpcContainer .thirdDirective .thirdDirectiveTable md-input-container input {
           display: table-cell;
           font-size: 1em;
           color: #1a2e35;
           background-image: none; }
+    /* line 1201, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .expDetalle.cent_detalle .thirdDirective .thirdDirectiveChecks,
     .mpcContainer .thirdDirective .thirdDirectiveChecks {
       padding: 15px;
       display: table;
       height: 100%; }
+      /* line 1205, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .expDetalle.cent_detalle .thirdDirective .thirdDirectiveChecks label,
       .mpcContainer .thirdDirective .thirdDirectiveChecks label {
         font-weight: normal;
         font-size: 1em;
         color: #999; }
+      /* line 1211, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .expDetalle.cent_detalle .thirdDirective .thirdDirectiveChecks md-checkbox span,
       .mpcContainer .thirdDirective .thirdDirectiveChecks md-checkbox span {
         color: #1a2e35; }
+      /* line 1215, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .expDetalle.cent_detalle .thirdDirective .thirdDirectiveChecks md-input-container,
       .mpcContainer .thirdDirective .thirdDirectiveChecks md-input-container {
         margin-left: 15px; }
+  /* line 1223, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .expDetalle.cent_detalle.searchContent,
   .mpcContainer.searchContent {
     padding-bottom: 0; }
 
+/* line 1231, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .userDetailContent {
   background: #fff;
   margin: 0 auto;
@@ -1089,6 +1306,7 @@ $aquaDark: #007c7b;
   padding: 15px;
   display: table;
   max-width: 979px; }
+  /* line 1243, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .userDetailContent .datosDetalle {
     display: table;
     font-family: Roboto-Light;
@@ -1096,33 +1314,41 @@ $aquaDark: #007c7b;
     font-size: 1em;
     margin: 15px 0;
     margin: 15px 0; }
+    /* line 1251, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
     .userDetailContent .datosDetalle .infoDatos {
       display: table-cell;
       font-size: 1em;
       padding: 0 15px; }
+      /* line 1256, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .userDetailContent .datosDetalle .infoDatos label {
         color: #999;
         font-family: Roboto-Regular;
         font-size: 1em;
         font-weight: normal; }
+      /* line 1262, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
       .userDetailContent .datosDetalle .infoDatos p {
         font-family: Roboto-Regular;
         font-size: 1em;
         color: #1a2e35; }
 
+/* line 1275, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 .observationsContainer table.observationsTable {
   padding: 15px;
   font-size: 1em;
   width: 96%;
   margin: 0 auto;
-  margin-top: 15px; }
+  margin-top: 15px;
+  margin-bottom: 15px; }
+  /* line 1284, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .observationsContainer table.observationsTable tr.firstCell {
     border-bottom: 2px solid #ddd; }
+  /* line 1288, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .observationsContainer table.observationsTable tr th {
     text-align: left;
     font-family: "Roboto-Regular";
     color: #999;
     font-weight: normal; }
+  /* line 1294, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
   .observationsContainer table.observationsTable tr td {
     color: #1a2e35;
     font-size: 0.917em;
@@ -1131,7 +1357,17 @@ $aquaDark: #007c7b;
     height: 30px;
     padding: 0 15px; }
 
+/* line 1307, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
 html, body {
   background: #dadada !important; }
+
+/* line 1312, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
+.tocSearch {
+  margin-top: -25px; }
+
+/* line 1316, C:/Users/alejandro.gardel/Desktop/openbank/app/css/style.scss */
+.tableSearchBG tr:hover td {
+  background: #f3f3f6;
+  cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,17 +1,9 @@
 'use strict';
 
 angular.module('expDetailHeaderDirective', ['ngDialog'])
-    .controller('ExpDetailHeaderController', ['$scope', '$routeParams', '$location', '$localStorage', 'ngDialog', 'MotivosModel', 'ExpedientesModel', function($scope, $routeParams, $location, $localStorage, ngDialog, MotivosModel, ExpedientesModel) {
+    .controller('ExpDetailHeaderController', ['$scope', '$routeParams', '$location', '$localStorage', 'ngDialog', 'MotivosModel', 'ExpedientesModel', 'LiteralsConfigService', function($scope, $routeParams, $location, $localStorage, ngDialog, MotivosModel, ExpedientesModel, LiteralsConfigService) {
         var motivo = "";
-        $scope.infoHeader = {
-            IBANText: 'IBAN',
-            IBANNumber: $localStorage.accountInfo.IBAN,
-            EntidadText: 'Entidad',
-            EntidadNumber: $localStorage.accountInfo.Entidad,
-            OficinaText: 'Oficina',
-            OficinaNumber: $localStorage.accountInfo.Oficina,
-            DCText: 'DC'
-        };
+        $scope.infoHeader = LiteralsConfigService.getAccountInfo();
         $scope.$on('usersReqInfo', function(event, args){
             $scope.objNameTit = args.user0.dataUser.objName;
         });
@@ -38,8 +30,8 @@ angular.module('expDetailHeaderDirective', ['ngDialog'])
         $scope.motivosOptions = {
             choices: MotivosModel.getMotivos()
         };
-        $scope.cancelExp = function(){
-            ExpedientesModel.cancelExp($scope.objNameTit,$routeParams.expId,motivo).then(function(data){
+        $scope.pteCancelExp = function(){
+            ExpedientesModel.pteCancelExp($scope.objNameTit,$routeParams.expId,motivo).then(function(){
                 //TODO: Meter modal de expediente cancelado con exito.
                 $location.path("/backoffice");
             });
@@ -63,7 +55,7 @@ angular.module('expDetailHeaderDirective', ['ngDialog'])
             isObs: "=",
             isTd: "=",
             motivosOptions: "=",
-            cancelExp: "=",
+            pteCancelExp: "=",
             selectMotivo: "="
         }
     };
