@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('expDetailDirective', ['ngAnimate'])
+angular.module('expDetailDirective', [])
     .controller('ExpDetailController', ['$scope', '$routeParams', '$location', '$sessionStorage', 'ExpedientesModel', 'ExpedientesService', 'UsersModel', 'LoginService', function($scope, $routeParams, $location, $sessionStorage, ExpedientesModel, ExpedientesService, UsersModel, LoginService) {
         //TODO: Rehacer con el servicio nuevo de expediente bloqueado
-        var expId = $routeParams.expId;
         LoginService.secureUrl();
+        var expId = $routeParams.expId;
         ExpedientesModel.isExpLocked(expId).then(function(data){
             var usuario_bloqueo = data;
             if (usuario_bloqueo === ""){
@@ -51,7 +51,7 @@ angular.module('expDetailDirective', ['ngAnimate'])
             usersInfo: "="
         },
         link: function(){
-            $("#backButton").on('click', function() {
+            $("#backButtonDetail").on('click', function() {
                 window.history.back();
             });
         }

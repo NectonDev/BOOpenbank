@@ -38,13 +38,15 @@ angular.module('BOOpenbank', [
   'UsersModel',
   'DocumentosModel',
   'MotivosModel',
+  'AvisoModel',
   'ListService',
   'ExpedientesService',
   'ObservacionesService',
   'LoginService',
   'DocumentosService',
   'UsersService',
-  'TipoAppService'
+  'TipoAppService',
+  'AvisosService'
 ])
 .config(['$routeProvider', function($routeProvider){
   $routeProvider
@@ -71,6 +73,9 @@ angular.module('BOOpenbank', [
     })
     .when('/contactcenter', {
       templateUrl : 'templates/contactcenter.html'
+    })
+    .when('/contactcenter/:expId', {
+      templateUrl : 'templates/expDetail.html'
     })
     .when('/buscador', {
       templateUrl : 'templates/search.html'

@@ -28,7 +28,7 @@ angular.module('mpdcDirective', [])
                 statesOptions: "="
             },
             link: function(){
-                $("#backButton").on('click', function() {
+                $("#backButtonMDPC").on('click', function() {
                     window.history.back();
                 });
             }

@@ -28,7 +28,10 @@ angular.module('APIConfig',[])
             listaMotivosCancelacion: '/listaMotivosCancelacion',
             listaPaises: '/prPaises/listar/tablas',
             listaTipoVias: '/prTipoVia/listar/TipoVia',
-            listaCiudades: '/prCiudad/listar/Tablas'
+            listaCiudades: '/prCiudad/listar/Tablas',
+            listaAvisos: '/listaAvisos ',
+            listaAvisosGestor: '/listaAvisosGestor ',
+            listaAvisosHistorico: '/listaAvisosHistorico'
         },
         headers_object = {
             headers:{
@@ -123,6 +126,15 @@ angular.module('APIConfig',[])
         };
         service.getUrlListaCiudades = function(){
             return urlApis.apiUrlExpedientes+endpointmap.listaCiudades;
+        };
+        service.getUrlListaAvisos = function(){
+            return urlApis.apiUrlExpedientes+endpointmap.listaAvisos;
+        };
+        service.getUrlListaAvisosGestor = function(){
+            return urlApis.apiUrlExpedientes+endpointmap.listaAvisosGestor;
+        };
+        service.getUrlListaAvisosHistorico = function(){
+            return urlApis.apiUrlExpedientes+endpointmap.listaAvisosHistorico;
         };
         service.getDefaultPageExpediente = function(){
             return default_parameters_expediente_bo.page;

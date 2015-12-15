@@ -12,8 +12,10 @@
                 resultados
             </div>
             <div class="col-sm-6 buttonPrint">
+                <button ng-show="tipoApp === 'bo'" field-separator=";" add-bom="true" type="button" csv-header="exportExcel[0]" ng-csv="exportExcel[1]" filename="expedientes.csv" class="material-icons icon_print pull-right">get_app</button>
+                <input ng-show="tipoApp === 'cc'" type="text" ng-model="agentToSearch"/>
+                <button ng-show="tipoApp === 'cc'" type="button" class="material-icons icon_print pull-right">search</button>
                 <button ng-click="printPage()" type="button" class="material-icons icon_print pull-right">print</button>
-                <button field-separator=";" add-bom="true" type="button" csv-header="exportExcel[0]" ng-csv="exportExcel[1]" filename="expedientes.csv" class="material-icons icon_print pull-right">get_app</button>
             </div>
         </div>
     </div>
@@ -21,40 +23,43 @@
         <table class="bordered highlight lowSize resultadosTabla text-center myDivToPrint col-sm-12" ng-class="{tableFioc: isFioc()}">
             <thead>
             <tr ng-show="!isFioc() && !isBloqueo()" class="firstCell">
-                <th ng-hide="isPteCancel()" title="Impactado" data-field="impactado" class="firstTh"></th>
-                <th title="Número de cuenta" data-field="n_cuenta">{{tableInfo.numCuenta}}<i class="material-icons"></i></th>
-                <th title="Canal" data-field="canal">{{tableInfo.canal}}<i class="material-icons"></i></th>
-                <th title="Intervinientes" data-field="intervinientes">{{tableInfo.interv}}<i class="material-icons"></i></th>
-                <th title="Gestor" data-field="gestor">{{tableInfo.gestor}}<i class="material-icons"></i></th>
-                <th ng-hide="isPteCancel()" title="FechaCre" data-field="fechaCre">{{tableInfo.creationDate}}<i class="material-icons"></i></th>
-                <th ng-show="isPteCancel()" title="MotivoCancel" data-field="motivoCancel">{{tableInfo.motivoCancel}}<i class="material-icons"></i></th>
-                <th title="FechaMod" data-field="FechaMod" class="">{{tableInfo.modDate}}<i class="material-icons"></i></th>
-                <th ng-show="isPteCancel()" title="Cancelar" data-field="Cancelar" class="">{{tableInfo.cancelar}}<i class="material-icons"></i></th>
+                <th ng-hide="isPteCancel() || tipoApp === 'cc'" title="Impactado" data-field="impactado" class="firstTh"></th>
+                <th ng-show="tipoApp === 'cc'" title="Avisos" data-field="avisos">{{tableInfo.avisos}}</th>
+                <th title="Número de cuenta" data-field="n_cuenta">{{tableInfo.numCuenta}}</th>
+                <th title="Canal" data-field="canal">{{tableInfo.canal}}</th>
+                <th title="Intervinientes" data-field="intervinientes">{{tableInfo.interv}}</th>
+                <th ng-hide="tipoApp === 'cc'" title="Gestor" data-field="gestor">{{tableInfo.gestor}}</th>
+                <th ng-show="tipoApp === 'cc'" title="Detalle" data-field="gestor">{{tableInfo.detalle}}</th>
+                <th ng-hide="isPteCancel()" title="FechaCre" data-field="fechaCre">{{tableInfo.creationDate}}</th>
+                <th ng-show="isPteCancel()" title="MotivoCancel" data-field="motivoCancel">{{tableInfo.motivoCancel}}</th>
+                <th title="FechaMod" data-field="FechaMod" class="">{{tableInfo.modDate}}</th>
+                <th ng-show="isPteCancel()" title="Cancelar" data-field="Cancelar" class="">{{tableInfo.cancelar}}</th>
             </tr>
             <tr ng-show="isFioc()">
-                <th title="N&uacute;mero de cuenta" data-field="n_cuenta">{{tableInfo.numCuenta}}<i class="material-icons"></i></th>
-                <th title="Fecha Creaci&oacute;n" data-field="FechaMod" class="">{{tableInfo.creationDate}}<i class="material-icons"></i></th>
-                <th title="Gestor" data-field="gestor">{{tableInfo.gestor}}<i class="material-icons"></i></th>
-                <th title="datInterv" data-field="datInterv">{{tableInfo.datInterv}}<i class="material-icons"></i></th>
-                <th title="Empresa" data-field="empresa">{{tableInfo.empresa}}<i class="material-icons"></i></th>
-                <th title="Actividad" data-field="actividad">{{tableInfo.actividad}}<i class="material-icons"></i></th>
-                <th title="Revision Fioc" data-field="revFioc">{{tableInfo.revFioc}}<i class="material-icons"></i></th>
+                <th title="N&uacute;mero de cuenta" data-field="n_cuenta">{{tableInfo.numCuenta}}</th>
+                <th title="Fecha Creaci&oacute;n" data-field="FechaMod" class="">{{tableInfo.creationDate}}</th>
+                <th title="Gestor" data-field="gestor">{{tableInfo.gestor}}</th>
+                <th title="datInterv" data-field="datInterv">{{tableInfo.datInterv}}</th>
+                <th title="Empresa" data-field="empresa">{{tableInfo.empresa}}</th>
+                <th title="Actividad" data-field="actividad">{{tableInfo.actividad}}</th>
+                <th title="Revision Fioc" data-field="revFioc">{{tableInfo.revFioc}}</th>
             </tr>
             <tr ng-show="isBloqueo()">
                 <th title="Impactado" data-field="impactado" class="firstTh"></th>
-                <th title="N&uacute;mero de cuenta" data-field="n_cuenta">{{tableInfo.numCuenta}}<i class="material-icons"></i></th>
-                <th title="Fecha Creaci&oacute;n" data-field="FechaMod" class="">{{tableInfo.creationDate}}<i class="material-icons"></i></th>
-                <th title="Gestor" data-field="gestor">{{tableInfo.gestor}}<i class="material-icons"></i></th>
-                <th title="datInterv" data-field="datInterv">{{tableInfo.datInterv}}<i class="material-icons"></i></th>
-                <th title="Empresa" data-field="empresa">{{tableInfo.empresa}}<i class="material-icons"></i></th>
-                <th title="Actividad" data-field="actividad">{{tableInfo.actividad}}<i class="material-icons"></i></th>
-                <th title="bloqueado" data-field="bloqueado">{{tableInfo.bloqueado}}<i class="material-icons"></i></th>
+                <th title="N&uacute;mero de cuenta" data-field="n_cuenta">{{tableInfo.numCuenta}}</th>
+                <th title="Fecha Creaci&oacute;n" data-field="FechaMod" class="">{{tableInfo.creationDate}}</th>
+                <th title="Gestor" data-field="gestor">{{tableInfo.gestor}}</th>
+                <th title="datInterv" data-field="datInterv">{{tableInfo.datInterv}}</th>
+                <th title="Empresa" data-field="empresa">{{tableInfo.empresa}}</th>
+                <th title="Actividad" data-field="actividad">{{tableInfo.actividad}}</th>
+                <th title="Bloqueado" data-field="bloqueado">{{tableInfo.bloqueado}}</th>
             </tr>
             </thead>
             <tbody id="contentTable">
             <tr ng-show="!isFioc() && !isBloqueo() && !isPteCancel()" ng-click="goToDetail(expediente.id)" ng-repeat="expediente in tableResults.expedientes">
-                <td class="firstTd">
-                    <i class="material-icons" ng-if="expediente.gestor != ''">lock</i>
+                <td class="firstTd" ng-class="{CCfirstTd: tipoApp === 'cc'}">
+                    <i ng-hide="tipoApp === 'cc'"  class="material-icons" ng-if="expediente.gestor != ''">lock</i>
+                    <i ng-show="tipoApp === 'cc'"  class="material-icons">alarm</i>
                 </td>
                 <td><span>{{expediente.num_cuenta | limitTo: 10 : 10}}</span></td>
                 <td><span>{{expediente.plataforma}}</span></td>

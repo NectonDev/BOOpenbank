@@ -40,10 +40,11 @@ angular.module('expDetailBodyDirective', [])
             showInfo: "=",
             getStateReq: "="
         },link: function($scope){
-            $scope.showInfo = function(infoToDeploy, userId, userObjName, stateReq){
-                if (stateReq != "NA"){
+            $scope.showInfo = function(infoToDeploy, userId, userObjName, estadoReq){
+                var infoDeployed = $(".desplegable:visible").hasClass(infoToDeploy);
+                if ((estadoReq != "NA") && (infoDeployed === false)){
                     $(".desplegable").slideUp(500);
-                    $rootScope.$broadcast('reqToShow', [infoToDeploy.match(/\d+/g), userId, userObjName, stateReq]);
+                    $rootScope.$broadcast('reqToShow', [infoToDeploy.match(/\d+/g), userId, userObjName, estadoReq]);
                     $("." + infoToDeploy).slideDown(500);
                 }
             }

@@ -50,6 +50,11 @@ angular.module('searchDirective', [])
                 cleanSearch: "=",
                 tableResults: "=",
                 tableInfo: "="
+            },
+            link: function(){
+                $("#backButtonSearch").on('click', function() {
+                    window.history.back();
+                });
             }
         };
     });

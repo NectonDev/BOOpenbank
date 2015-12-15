@@ -1,13 +1,21 @@
 'use strict';
 
 angular.module('tocBodyDirective', [])
-    .controller('TocBodyController', ['$scope', '$location', '$localStorage', 'ExpedientesModel', 'LiteralsConfigService', function($scope, $location, $localStorage, ExpedientesModel, LiteralsConfigService) {
+    .controller('TocBodyController', ['$scope', '$location', '$localStorage', 'ExpedientesModel', 'LiteralsConfigService', 'TipoAppService', function($scope, $location, $localStorage, ExpedientesModel, LiteralsConfigService, TipoAppService) {
         ExpedientesModel.setDefaultParameters();
 
         $scope.tocbodyInfo = LiteralsConfigService.getTocBodyLiterals();
 
+        $scope.tipoApp = TipoAppService.tipoApp();
+
         $scope.goToDetail = function(expId){
-            var urlToDetail = "/backoffice/"+expId;
+            var urlToDetail = "";
+            if (TipoAppService.isBO()){
+                urlToDetail = "/backoffice/"+expId;
+            }
+            if (TipoAppService.isCC()){
+                urlToDetail = "/contactcenter/"+expId;
+            }
             $location.path(urlToDetail);
         };
 
@@ -25,7 +33,7 @@ angular.module('tocBodyDirective', [])
 
         $scope.listAccionesFioc = $localStorage.accionesFioc;
     }])
-    .directive('tocBody', ['$location', '$timeout', 'ExpedientesModel', function($location, $timeout, ExpedientesModel) {
+    .directive('tocBody', ['$location', '$timeout', '$sessionStorage', 'ExpedientesModel', 'AvisoModel', function($location, $timeout, $sessionStorage, ExpedientesModel, AvisoModel) {
     return {
         restrict: 'E',
         templateUrl: './js/directives/toc/tocbody/templates/tocbody.html',
@@ -50,7 +58,8 @@ angular.module('tocBodyDirective', [])
             selectAccionFioc: "=",
             listAccionesFioc: "=",
             exportExcel: "=",
-            isPteCancel: "="
+            isPteCancel: "=",
+            tipoApp: "="
         },
         link: function($scope){
             $scope.estado = {};
@@ -70,6 +79,16 @@ angular.module('tocBodyDirective', [])
                 ExpedientesModel.getAllExpedientesConFiltro().then(function(data){
                     $scope.tableResults = data;
                     $scope.exportExcel = ExpedientesModel.createJsonExcel(data.expedientes);
+                    $timeout(function(){$("#contentTable").fadeIn('slow')},500);
+                }).catch(function(data){
+                    console.log(data);
+                });
+            };
+
+            function getAvisos(){
+                $("#contentTable").hide();
+                AvisoModel.getAllAvisosByGestor($sessionStorage.infoUser.usuario).then(function(data){
+                    $scope.tableResults = data;
                     $timeout(function(){$("#contentTable").fadeIn('slow')},500);
                 }).catch(function(data){
                     console.log(data);
@@ -119,6 +138,15 @@ angular.module('tocBodyDirective', [])
                 if (pageActive != page){
                     ExpedientesModel.setPage(args.toString());
                     getExpedientes();
+                }
+            });
+
+            $scope.$on('avisos', function(event, args){
+                var filterActive = ExpedientesModel.getFilter();
+                var filter = args.toString();
+                if (filterActive != filter){
+                    ExpedientesModel.setFilter(filter);
+                    getAvisos();
                 }
             });
 

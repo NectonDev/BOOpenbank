@@ -99,10 +99,10 @@ angular.module('ExpedientesModel',[])
         getConfigObjectExpSearch = function(params){
             var arrayFechaCrea = [];
             var arrayFechaMod = [];
-            var fechaCreaDesde = $filter('date')(params.fechaCreaDesde, "dd/MM/yyyy hh:mm");
-            var fechaCreaHasta = $filter('date')(params.fechaCreaHasta, "dd/MM/yyyy hh:mm");
-            var fechaModDesde = $filter('date')(params.fechaModDesde, "dd/MM/yyyy hh:mm");
-            var fechaModHasta = $filter('date')(params.fechaModHasta, "dd/MM/yyyy hh:mm");
+            var fechaCreaDesde = $filter('date')(params.fechaCreaDesde, "yyyy-MM-dd HH:mm");
+            var fechaCreaHasta = $filter('date')(params.fechaCreaHasta, "yyyy-MM-dd HH:mm");
+            var fechaModDesde = $filter('date')(params.fechaModDesde, "yyyy-MM-dd HH:mm");
+            var fechaModHasta = $filter('date')(params.fechaModHasta, "yyyy-MM-dd HH:mm");
             if (angular.isDefined(fechaCreaDesde)){
                 arrayFechaCrea.push(fechaCreaDesde);
             }
@@ -121,9 +121,7 @@ angular.module('ExpedientesModel',[])
                     "results" : "5",
                     codigo_cuenta_creada: params.codigo_cuenta_creada,
                     tipo_doc_ident: params.tipoDoc,
-                    docident_num: params.numDoc,
-                    r_modify_date: arrayFechaMod,
-                    r_creation_date: arrayFechaCrea
+                    docident_num: params.numDoc
                 }
             }
         };

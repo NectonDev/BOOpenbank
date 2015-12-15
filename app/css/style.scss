@@ -78,6 +78,14 @@ $icon_NA:                #999 !default;
   background: red;
   border-radius: 50px;
 }//end icon_clear
+.icon_alarm{
+  color: $gray-dark !important;
+  font-size: 18px !important;
+}//en .icon_alarm
+.icon_error_outline{
+  color: $icon_warning !important;
+  font-size: 18px !important;
+}//en .icon_error_outline
 //--end--ICONS------------------------
 
 //--MODAL WINDOW CANCELAR EXPEDIENTE-------
@@ -424,7 +432,7 @@ $aquaDark: #007c7b;
     .imgLogin {
       position: relative;
       img{
-        border: 1px solid yellow;
+        //border: 1px solid yellow;
         width: 190px;
         margin-left: auto !important;
         margin-right: auto !important;
@@ -740,11 +748,14 @@ $aquaDark: #007c7b;
             padding: 0 15px;
             i{
               &.material-icons{
-                font-size: 1.083em !important;
+                font-size: 1.083em; //!important;
                 text-align: right;
               }
             }//end i
           }//end firstTd
+          &.CCfirstTd{
+            text-align: left;
+          }//end CCfirstTd
 
           span{cursor: pointer;}
 
@@ -1314,7 +1325,7 @@ html, body {
 }
 .tableSearchBG{
   tr:hover td{
-    background: #f3f3f6;
+    background: #ddd;
     cursor: pointer;
   }
 }
